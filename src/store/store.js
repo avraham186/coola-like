@@ -1,0 +1,12 @@
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import ReduxThunk from 'redux-thunk'
+import { jobReducer } from './reducers/jobReducer'
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const rootReducer = combineReducers({
+    // userModule: userReducer,
+    jobsModule: jobReducer,
+})
+
+export const store = createStore(rootReducer,
+composeEnhancers(applyMiddleware(ReduxThunk)))//passing the reducer

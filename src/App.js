@@ -2,11 +2,11 @@ import './assets/main.scss';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { routes } from './routes';
 import { AppHeader } from './cmps/AppHeader'
-import {AppFooter} from './cmps/AppFooter'
+import { AppFooter } from './cmps/AppFooter'
 
 export function App() {
   return (
-    <div>
+    <div className="main-layout">
       <Router>
         <AppHeader />
         <Switch>
