@@ -1,0 +1,24 @@
+//setup
+@import './setup/variables';
+@import './setup/functions';
+@import './setup/mixins';
+//base
+@import './basics/helpers';
+@import './basics/layout';
+@import './basics/base';
+// @import './basics/buttons';
+//components
+@import './cmps/app-header';
+@import './cmps/app-footer';
+// @import './cmps/city-search';
+// @import './cmps/weather-list';
+// @import './cmps/weather-preview';
+// @import './cmps/favorit-list';
+// @import './cmps/favorit-preview';
+// @import './cmps/msg-modal';
+//views
+@import './views/home-page';
+// @import './views/forecast-page.scss';
+// @import './views/favorit-page.scss';
+
+

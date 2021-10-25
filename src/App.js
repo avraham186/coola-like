@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './assets/main.scss';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { routes } from './routes';
+import { AppHeader } from './cmps/AppHeader'
+import {AppFooter} from './cmps/AppFooter'
 
-function App() {
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <AppHeader />
+        <Switch>
+          {routes.map(route => {
+            return <Route key={route.path} exact component={route.component} path={route.path} />
+          })}
+        </Switch>
+        <AppFooter />
+      </Router>
     </div>
   );
 }
-
-export default App;

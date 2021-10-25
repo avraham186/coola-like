@@ -1,0 +1,21 @@
+.home-page {
+    margin-top: 15px;
+    background-color: grey;
+    .dont-miss {
+        direction: rtl;
+        margin-bottom: 10px;
+        gap: 10px;
+        img{
+            height: 200px;
+            object-fit: cover;
+        }
+    }
+    .junoior-jobs {
+        direction: rtl;
+        margin-bottom: 10px;
+    }
+    .comunity-hart {
+        direction: rtl;
+        margin-bottom: 10px;
+    }
+}
