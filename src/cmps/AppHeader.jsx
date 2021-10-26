@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import coola_like_logo from '../assets/images/coola_like_logo.png'
 import user_icon from '../assets/images/user_icon.png'
-import Hero from '../assets/images/Home_logo.png'
+import Herosvg from '../assets/images/People like.svg'
+
 export function AppHeader() {
 
     return (
@@ -30,7 +31,7 @@ export function AppHeader() {
                         <Link to="">התחברות</Link>
                     </span>
                 </div>
-                <img src={Hero} alt="" />
+                <object data={Herosvg} type="image/svg+xml"/>
             </div>
         </div>
     )
