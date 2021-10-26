@@ -1,7 +1,32 @@
 .app-header {
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0 5px 0;
     background-color: #c0e2ee00;
     margin-bottom: 10px;
+
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+    }
+
+    .hero-title {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 71px;
+        color: #000;
+    }
+    .hero-content-title {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 14px;
+        color: #000;
+    }
+
+    // Move to nav scss
     .list {
         gap: 10px;
         border-radius: 50%;
@@ -9,11 +34,11 @@
             transform: scale(1.08);
         }
     }
-    // .logo {
-    //     padding-left: 5px;
-    // }
+     .logo {
+         padding-left: 5px;
+     }
 }
-// .header-layout {
-//     background-color: lightskyblue;
-//     margin-bottom: 15px;
-// }
+ //.header-layout {
+ //    background-color: lightskyblue;
+ //    margin-bottom: 15px;
+ //}
