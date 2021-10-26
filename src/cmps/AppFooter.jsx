@@ -6,7 +6,7 @@ export function AppFooter() {
   return (
     <footer>
       <div className="flex justify-center align-center">
-        הישארו מעודכנים
+        Footer
       </div>
     </footer>
   )
