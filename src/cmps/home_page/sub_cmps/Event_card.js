@@ -12,21 +12,18 @@ export default function EventCard() {
     return (
         <Card className="card">
             <CardMedia
-                className="events-card-img"
+                className="card-img"
                 component="img"
                 height="200"
                 image={event_img}
                 alt="event"
             />
 
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon/>
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon/>
-                </IconButton>
+            <CardActions className="card-footer" >
+
                 <input type="button" value="הירשם עכשיו" className="events-button"/>
+                <span className="events-link">לפרטים</span>
+
             </CardActions>
         </Card>
     );
