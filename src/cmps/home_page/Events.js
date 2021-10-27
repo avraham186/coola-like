@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import RecipeReviewCard from "./temp/Event_card";
 
 const Events = () => {
 
@@ -11,9 +12,8 @@ const Events = () => {
                         <span className="events-sub-title-link"><Link to="/">לכל האירועים← </Link></span>
             </div>
                 <div className="events-cards">
-                    1
-                    2
-
+                    <RecipeReviewCard />
+                    <RecipeReviewCard />
                     <div >
                         card 1
                     </div>
