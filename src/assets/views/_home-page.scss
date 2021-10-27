@@ -1,35 +1,92 @@
 .home-page {
-    margin-top: 15px;
-    background-color: grey;
+  margin-top: 15px;
+  background-color: grey;
+  gap: 10px;
+
+  .dont-miss {
+    direction: rtl;
+    margin-bottom: 10px;
+  }
+
+  .lectures-imgs {
     gap: 10px;
-    .dont-miss {
-        direction: rtl;
-        margin-bottom: 10px;
+
+    img {
+      height: 200px;
+      object-fit: cover;
     }
-    .lectures-imgs{
-        gap: 10px;
-        img {
-            height: 200px;
-            object-fit: cover;
-        }
+  }
+
+  .junoior-jobs {
+    direction: rtl;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .comunity-hart {
+    direction: rtl;
+    margin-bottom: 10px;
+  }
+
+  .job-card {
+    border: 1px solid #34018E;
+    border-radius: 5px;
+    padding: 3px;
+  }
+
+  @media (max-width: $narrow-breakpoint) {
+    .lectures-imgs img {
+      height: 100px;
     }
-    .junoior-jobs {
-        direction: rtl;
-        margin-bottom: 10px;
-        margin-top: 10px;
+  }
+}
+
+/*
+Section 3
+Events
+ */
+
+.events {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  direction: rtl;
+  padding: 20px;
+  border: dashed #ce2e6c;
+
+  .events-title {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 47px;
+  }
+
+  .events-sub-title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .events-sub-title {
+      font-family: Rubik, sans-serif;
+      font-style: normal;
+      font-size: 25px;
+      line-height: 30px;
     }
-    .comunity-hart {
-        direction: rtl;
-        margin-bottom: 10px;
+
+    .events-sub-title-link {
+      font-family: Rubik, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
     }
-    .job-card{
-        border: 1px solid #34018E;
-        border-radius: 5px;
-        padding: 3px;
+
+    .events-cards {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
     }
-    @media (max-width: $narrow-breakpoint) {
-        .lectures-imgs img {
-            height: 100px;
-        }
-    }
+  }
 }
