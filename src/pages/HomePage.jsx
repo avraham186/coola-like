@@ -9,7 +9,7 @@ import Subscribe from "../cmps/home_page/Subscribe";
 export function HomePage() {
     return (
         <div>
-            <Header/>
+            <Header />
             <Events />
             <Jobs />
             <Founders />
