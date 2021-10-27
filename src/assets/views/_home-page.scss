@@ -173,14 +173,14 @@ Jobs
     margin-bottom: 30px;
     direction: rtl;
 
-    .events-sub-title {
+    .jobs-sub-title {
       font-family: Rubik, sans-serif;
       font-style: normal;
       font-size: 25px;
       line-height: 30px;
     }
 
-    .events-sub-title-link {
+    .jobs-sub-title-link {
       font-family: Rubik, sans-serif;
       font-style: normal;
       font-weight: bold;
@@ -205,6 +205,37 @@ Jobs
       border-radius: 10px;
       border-color: #34018E;
       //background-color: transparent;
+
+      .card-content {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 28px;
+        direction: rtl;
+        }
+      .card-content-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 30px;
+        font-size: 12px;
+
+        .job-icon {
+          font-size: 18px;
+          color: #34018E;
+          margin-right: 5px;
+          margin-left: 5px;
+          position: relative;
+          top: -4px
+        }
+      }
+      .card-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #ce2e6c;
+      }
     }
 
   }
