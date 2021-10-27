@@ -1,13 +1,13 @@
 # Front end project
 
 ## UI / XI:
-* Lena
-* Chen
+* Lena 
+* Chen Perry
 
 ## Developers:
-* Alex
+* Alexnder Lazarovich
 * Avraham
 * Elyashiv
 * Itamar
-* Guy
-* Ori
+* Guy Hassan
+* Ori Menachem Levi
