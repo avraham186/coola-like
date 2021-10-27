@@ -1,31 +1,62 @@
 .app-header {
-    padding: 5px 0 5px 0;
+    padding: 70px;
     background-color: #c0e2ee00;
     margin-bottom: 10px;
-    border: dashed #ce2e6c;
+    // border: dashed #ce2e6c;
+    font-family: Rubik, sans-serif;
+    font-style: normal;
 
-
-    .hero-container {
+    .header-container {
         display: flex;
         flex-direction: column;
         text-align: right;
     }
 
-    .hero-title {
-        font-family: Rubik, sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 60px;
-        line-height: 71px;
-        color: #000;
+    .header-content {
+        h1 {
+
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 47px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            line-height: 14px;
+            color: #000;
+            margin: 0;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 15px;
+            line-height: 20px;
+        }
     }
-    .hero-content-title {
-        font-family: Rubik, sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 25px;
-        line-height: 14px;
-        color: #000;
+
+    .header-buttons {
+
+
+        span {
+            border: 2px solid #34018E;
+            font-weight: bold;
+            box-sizing: border-box;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 2px 15px;
+            font-family: Rubik, sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+
+    .header-logo {
+        margin-left: 15%;
+
     }
 
 }

@@ -3,18 +3,23 @@
 .flex {
   display: flex;
 }
-.flex > *.full {
+
+.flex>*.full {
   flex: 1;
 }
+
 .flex.column {
   flex-direction: column;
 }
+
 .flex.justify-center {
   justify-content: center;
 }
+
 .flex.align-center {
   align-items: center;
 }
+
 .flex.space-between {
   justify-content: space-between;
 }
@@ -23,20 +28,23 @@
   position: relative;
   overflow: hidden;
 }
+
 .square-ratio::before {
   display: block;
   content: "";
   width: 100%;
   padding-top: 100%;
 }
-.square-ratio > * {
+
+.square-ratio>* {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
-.square-ratio > img {
+
+.square-ratio>img {
   height: 100%;
   object-fit: cover;
 }
@@ -45,20 +53,23 @@
   position: relative;
   overflow: hidden;
 }
+
 .video-ratio::before {
   display: block;
   content: "";
   width: 100%;
   padding-top: 56.25%;
 }
-.video-ratio > * {
+
+.video-ratio>* {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
-.video-ratio > img {
+
+.video-ratio>img {
   height: 100%;
   object-fit: cover;
 }
@@ -67,20 +78,23 @@
   position: relative;
   overflow: hidden;
 }
+
 .portrait-ratio::before {
   display: block;
   content: "";
   width: 100%;
   padding-top: 177.7777777778%;
 }
-.portrait-ratio > * {
+
+.portrait-ratio>* {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
-.portrait-ratio > img {
+
+.portrait-ratio>img {
   height: 100%;
   object-fit: cover;
 }
@@ -89,22 +103,27 @@
   display: grid;
   grid-template-columns: minmax(2rem, 1fr) minmax(auto, 960px) minmax(2rem, 1fr);
 }
-.main-layout > * {
+
+.main-layout>* {
   grid-column: 2;
 }
-.main-layout > *.full {
+
+.main-layout>*.full {
   grid-column: 1/-1;
 }
+
 @media (min-width: 460px) {
   .main-layout {
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 460px) minmax(2rem, 1fr);
   }
 }
+
 @media (min-width: 720px) {
   .main-layout {
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 720px) minmax(2rem, 1fr);
   }
 }
+
 @media (min-width: 960px) {
   .main-layout {
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 960px) minmax(2rem, 1fr);
@@ -122,10 +141,12 @@
 
 html {
   font-family: montserrat, sans-serif;
+
   color: #092F32;
 }
 
 body {
+
   margin: 0;
 }
 
@@ -134,11 +155,13 @@ body {
   background-color: #c0e2ee00;
   margin-bottom: 10px;
 }
+
 .app-header .hero-container {
   display: flex;
   flex-direction: column;
   text-align: right;
 }
+
 .app-header .hero-title {
   font-family: Rubik, sans-serif;
   font-style: normal;
@@ -147,6 +170,7 @@ body {
   line-height: 71px;
   color: #000;
 }
+
 .app-header .hero-content-title {
   font-family: Rubik, sans-serif;
   font-style: normal;
@@ -155,13 +179,16 @@ body {
   line-height: 14px;
   color: #000;
 }
+
 .app-header .list {
   gap: 10px;
   border-radius: 50%;
 }
+
 .app-header .list :hover {
   transform: scale(1.08);
 }
+
 .app-header .logo {
   padding-left: 5px;
 }
@@ -171,31 +198,38 @@ body {
   background-color: grey;
   gap: 10px;
 }
+
 .home-page .dont-miss {
   direction: rtl;
   margin-bottom: 10px;
 }
+
 .home-page .lectures-imgs {
   gap: 10px;
 }
+
 .home-page .lectures-imgs img {
   height: 200px;
   object-fit: cover;
 }
+
 .home-page .junoior-jobs {
   direction: rtl;
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
 .home-page .comunity-hart {
   direction: rtl;
   margin-bottom: 10px;
 }
+
 .home-page .job-card {
   border: 1px solid #34018E;
   border-radius: 5px;
   padding: 3px;
 }
+
 @media (max-width: 720px) {
   .home-page .lectures-imgs img {
     height: 100px;
