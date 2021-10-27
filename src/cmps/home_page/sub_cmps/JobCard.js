@@ -7,13 +7,14 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import WorkIcon from '@mui/icons-material/Work';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const ExpandMore = styled((props) => {
     const {expand, ...other} = props;
-    return <IconButton {...other} />;
+    return <IconButton  {...other} />;
 })(({theme, expand}) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
@@ -29,24 +30,32 @@ export default function JobCard() {
 
     return (
         <Card className="card">
-            <CardContent className="card-content">
-                <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
-                </Typography>
+            <CardContent>
+                <div className="card-content">
+                    בוגר תואר ראשון בהנדסה?
+                    <br/>
+                    יריית הפתיחה של הקריירה שלך לפנייך!
+                    <br/>
+                    (משרה 32391)
+                </div>
+                <div className="card-content-info">
+                    באר שבע, ישראל <LocationOnIcon className="job-icon"/>
+                    משרה מלאה <WorkIcon className="job-icon"/>
+                </div>
             </CardContent>
-            <CardActions disableSpacing>
-                לכל הפרטים
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon/>
-                </ExpandMore>
+            <CardActions disableSpacing className="card-footer">
+                    <span>לכל הפרטים</span>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon/>
+                    </ExpandMore>
+
             </CardActions>
+
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>Method:</Typography>
