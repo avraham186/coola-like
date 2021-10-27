@@ -1,0 +1,17 @@
+.app-navbar {
+    padding: 5px 0 5px 0;
+    background-color: #c0e2ee00;
+    margin-bottom: 10px;
+
+    // Move to nav scss
+    .list {
+        gap: 10px;
+        border-radius: 50%;
+        :hover {
+            transform: scale(1.08);
+        }
+    }
+     .logo {
+         padding-left: 5px;
+     }
+    }

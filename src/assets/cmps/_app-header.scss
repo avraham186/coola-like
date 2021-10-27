@@ -2,11 +2,12 @@
     padding: 5px 0 5px 0;
     background-color: #c0e2ee00;
     margin-bottom: 10px;
-
+    
     .hero-container {
         display: flex;
         flex-direction: column;
         text-align: right;
+        
     }
 
     .hero-title {
@@ -26,19 +27,12 @@
         color: #000;
     }
 
-    // Move to nav scss
-    .list {
-        gap: 10px;
-        border-radius: 50%;
-        :hover {
-            transform: scale(1.08);
-        }
-    }
-     .logo {
-         padding-left: 5px;
-     }
+    
+     
 }
  //.header-layout {
  //    background-color: lightskyblue;
  //    margin-bottom: 15px;
  //}
+
+ 

@@ -6,7 +6,7 @@ import Header from "./home_page/Header";
 export function AppNav() {
 
     return (
-        <div className="app-header">
+        <div className="app-navbar">
             <div className="flex space-between justify-center align-center">
                 <Link to="/"><img src={user_icon} alt="user icon"/><span>כניסת מנהלים</span></Link>
                 <li className="list clean-list flex">
