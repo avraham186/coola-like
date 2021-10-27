@@ -210,7 +210,7 @@ Jobs
         font-family: Rubik, sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 18px;
         line-height: 28px;
         direction: rtl;
         }
@@ -219,7 +219,7 @@ Jobs
         flex-direction: row;
         justify-content: flex-end;
         margin-top: 30px;
-        font-size: 12px;
+        font-size: 14px;
 
         .job-icon {
           font-size: 18px;
@@ -234,7 +234,13 @@ Jobs
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-color: #ce2e6c;
+        //background-color: #ce2e6c;
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: right;
       }
     }
 

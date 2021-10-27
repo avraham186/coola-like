@@ -12,10 +12,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const ExpandMore = styled((props) => {
     const {expand, ...other} = props;
-    return <IconButton {...other} />;
+    return <IconButton  {...other} />;
 })(({theme, expand}) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
@@ -44,20 +43,19 @@ export default function JobCard() {
                     משרה מלאה <WorkIcon className="job-icon"/>
                 </div>
             </CardContent>
-            <CardActions disableSpacing>
-                <div className="card-footer">
-                    לכל הפרטים
-                                    <ExpandMore
-                                        expand={expanded}
-                                        onClick={handleExpandClick}
-                                        aria-expanded={expanded}
-                                        aria-label="show more"
-                                    >
-                    <ExpandMoreIcon/>
-                </ExpandMore>
-                </div>
+            <CardActions disableSpacing className="card-footer">
+                    <span>לכל הפרטים</span>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon/>
+                    </ExpandMore>
 
             </CardActions>
+
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>Method:</Typography>
