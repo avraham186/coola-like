@@ -50,12 +50,12 @@ Events
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  margin-bottom: 10px;
   padding: 30px;
   background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
+  border: dashed #ce2e6c;
 
   .events-title {
     font-family: Rubik, sans-serif;
@@ -136,6 +136,75 @@ Events
         text-decoration-line: underline;
       }
 
+    }
+
+  }
+}
+
+/*
+Section 4
+Jobs
+ */
+
+.jobs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 30px;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  border: dashed #ce2e6c;
+
+  .jobs-title {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 47px;
+    direction: rtl;
+    margin-bottom: 10px;
+
+  }
+  .jobs-sub-title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    direction: rtl;
+
+    .events-sub-title {
+      font-family: Rubik, sans-serif;
+      font-style: normal;
+      font-size: 25px;
+      line-height: 30px;
+    }
+
+    .events-sub-title-link {
+      font-family: Rubik, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .sub-title-icon {
+      margin-right: 4px;
+      position: relative;
+      top: 6px
+    }
+  }
+  .jobs-cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .card {
+      width: 280px;
+      border-radius: 10px;
+      border-color: #34018E;
+      //background-color: transparent;
     }
 
   }

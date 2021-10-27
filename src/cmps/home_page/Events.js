@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import EventCard from "./sub_cmps/Event_card";
+import EventCard from "./sub_cmps/EventCard";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Events = () => {
