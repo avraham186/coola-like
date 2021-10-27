@@ -8,6 +8,5 @@
 * Alexnder Lazarovich
 * Avraham
 * Elyashiv
-* Itamar
 * Guy Hassan
 * Ori Menachem Levi
