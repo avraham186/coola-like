@@ -51,9 +51,7 @@ Events
   flex-direction: column;
   margin-top: 10px;
   padding: 30px;
-  background-image: url('../images/background.jpg');
-  background-repeat: no-repeat;
-  background-position: 50% 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 25%,rgba(0,0,0,0.1) 100%), url('../images/background.jpg');
   background-size: cover;
   border: dashed #ce2e6c;
 
@@ -103,6 +101,8 @@ Events
     .card {
       width: 200px;
       border-radius: 15px;
+      position: relative;
+      //z-index: 0;
       //background-color: transparent;
     }
 
@@ -113,18 +113,27 @@ Events
 
     .card-footer {
       display: flex;
+      position: relative;
+      flex-direction: column;
       justify-content: space-evenly;
 
       .events-button {
-        border: 2px solid #34018E;
+        border: 3px solid #34018E;
+        padding: 4px 32px;
         font-weight: bold;
-        box-sizing: border-box;
         background-color: transparent;
         cursor: pointer;
         border-radius: 2px 15px;
         font-family: Rubik, sans-serif;
         font-size: 16px;
-        margin-left: 5px;
+        color: #34018E;
+        margin-top: 10px;
+        //margin-bottom: 15px;
+      }
+
+      .events-button:hover {
+        background-color: #34018E;
+        color: #FFF;
       }
 
       .events-link {
@@ -136,8 +145,22 @@ Events
         text-decoration-line: underline;
       }
 
-    }
+      .events-icon {
+        //position: relative;
+        margin-top: 10px;
+        margin-left: 16px;
+        margin-right: 16px;
+        transform: scale(.9);
+        color: #ffffff;
+        opacity: .75;
+        background: rgb(52,1,142);
+        background: linear-gradient(90deg, rgba(52,1,142,1) 0%, rgba(108,229,231,1) 100%);
+      }
 
+      .events-icon:hover {
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -151,7 +174,7 @@ Jobs
   flex-direction: column;
   margin-bottom: 10px;
   padding: 30px;
-  background-image: url('../images/background.jpg');
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%,rgba(0,0,0,0.1) 100%), url('../images/background.jpg');
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
