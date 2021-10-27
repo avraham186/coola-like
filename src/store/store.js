@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import ReduxThunk from 'redux-thunk'
 import { jobReducer } from './reducers/jobReducer'
+import { communityHartReducer } from './reducers/communityHartReducer'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     // userModule: userReducer,
     jobsModule: jobReducer,
+    communityHartModule:communityHartReducer
 })
 
 export const store = createStore(rootReducer,
