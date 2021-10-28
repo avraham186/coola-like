@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-export const Subscribe = (onSendMail) => {
+export const Subscribe = () => {
     const [mail, setmail] = useState('')
 
     const handlChange = (ev) => {
         setmail(ev.target.value)
     }
     const sendMail = () => {
-        onSendMail(mail)
+        console.log('mail sended');
     }
     return (
         <div className="subscribe flex column">
