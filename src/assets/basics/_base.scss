@@ -1,17 +1,4 @@
-* {
-    box-sizing: border-box;
-}
-
-::selection {
-    background-color: $clr4;
-    color: #fff;
-}
-
-html {
-    font-family: montserrat, sans-serif;
-    color: $clr2;
-}
-
-body {
+html, body {
+    font-family: Rubik, sans-serif;
     margin: 0;
 }
