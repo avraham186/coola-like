@@ -1,4 +1,5 @@
-import { HomePage } from './pages/HomePage'
+import HomePage from './pages/HomePage'
+import ProjectPage from "./pages/ProjectPage";
 // import { ToyDetails } from './pages/ToyDetails'
 // import {ToyEdit} from './pages/ToyEdit'
 
@@ -15,8 +16,8 @@ export const routes = [
         path: '/',
         component: HomePage
     },
-    // {
-    //     path: '/login',
-    //     component: LoginSignup
-    // }
+    {
+        path: '/projects',
+        component: ProjectPage
+    }
 ]

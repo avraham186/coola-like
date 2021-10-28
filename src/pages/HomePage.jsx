@@ -6,7 +6,7 @@ import Founders from "../cmps/home_page/Founders";
 import Subscribe from "../cmps/home_page/Subscribe";
 
 
-export function HomePage() {
+export default function HomePage() {
     return (
         <div>
             <Header />
