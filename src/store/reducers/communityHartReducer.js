@@ -2,17 +2,17 @@ const initialState = {
     persons: [
         {
             name: 'shimon moyal',
-            img: '../assets/images/shimon.svg',
+            img: '../assets/images/fonders-imgs/shimon.svg',
             roleText:'director of traninng & volenteers'
         },
         {
             name: 'Adi porath',
-            img: '../assets/images/adi.svg',
+            img: '../assets/images/fonders-imgs/adi.svg',
             roleText:'founder & navigator'
         },
         {
             name: 'stav brener',
-            img: '../assets/images/stav.svg',
+            img: '../assets/images/fonders-imgs/stav.svg',
             roleText:'community manager'
         },
         {
