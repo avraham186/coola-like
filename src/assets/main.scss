@@ -2,6 +2,7 @@
 @import './setup/variables';
 @import './setup/functions';
 @import './setup/mixins';
+@import './setup/Rubik-font';
 //base
 @import './basics/helpers';
 @import './basics/layout';
@@ -11,6 +12,7 @@
 
 //components
 @import './cmps/app-header';
+@import './cmps/_founders';
 @import './cmps/app-footer';
 @import './cmps/app-navbar';
 //views
