@@ -232,7 +232,8 @@ Footer
  */
 
 .footer {
-  padding-top: 2rem;
+  margin-top: 10px;
+  border: dashed #ce2e6c;
 
   .footer__bg {
     background-color: #34018E;
@@ -268,8 +269,15 @@ Footer
     }
 
   }
+}
 
+.projects {
+  border: dashed #ce2e6c;
 
-
+  .new--project{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
