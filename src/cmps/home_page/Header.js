@@ -14,8 +14,8 @@ const Header = () => {
                 </div>
 
                 <div className="header-buttons">
-                    <span> <Link to="">כניסה</Link></span>
-                    <span> <Link to="">התחברות</Link></span>
+                    <Link to=""> <span>כניסה</span></Link>
+                    <Link to=""> <span> התחברות</span></Link>
                 </div>
             </div>
 

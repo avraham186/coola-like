@@ -1,8 +1,8 @@
 .app-header {
-    padding: 70px;
+    padding: 50px;
     background-color: #c0e2ee00;
     margin-bottom: 10px;
-    // border: dashed #ce2e6c;
+    border: dashed #ce2e6c;
     font-family: Rubik, sans-serif;
     font-style: normal;
 
@@ -10,15 +10,13 @@
         display: flex;
         flex-direction: column;
         text-align: right;
-        width: 100vw;
+        width: 100%;
 
     }
 
     .header-content {
         h1 {
-
-            font-weight: bold;
-            font-size: 40px;
+            font-size: 45px;
             line-height: 47px;
             color: #000;
             margin-bottom: 10px;
@@ -39,21 +37,28 @@
     }
 
     .header-buttons {
-        width: 100%;
 
         span {
             border: 2px solid $clr2;
             font-weight: bold;
             box-sizing: border-box;
-            background-color: transparent;
             cursor: pointer;
             border-radius: 2px 15px;
             font-family: Rubik, sans-serif;
             font-size: 1em;
-
             margin-left: 5%;
-            padding: 1% 8% 1% 8%;
+            padding: 1% 7% 1% 8%;
+            text-decoration: none;
+        }
 
+        span:hover {
+            background-color: $clr7;
+            color: $clr6;
+            transition: 0.5s;
+        }
+
+        a {
+            text-decoration: none;
         }
     }
 
