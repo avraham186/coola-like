@@ -11,7 +11,7 @@ export function Founders(props) {
                     <svg className='person-img' src={person.img} alt={person.name} />
                     <span className='person-name' >
                         {person.name}
-                        <object data={LinkIcon} width="20" height="20"></object>
+                        <object data={LinkIcon} width="20" height="20"/>
                     </span>
                     <span className='role-text'>{person.roleText}</span>
                 </div>)

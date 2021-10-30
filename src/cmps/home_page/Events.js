@@ -4,7 +4,6 @@ import EventCard from "./sub_cmps/EventCard";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Events = () => {
-
     return (
         <div className="events">
             <span className="events-title">#לא כדאי_לפספס</span>
