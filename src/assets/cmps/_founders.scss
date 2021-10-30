@@ -1,0 +1,17 @@
+.box-person {
+    direction: rtl;
+
+    svg {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+
+    .person-name {
+        font-family: Rubik;
+        font-weight: bold;
+        font-size: rem(25px);
+    }
+}

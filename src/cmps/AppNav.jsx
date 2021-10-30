@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import coola_like_logo from '../assets/images/coola_like_logo.png'
 import user_icon from '../assets/images/user_icon.png'
-import Header from "./home_page/Header";
 
 export function AppNav() {
 
@@ -26,10 +25,11 @@ export function AppNav() {
 
                 <ul className="list clean-list flex">
 
-                    <li className="home_link"><Link to="/">בית</Link></li>
+                    <li className="selected"><Link to="/">בית</Link></li>
                     <li><Link to="/">לוח משרות</Link></li>
                     <li><Link to="/">אירועים</Link></li>
                     <li><Link to="/">טיפים ומידע</Link></li>
+                    
 
                 </ul>
 

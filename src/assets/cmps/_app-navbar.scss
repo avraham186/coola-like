@@ -51,7 +51,7 @@
             }
          }
     }
-    .home_link{
+    .selected{
         text-decoration: underline;
     }
     .list {
@@ -65,6 +65,7 @@
         flex-direction: row-reverse;
         justify-content: right;
         font-family: 'Rubik';
+        font-weight: 600;
 
         
         li{

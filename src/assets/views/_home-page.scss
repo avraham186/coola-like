@@ -90,8 +90,9 @@ Events
       }
 
       .events-button:hover {
-        background-color: #34018E;
-        color: #FFF;
+        background-color: $clr7;
+        color: $clr6;
+        transition: 0.5s;
       }
 
       .events-link {
@@ -232,7 +233,8 @@ Footer
  */
 
 .footer {
-  padding-top: 2rem;
+  margin-top: 10px;
+  border: dashed #ce2e6c;
 
   .footer__bg {
     background-color: #34018E;
@@ -268,8 +270,15 @@ Footer
     }
 
   }
+}
 
+.projects {
+  border: dashed #ce2e6c;
 
-
+  .new--project{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
