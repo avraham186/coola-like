@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import coola_like_logo from '../assets/images/coola_like_logo.png'
-import user_icon from '../assets/images/user_icon.png'
+import user_icon from '../assets/images/user_icon.svg'
 
 export function AppNav() {
 
@@ -11,10 +11,10 @@ export function AppNav() {
                 <ul className="left-list clean-list">
 
                     <li>
-                        
-                        <Link to="/">
-                            <img src={user_icon} alt="user icon" /></Link>
-                        
+                        <object data={user_icon} type="image/svg+xml"></object>
+                        {/* //<Link to="/"> */}
+                        {/* //</Link> */}
+
                     </li>
 
                     <li className="events-button-list">
@@ -29,7 +29,7 @@ export function AppNav() {
                     <li><Link to="/">לוח משרות</Link></li>
                     <li><Link to="/">אירועים</Link></li>
                     <li><Link to="/">טיפים ומידע</Link></li>
-                    
+
 
                 </ul>
 
