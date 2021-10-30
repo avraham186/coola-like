@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import EmptyProjects from "../cmps/project_page/EmptyProjects";
 import projectsDAL from "../adapters/TMS/projectsDAL";
 import ProjectsList from "../cmps/project_page/ProjectsList";
 import { Button } from "@material-ui/core";
@@ -15,8 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import CreateNewProject from '../cmps/project_page/CreateNewProject';
-import Projects from "../cmps/project_page/Projects";
+
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
@@ -57,8 +57,6 @@ const ProjectPage = () => {
         setProjects(response.data)
     }, [])
 
-    {/* <CreateNewProject />
-            <Projects /> */}
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
@@ -68,7 +66,7 @@ const ProjectPage = () => {
             <br /><br />
 
             {
-                !projects ? <Projects /> : <ProjectsList rows={projects} />
+                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
             }
 
             <Dialog open={open} onClose={handleClose}>

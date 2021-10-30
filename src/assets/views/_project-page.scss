@@ -5,7 +5,19 @@
   margin: 10px;
   padding: 10px;
 
+
+  div:hover {
+    background-color: rgba($clr7, 0.6);
+    filter: alpha(opacity=100);
+    cursor: pointer;
+    transition: .7s;
+  }
+
   div {
+    height: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
     margin-right: 20px;
 
   }
