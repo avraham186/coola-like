@@ -6,9 +6,10 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     // userModule: userReducer,
+    communityHartModule: communityHartReducer,
     jobsModule: jobReducer,
     communityHartModule:communityHartReducer
 })
 
 export const store = createStore(rootReducer,
-composeEnhancers(applyMiddleware(ReduxThunk)))//passing the reducer
+    composeEnhancers(applyMiddleware(ReduxThunk)))//passing the reducer

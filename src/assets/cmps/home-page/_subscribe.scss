@@ -1,6 +1,7 @@
 .subscribe {
     direction: rtl;
     position: relative;
+    background-image: url(../../images/background.jpg);
     padding: 100px 0px 50px 0px;
     background-image: url("../../images/background.jpg");
     .subscribe-input {
@@ -12,7 +13,7 @@
     }
     .btn-send-subscribe {
         width: 150px;
-        height: 45px;
+        height: 46px;
         background-color: $clr1;
         font-size: 18px;
         color: white;
@@ -30,5 +31,6 @@
         .btn-send-subscribe {
             width: 100px;
         }
+        vertical-align: middle;
     }
 }
