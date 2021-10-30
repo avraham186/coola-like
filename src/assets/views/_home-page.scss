@@ -91,8 +91,9 @@ Events
       }
 
       .events-button:hover {
-        background-color: #34018E;
-        color: #FFF;
+        background-color: $clr7;
+        color: $clr6;
+        transition: 0.5s;
       }
 
       .events-link {
