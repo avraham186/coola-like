@@ -1,17 +1,29 @@
 .box-person {
+    padding: 20px 0px;
+    font-family: Rubik-regular;
     direction: rtl;
-
-    svg {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 50%;
+    background-image: url(../images/background.jpg);
+    .box-person-head {
+        padding: 40px 0px;
+        background-color: #ffffff6e;
     }
-
-    .person-name {
-        font-family: Rubik;
-        font-weight: bold;
-        font-size: rem(25px);
+    .box-person-content {
+        background-color: #ffffff6e;
+        .founders {
+            .founder-content {
+                width: 200px;
+                direction: ltr;
+                .person-name {
+                    display: block;
+                    font-family: Rubik-bold;
+                    font-size: rem(24px);
+                }
+                .role-text {
+                    display: block;
+                    width: 100%;
+                    // font-family: Rubik-regular;
+                }
+            }
+        }
     }
 }

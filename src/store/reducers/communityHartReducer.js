@@ -1,26 +1,30 @@
+import shimon from '../../assets/images/founders-imgs/shimon.svg'
+import adi from '../../assets/images/founders-imgs/adi.svg'
+import stav from '../../assets/images/founders-imgs/stav.svg'
+import iris from '../../assets/images/founders-imgs/iris.svg'
 const initialState = {
     persons: [
         {
-            name: 'shimon moyal',
-            img: '../assets/images/fonders-imgs/shimon.svg',
-            roleText:'director of traninng & volenteers'
+            name: 'Shimon moyal',
+            img: `${shimon}`,
+            roleText: `director of traninng & volenteers`
         },
         {
             name: 'Adi porath',
-            img: '../assets/images/fonders-imgs/adi.svg',
-            roleText:'founder & navigator'
+            img: `${adi}`,
+            roleText: 'founder & navigator'
         },
         {
-            name: 'stav brener',
-            img: '../assets/images/fonders-imgs/stav.svg',
-            roleText:'community manager'
+            name: 'Stav brener',
+            img: `${stav}`,
+            roleText: 'community manager'
         },
         {
-            name: 'iris nironi',
-            img: '../assets/images/iris.svg',
-            roleText:'community manager'
+            name: 'Iris nironi',
+            img: `${iris}`,
+            roleText: 'community manager'
         }
-     ]
+    ]
 }
 
 export function communityHartReducer(state = initialState, action) {
