@@ -62,8 +62,10 @@ const ProjectPage = () => {
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
-                Open form dialog
+                Add new project
             </Button>
+
+            <br/><br/>
 
             {
                 !projects ? <ProjectStart/> : <ProjectsList rows={projects}/>
