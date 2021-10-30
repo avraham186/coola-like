@@ -11,7 +11,7 @@ export const Subscribe = () => {
     }
     return (
         <div className="subscribe flex column">
-            <h1>הישארו מעודכנים#</h1>
+            <h1 className="stay-update">הישארו מעודכנים#</h1>
             <span>הירשמו לקבלת עדכונים לגבי אירועים, סדנאות ומשרות חמות בקהילה</span>
             <br />
             <div className="input-and-btn">
