@@ -1,4 +1,3 @@
-
 /*
 Section 3
 Events
@@ -9,7 +8,7 @@ Events
   flex-direction: column;
   margin-top: 10px;
   padding: 30px;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 25%,rgba(0,0,0,0.1) 100%), url('../images/background.jpg');
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%), url('../images/background.jpg');
   background-size: cover;
   border: dashed #ce2e6c;
 
@@ -23,6 +22,7 @@ Events
     margin-bottom: 10px;
 
   }
+
   .events-sub-title-container {
     display: flex;
     justify-content: space-between;
@@ -50,6 +50,7 @@ Events
       top: 6px
     }
   }
+
   .events-cards {
     display: flex;
     flex-wrap: wrap;
@@ -111,8 +112,8 @@ Events
         transform: scale(.9);
         color: #ffffff;
         opacity: .75;
-        background: rgb(52,1,142);
-        background: linear-gradient(90deg, rgba(52,1,142,1) 0%, rgba(108,229,231,1) 100%);
+        background: rgb(52, 1, 142);
+        background: linear-gradient(90deg, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
       }
 
       .events-icon:hover {
@@ -132,7 +133,7 @@ Jobs
   flex-direction: column;
   margin-bottom: 10px;
   padding: 30px;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%,rgba(0,0,0,0.1) 100%), url('../images/background.jpg');
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%), url('../images/background.jpg');
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -148,6 +149,7 @@ Jobs
     margin-bottom: 10px;
 
   }
+
   .jobs-sub-title-container {
     display: flex;
     justify-content: space-between;
@@ -175,6 +177,7 @@ Jobs
       top: 6px
     }
   }
+
   .jobs-cards {
     display: flex;
     flex-wrap: wrap;
@@ -194,7 +197,8 @@ Jobs
         font-size: 18px;
         line-height: 28px;
         direction: rtl;
-        }
+      }
+
       .card-content-info {
         display: flex;
         flex-direction: row;
@@ -211,6 +215,7 @@ Jobs
           top: -4px
         }
       }
+
       .card-footer {
         display: flex;
         flex-direction: column;
@@ -268,16 +273,6 @@ Footer
       color: #FFF;
     }
 
-  }
-}
-
-.projects {
-  border: dashed #ce2e6c;
-
-  .new--project{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 }
 

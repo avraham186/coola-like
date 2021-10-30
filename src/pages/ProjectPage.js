@@ -1,12 +1,12 @@
 import React from 'react';
-import ProjectStart from "../cmps/project_page/ProjectStart";
+import CreateNewProject from '../cmps/project_page/CreateNewProject';
+import Projects from "../cmps/project_page/Projects";
 
 const ProjectPage = () => {
     return (
         <div>
-
-            <ProjectStart />
-
+            <CreateNewProject />
+            <Projects />
         </div>
     );
 };

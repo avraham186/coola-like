@@ -1,4 +1,78 @@
+.new-project {
+  display: flex;
+  flex-direction: row-reverse;
+  border: dashed #ce2e6c;
+  margin: 10px;
+  padding: 10px;
+
+  div {
+    margin-right: 20px;
+
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 15px;
+    padding-right: 10px;
+  }
+}
+
 .projects {
-  height: 100%;
-  background-color: #34018E;
+  border: dashed #ce2e6c;
+  padding: 20px;
+  font-family: Rubik, sans-serif;
+  font-style: normal;
+
+  .project-portfolio {
+
+
+    div {
+      margin: 0 6% 0 6%;
+
+    }
+
+    .project-content {
+      height: 100%;
+
+      h3 {
+        margin: 5px;
+      }
+
+      p {
+        margin: 0px 0px 25px 15px;
+      }
+
+      .project-button {
+        width: 230px;
+      }
+
+      span {
+        border: 2px solid $clr7;
+        font-weight: bold;
+        box-sizing: border-box;
+        cursor: pointer;
+        border-radius: 2px 15px;
+        font-size: 1em;
+        padding: 1% 12% 1% 12%;
+        margin: 35px;
+        text-decoration: none;
+      }
+
+      span:hover {
+        background-color: $clr7;
+        color: $clr6;
+        transition: 0.5s;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+  }
+
 }

@@ -4,6 +4,7 @@ import Events from "../cmps/home_page/Events";
 import Jobs from "../cmps/home_page/Jobs";
 import Founders from "../cmps/home_page/Founders";
 import Subscribe from "../cmps/home_page/Subscribe";
+import ProjectPage from './ProjectPage';
 
 
 export default function HomePage() {
@@ -13,7 +14,8 @@ export default function HomePage() {
             <Events />
             <Jobs />
             <Founders />
-            <Subscribe />
+            <Subscribe />        
+            <ProjectPage/>
         </div>
 
     )
