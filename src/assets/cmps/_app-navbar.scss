@@ -17,7 +17,7 @@
         justify-content: space-around;
         padding-left:0;
         width: 25vw;
-        margin: 0;
+        margin: auto;
         font-family: 'Rubik';
         
     .events-button-list{
@@ -33,13 +33,14 @@
         margin-left: 25px;
         width: 153px;
         height:40px;
-       
+        margin:auto 10px auto 10px;
         }
 
         li{
             display: flex;
             justify-content: center;
             align-items: center;
+            margin:10px;
             a{
                 width: fit-content;
                 color: white;

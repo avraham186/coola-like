@@ -1,0 +1,39 @@
+.subscribe{
+    font-family: Rubik-regular;
+    direction: rtl;
+    position: relative;
+    background-image: url(../../images/background.jpg);
+    padding: 100px 0px 50px 0px;
+    .stay-update{
+        font-family: Rubik-bold;
+    }
+    .subscribe-input{
+        width: 430px;
+        height: 39px;
+        border-left: none;
+        border-top-right-radius: 10px;
+        vertical-align: middle;
+    }
+    .btn-send-subscribe {
+        width: 150px;
+        height: 46px;
+        background-color: $clr1;
+        font-size: 18px;
+        color: white;
+        border-radius: 2px 15px;
+        position: relative;
+        left: 50px;
+        font-family: Rubik, sans-serif;
+        vertical-align: middle;
+    }
+    @media (max-width: $narrow-breakpoint) {
+        padding: 50px 0px 50px 0px;
+        .subscribe-input {
+            width: 300px;
+        }
+        .btn-send-subscribe {
+            width: 100px;
+        }
+        vertical-align: middle;
+    }
+}

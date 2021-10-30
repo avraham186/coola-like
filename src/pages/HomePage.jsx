@@ -2,8 +2,8 @@ import React from 'react'
 import Header from "../cmps/home_page/Header";
 import Events from "../cmps/home_page/Events";
 import Jobs from "../cmps/home_page/Jobs";
-import { Founders } from "../cmps/home_page/Founders.jsx";
-import Subscribe from "../cmps/home_page/Subscribe";
+import { Founders } from "../cmps/home_page/Founders";
+import {Subscribe} from "../cmps/home_page/Subscribe";
 import { useSelector } from 'react-redux';
 
 
