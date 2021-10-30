@@ -20,7 +20,8 @@
         margin: auto;
         font-family: 'Rubik';
         
-    .events-button-list{
+        
+    .mngr-login-button{
         
         border: 2px solid #34018E;
         font-weight: bold;
@@ -34,6 +35,12 @@
         width: 153px;
         height:40px;
         margin:auto 10px auto 10px;
+
+        :hover {
+              background-color: $clr6;
+              color: $clr7;
+              transition: 0.5s;
+          }
         }
 
         li{
@@ -44,12 +51,9 @@
             a{
                 width: fit-content;
                 color: white;
+               
             }
-            img{
-                width: 40px;
-                height: 40px;
-                //border: 1px black solid;
-            }
+            
          }
     }
     .selected{

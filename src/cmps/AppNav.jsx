@@ -11,24 +11,24 @@ export function AppNav() {
                 <ul className="left-list clean-list">
 
                     <li>
+                    <Link to="/">
                         <object data={user_icon} type="image/svg+xml"></object>
-                        {/* //<Link to="/"> */}
-                        {/* //</Link> */}
+                    </Link> 
 
                     </li>
 
-                    <li className="events-button-list">
-                        <Link to="/">כניסת מנהלים</Link>
+                    <li className="mngr-login-button">
+                        <Link to="/"><span>כניסת מנהלים</span></Link>
                     </li>
 
                 </ul>
 
                 <ul className="list clean-list flex">
 
-                    <li className="selected"><Link to="/">בית</Link></li>
-                    <li><Link to="/">לוח משרות</Link></li>
-                    <li><Link to="/">אירועים</Link></li>
-                    <li><Link to="/">טיפים ומידע</Link></li>
+                    <li className="selected"><Link to="/"><span>בית</span></Link></li>
+                    <li><Link to="/"><span>לוח משרות</span></Link></li>
+                    <li><Link to="/"><span>אירועים</span></Link></li>
+                    <li><Link to="/"><span>טיפים ומידע</span></Link></li>
 
 
                 </ul>
