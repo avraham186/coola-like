@@ -1,16 +1,18 @@
 .subscribe{
     direction: rtl;
     position: relative;
+    background-image: url(../../images/background.jpg);
     padding: 100px 0px 50px 0px;
     .subscribe-input{
         width: 430px;
-        height: 45px;
+        height: 40px;
         border-left: none;
         border-top-right-radius: 10px;
+        vertical-align: middle;
     }
     .btn-send-subscribe{
         width: 150px;
-        height: 45px;
+        height: 46px;
         background-color: $clr1;
         font-size: 18px;
         color: white;
@@ -18,6 +20,6 @@
         border-top-right-radius: 10px;
         position: relative;
         left: 50px;
-        top: 2px;
+        vertical-align: middle;
     }
 }

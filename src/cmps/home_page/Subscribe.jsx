@@ -14,7 +14,7 @@ export const Subscribe = (onSendMail) => {
             <h1>הישארו מעודכנים#</h1>
             <span>הירשמו לקבלת עדכונים לגבי אירועים, סדנאות ומשרות חמות בקהילה</span>
             <br />
-            <div className="inut-and-btn">
+            <div className="input-and-btn">
                 <input type="email" className="subscribe-input" name="mail"
                     value={mail} onChange={handlChange} placeholder="כתובת אי-מייל" />
                 <button className="btn-send-subscribe" onClick={sendMail}>שלחו אלי!</button>
