@@ -11,7 +11,7 @@ Events
   padding: 30px;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 25%,rgba(0,0,0,0.1) 100%), url('../images/background.jpg');
   background-size: cover;
-  border: dashed #ce2e6c;
+  //border: dashed #ce2e6c;
 
   .events-title {
     font-family: Rubik, sans-serif;
@@ -137,7 +137,7 @@ Jobs
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
-  border: dashed #ce2e6c;
+  //border: dashed #ce2e6c;
 
   .jobs-title {
     font-family: Rubik, sans-serif;
@@ -234,7 +234,7 @@ Footer
 
 .footer {
   margin-top: 10px;
-  border: dashed #ce2e6c;
+  //border: dashed #ce2e6c;
 
   .footer__bg {
     background-color: #34018E;
@@ -273,7 +273,7 @@ Footer
 }
 
 .projects {
-  border: dashed #ce2e6c;
+  //border: dashed #ce2e6c;
 
   .new--project{
     display: flex;
