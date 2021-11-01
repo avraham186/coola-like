@@ -1,4 +1,5 @@
 {
+  "homepage": "https://avraham186.github.io/coola-like",
   "name": "coola-like",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +17,7 @@
     "axios": "^0.24.0",
     "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",
+    "gh-pages": "^3.2.3",
     "install": "^0.13.0",
     "node-sass": "^4.14.0",
     "npm": "^8.1.2",
@@ -29,6 +31,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
