@@ -12,12 +12,16 @@
 
 //components
 @import './cmps/app-header';
-@import './cmps/_founders';
 @import './cmps/app-footer';
 
 //home components
 @import './cmps/home-page/subscribe';
+@import './cmps/_founders';
 @import './cmps/app-navbar';
+
+//new-task-components
+@import './cmps/new-task/new-task-sidebar';
+
 //views
 @import './views/home-page';
 @import './views/project-page';

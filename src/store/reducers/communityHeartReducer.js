@@ -5,22 +5,22 @@ import iris from '../../assets/images/founders-imgs/iris.svg'
 const initialState = {
     persons: [
         {
-            name: 'Shimon moyal',
+            name: 'Shimon Moyal',
             img: `${shimon}`,
             roleText: `director of traninng & volenteers`
         },
         {
-            name: 'Adi porath',
+            name: 'Adi Porath',
             img: `${adi}`,
             roleText: 'founder & navigator'
         },
         {
-            name: 'Stav brener',
+            name: 'Stav Brener',
             img: `${stav}`,
             roleText: 'community manager'
         },
         {
-            name: 'Iris nironi',
+            name: 'Iris Nironi',
             img: `${iris}`,
             roleText: 'community manager'
         }
