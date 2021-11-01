@@ -9,7 +9,7 @@ import CreateNewProject from "../cmps/project_page/CreateNewProject";
 import Projects from "../cmps/project_page/EmptyProjects";
 
 export default function HomePage() {
-  const { persons } = useSelector((state) => state.communityHartModule);
+  const { persons } = useSelector((state) => state.communityHeartModule);
 
   return (
     <div>
