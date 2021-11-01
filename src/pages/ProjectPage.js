@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import ProjectStart from "../cmps/project_page/ProjectStart";
+import React, { useEffect, useState } from 'react';
+import EmptyProjects from "../cmps/project_page/EmptyProjects";
 import projectsDAL from "../adapters/TMS/projectsDAL";
 import ProjectsList from "../cmps/project_page/ProjectsList";
-import {Button} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -21,7 +21,6 @@ import Select from '@mui/material/Select';
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
     const [open, setOpen] = useState(false);
-
     const [projectName, setProjectName] = useState('');
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState(new Date());
@@ -49,7 +48,7 @@ const ProjectPage = () => {
 
     const handleClose = async () => {
         setOpen(false);
-        const response = await projectsDAL.createProject({projectName, description, startDate, endDate, projectStatus: "STARTED"})
+        const response = await projectsDAL.createProject({ projectName, description, startDate, endDate, projectStatus: "STARTED" })
         console.table(response.data)
     };
 
@@ -58,17 +57,16 @@ const ProjectPage = () => {
         setProjects(response.data)
     }, [])
 
-
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
                 Add new project
             </Button>
 
-            <br/><br/>
+            <br /><br />
 
             {
-                !projects ? <ProjectStart/> : <ProjectsList rows={projects}/>
+                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
             }
 
             <Dialog open={open} onClose={handleClose}>
@@ -110,8 +108,8 @@ const ProjectPage = () => {
 
                         </Select>
                     </FormControl>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DesktopDatePicker
                             label="Start Date"
@@ -119,7 +117,7 @@ const ProjectPage = () => {
                             value={startDate}
                             onChange={handleChangeStart}
                             renderInput={(params) => <TextField {...params} />}
-                        /><br/><br/>
+                        /><br /><br />
                         <DesktopDatePicker
                             label="End desktop"
                             inputFormat="dd/MM/yyyy"

@@ -2,7 +2,7 @@
     padding: 50px;
     background-color: #c0e2ee00;
     margin-bottom: 10px;
-    border: dashed #ce2e6c;
+    //border: dashed #ce2e6c;
     font-family: Rubik, sans-serif;
     font-style: normal;
 
@@ -23,7 +23,7 @@
 
         h4 {
             font-size: 20px;
-            line-height: 14px;
+            line-height: 20px;
             color: #000;
             margin: 0;
         }
@@ -31,7 +31,8 @@
         p {
             margin-top: 10px;
             font-size: 15px;
-            line-height: 20px;
+            font-weight: 500;
+            line-height: 25px;
         }
     }
 
