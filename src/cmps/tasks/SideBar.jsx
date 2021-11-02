@@ -5,7 +5,7 @@ import label from '../../assets/images/icons/new-task-sidebar-label.png'
 import files from '../../assets/images/icons/new-task-sidebar-files.png'
 import erase from '../../assets/images/icons/new-task-sidebar-erase.png'
 
-export const SideBar = (props) => {
+export const SideBar = ({props}) => {
 
     const assignToMission = () => {
         // props.onAssignMission()
