@@ -4,17 +4,22 @@ import {
   chat_logo,
   attachment_icon,
 } from "../../assets/images/icons";
-import { AttachmentsTask, HeadlinesTask, TextArea } from "./UtilsTask";
+
+
+import {
+  AssignedTask,
+  AttachmentsTask,
+  HeadlinesTask,
+  TextArea,
+} from "./UtilsTask";
 import shimon from "../../assets/images/founders-imgs/shimon.svg";
-
-
 
 export const ContentTask = ({
   nameTask = "שם המשימה",
   taskMode = "חדש",
   priorityTask = "עדיפות גבוהה",
   files,
-  comments
+  comments,
 }) => {
   return (
     <div className="new-task">
@@ -22,6 +27,14 @@ export const ContentTask = ({
         <h2>{nameTask}</h2>
         <span id="task-mode">{taskMode}</span>
         <span id="priority-task">{priorityTask}</span>
+      </div>
+
+      <div className="due-date-task flex">
+        <input type="checkbox" />
+      </div>
+      <div className="assigned-task flex">
+        <input type="checkbox" />
+        <AssignedTask />
       </div>
       <div className="description-task">
         <HeadlinesTask title="תיאור משימה" icon={description_mission} />

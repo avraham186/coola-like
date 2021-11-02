@@ -1,3 +1,7 @@
+.main-task {
+    height: 100vh;
+}
+
 .new-task {
     // border: 1px dotted black;
     direction: rtl;
@@ -7,24 +11,34 @@
     color: #4A4A4A;
     width: 70%;
 
-    .attachments-task {
-        .each-file-task {
-            margin-left: 25px;
-            text-align: center;
+    .assigned-task {
+        .span img {
+            border: 50%;
+            background-color: $plusBackground;
+        }
+    }
 
-            span:hover {
+    .attachments-task {
+        .attachments-container {
+            .each-file-task {
+                margin-left: 25px;
+                text-align: center;
+
+                span:hover {
+                    cursor: pointer;
+                }
+            }
+
+            span img {
+                background-color: $plusBackground;
+                padding: 8px;
+            }
+
+            span img:hover {
                 cursor: pointer;
             }
         }
 
-        span img {
-            background-color: $plusBackground;
-            padding: 8px;
-        }
-
-        span img:hover {
-            cursor: pointer;
-        }
     }
 
     textarea {

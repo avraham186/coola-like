@@ -1,5 +1,5 @@
 import React from 'react';
-import { attachment_image, square_plus } from '../../assets/images/icons';
+import { attachment_image, plus_sign } from '../../assets/images/icons';
 
 export const HeadlinesTask = ({ title, icon }) => {
     return (
@@ -9,10 +9,23 @@ export const HeadlinesTask = ({ title, icon }) => {
         </div>
     )
 }
+export const AssignedTask = (areAssigned) => {
+    return (
+        <div>
+            {/* {
+                areAssigned.map(person => {
+                    return <div>
 
+                    </div>
+                })
+            } */}
+            <span><img src={plus_sign} alt="circle plus" /></span>
+        </div>
+    )
+}
 export const AttachmentsTask = ({ files }) => {
     return (
-        <div className="attachments-task flex align-center">
+        <div className="attachments-container flex align-center">
             {files.map(({ name }) => {
                 return <div className="each-file-task">
                     <img src={attachment_image} alt="attachment image" />
@@ -20,7 +33,7 @@ export const AttachmentsTask = ({ files }) => {
                     <span>מחק</span>
                 </div>
             })}
-            <span><img src={square_plus} alt="square plus" /></span>
+            <span><img src={plus_sign} alt="square plus" /></span>
         </div>
     )
 }
