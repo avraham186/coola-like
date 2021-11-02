@@ -1,9 +1,9 @@
-import React from 'react'
-import user from '../../assets/images/icons/new-task-sidebar-user.png'
-import watch from '../../assets/images/icons/new-task-sidebar-watch.png'
-import label from '../../assets/images/icons/new-task-sidebar-label.png'
-import files from '../../assets/images/icons/new-task-sidebar-files.png'
-import erase from '../../assets/images/icons/new-task-sidebar-erase.png'
+import React from "react";
+import user from "../../assets/images/icons/new-task-sidebar-user.png";
+import watch from "../../assets/images/icons/new-task-sidebar-watch.png";
+import label from "../../assets/images/icons/new-task-sidebar-label.png";
+import files from "../../assets/images/icons/new-task-sidebar-files.png";
+import erase from "../../assets/images/icons/new-task-sidebar-erase.png";
 
 export const SideBar = ({props}) => {
 

@@ -17,7 +17,6 @@ const ProjectsList = (props) => {
 
     const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
-
     return (
         <TableContainer component={Paper}>
             <Table sx={{minWidth: 650}} aria-label="simple table">
