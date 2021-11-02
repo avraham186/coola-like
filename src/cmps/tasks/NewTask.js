@@ -1,8 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import userIcon from "./assets/user.png";
 import closeIcon from "./assets/close.png";
 import added from "./assets/added.png";
-import { setSelectedUsers } from "../../store/actions/taskAction";
+import { setSelectedUsers, setUsers } from "../../store/actions/taskAction";
 import { useSelector, useDispatch } from "react-redux";
 import "./NewTask.css";
 
@@ -11,8 +11,12 @@ export const NewTask = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.taskModule.users);
 
-  const filteredQuery = users.filter((user) =>
-    user.name.toLowerCase().includes(search.toLocaleLowerCase())
+  useEffect(() => {
+    dispatch(setUsers());
+  }, []);
+
+  const filteredQuery = users?.filter((user) =>
+    user?.firstName?.toLowerCase().includes(search?.toLocaleLowerCase())
   );
 
   return (
@@ -42,24 +46,24 @@ export const NewTask = () => {
           />
         </div>
       </div>
-      {filteredQuery.map((user, index) => (
+      {filteredQuery?.map((user, index) => (
         <div key={index} className="row pt-3">
-          {user.selected && (
-            <div className="col-md-1">
-              {" "}
-              <img src={added} />{" "}
-            </div>
-          )}
+          {/* {user.selected && (
+                <div className="col-md-1">
+                  {" "}
+                  <img src={added} />{" "}
+                </div>
+              )} */}
           <div className="col text-end">
             <span>
-              ({user.roleText}) , {user.name}
+              {user.lastName} , {user.firstName}
             </span>
           </div>
           <div className="col-md-2">
-            <img
-              onClick={() => dispatch(setSelectedUsers(user))}
-              src={user.img}
-            />
+            {/* <img
+                  onClick={() => dispatch(setSelectedUsers(user))}
+                  src={user.img}
+                /> */}
           </div>
         </div>
       ))}
