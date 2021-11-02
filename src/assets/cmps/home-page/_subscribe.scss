@@ -1,13 +1,16 @@
-.subscribe{
+.subscribe {
     font-family: Rubik-regular;
     direction: rtl;
     position: relative;
     background-image: url(../../images/background.jpg);
-    padding: 100px 0px 50px 0px;
-    .stay-update{
-        font-family: Rubik-bold;
+    padding: 30px;
+    .stay-update {
+        font-size: 40px;
     }
-    .subscribe-input{
+    .stay-update-sub{
+        font-size: 25px;
+    }
+    .subscribe-input {
         width: 430px;
         height: 39px;
         border-left: none;

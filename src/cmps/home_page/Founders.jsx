@@ -5,8 +5,8 @@ export const Founders = (props) => {
   return (
     <div className="box-person flex column space-between">
       <div className="box-person-head flex column">
-        <h1>#הלב של_הקהילה</h1>
-        <span>מוזמנים לדבר איתנו</span>
+        <h1 className="box-person-headline">#הלב של_הקהילה</h1>
+        <span className="box-person-sub-headline">מוזמנים להתחבר ולדבר איתנו!</span>
       </div>
       <div className="box-person-content flex space-between">
         {props.persons.map((person) => {

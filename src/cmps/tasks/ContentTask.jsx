@@ -7,10 +7,14 @@ import {
 import { AttachmentsTask, HeadlinesTask, TextArea } from "./UtilsTask";
 import shimon from "../../assets/images/founders-imgs/shimon.svg";
 
-export const NewTask = ({
+
+
+export const ContentTask = ({
   nameTask = "שם המשימה",
   taskMode = "חדש",
   priorityTask = "עדיפות גבוהה",
+  files,
+  comments
 }) => {
   return (
     <div className="new-task">
