@@ -16,7 +16,7 @@ export const NewTask = () => {
   }, []);
 
   const filteredQuery = users?.filter((user) =>
-    user?.firstName?.toLowerCase().includes(search?.toLocaleLowerCase())
+    user?.firstName.toLowerCase().includes(search?.toLocaleLowerCase())
   );
 
   return (
@@ -29,7 +29,7 @@ export const NewTask = () => {
           מוקצים למשימה <img src={userIcon} />
         </div>
       </div>
-      <div className="row text-center pt-2">
+      <div className="row text-center pt-2 pb-2">
         <div className="col">
           <input
             onChange={(e) => {
@@ -46,27 +46,20 @@ export const NewTask = () => {
           />
         </div>
       </div>
-      {filteredQuery?.map((user, index) => (
-        <div key={index} className="row pt-3">
-          {/* {user.selected && (
-                <div className="col-md-1">
-                  {" "}
-                  <img src={added} />{" "}
-                </div>
-              )} */}
-          <div className="col text-end">
-            <span>
-              {user.lastName} , {user.firstName}
-            </span>
-          </div>
-          <div className="col-md-2">
-            {/* <img
-                  onClick={() => dispatch(setSelectedUsers(user))}
-                  src={user.img}
-                /> */}
-          </div>
+      <div className="row">
+        <div className="col">
+          <select size="10" style={{ width: "100%" }}>
+            {filteredQuery?.map((user, index) => (
+              <>
+                <option>
+                  {user.firstName} , {user.lastName}
+                </option>
+              </>
+            ))}
+          </select>
         </div>
-      ))}
+      </div>
+
       <div className="row">
         <div className="col pt-3">
           <button className="save-btn">שמור</button>
