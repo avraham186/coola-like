@@ -7,6 +7,8 @@ import { Subscribe } from "../cmps/home_page/Subscribe.jsx";
 import { useSelector } from "react-redux";
 import CreateNewProject from "../cmps/project_page/CreateNewProject";
 import Projects from "../cmps/project_page/EmptyProjects";
+import AddFile from "../cmps/tasks/AddFile";
+import AddTags from "../cmps/tasks/AddTags";
 
 export default function HomePage() {
   const { persons } = useSelector((state) => state.communityHartModule);
@@ -14,6 +16,8 @@ export default function HomePage() {
   return (
     <div>
       <Header />
+      <AddFile/>
+      <AddTags/>
       <Events />
       <Jobs />
       <Founders persons={persons} />
