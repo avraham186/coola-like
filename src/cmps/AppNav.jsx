@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import coola_like_logo from '../assets/images/coola_like_logo.png'
-import user_icon from '../assets/images/user_icon.svg'
+import coola_like_logo from '../assets/images/coola_like_logo.svg'
+import IconButton from "@mui/material/IconButton";
+import PersonIcon from "@mui/icons-material/Person"
 
 export function AppNav() {
 
@@ -8,37 +9,48 @@ export function AppNav() {
         <div className="app-navbar">
             <div className="flex space-between justify-center align-center">
 
-                <ul className="left-list clean-list">
+                {/* <ul className="left-list clean-list">
 
                     <li>
-                    <Link to="/">
-                        <object data={user_icon} type="image/svg+xml"></object>
-                    </Link> 
+                    <IconButton aria-label="Person" className="user_logo">
+                        <PersonIcon />
+                    </IconButton>
 
                     </li>
 
                     <li className="mngr-login-button">
-                        <Link to="/"><span>כניסת מנהלים</span></Link>
+                        <input type="button" value="כניסת מנהלים" className="mngBtn"/>
                     </li>
 
-                </ul>
+                </ul> */}
+                    <div className="left-list clean-list">
+
+<span>
+<IconButton aria-label="Person" className="user_logo">
+    <PersonIcon />
+</IconButton>
+
+</span>
+
+<div className="mngr-login-button">
+    <input type="button" value="כניסת מנהלים" className="mngBtn"/>
+</div>
+
+</div>
 
                 <ul className="list clean-list flex">
 
                     <li className="selected"><Link to="/"><span>בית</span></Link></li>
                     <li><Link to="/"><span>לוח משרות</span></Link></li>
-                    <li><Link to="/"><span>אירועים</span></Link></li>
+                    <li><Link to="/pages/EventsPage.js"><span>אירועים</span></Link></li>
                     <li><Link to="/"><span>טיפים ומידע</span></Link></li>
-
-
+                
                 </ul>
 
                 <Link to="/">
-                    <span className="logo">
-                        <img src={coola_like_logo} alt="coola_like_logo" />
-                    </span>
-                </Link>
-
+                        <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"></object>
+                 </Link>
+                 
             </div>
         </div>
     )

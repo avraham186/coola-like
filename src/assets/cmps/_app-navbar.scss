@@ -1,46 +1,72 @@
 .app-navbar {
     padding: 5px 0 5px 0;
-    background-color: #c0e2ee00;
+    background-color: #ffffff;
     margin-bottom: 10px;
+    font-family: 'Rubik';
     
     a{
         text-decoration: none;
         color: black;
     }
 
-    // Move to nav scss
+    .user_logo{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 
     .left-list{
         display: flex;
         list-style: none;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         padding-left:0;
         width: 25vw;
         margin: auto;
-        font-family: 'Rubik';
-        
-        
+
     .mngr-login-button{
-        
-        border: 2px solid #34018E;
-        font-weight: bold;
-        box-sizing: border-box;
-        background-color: #34018E;
+               
+        background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
+        opacity: .5;
         cursor: pointer;
+        font-family: 'Rubik';
         border-radius: 2px 15px;
-        font-family: Rubik, sans-serif;
-        font-size: 16px;
-        margin-left: 25px;
+        margin-left: 20px;
         width: 153px;
         height:40px;
-        margin:auto 10px auto 10px;
+        margin:auto 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        :hover {
-              background-color: $clr6;
-              color: $clr7;
-              transition: 0.5s;
-          }
+        }
+        .mngr-login-button:hover {
+        opacity: .75;
+
+        }
+
+        .mngBtn{
+            background-color: transparent;
+            border: 0;
+            font-size: medium;
+            color: white;
+            font-family: 'Rubik';
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .user_logo{
+            //position: relative;
+            transform: scale(.9);
+            color: #ffffff;
+            opacity: .5;
+            background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);        
+        }
+    
+        .user_logo:hover{
+    
+            opacity: .75;
         }
 
         li{
@@ -56,26 +82,28 @@
             
          }
     }
+
     .selected{
         text-decoration: underline;
     }
+
     .list {
         
         gap: 10px;
         border-radius: 50%;
         padding-left:0;
-        width: 90vw;
+        width: 100%;
         display: flex;
         list-style: none;
         flex-direction: row-reverse;
-        justify-content: right;
+        justify-content: space-around;
         font-family: 'Rubik';
         font-weight: 600;
 
         
         li{
             margin-left: 4%;
-            margin-right: 8%;
+            margin-right: 2%;
             
             
         }
@@ -85,8 +113,9 @@
         }
     }
 
-     .logo {
+     .coola_like_logo {
          padding-left: 5px;
+         cursor: pointer;
      }
 
      
