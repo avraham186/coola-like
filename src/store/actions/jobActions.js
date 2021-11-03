@@ -19,7 +19,7 @@ export function loadJobss(filterBy) {
 export function removeJob(toyId) {
     return dispatch => {
         try {
-           jobService.remove(jobId)
+            jobService.remove(jobId)
             const action = {
                 type: 'REMOVE_JOB',
                 jobId
@@ -31,8 +31,11 @@ export function removeJob(toyId) {
     }
 }
 
+
 export function saveJob(job) { // Action Creator
     const type = job._id ? 'UPDATE_JOB' : 'ADD_JOB'
+
+
     return (dispatch) => {
         try {
             const savedJob = jobService.save(job)
@@ -45,4 +48,8 @@ export function saveJob(job) { // Action Creator
             console.log('error from catch save toy', err);
         }
     }
+}
+
+export const taskAssigned = (peoples) => {
+    
 }

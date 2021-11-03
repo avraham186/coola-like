@@ -1,0 +1,103 @@
+.new-task {
+    // border: 1px dotted black;
+    direction: rtl;
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    padding: 20px 50px 20px 40px;
+    color: #4A4A4A;
+    width: 70%;
+
+    .attachments-task {
+        .each-file-task {
+            margin-left: 25px;
+            text-align: center;
+
+            span:hover {
+                cursor: pointer;
+            }
+        }
+
+        span img {
+            background-color: $plusBackground;
+            padding: 8px;
+        }
+
+        span img:hover {
+            cursor: pointer;
+        }
+    }
+
+    textarea {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        align-items: center;
+        color: #4A4A4A;
+        font-size: 18px;
+        padding: 10px;
+        border: 1px solid #D6D6D6;
+    }
+
+    .headlines-task {
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        img {
+            margin-left: 10px;
+        }
+    }
+
+    .new-task-title {
+        text-align: right;
+
+        span,
+        h2 {
+            margin: 10px;
+
+        }
+
+        span {
+            font-weight: bold;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 0 3% 0 3%;
+            text-decoration: none;
+        }
+
+        #task-mode {
+            background-color: $modeC1;
+        }
+
+        #priority-task {
+            color: white;
+            background-color: $priority;
+        }
+    }
+
+    .chat-task {
+        object {
+            width: 45px;
+            height: 45px;
+            margin-left: 20px;
+        }
+
+
+    }
+
+    .submit-task {
+        direction: ltr;
+
+        span {
+            background-color: $clr7;
+            font-weight: bold;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 2px 15px;
+            font-size: 1em;
+            padding: 1% 6% 1% 6%;
+            margin: 60px 60px 60px 10px;
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
