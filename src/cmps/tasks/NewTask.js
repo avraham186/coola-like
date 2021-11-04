@@ -19,17 +19,6 @@ const NewTask = () => {
         setTogglePeopleAssigned()
         setToggleModal()
     }
-    const sideBarProps = () => {
-        return () => {
-            {
-                setTogglePeopleAssigned()
-                setToggleChoosenDate()
-                setToggleLables()
-                setToggleFiles()
-                setToggleModal()
-            }
-        }
-    }
     const whichComponent = () => {
         if (togglePeopleAssigned) {
             return {
