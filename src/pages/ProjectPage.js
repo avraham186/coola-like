@@ -16,6 +16,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import {useDispatch, useSelector} from "react-redux";
+import {addProject, loadProjects} from "../store/projects";
 
 
 const ProjectPage = () => {
@@ -29,6 +31,7 @@ const ProjectPage = () => {
 
     const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
 
+    const dispatch = useDispatch();
 
     const handleChangeStart = (newValue) => {
         setStartDate(newValue);
@@ -48,14 +51,18 @@ const ProjectPage = () => {
 
     const handleClose = async () => {
         setOpen(false);
-        const response = await projectsDAL.createProject({ projectName, description, startDate, endDate, projectStatus: "STARTED" })
-        console.table(response.data)
     };
 
-    useEffect(async () => {
-        const response = await projectsDAL.getAllProjects()
-        setProjects(response.data)
-    }, [])
+    const handleAdd = async () => {
+        setOpen(false);
+        const obj = {
+            projectName,
+            description,
+            projectStatus
+        }
+        dispatch(addProject(obj));
+    };
+
 
     return (
         <div>
@@ -130,7 +137,7 @@ const ProjectPage = () => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Add</Button>
+                    <Button onClick={handleAdd}>Add</Button>
                 </DialogActions>
             </Dialog>
         </div>
