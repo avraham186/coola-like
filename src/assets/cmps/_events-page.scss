@@ -1,11 +1,12 @@
-body{
-    background-image: url('../images/eventsBG.jpg') ;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+    
 .eventsPage{
     
     
-
+    background-image: url('../images/eventsBG.jpg') ;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .headlines{
         display: flex;
@@ -21,12 +22,60 @@ body{
         flex-direction: row;
         align-content: center;
         align-items: center;
-        
+    
+    .choose_HL{
+            margin-top: 0;
+            padding-left: 1%;
+            width: 15%;
+            text-align: top;
+        }
+
     .checkboxs{
             display: flex;
             flex-flow: row wrap-reverse;
             justify-content: right;
-            width: 25%;
+            // width: 25%;
+            label{
+                margin-left: 7%;
+                display: flex;
+                align-items: center;
+
+                input[type=checkbox]{
+                    // margin: 0;
+                    // margin-left: 2px;
+                    // text-align: center;
+                    // background-color: black;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    height: 12.5px;
+                    width: 12.5px;
+                    background-color: transparent;
+                    border-radius: 2px;
+                    border: 1px solid black;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    align-content: center;
+                }
+                input[type=checkbox]:after{
+                    font-family: "Font Awesome 6 Free";
+                    content:"\f00c";
+                    font-weight: 900;
+                    font-size: 10px;
+                    color: rgba(108, 229, 231, 1);
+                    display: none;
+                }
+                input[type=checkbox]:hover{
+                    background-color: #34018E;
+                }
+                input[type=checkbox]:checked{
+                    background-color: #34018E;
+                }
+                input[type=checkbox]:checked:after{
+                        display: block;
+                }
+            }
 
     }
 
@@ -63,6 +112,8 @@ body{
         }
         }
 
+
+        
     
     }
 
@@ -70,14 +121,14 @@ body{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .event-card {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row-reverse;
-        justify-content: space-around;
+        // display: flex;
+        // flex-wrap: wrap;
+        // flex-direction: row-reverse;
+        // justify-content: space-around;
     
         .card {
           margin-top: 15%;
@@ -138,6 +189,7 @@ body{
             width: 50px;
             background-color:rgb(46, 46, 46);
             border: 1px solid rgb(46, 46, 46);
+            margin-bottom: 0;
         }
 
         .video{
@@ -177,4 +229,3 @@ body{
         }
     }
 }
-}//body

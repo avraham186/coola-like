@@ -13,33 +13,33 @@ const Search = () => (
         </div>
 
         <form action="#" method="POST" className="checkboxs">
-
             
-            <label for="hrdwr">      חומרה <input type="checkbox"  name="hrdwr" value="hrdware"/>    </label>
+             <label htmlFor="hrdwr">      חומרה  
+               <input type="checkbox" name="hrdwr" defaultValue="hrdware" /></label>
 
-            
-            <label for="ui">     UI/UX <input type="checkbox" name="ui" value="ui"/>    </label>
+             <label htmlFor="ui">     UI/UX       
+               <input type="checkbox" name="ui" defaultValue="ui" />
+               
+               </label>
 
-            
-            <label for="sys">   הנדסת מערכות <input type="checkbox" name="sys" value="system"/>     </label>
+             <label htmlFor="sys">   הנדסת מערכות    
+               <input type="checkbox" name="sys" defaultValue="system" /></label>
 
-            
-            <label for="prgrm"> פיתוח תוכנה <input type="checkbox" name="prgrm" value="program"/>     </label>
+             <label htmlFor="prgrm"> פיתוח תוכנה  
+               <input type="checkbox" name="prgrm" defaultValue="program" /></label>
 
-            
-            <label for="cyber"> אבטחת מידע וסייבר <input type="checkbox" name="cyber" value="cyber"/>     </label>
+             <label htmlFor="cyber"> אבטחת מידע וסייבר 
+               <input type="checkbox" name="cyber" defaultValue="cyber" /></label>
 
-            
-            <label for="qa">     בדיקות תוכנה <input type="checkbox" name="qa" value="qa"/>    </label>
+             <label htmlFor="qa">     בדיקות תוכנה 
+               <input type="checkbox" name="qa" defaultValue="qa" /></label>
 
-            
-            <label for="all">   סמן הכל <input type="checkbox" name="all" value="all"/>     </label>
-        
+             <label htmlFor="all">   סמן הכל 
+               <input type="checkbox" name="all" defaultValue="all" /></label>
+
         </form>
 
-       
-
-        <h4>:בחר תחומי עניין</h4>
+        <h4 className="choose_HL">:בחר תחומי עניין</h4>
 
     </div>
 )
