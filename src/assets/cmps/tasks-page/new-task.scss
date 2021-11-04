@@ -1,50 +1,13 @@
 .new-task {
+
     // border: 1px dotted black;
     direction: rtl;
     font-family: Rubik, sans-serif;
     font-style: normal;
     padding: 20px 50px 20px 40px;
     color: #4A4A4A;
-    width: 70%;
 
-    .attachments-task {
-        .each-file-task {
-            margin-left: 25px;
-            text-align: center;
-
-            span:hover {
-                cursor: pointer;
-            }
-        }
-
-        span img {
-            background-color: $plusBackground;
-            padding: 8px;
-        }
-
-        span img:hover {
-            cursor: pointer;
-        }
-    }
-
-    textarea {
-        font-family: Rubik, sans-serif;
-        font-style: normal;
-        align-items: center;
-        color: #4A4A4A;
-        font-size: 18px;
-        padding: 10px;
-        border: 1px solid #D6D6D6;
-    }
-
-    .headlines-task {
-        margin-top: 20px;
-        margin-bottom: 10px;
-
-        img {
-            margin-left: 10px;
-        }
-    }
+    .new-task-container {}
 
     .new-task-title {
         text-align: right;
@@ -74,14 +37,109 @@
         }
     }
 
+    .headlines-task {
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        img {
+            margin-left: 10px;
+        }
+    }
+
+    textarea {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        align-items: center;
+        color: #4A4A4A;
+        font-size: 18px;
+        padding: 10px;
+        border: 1px solid #D6D6D6;
+    }
+
+    .labels {
+        max-width: 800px;
+
+        .labels-container {
+            flex-wrap: wrap;
+
+            span p {
+                padding: 10px;
+                margin: 3px;
+                border-radius: 3px;
+            }
+
+            span img {
+                padding: 5px;
+                margin: 5px;
+                border-radius: 5px;
+                background-color: $plusBackground;
+                cursor: pointer;
+            }
+
+            span img:hover {
+                background-color: rgba($plusBackground, 0.7);
+            }
+        }
+    }
+
+
+    .assigned-task {
+        margin-left: 35px;
+
+        object {
+            width: 35px;
+        }
+
+        span {
+            text-align: center;
+            margin: 10px;
+        }
+
+        span img {
+            border-radius: 50%;
+            padding: 5px;
+            background-color: $plusBackground;
+            cursor: pointer;
+        }
+
+        span img:hover {
+            background-color: rgba($plusBackground, 0.7);
+        }
+    }
+
     .chat-task {
         object {
             width: 45px;
             height: 45px;
             margin-left: 20px;
         }
+    }
 
+    .attachments-container {
+        max-width: 400px;
+        flex-wrap: wrap;
 
+        .each-file-task {
+
+            margin: 15px;
+            text-align: center;
+
+            span:hover {
+                cursor: pointer;
+            }
+        }
+
+        span img {
+            background-color: $plusBackground;
+            padding: 5px;
+            margin: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        span img:hover {
+            background-color: rgba($plusBackground, 0.7);
+        }
     }
 
     .submit-task {
@@ -95,9 +153,14 @@
             border-radius: 2px 15px;
             font-size: 1em;
             padding: 1% 6% 1% 6%;
-            margin: 60px 60px 60px 10px;
+            margin: 80px 60px 60px 10px;
             color: white;
             text-decoration: none;
+            transition: 0.5s;
+        }
+
+        span:hover {
+            background-color: rgba($clr7, 0.85);
         }
     }
 }
