@@ -1,24 +1,41 @@
 import React from 'react';
 import { attachment_image, plus_sign } from '../../assets/images/icons';
 
+
 export const HeadlinesTask = ({ title, icon }) => {
     return (
         <div className="headlines-task flex align-center">
-            <img src={icon} alt="image crush" />
+            {icon && <img src={icon} alt="image crush" />}
             <h3>{title}</h3>
         </div>
     )
 }
-export const AssignedTask = (areAssigned) => {
+export const Labels = ({ labels }) => {
     return (
-        <div>
-            {/* {
-                areAssigned.map(person => {
-                    return <div>
+        <div className="labels-container flex align-center">
+            {labels.map(({ name, color }, i) => {
+                return (
+                    <span>
+                        <p style={{ background: color }}>{name}</p>
+                    </span>
 
-                    </div>
-                })
-            } */}
+                )
+            })}
+            <span><img src={plus_sign} alt="square plus" /></span>
+        </div>
+    )
+}
+
+export const AssignedTask = ({ areAssigned }) => {
+    return (
+        <div className="flex ">
+            {areAssigned.map(person => {
+                return <span className="justify-center align-center">
+                    <object data={person.img} type="image/svg+xml" />
+                    <p>{person.name}</p>
+                </span>
+            })
+            }
             <span><img src={plus_sign} alt="circle plus" /></span>
         </div>
     )
