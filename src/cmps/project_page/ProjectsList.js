@@ -1,82 +1,102 @@
-import React, {useState} from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import IconButton from "@mui/material/IconButton";
+import React, {useContext, useEffect, useState} from 'react';
 import projectsDAL from "../../adapters/TMS/projectsDAL";
+import MaterialTable from "material-table";
+import StoreContext from "../../contexts/storeContext";
+import {loadProjects} from "../../store/projects";
 
 
 const ProjectsList = (props) => {
-    const [showAction, setShowAction] = useState({});
 
     const deleteProject = async (id) => await projectsDAL.deleteProject(id);
+    //
+    // const [columns, setColumns] = useState([
+    //     {title: 'Project', field: 'projectName'},
+    //     {title: 'Description', field: 'description', initialEditValue: 'initial edit value'},
+    //     {title: 'Start Date', field: 'startDate', type: 'date'},
+    //     {title: 'End Date', field: 'endDate', type: 'date'},
+    //     {
+    //         title: 'Status',
+    //         field: 'projectStatus',
+    //         lookup: {34: 'COMPLETED', 63: 'STARTED'},
+    //     },
+    // ]);
+    //
+    //
+    // const store = useContext(StoreContext);
+    // const [data, setData] = useState([]);
+    //
+    // useEffect(() => {
+    //
+    //     store.subscribe(() => {
+    //         const projectsInStore = store.getState().entities.projects.list;
+    //         // console.log(projectsInStore)
+    //         if(data !== projectsInStore) setData(projectsInStore);
+    //         console.log(data)
+    //     });
+    //
+    //     store.dispatch(loadProjects());
+    //
+    // }, [])
+
+
+    const [columns, setColumns] = useState([
+        { title: 'Name', field: 'name' },
+        { title: 'Surname', field: 'surname', initialEditValue: 'initial edit value' },
+        { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
+        {
+            title: 'Birth Place',
+            field: 'birthCity',
+            lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
+        },
+    ]);
+
+    const [data, setData] = useState([
+        { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+        { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+    ]);
 
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{minWidth: 650}} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell/>
-                        <TableCell align="center">Project Name</TableCell>
-                        <TableCell align="center">Description</TableCell>
-                        <TableCell align="center">Start Date</TableCell>
-                        <TableCell align="center">End Date</TableCell>
-                        <TableCell align="center">Status</TableCell>
+        <div>
+            <MaterialTable
+                title="Projects"
+                columns={columns}
+                data={data}
+                editable={{
+                    onRowAdd: newData =>
+                        new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                setData([...data, newData]);
 
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {props.rows.map((row, index) => (
-                        <TableRow
-                            key={index}
-                            sx={{'&:last-child td, &:last-child th': {border: 0}}}
-                            onMouseEnter={() => setShowAction({id: row.id, show: true})}
-                            onMouseLeave={() => setShowAction({id: '', show: false})}
-                        >
-                            <TableCell
-                                component="th"
-                                scope="row"
-                                align="center"
-                            >
-                                {
-                                    showAction.show
-                                    && showAction.id === row.id
-                                    && <>
-                                        <IconButton
-                                            aria-label="delete"
-                                            size="small"
-                                            color="secondary"
-                                            onClick={() => deleteProject(row.id)}
-                                        >
-                                            <DeleteIcon fontSize="inherit"/>
-                                        </IconButton>
-                                        <IconButton aria-label="edit" size="small" color="success">
-                                            <EditIcon fontSize="inherit"/>
-                                        </IconButton>
-                                    </>
-                                }
+                                resolve();
+                            }, 1000)
+                        }),
+                    onRowUpdate: (newData, oldData) =>
+                        new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                const dataUpdate = [...data];
+                                const index = oldData.tableData.id;
+                                dataUpdate[index] = newData;
+                                setData([...dataUpdate]);
 
-                            </TableCell>
-                            <TableCell align="left">{row.projectName}</TableCell>
-                            <TableCell align="center">
+                                resolve();
+                            }, 1000)
+                        }),
+                    onRowDelete: oldData =>
+                        new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                const dataDelete = [...data];
+                                const index = oldData.tableData.id;
+                                dataDelete.splice(index, 1);
+                                setData([...dataDelete]);
 
-                                {row.description}
-                            </TableCell>
-                            <TableCell align="center">{row.startDate && row.startDate.slice(0, 10)}</TableCell>
-                            <TableCell align="center">{row.endDate && row.endDate.slice(0, 10)}</TableCell>
-                            <TableCell align="center">{row.projectStatus}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    );
+                                resolve()
+                            }, 1000)
+                        }),
+                }}
+            />
+        </div>
+
+    )
 };
 
 export default ProjectsList;
