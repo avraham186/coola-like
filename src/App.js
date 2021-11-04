@@ -11,17 +11,16 @@ export function App() {
                 <AppNav/>
                 <Switch>
                     {
-                        routes
-                            .map(route => {
-                                return (
-                                    <Route
-                                        key={route.path}
-                                        exact
-                                        component={route.component}
-                                        path={route.path}
-                                    />
-                                )
-                            })
+                        routes.map(route => {
+                            return (
+                                <Route
+                                    key={route.path}
+                                    exact
+                                    component={route.component}
+                                    path={route.path}
+                                />
+                            )
+                        })
                     }
                 </Switch>
                 <AppFooter/>

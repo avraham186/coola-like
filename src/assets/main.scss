@@ -20,7 +20,8 @@
 @import './cmps/app-navbar';
 
 //new-task-components
-@import './cmps/new-task/new-task-sidebar';
+@import './cmps/tasks-page/new-task';
+@import './cmps/tasks-page/new-task-sidebar';
 
 //views
 @import './views/home-page';

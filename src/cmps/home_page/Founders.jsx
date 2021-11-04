@@ -16,14 +16,14 @@ export const Founders = (props) => {
               key={person.name}
             >
               <object
-                className="person-img"
-                data={person.img}
-                width="140"
-                height="138"
-              ></object>
+    className="person-img"
+    data={person.img}
+    width="140"
+    height="138"
+    />
               <div className="founder-content justify-center align-center">
                 <span className="person-name">
-                  <object data={LinkIcon} width="24" height="23.8"></object>{" "}
+                  <object data={LinkIcon} width="24" height="23.8"/>{" "}
                   {""}
                   {person.name}
                 </span>
