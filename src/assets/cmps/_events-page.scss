@@ -2,7 +2,7 @@
     
 .eventsPage{
     
-    
+   
     background-image: url('../images/eventsBG.jpg') ;
     width: 100%;
     background-repeat: no-repeat;
@@ -34,17 +34,12 @@
             display: flex;
             flex-flow: row wrap-reverse;
             justify-content: right;
-            // width: 25%;
             label{
                 margin-left: 7%;
                 display: flex;
                 align-items: center;
 
                 input[type=checkbox]{
-                    // margin: 0;
-                    // margin-left: 2px;
-                    // text-align: center;
-                    // background-color: black;
                     appearance: none;
                     -webkit-appearance: none;
                     height: 12.5px;
@@ -65,7 +60,8 @@
                     font-size: 10px;
                     color: rgba(108, 229, 231, 1);
                     display: none;
-                }
+                  }
+
                 input[type=checkbox]:hover{
                     background-color: #34018E;
                 }
@@ -82,17 +78,24 @@
     .searchBar{
         display: flex;
         flex-direction: row;
-        //border: 1px solid grey;
-        border-radius: 3%;
+        height: 35px;
+        border: 1px solid rgba(43, 43, 43, 0.493);
+        background-color: white;
+        border-radius: 12px;
+        width: 25%;
+     
 
         .searchInput{
-            border: 1px solid black;
+            text-indent: 2px;
+            border: 0;
             border-left: none;
             direction: rtl;
             width: 100%;
             flex-grow: 2;
             position: relative;
-            background-color: white;
+            background-color: transparent;
+            font-family: 'Rubik';
+            
         }
     
         .searchInput:focus{
@@ -100,16 +103,20 @@
         }
     
         .search_logo{
-            border-radius: 20%;
+            position: relative;
+            border-radius: 10px;
             color: #ffffff;
             font-size: medium;
+            
+            opacity: .5;
             background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
         }
     
         .search_logo:hover{
-    
-            background: linear-gradient(to bottom, rgb(46, 1, 126) 0%, rgb(92, 197, 199) 100%); 
+            opacity: .75;
+            
         }
+
         }
 
 
@@ -154,7 +161,7 @@
             top: -8%;
             left: 60%;
             color: #ffffff;
-            background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);        
+            background: linear-gradient(to bottom, rgba(53, 1, 142, 0.678) 0%, rgba(108, 229, 231, 0.61) 100%);        
         }
 
         .inButton:hover{
