@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ContentTask } from './ContentTask';
 import { NewTaskModal } from './NewTaskModal'
 import { SideBar } from './SideBar';
-import { AssignedPpl } from './AssignedPpl';
+import AddTags from './AddTags';
 
 const NewTask = () => {
     const [togglePeopleAssigned, setTogglePeopleAssigned] = useState(false)
@@ -20,12 +20,12 @@ const NewTask = () => {
         setToggleModal()
     }
     const whichComponent = () => {
-        if (togglePeopleAssigned) {
-            return {
-                Comp: AssignedPpl,
-                closeModal
-            }
-        }
+        // if (togglePeopleAssigned) {
+        //     return {
+        //         Comp: AssignedPpl,
+        //         closeModal
+        //     }
+        // }
         if (toggleChoosenDate) {
             return {
                 // component: <ChooseDate />,
@@ -34,7 +34,7 @@ const NewTask = () => {
         }
         if (toggleLables)
             return {
-                // component: <Lables />,
+                component: AddTags,
                 closeModal
             }
         if (toggleFiles)
@@ -46,11 +46,7 @@ const NewTask = () => {
         return
     }
     return (
-<<<<<<< HEAD
         <div className="main-task justify-center flex">
-=======
-        <div className="main-task justify-center flex" >
->>>>>>> 23e17e2501516d6f328b68b2f444b593ed2d1442
             <ContentTask />
             <SideBar
                 setTogglePeopleAssigned={setTogglePeopleAssigned}
@@ -58,6 +54,7 @@ const NewTask = () => {
                 setToggleLables={setToggleLables}
                 setToggleFiles={setToggleFiles}
                 setToggleModal={setToggleModal} />
+
             {toggleModal &&
                 <NewTaskModal Comp={whichComponent()}
                 />}

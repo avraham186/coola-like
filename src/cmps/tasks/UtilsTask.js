@@ -15,7 +15,7 @@ export const Labels = ({ labels }) => {
         <div className="labels-container flex align-center">
             {labels.map(({ name, color }, i) => {
                 return (
-                    <span>
+                    <span key={name}>
                         <p style={{ background: color }}>{name}</p>
                     </span>
 
@@ -30,7 +30,7 @@ export const AssignedTask = ({ areAssigned }) => {
     return (
         <div className="flex ">
             {areAssigned.map(person => {
-                return <span className="justify-center align-center">
+                return <span keys={person.name} className="justify-center align-center">
                     <object data={person.img} type="image/svg+xml" />
                     <p>{person.name}</p>
                 </span>
@@ -44,7 +44,7 @@ export const AttachmentsTask = ({ files }) => {
     return (
         <div className="attachments-container flex align-center">
             {files.map(({ name }) => {
-                return <div className="each-file-task">
+                return <div key={name} className="each-file-task">
                     <img src={attachment_image} alt="attachment image" />
                     <h3>{name}</h3>
                     <span>מחק</span>
@@ -63,8 +63,9 @@ export const TextArea = ({ id, name, rows, cols, text }) => {
                 name={name}
                 rows={rows}
                 cols={cols}
-                maxlength="400"
-            >{text}</textarea>
+                maxLength="400"
+                placeholder={text}
+            />
         </div>
     )
 }
