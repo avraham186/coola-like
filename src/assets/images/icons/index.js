@@ -5,3 +5,6 @@ export { default as attachment_icon } from './attachment_icon.png';
 export { default as attachment_image } from './attachment_image.png';
 export { default as edit_pen } from './edit_pen.png';
 export { default as square_plus } from './square_plus.png';
+export { default as userIcon } from './new-task-sidebar-user.png';
+export { default as added } from './assined-peoples-added.png';
+export { default as closeIcon } from './closeIcon.png';
