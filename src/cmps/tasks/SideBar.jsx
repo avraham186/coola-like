@@ -5,24 +5,28 @@ import label from "../../assets/images/icons/new-task-sidebar-label.png";
 import files from "../../assets/images/icons/new-task-sidebar-files.png";
 import erase from "../../assets/images/icons/new-task-sidebar-erase.png";
 
-export const SideBar = (props) => {
+export const SideBar = ({ setToggleMode }) => {
 
     const assignToMission = () => {
-        props.setTogglePeopleAssigned(prev => !prev)
-        props.setToggleModal(prev => !prev)
+        setToggleMode(p => ({ ...p, pplAssigned: !p.pplAssigned }))
+        // props.setTogglePeopleAssigned(prev => !prev)
+        // props.setToggleModal(prev => !prev)
         console.log('assigned');
     }
     const chooseEndDate = () => {
         // props.onChooseEndDate()
         // props.setToggleModal(prev => !prev)
+        setToggleMode(p => ({ ...p, dueDate: !p.dueDate }))
         console.log('date choosed');
     }
     const chooseLables = () => {
-        // props.onChooseLables()
+        setToggleMode(p => ({ ...p, label: !p.label }))
+        // props.setToggleLables(prev => !prev)
         // props.setToggleModal(prev => !prev)
-        console.log('lable choosed');
+        // console.log('lable choosed');
     }
     const uploadFiles = () => {
+        setToggleMode(p => ({ ...p, file: !p.file }))
         // props.onUploadFiles()
         // props.setToggleModal(prev => !prev)
         console.log('file upload');
