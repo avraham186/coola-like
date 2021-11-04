@@ -92,7 +92,7 @@
             width: 100%;
             flex-grow: 2;
             position: relative;
-
+            background-color: white;
         }
     
         .searchInput:focus{
@@ -100,7 +100,7 @@
         }
     
         .search_logo{
-            border-radius: 25%;
+            border-radius: 20%;
             color: #ffffff;
             font-size: medium;
             background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
