@@ -16,8 +16,6 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <AddFile/>
-      <AddTags/>
       <Events />
       <Jobs />
       <Founders persons={persons} />
