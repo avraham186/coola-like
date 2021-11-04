@@ -19,11 +19,7 @@ const slice = createSlice({
             projects.lastFetch = Date.now();
         },
         projectAdded: (projects, action) => {
-            projects.list.push(
-                {
-                    description: action.payload.description,
-                }
-            );
+            projects.list.push(action.payload);
         },
         projectsRequestFailed: (projects, action) => {
             projects.loading = false;
@@ -40,13 +36,20 @@ export const {
 export default slice.reducer;
 
 // Action Creators
-const url = "/api/projects/";
+const url = process.env.REACT_APP_PROJECT;
 
 export const loadProjects = () => apiCallBegan({
     url,
     onStart: projectsRequested.type,
     onSuccess: projectsReceived.type,
     onError: projectsRequestFailed.type
+});
+
+export const addProject = project => apiCallBegan({
+    url,
+    method: "post",
+    data: project,
+    onSuccess: projectAdded.type
 });
 
 // Selector
