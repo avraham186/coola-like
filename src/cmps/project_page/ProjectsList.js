@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import projectsDAL from "../../adapters/TMS/projectsDAL";
 import {loadProjects} from "../../store/projects";
 import {useDispatch, useSelector} from "react-redux";
@@ -13,23 +13,36 @@ const ProjectsList = () => {
 
     useEffect(() => {
         dispatch(loadProjects());
-
+        console.log(projects.list)
     }, [])
 
 
     return (
-        <div>
+        <div className="projects-table">
+            {
+                projects.list.map((v, i) => {
+                    return (
+                        <div className="projects-row">
 
-                {
-                    projects.list.map((v, i) => {
-                        return (
-                            <Paper elevation={3} >
+                            <Paper elevation={3} className="row-item" >
                                 {v.projectName}
                             </Paper>
-                        )
-                    })
-                }
-
+                            <Paper elevation={3} className="row-item" >
+                                {v.description}
+                            </Paper>
+                            <Paper elevation={3} className="row-item" >
+                                {v.startDate}
+                            </Paper>
+                            <Paper elevation={3} className="row-item" >
+                                {v.endDate}
+                            </Paper>
+                            <Paper elevation={3} className="row-item" >
+                                {v.projectStatus}
+                            </Paper>
+                        </div>
+                    )
+                })
+            }
         </div>
 
     )

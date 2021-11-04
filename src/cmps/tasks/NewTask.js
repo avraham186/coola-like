@@ -46,7 +46,11 @@ const NewTask = () => {
         return
     }
     return (
+<<<<<<< HEAD
         <div className="main-task justify-center flex">
+=======
+        <div className="main-task justify-center flex" >
+>>>>>>> 23e17e2501516d6f328b68b2f444b593ed2d1442
             <ContentTask />
             <SideBar
                 setTogglePeopleAssigned={setTogglePeopleAssigned}
