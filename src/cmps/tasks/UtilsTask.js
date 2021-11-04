@@ -15,7 +15,7 @@ export const Labels = ({ labels }) => {
         <div className="labels-container flex align-center">
             {labels.map(({ name, color }, i) => {
                 return (
-                    <span key={name}>
+                    <span key={i}>
                         <p style={{ background: color }}>{name}</p>
                     </span>
 
@@ -29,8 +29,8 @@ export const Labels = ({ labels }) => {
 export const AssignedTask = ({ areAssigned }) => {
     return (
         <div className="flex ">
-            {areAssigned.map(person => {
-                return <span keys={person.name} className="justify-center align-center">
+            {areAssigned.map((person, i) => {
+                return <span key={i} className="justify-center align-center">
                     <object data={person.img} type="image/svg+xml" />
                     <p>{person.name}</p>
                 </span>
@@ -43,8 +43,8 @@ export const AssignedTask = ({ areAssigned }) => {
 export const AttachmentsTask = ({ files }) => {
     return (
         <div className="attachments-container flex align-center">
-            {files.map(({ name }) => {
-                return <div key={name} className="each-file-task">
+            {files.map(({ name }, i) => {
+                return <div key={i} className="each-file-task">
                     <img src={attachment_image} alt="attachment image" />
                     <h3>{name}</h3>
                     <span>מחק</span>

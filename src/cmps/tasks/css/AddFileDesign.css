@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-.style{
+.style {
     font-family: 'Rubik', sans-serif;
-    font-weight:200;
+    font-weight: 200;
 }
-.boxStyle{
+
+.boxStyle {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -20,6 +21,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .dropZone {
     display: flex;
     justify-content: center;
@@ -34,6 +36,7 @@
     border: 1px solid #b8b8b8;
 
 }
+
 .chooseFromPC {
     padding: 8px;
     width: 100px;
@@ -41,7 +44,8 @@
     text-align: center;
     color: #4A4A4A;
 }
-.addLinkInput{
+
+.addLinkInput {
     font-size: 15px;
     font-family: 'Rubik', sans-serif;
     text-align: right;
@@ -53,11 +57,13 @@
     margin-bottom: 15px;
 
 }
-.addLinkText{
+
+.addLinkText {
     font-family: 'Rubik', sans-serif;
     text-align: right;
 }
-.addLinkButton{
+
+.addLinkButton {
     width: 270px;
     border: 0;
     border-radius: 2px;
@@ -69,7 +75,8 @@
     margin-bottom: 10px;
 
 }
-.addTag{
+
+.addTag {
     width: 270px;
     background-color: #F2F2F2;
     font-family: 'Rubik';
@@ -81,17 +88,20 @@
     border: 0;
     border-radius: 3px;
 }
-.tagsContainer{
+
+.tagsContainer {
     display: flex;
     flex-direction: column;
     width: 250;
     margin: 10px;
 }
-.tagContainer{
+
+.tagContainer {
     display: flex;
     margin-bottom: 8px;
 }
-.tag{
+
+.tag {
     width: 250px;
     height: 28px;
     border-radius: 4px;
