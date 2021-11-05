@@ -4,6 +4,7 @@ import closeIcon from "./assets/close.png";
 import added from "./assets/added.png";
 import { setSelectedUsers, setUsers } from "../../store/actions/taskAction";
 import { useSelector, useDispatch } from "react-redux";
+import Date from "./Date.js";
 import "./NewTask.css";
 
 export const NewTask = () => {
@@ -20,51 +21,57 @@ export const NewTask = () => {
   );
 
   return (
-    <div className="container pt-2 task-con">
-      <div className="row" style={{ borderBottom: "1px solid gray" }}>
-        <div className="col-md-2 text-left">
-          <img src={closeIcon} />
+    <>
+      <div className="container pt-2 task-con">
+        <div className="row" style={{ borderBottom: "1px solid gray" }}>
+          <div className="col-md-2 text-left">
+            <img src={closeIcon} />
+          </div>
+          <div className="col-md-10 text-center">
+            מוקצים למשימה <img src={userIcon} />
+          </div>
         </div>
-        <div className="col-md-10 text-center">
-          מוקצים למשימה <img src={userIcon} />
+        <div className="row text-center pt-2 pb-2">
+          <div className="col">
+            <input
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              style={{
+                textAlign: "right",
+                width: "100%",
+                height: "40px",
+                border: "1px solid lightgray",
+              }}
+              type="text"
+              placeholder="..חפש משתמש"
+            />
+          </div>
         </div>
-      </div>
-      <div className="row text-center pt-2 pb-2">
-        <div className="col">
-          <input
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            style={{
-              textAlign: "right",
-              width: "100%",
-              height: "40px",
-              border: "1px solid lightgray",
-            }}
-            type="text"
-            placeholder="..חפש משתמש"
-          />
+        <div className="row">
+          <div className="col">
+            <select size="10" style={{ width: "100%" }}>
+              {filteredQuery?.map((user, index) => (
+                <>
+                  <option key={index}>
+                    {user.firstName} , {user.lastName}
+                  </option>
+                </>
+              ))}
+            </select>
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col">
-          <select size="10" style={{ width: "100%" }}>
-            {filteredQuery?.map((user, index) => (
-              <>
-                <option>
-                  {user.firstName} , {user.lastName}
-                </option>
-              </>
-            ))}
-          </select>
+
+        <div className="row">
+          <div className="col text-center pt-3 pb-2">
+            <button className="save-btn">שמור</button>
+          </div>
         </div>
       </div>
 
-      <div className="row">
-        <div className="col pt-3">
-          <button className="save-btn">שמור</button>
-        </div>
+      <div className="container pt-5">
+        <Date />
       </div>
-    </div>
+    </>
   );
 };

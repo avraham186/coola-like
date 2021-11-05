@@ -5,7 +5,10 @@
   border: 1px solid lightgrey;
 }
 .save-btn {
-  width: 100%;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 40px;
+  width: 50%;
   color: whitesmoke;
   background-color: #34018e;
 }
