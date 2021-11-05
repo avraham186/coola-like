@@ -37,9 +37,10 @@ const EventCard = () => {
                     
                     
                     <span className="video">
-                        <IconButton className="videoIcon">
+                        <span className="videoIcon"></span>
+                        {/* <IconButton className="videoIcon">
                             <VideocamIcon fontSize="small"/>
-                        </IconButton>
+                        </IconButton> */}
                         קישור יישלח בסמוך לשעה 
                     </span>
 

@@ -34,10 +34,23 @@
             display: flex;
             flex-flow: row wrap-reverse;
             justify-content: right;
+
+            .row{
+                display: flex;
+                flex-wrap: wrap;
+                
+                // width: 100%;
+                // justify-content: right;
+            }
+            .col{
+                display: flex;
+                justify-content: right;
+            }
             label{
-                margin-left: 7%;
+                //margin-left: 7%;
                 display: flex;
                 align-items: center;
+                margin-left: 10px;
 
                 input[type=checkbox]{
                     appearance: none;
@@ -52,7 +65,9 @@
                     align-items: center;
                     justify-content: center;
                     align-content: center;
+                    
                 }
+                
                 input[type=checkbox]:after{
                     font-family: "Font Awesome 6 Free";
                     content:"\f00c";
@@ -107,21 +122,15 @@
             border-radius: 10px;
             color: #ffffff;
             font-size: medium;
-            
             opacity: .5;
             background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
         }
     
         .search_logo:hover{
             opacity: .75;
-            
         }
 
         }
-
-
-        
-    
     }
 
     .eventsCards{
@@ -203,14 +212,29 @@
             display: flex;
             flex-direction: row;
             font-size: x-small;
+            align-items: center;
+            justify-content: space-between;
+            width: 125px;
+            margin: 0;
         }
-
+        
         .videoIcon{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: #34018E;
-            color: white;
-            width: 3px;
-            height: 3px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
         }
+        .videoIcon:after{
+            font-family: "Font Awesome 6 Free";
+            content: '\f03d';
+            font-weight: 900;
+            color: white;
+            font-size: 8px;
+            }
     
           .events-button {
             border: 3px solid #34018E;

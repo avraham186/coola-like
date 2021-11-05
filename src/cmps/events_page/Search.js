@@ -13,29 +13,41 @@ const Search = () => (
         </div>
 
         <form action="#" method="POST" className="checkboxs">
-            
-             <label htmlFor="hrdwr">      חומרה  
-               <input type="checkbox" name="hrdwr" defaultValue="hrdware" /></label>
 
-             <label htmlFor="ui">     UI/UX       
+            <div className="row">
+            <label htmlFor="hrdwr"  className="col">      חומרה  
+               <input type="checkbox" name="hrdwr" defaultValue="hrdware" />
+            </label>
+
+            <label htmlFor="ui" className="col">     UI/UX       
                <input type="checkbox" name="ui" defaultValue="ui" />
-               
-               </label>
+            </label>
 
-             <label htmlFor="sys">   הנדסת מערכות    
-               <input type="checkbox" name="sys" defaultValue="system" /></label>
+            <label htmlFor="sys" className="col">   הנדסת מערכות    
+               <input type="checkbox" name="sys" defaultValue="system" />
+            </label>
 
-             <label htmlFor="prgrm"> פיתוח תוכנה  
-               <input type="checkbox" name="prgrm" defaultValue="program" /></label>
+            </div>
+            
+            <div className="row">
 
-             <label htmlFor="cyber"> אבטחת מידע וסייבר 
-               <input type="checkbox" name="cyber" defaultValue="cyber" /></label>
+            <label htmlFor="prgrm" className="col"> פיתוח תוכנה  
+               <input type="checkbox" name="prgrm" defaultValue="program" />
+            </label>
 
-             <label htmlFor="qa">     בדיקות תוכנה 
-               <input type="checkbox" name="qa" defaultValue="qa" /></label>
+            <label htmlFor="cyber" className="col"> אבטחת מידע וסייבר 
+               <input type="checkbox" name="cyber" defaultValue="cyber" />
+            </label>
 
-             <label htmlFor="all">   סמן הכל 
-               <input type="checkbox" name="all" defaultValue="all" /></label>
+            <label htmlFor="qa" className="col">     בדיקות תוכנה 
+               <input type="checkbox" name="qa" defaultValue="qa" />
+            </label>
+
+            <label htmlFor="all" className="col">   סמן הכל 
+               <input type="checkbox" name="all" defaultValue="all" />
+            </label>
+            
+            </div>
 
         </form>
 
