@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState} from 'react';
 import EmptyProjects from "../cmps/project_page/EmptyProjects";
-import projectsDAL from "../adapters/TMS/projectsDAL";
 import ProjectsList from "../cmps/project_page/ProjectsList";
-import { Button } from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -16,9 +15,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import {useDispatch, useSelector} from "react-redux";
-import {addProject, loadProjects} from "../store/projects";
-
+import {useDispatch} from "react-redux";
+import {addProject} from "../store/projects";
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
@@ -29,54 +27,45 @@ const ProjectPage = () => {
     const [endDate, setEndDate] = useState(new Date());
     const [projectStatus, setProjectStatus] = useState('')
 
-    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
+    const statusOptions = ['COMPLETED', 'STARTED', 'IN_PROCESS', 'CANCELED', 'DELAY']
 
     const dispatch = useDispatch();
 
-    const handleChangeStart = (newValue) => {
-        setStartDate(newValue);
-    };
-
-    const handleChangeEnd = (newValue) => {
-        setEndDate(newValue);
-    };
-
-    const handleStatus = (event) => {
-        setProjectStatus(event.target.value);
-    };
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = async () => {
-        setOpen(false);
-    };
-
     const handleAdd = async () => {
         setOpen(false);
+        let startDateSer = JSON.stringify(startDate)
+        let endDateSer = JSON.stringify(endDate)
+
         const obj = {
             projectName,
             description,
+            startDateSer,
+            endDateSer,
             projectStatus
         }
+
+
+        console.log(startDateSer, endDateSer)
         dispatch(addProject(obj));
     };
 
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <Button variant="outlined" onClick={() => setOpen(true)}>
                 Add new project
             </Button>
 
-            <br /><br />
+            <br/><br/>
 
             {
-                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
+                !projects ? <EmptyProjects/> : <ProjectsList rows={projects}/>
             }
 
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog open={open} onClose={() => setOpen(false)}>
+
+                {/*<NewTask />*/}
+
                 <DialogTitle>Add new project</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -105,7 +94,7 @@ const ProjectPage = () => {
                             id="select"
                             value={projectStatus}
                             label="Status"
-                            onChange={handleStatus}
+                            onChange={(event) => setProjectStatus(event.target.value)}
                         >
                             {
                                 statusOptions.map((x, index) => {
@@ -115,28 +104,28 @@ const ProjectPage = () => {
 
                         </Select>
                     </FormControl>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DesktopDatePicker
                             label="Start Date"
                             inputFormat="dd/MM/yyyy"
                             value={startDate}
-                            onChange={handleChangeStart}
+                            onChange={(newValue) => setStartDate(newValue)}
                             renderInput={(params) => <TextField {...params} />}
-                        /><br /><br />
+                        /><br/><br/>
                         <DesktopDatePicker
                             label="End desktop"
                             inputFormat="dd/MM/yyyy"
                             value={endDate}
-                            onChange={handleChangeEnd}
+                            onChange={(newValue) => setEndDate(newValue)}
                             renderInput={(params) => <TextField {...params} />}
                         />
                     </LocalizationProvider>
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={() => setOpen(false)}>Cancel</Button>
                     <Button onClick={handleAdd}>Add</Button>
                 </DialogActions>
             </Dialog>
