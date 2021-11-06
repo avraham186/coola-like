@@ -33,19 +33,13 @@ const ProjectPage = () => {
 
     const handleAdd = async () => {
         setOpen(false);
-        let startDateSer = JSON.stringify(startDate)
-        let endDateSer = JSON.stringify(endDate)
-
         const obj = {
             projectName,
             description,
-            startDateSer,
-            endDateSer,
+            startDate,
+            endDate,
             projectStatus
         }
-
-
-        console.log(startDateSer, endDateSer)
         dispatch(addProject(obj));
     };
 
@@ -63,9 +57,6 @@ const ProjectPage = () => {
             }
 
             <Dialog open={open} onClose={() => setOpen(false)}>
-
-                {/*<NewTask />*/}
-
                 <DialogTitle>Add new project</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
