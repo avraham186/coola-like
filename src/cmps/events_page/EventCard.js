@@ -2,58 +2,58 @@ import React from "react"
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
-import founder_img from '../../assets/images/coola_like_logo.png';
 import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import VideocamIcon from '@mui/icons-material/Videocam';
 
 
-const EventCard = () => {
+const EventCard = (props) => {
+
+        const source = "../../assets/images/founders-imgs/"
+
     return (
-    <div className="event-card"> 
-    
-        <Card className="card">
-            <CardMedia
-                className="card-img"
-                component="img"
-                height="200"
-                image={founder_img}
-                alt="event"
-            />
 
-            <IconButton className="inButton" >
-                    <LinkedInIcon className="inIcon" fontSize="small"/>
-            </IconButton>
+        <div className="event-card">
 
-            <CardActions className="card-footer">
-                    
-                    <h3 className="date_HL">יום ראשון 24/10</h3>
-                    <span className="time_HL">בשעה 20:00</span>
+            <Card className="card">
+                <CardMedia
+                    className="card-img"
+                    component="img"
+                    height="200"
+                    alt="founderImg"
+                    src=  {source+props.event.img}
+                />
 
-                    <h3 className="subject_HL">לבנות מותג בלינדקאין כדי למצוא עבודה ראשונה</h3>
+                <IconButton className="inButton" >
+                    <LinkedInIcon className="inIcon" fontSize="small" />
+                </IconButton>
 
-                    <hr/>
-                    <h5 className="lecture_HL">מציג: #כולא_לייק</h5>
-                    
-                    
+                <CardActions className="card-footer">
+
+                    <h3 className="date_HL">{props.event.date + ' ' + props.event.day}</h3>
+                    <span className="time_HL">בשעה {props.event.hour}</span>
+
+                    <h3 className="subject_HL"> {props.event.subject} </h3>
+
+                    <hr />
+                    <h5 className="lecture_HL">מציג: {props.event.lecturer} </h5>
+
+
                     <span className="video">
                         <span className="videoIcon"></span>
-                        {/* <IconButton className="videoIcon">
-                            <VideocamIcon fontSize="small"/>
-                        </IconButton> */}
-                        קישור יישלח בסמוך לשעה 
+                        קישור יישלח בסמוך לשעה
                     </span>
 
                     <input type="button" value="הירשם עכשיו" className="events-button" />
-                
-                    
-                    
 
-            </CardActions>
 
-        </Card>
-    </div>
+
+
+                </CardActions>
+
+            </Card>
+        </div>
     )
+
 }
 
 export default EventCard

@@ -28,7 +28,6 @@ export function AppNav() {
                     <li><Link to="/"><span>לוח משרות</span></Link></li>
                     <li><Link to="/pages/EventsPage.js"><span>אירועים</span></Link></li>
                     <li><Link to="/"><span>טיפים ומידע</span></Link></li>
-                    {/* <li><Link to="/projects">projects (test)</Link></li> */}
                 </ul>
 
                 <Link to="/">
