@@ -1,0 +1,292 @@
+.modals {
+  font-family: "Rubik", sans-serif;
+  font-weight: 200;
+
+  .box-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    text-align: center;
+    color: #4a4a4a;
+    box-shadow: 24px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+
+    .add-files-headline {
+      width: 100%;
+      // border-bottom: 1px solid #787878;
+      // padding: 10px 0px 10px 0px;
+      .add-files-title {
+        width: 102px;
+        font-size: rem(18px);
+        flex-basis: 170px;
+        justify-content: flex-end;
+      }
+      .btn-close {
+        width: 25px;
+        height: 25px;
+        flex-basis: 25px;
+        justify-self: flex-end;
+      }
+    }
+    .drag-drop-file {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: right;
+      border-radius: 3px;
+      margin: 2rem;
+      padding: 2rem;
+      width: 200px;
+      height: 100px;
+      border: 1px solid #b8b8b8;
+
+      .choose-from-pc {
+        padding: 8px;
+        width: 100px;
+        background-color: #e7e7e7;
+        text-align: center;
+        color: #4a4a4a;
+      }
+    }
+
+    .add-link-text {
+      font-size: 15px;
+      text-align: right;
+      border: 1px solid #b8b8b8;
+      border-radius: 3px;
+      width: 250px;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    .label-modal {
+      .label-headline {
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+        .label-title {
+          width: 102px;
+          font-size: rem(18px);
+          flex-basis: 170px;
+          justify-content: flex-end;
+        }
+        .btn-close {
+          width: 25px;
+          height: 25px;
+          flex-basis: 25px;
+          justify-self: flex-end;
+        }
+      }
+      .add-link-input {
+        // width: 150px;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        margin: 10px;
+      }
+
+      .labels {
+        display: flex;
+        flex-direction: column;
+        width: 250;
+        margin: 10px;
+
+        .label-container {
+          display: flex;
+          margin-bottom: 8px;
+
+          .label {
+            width: 250px;
+            height: 28px;
+            border-radius: 4px;
+            background-color: blue;
+            margin-left: 5px;
+          }
+        }
+      }
+
+      .add-label {
+        width: 270px;
+        background-color: #f2f2f2;
+        font-family: "Rubik";
+        padding: 8px;
+        color: #4a4a4a;
+        margin-bottom: 8px;
+        font-size: 15px;
+        font-weight: 100;
+        border: 0;
+        border-radius: 3px;
+      }
+    }
+
+    .ppl-assigned-headline {
+      width: 100%;
+      padding: 10px 0px 10px 0px;
+      .ppl-assigned-title {
+        width: 102px;
+        font-size: rem(18px);
+        flex-basis: 170px;
+        justify-content: flex-end;
+      }
+      .btn-close {
+        width: 25px;
+        height: 25px;
+        flex-basis: 25px;
+        justify-self: flex-end;
+      }
+    }
+    .users-assigned {
+      width: 100%;
+
+      .each-user {
+        cursor: pointer;
+        direction: rtl;
+        margin: auto 10px auto auto;
+      }
+    }
+
+    .close_sign {
+      cursor: pointer;
+
+      .close_sign:hover {
+        background-color: rgba(194, 194, 194, 0.2);
+        border-radius: 15px;
+        transition: 0.5s;
+      }
+    }
+
+    .new-task-due-date-style {
+      // font-family: Rubik-regular, sans-serif;
+      height: 100%;
+      .due-date-headline {
+        width: 100%;
+        border-bottom: 1px solid #787878;
+        padding: 10px 0px 10px 0px;
+        .due-date-title {
+          width: 102px;
+          font-size: rem(18px);
+          flex-basis: 170px;
+          justify-content: flex-end;
+        }
+        .btn-close {
+          width: 25px;
+          height: 25px;
+          flex-basis: 25px;
+          justify-self: flex-end;
+        }
+      }
+      .due-date-start-date-headline {
+        color: #4a4a4a;
+        width: 100%;
+        justify-content: flex-end;
+        padding: 10px 0px 10px 0px;
+        label {
+          input {
+            width: rem(20px);
+            height: rem(20px);
+          }
+        }
+      }
+      .due-date-start-date-body {
+        justify-content: flex-end;
+        width: 300px;
+        flex-basis: 80%;
+        input {
+          text-transform: uppercase;
+          color: #4a4a4a;
+          background-color: #f2f2f2;
+          height: rem(34px);
+          border: 1px solid lightgray;
+          margin: 0px 30px 0px 0px;
+        }
+      }
+      .due-date-end-date-headline {
+        width: 100%;
+        color: #4a4a4a;
+        justify-content: flex-end;
+        padding: 10px 0px 10px 0px;
+        label {
+          input {
+            width: rem(20px);
+            height: rem(20px);
+          }
+        }
+      }
+      .due-date-end-date-body {
+        justify-content: flex-end;
+        width: 100%;
+        flex-basis: 80%;
+        input[type="date"] {
+          color: #4a4a4a;
+          background-color: #f2f2f2;
+          width: rem(140px);
+          height: rem(34px);
+          font-size: rem(14px);
+          border: 1px solid lightgray;
+          margin: 0px 30px 0px 0px;
+        }
+        input[type="time"] {
+          color: #4a4a4a;
+          background-color: #f2f2f2;
+          width: rem(92px);
+          height: rem(34px);
+          font-size: rem(14px);
+          border: 1px solid lightgray;
+        }
+      }
+      .due-date-set-reminder-label {
+        width: 100%;
+        justify-content: flex-end;
+        color: #4a4a4a;
+        padding: 10px 0px 10px 0px;
+        label {
+          width: rem(85px);
+          font-size: rem(16px);
+          margin-right: 2px;
+        }
+      }
+      .due-date-set-reminder-select {
+        select {
+          direction: rtl;
+          color: #4a4a4a;
+          background-color: #f2f2f2;
+          font-size: rem(18px);
+          width: rem(261px);
+          height: rem(34px);
+          border: 1px solid lightgray;
+        }
+      }
+      .save-btn {
+        width: rem(153px);
+        height: rem(40px);
+        background-color: $clr1;
+        color: white;
+        margin: 30px 0px 30px 0px;
+      }
+    }
+
+    .save-modal-button {
+      width: 150px;
+      border: 0;
+      border-radius: 2px;
+      font-size: 15px;
+      border-radius: 5px 15px;
+      background-color: #34018e;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      margin: 10px;
+    }
+  }
+}

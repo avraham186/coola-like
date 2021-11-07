@@ -1,25 +1,19 @@
 import React, { useState, useCallback } from 'react';
 import { ContentTask } from './ContentTask';
-// import { NewTaskModal } from './NewTaskModal'
 import { SideBar } from './SideBar';
-import AddLabel from './AddLabel.jsx';
-import AddFile from './AddFile';
-import {DueDate} from './DueDate';
+import { AddLabel, AddFile, DueDate, PeopleAssigned } from './Modals';
 
 const NewTask = () => {
-
     const [toggleMode, setToggleMode] = useState({ label: false, pplAssigned: false, dueDate: false, file: false })
-
     const IsClicked = useCallback(() => {
         const isClicked = Object.keys(toggleMode).filter(k => toggleMode[k])
-
         switch (isClicked[0]) {
             case 'label':
                 return <AddLabel
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode} />
             case 'pplAssigned':
-                return <AddLabel
+                return <PeopleAssigned
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode} />
             case 'dueDate':
