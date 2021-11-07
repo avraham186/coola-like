@@ -1,83 +1,48 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { ContentTask } from './ContentTask';
-import { NewTaskModal } from './NewTaskModal'
+// import { NewTaskModal } from './NewTaskModal'
 import { SideBar } from './SideBar';
-import AddTags from './AddTags';
+import AddLabel from './AddLabel.jsx';
+import AddFile from './AddFile';
+import {DueDate} from './DueDate';
 
 const NewTask = () => {
-    // const [togglePeopleAssigned, setTogglePeopleAssigned] = useState(false)
-    // const [toggleChoosenDate, setToggleChoosenDate] = useState(false)
-    // const [toggleLables, setToggleLables] = useState(false)
-    // const [toggleFiles, setToggleFiles] = useState(false)
-    // const [toggleModal, setToggleModal] = useState(false)
-    const [toggleMode, setToggleMode] = useState(
-        ['label', 'pplAssigned', 'dueDate', 'file']
-            .map(v => ({ [v]: false }))
-    )
-    console.log(toggleMode)
-    // useEffect(() => {
-    //     whichComponent()
-    // }, [togglePeopleAssigned, toggleChoosenDate, toggleLables, toggleFiles, toggleModal])
-    const ChooseToggle = useCallback((val) => {
-        console.log('val - ', val)
-        return null
-    }, [togglePeopleAssigned, toggleChoosenDate, toggleLables, toggleFiles, toggleModal])
 
+    const [toggleMode, setToggleMode] = useState({ label: false, pplAssigned: false, dueDate: false, file: false })
 
+    const IsClicked = useCallback(() => {
+        const isClicked = Object.keys(toggleMode).filter(k => toggleMode[k])
+
+        switch (isClicked[0]) {
+            case 'label':
+                return <AddLabel
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode} />
+            case 'pplAssigned':
+                return <AddLabel
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode} />
+            case 'dueDate':
+                return <DueDate
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode} />
+            case 'file':
+                return <AddFile
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode} />
+            default:
+                break;
+        }
+        return null;
+    }, [{ ...toggleMode }])
 
     return (
-        <div className="main-task justify-center flex">
+        <div className="main-task flex justify-center">
             <ContentTask />
-            <SideBar setToggleMode={setToggleMode}/>
-            <ChooseToggle />
-            {toggleLables && <AddTags
-                toggleMode={toggleMode}
-                setToggleMode={setToggleMode} />}
-
-
-
-            {/* {toggleModal &&
-                <NewTaskModal Comp={whichComponent()}
-                />} */}
-
+            <SideBar setToggleMode={setToggleMode} />
+            <IsClicked />
         </div>
     )
 }
 
 export default NewTask;
-{/* <SideBar
-                setTogglePeopleAssigned={setTogglePeopleAssigned}
-                setToggleChoosenDate={setToggleChoosenDate}
-                setToggleLables={setToggleLables}
-                setToggleFiles={setToggleFiles}
-                setToggleModal={setToggleModal} /> */}
- // const closeModal = () => {
-    //     setTogglePeopleAssigned()
-    //     setToggleModal()
-    // }
- // const whichComponent = () => {
-    //     // if (togglePeopleAssigned) {
-    //     //     return {
-    //     //         Comp: AssignedPpl,
-    //     //         closeModal
-    //     //     }
-    //     // }
-    //     if (toggleChoosenDate) {
-    //         return {
-    //             // component: <ChooseDate />,
-    //             closeModal
-    //         }
-    //     }
-    //     if (toggleLables)
-    //         return {
-    //             Comp: AddTags,
-    //             closeModal
-    //         }
-    //     if (toggleFiles)
-    //         return {
-    //             // component: <ChooseFiles />,
-    //             closeModal
-    //         }
-    //     console.log('something clicked');
-    //     return
-    // }

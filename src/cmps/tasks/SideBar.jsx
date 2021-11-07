@@ -1,9 +1,8 @@
 import React from "react";
-import user from "../../assets/images/icons/new-task-sidebar-user.png";
-import watch from "../../assets/images/icons/new-task-sidebar-watch.png";
-import label from "../../assets/images/icons/new-task-sidebar-label.png";
-import files from "../../assets/images/icons/new-task-sidebar-files.png";
-import erase from "../../assets/images/icons/new-task-sidebar-erase.png";
+import {
+    watch, userIcon, attachment_icon,
+    Label_Icon, erase_Icon
+} from "../../assets/images/icons";
 
 export const SideBar = ({ setToggleMode }) => {
 
@@ -40,7 +39,7 @@ export const SideBar = ({ setToggleMode }) => {
             <div className="sidebar-container flex column space-between">
                 <div className="content flex column space-between">
                     <div className="flex" onClick={assignToMission}>
-                        <img src={user} alt="מוקצים למשימה" />&nbsp;
+                        <img src={userIcon} alt="מוקצים למשימה" />&nbsp;
                         <span> מוקצים למשימה</span>
                     </div>
                     <div className="flex" onClick={chooseEndDate}>
@@ -48,17 +47,17 @@ export const SideBar = ({ setToggleMode }) => {
                         <span>תאריך יעד</span>
                     </div>
                     <div className="flex" onClick={chooseLables}>
-                        <img src={label} alt="תוויות" />&nbsp;
+                        <img src={Label_Icon} alt="תוויות" />&nbsp;
                         <span>תוויות</span>
                     </div>
                     <div className="flex" onClick={uploadFiles}>
-                        <img src={files} alt="קבצים" />&nbsp;
+                        <img src={attachment_icon} alt="קבצים" />&nbsp;
                         <span>קבצים</span>
                     </div>
                 </div>
                 <div className="erase flex">
                     <div className="flex" onClick={remove}>
-                        <img src={erase} alt="מחיקה" />&nbsp;
+                        <img src={erase_Icon} alt="מחיקה" />&nbsp;
                         <span>מחיקה</span>
                     </div>
                 </div>
