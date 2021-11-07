@@ -16,6 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
 
 
 const ProjectPage = () => {
@@ -59,6 +60,7 @@ const ProjectPage = () => {
 
     return (
         <div>
+            <SideBarAdmin />
             <Button variant="outlined" onClick={handleClickOpen}>
                 Add new project
             </Button>
