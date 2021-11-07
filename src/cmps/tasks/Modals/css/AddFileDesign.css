@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); */
 
-.style {
+/* .style {
     font-family: 'Rubik', sans-serif;
     font-weight: 200;
-}
+} */
 
-.boxStyle {
+/* boxStyle{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -20,9 +20,9 @@
     padding: 4px;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.dropZone {
+/* .dropZone {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -35,17 +35,17 @@
     height: 100px;
     border: 1px solid #b8b8b8;
 
-}
+} */
 
-.chooseFromPC {
+/* .chooseFromPC {
     padding: 8px;
     width: 100px;
     background-color: #e7e7e7;
     text-align: center;
     color: #4A4A4A;
-}
+} */
 
-.addLinkInput {
+/* .addLinkInput {
     font-size: 15px;
     font-family: 'Rubik', sans-serif;
     text-align: right;
@@ -56,27 +56,27 @@
     margin-top: 5px;
     margin-bottom: 15px;
 
-}
+} */
 
-.addLinkText {
+/* .addLinkText {
     font-family: 'Rubik', sans-serif;
     text-align: right;
-}
+} */
 
-.addLinkButton {
-    width: 270px;
+/* .addLinkButton {
+    width: 150px;
     border: 0;
     border-radius: 2px;
     font-size: 15px;
+    border-radius: 5px 15px;
     background-color: #34018E;
     color: white;
     text-align: center;
     padding: 8px;
-    margin-bottom: 10px;
+    margin: 10px;
 
-}
-
-.addTag {
+} */
+/* .add-label {
     width: 270px;
     background-color: #F2F2F2;
     font-family: 'Rubik';
@@ -87,9 +87,9 @@
     font-weight: 100;
     border: 0;
     border-radius: 3px;
-}
+} */
 
-.tagsContainer {
+/* .tagsContainer {
     display: flex;
     flex-direction: column;
     width: 250;
@@ -107,4 +107,36 @@
     border-radius: 4px;
     background-color: blue;
     margin-left: 5px;
+} */
+
+/* .users-assigned {
+    width: 100%;
 }
+
+.each-user {
+    cursor: pointer;
+    direction: rtl;
+    margin: auto 10px auto auto;
+
+}
+
+.title-ppl-assigned {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.title-ppl-assigned h3 {
+    margin: 10px;
+
+}
+
+.close_sign {
+    cursor: pointer;
+
+}
+
+.close_sign:hover {
+    background-color: rgb(194, 194, 194, 0.2);
+    border-radius: 15px;
+    transition: .5s;
+} */

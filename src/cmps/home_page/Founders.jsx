@@ -1,5 +1,5 @@
 import React from "react";
-import LinkIcon from "../../assets/images/linkedin.svg";
+import LinkIcon from "../../assets/images/home-page-imgs/linkedin.svg";
 
 export const Founders = ({ persons }) => {
   return (

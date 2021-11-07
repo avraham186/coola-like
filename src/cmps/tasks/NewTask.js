@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { ContentTask } from './ContentTask';
-import { NewTaskModal } from './NewTaskModal'
+// import { NewTaskModal } from './NewTaskModal'
 import { SideBar } from './SideBar';
-import AddLabel from './AddLabel.jsx';
-import AddFile from './AddFile';
+import { AddLabel, AddFile, DueDate, PeopleAssigned } from './Modals';
+
 const NewTask = () => {
     const [toggleMode, setToggleMode] = useState({ label: false, pplAssigned: false, dueDate: false, file: false })
     const IsClicked = useCallback(() => {
@@ -14,11 +14,11 @@ const NewTask = () => {
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode} />
             case 'pplAssigned':
-                return <AddLabel
+                return <PeopleAssigned
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode} />
             case 'dueDate':
-                return <AddLabel
+                return <DueDate
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode} />
             case 'file':
@@ -41,46 +41,3 @@ const NewTask = () => {
 }
 
 export default NewTask;
-
-
-// const [togglePeopleAssigned, setTogglePeopleAssigned] = useState(false)
-// const [toggleChoosenDate, setToggleChoosenDate] = useState(false)
-// const [toggleLables, setToggleLables] = useState(false)
-// const [toggleFiles, setToggleFiles] = useState(false)
-// const [toggleModal, setToggleModal] = useState(false)
-{/* <SideBar
-                setTogglePeopleAssigned={setTogglePeopleAssigned}
-                setToggleChoosenDate={setToggleChoosenDate}
-                setToggleLables={setToggleLables}
-                setToggleFiles={setToggleFiles}
-                setToggleModal={setToggleModal} /> */}
- // const closeModal = () => {
-    //     setTogglePeopleAssigned()
-    //     setToggleModal()
-    // }
- // const whichComponent = () => {
-    //     // if (togglePeopleAssigned) {
-    //     //     return {
-    //     //         Comp: AssignedPpl,
-    //     //         closeModal
-    //     //     }
-    //     // }
-    //     if (toggleChoosenDate) {
-    //         return {
-    //             // component: <ChooseDate />,
-    //             closeModal
-    //         }
-    //     }
-    //     if (toggleLables)
-    //         return {
-    //             Comp: AddTags,
-    //             closeModal
-    //         }
-    //     if (toggleFiles)
-    //         return {
-    //             // component: <ChooseFiles />,
-    //             closeModal
-    //         }
-    //     console.log('something clicked');
-    //     return
-    // }

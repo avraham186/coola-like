@@ -31,7 +31,7 @@ export const AssignedTask = ({ areAssigned }) => {
         <div className="flex ">
             {areAssigned.map((person, i) => {
                 return <span key={i} className="justify-center align-center">
-                    <object data={person.img} type="image/svg+xml" />
+                    {/* <object data={person.img} type="image/svg+xml" /> */}
                     <p>{person.name}</p>
                 </span>
             })

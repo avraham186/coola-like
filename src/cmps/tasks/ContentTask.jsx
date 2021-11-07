@@ -76,7 +76,7 @@ export const ContentTask = ({
         <div className="chat-task">
           <HeadlinesTask title="פעילות" icon={chat_logo} />
           <div className="flex align-center">
-            <object data={shimon} type="image/svg+xml" />
+            {/* <object data={shimon} type="image/svg+xml" /> */}
             <TextArea
               id="description-area"
               name="description"

@@ -11,18 +11,18 @@
 
 
 //components
-@import './cmps/app-header';
-@import './cmps/app-footer';
+@import './cmps/home-page/app-header';
+@import './cmps/home-page/app-footer';
 
 //home components
-@import './cmps/home-page/subscribe';
-@import './cmps/_founders';
-@import './cmps/app-navbar';
+@import './cmps/home-page/_subscribe';
+@import './cmps/home-page/_founders';
+@import './cmps/home-page/app-navbar';
 
 //new-task-components
-@import './cmps/tasks-page/new-task';
-@import './cmps/tasks-page/new-task-sidebar';
-@import './cmps/tasks-page/new-task-modal';
+@import './cmps/tasks-page/_new-task';
+@import './cmps/tasks-page/_new-task-sidebar';
+@import './cmps/tasks-page/new-task-modals';
 
 //views
 @import './views/home-page';
