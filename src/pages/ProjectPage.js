@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import EmptyProjects from "../cmps/project_page/EmptyProjects";
-import ProjectsList from "../cmps/project_page/ProjectsList";
 import {Button} from "@material-ui/core";
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -17,6 +15,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {useDispatch} from "react-redux";
 import {addProject} from "../store/projects";
+import ProjectsList from "../cmps/project_page/ProjectsList";
+import EmptyProjects from "../cmps/project_page/EmptyProjects";
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
@@ -45,15 +45,30 @@ const ProjectPage = () => {
 
 
     return (
-        <div>
-            <Button variant="outlined" onClick={() => setOpen(true)}>
-                Add new project
-            </Button>
-
-            <br/><br/>
-
+        <div className="projects">
             {
-                !projects ? <EmptyProjects/> : <ProjectsList rows={projects}/>
+                projects ?
+                    <>
+                        <Button
+                            style={{
+                                borderRadius: '2px 15px',
+                                backgroundColor: "#34018E",
+                                padding: "1% 7% 1% 8%",
+                                fontSize: "1em",
+                                color: '#FFF',
+                                fontFamily: 'Rubik',
+                                fontWeight: "bold",
+                                marginBottom: "30px"
+                            }}
+                            onClick={() => setOpen(true)}
+                        >
+                            Add new project
+                        </Button>
+
+                        <ProjectsList/>
+                    </>
+                    :
+                    <EmptyProjects/>
             }
 
             <Dialog open={open} onClose={() => setOpen(false)}>
