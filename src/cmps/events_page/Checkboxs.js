@@ -5,10 +5,10 @@ import { useSelector, useDispatch } from 'react-redux'
 //useDispatch -> map.dispatchToProps
 
 const Checkboxs = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
    const checkboxArr = document.getElementsByName("checkbox");
    const { events } = useSelector((state) => state.entities.eventsModule);
-   const [checkboxSelected, setCheckboxSelected] = useState([]);
+   const [checkboxSelected, setCheckboxSelected] = useState(['all']);
 
    const checkboxClick = (e)=>{
       let checkbox = e.target;
@@ -21,20 +21,19 @@ const Checkboxs = () => {
       }
    }
 
-   const checkAll = () => {
+   const markAll = () => {
       console.log("I'm CheckALl");
       let value = document.getElementById('all').checked;
       checkboxArr.forEach(element => element.checked = value)
    }
 
    useEffect(() => {
-
       const setEvents = (events) => {
-        return (dispatch)=>{
          try{  
          dispatch(
-            {type:'SET_events',events: [(
-            events.fliter(event => {
+            {type:'SET_events',
+            events: [(
+            events.filter(event => {
             if (!checkboxSelected.includes('all')) {
                if (checkboxSelected.includes(event.tag))
                   return event
@@ -51,8 +50,8 @@ const Checkboxs = () => {
       console.log(err);
    }
       //dispatch argumnets brackets
-   }// dispatch callback   
-   }//setEvents function;
+}// dispatch callback   
+   //setEvents function;
    
       setEvents(events);
    
@@ -95,7 +94,7 @@ const Checkboxs = () => {
                </label>
 
                <label htmlFor="all" className="col">   סמן הכל
-                  <input type="checkbox" id="all" onClick={checkboxClick} name="checkbox" defaultValue="all" />
+                  <input type="checkbox" id="all" onClick={e=> {checkboxClick(e);markAll(e)}} name="checkbox" defaultValue="all" />
                </label>
 
             </div>
