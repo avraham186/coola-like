@@ -13,7 +13,8 @@ const initialState = {
             hour:'18:00',
             lecturer: 'שחר פולק',
             img: `${adi}`,
-            link: ""
+            link: "",
+            tag: "sys all"
         },
         {
             _id: 'a2a2a',
@@ -23,7 +24,8 @@ const initialState = {
             hour:'20:00',
             lecturer: 'שחר ברלב',
             img: `${stav}`,
-            link: ""
+            link: "",
+            tag: "prgrm all"
         },
         {
             _id: 'a3a3a',
@@ -33,7 +35,8 @@ const initialState = {
             hour:'21:00',
             lecturer: 'משה מוזס',
             img: `${shimon}`,
-            link: ""
+            link: "",
+            tag: "ui all"
         },
         {
             _id: 'a4a4a',
@@ -43,7 +46,8 @@ const initialState = {
             hour:'19:00',
             lecturer: "איריס ברקוביץ",
             img: `${iris}`,
-            link: ""
+            link: "",
+            tag: "qa all"
         },
         {
             _id: 'a5a5a',
@@ -53,7 +57,8 @@ const initialState = {
             hour:'18:00',
             lecturer: 'שחר פולק',
             img: `${adi}`,
-            link: ""
+            link: "",
+            tag: "cyber all"
         },
         {
             _id: 'a6a6a',
@@ -63,7 +68,8 @@ const initialState = {
             hour:'20:00',
             lecturer: 'שחר ברלב',
             img: `${stav}`,
-            link: ""
+            link: "",
+            tag: "prgrm all"
         },
         {
             _id: 'a7a7a',
@@ -73,7 +79,8 @@ const initialState = {
             hour:'21:00',
             lecturer: 'משה מוזס',
             img: `${shimon}`,
-            link: ""
+            link: "",
+            tag: "sys all"
         },
         {
             _id: 'a8a8a',
@@ -83,7 +90,8 @@ const initialState = {
             hour:'19:00',
             lecturer: "איריס ברקוביץ",
             img: `${iris}`,
-            link: ""
+            link: "",
+            tag: "ui all"
         },
         {
             _id: 'a9a9a',
@@ -93,7 +101,8 @@ const initialState = {
             hour:'21:00',
             lecturer: 'משה מוזס',
             img: `${shimon}`,
-            link: ""
+            link: "",
+            tag: "hrdwr all"
         }
     ]
 }
@@ -102,11 +111,11 @@ export function eventReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_events':
             return { ...state, events: action.events }
-        case 'REMOVE_event':
+        case 'REMOVE_events':
             return { ...state, events: state.events.filter(event => event._id !== action.eventId) }
-        case 'ADD_event':
+        case 'ADD_events':
             return { ...state, events: [action.event, ...state.events] }
-        case 'UPDATE_event':
+        case 'UPDATE_events':
             return {
                 ...state, events: state.events.map(event => {
                     return event._id === action.event._id ? action.event : event

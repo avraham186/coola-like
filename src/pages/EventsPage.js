@@ -3,7 +3,6 @@ import  {useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
 import Checkboxs from '../cmps/events_page/Checkboxs'
 import EventCard from '../cmps/events_page/EventCard'
-
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -46,9 +45,10 @@ const EventsPage = () => {
     </div>
 
          <div className="eventsCards">
-            {events.filter(event=>{
+            {
+            events.filter(event=>{
                 if(searchValue != ''){
-                if(event.subject.toLowerCase().includes(searchValue.toLowerCase()))
+                    if(event.subject.toLowerCase().includes(searchValue.toLowerCase()))
                 return event }
                 else return event
                 
