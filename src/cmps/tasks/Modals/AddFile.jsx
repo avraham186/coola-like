@@ -15,13 +15,14 @@ export const AddFile = ({ toggleMode, setToggleMode }) => {
     <Modal
       className="modals"
       open={open}
-      onClose={() => setToggleMode((p) => ({ ...p, file: !p.file }))}
+      onClose={() => setToggleMode(p => ({ ...p, file: !p.file }))}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <Box className="box-modal">
         <div className="add-files-headline flex">
-          <span className="btn-close" onClick={() => setToggleMode(p => !p)}>
+          <span className="btn-close"
+            onClick={() => setToggleMode(p => ({ ...p, file: !p.file }))}>
             <img src={closeIcon} />
           </span>
           <div className="add-files-title flex align-center">
@@ -43,7 +44,10 @@ export const AddFile = ({ toggleMode, setToggleMode }) => {
           className="add-link-input"
           placeholder="הדבק קישור"
         ></input>
-        <button className="save-modal-button">שמור</button>
+        <button className="save-modal-button"
+          onClick={() => setToggleMode(p => ({ ...p, file: !p.file }))}>
+          שמור
+        </button>
       </Box>
     </Modal>
   );

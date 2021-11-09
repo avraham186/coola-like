@@ -10,6 +10,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
+    max-height: 450px;
     background-color: white;
     text-align: center;
     color: #4a4a4a;
@@ -148,7 +149,8 @@
     }
     .users-assigned {
       width: 100%;
-
+      overflow-y: scroll;
+      margin: 15px;
       .each-user {
         cursor: pointer;
         direction: rtl;
@@ -167,7 +169,6 @@
     }
 
     .new-task-due-date-style {
-      // font-family: Rubik-regular, sans-serif;
       height: 100%;
       .due-date-headline {
         width: 100%;
