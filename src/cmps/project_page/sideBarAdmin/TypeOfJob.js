@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import './Categories.scss'
 
-const categoriesData = [
-  { name: "בדיקת תוכנה" },
-  { name: "אבטחת מידע וסייבר" },
-  { name: "פיתוח תוכנה" },
-  { name: "הנדסת מערכות" },
-  { name: "UX/UI" },
-  { name: "חומרה" },
-  { name: "סמן הכל" },
+const typsData = [
+  { name: "משרה מלאה" },
+  { name: "משרה חלקית" },
+  { name: "משרה זמנית" },
+  { name: "התנדבות" },
+  { name: "התמחות" },
+  { name: "משמרות" },
 ];
 
-function Categories() {
+function TypeOfJob() {
   const [categories, setCategories] = useState([]);
   const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
-    setCategories(categoriesData);
+    setCategories(typsData);
   }, []);
 
   const [checkboxes, setCheckboxes] = useState(null);
@@ -41,17 +40,17 @@ function Categories() {
 
   const handleChange = (e) => {
     const { checked, name } = e.target;
-    if (name === "סמן הכל") {
-      let tempCategory = categories.map((category) => {
-        return { ...category, isChecked: checked };
-      });
-      setCategories(tempCategory);
-    } else {
+    // if (name === "סמן הכל") {
+    //   let tempCategory = categories.map((category) => {
+    //     return { ...category, isChecked: checked };
+    //   });
+    //   setCategories(tempCategory);
+    // } else {
       let tempCategory = categories.map((category) =>
         category.name === name ? { ...category, isChecked: checked } : category
       );
       setCategories(tempCategory);
-    }
+    // }
   };
 
   return (
@@ -60,7 +59,7 @@ function Categories() {
       <div className="multiselect">
         <div className="selectBox">
           <select onClick={showCheckboxes} >
-            <option>תחום</option>
+            <option>סוג משרה</option>
           </select>
             <div className="overSelect"></div>
       </div>
@@ -84,4 +83,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default TypeOfJob;
