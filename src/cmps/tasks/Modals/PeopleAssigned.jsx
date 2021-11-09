@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { user, v_sign, close_sign } from "../../../assets/images/icons";
 import { adi, stav, iris, shimon } from "../../../assets/images/founders-imgs";
 import { setUsers } from "../../../store/actions/taskAction";
@@ -23,8 +23,13 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => 
 
   const applyUsers = () => {
     if (searchUser)
-      return users.filter((user) =>
-        user.name.toLowerCase().startsWith(searchUser.toLowerCase())
+      return users.filter((user) => {
+        const name = `${user.firstName} ${user.lastName}`
+
+        return user.firstName.toLowerCase().startsWith(searchUser.toLowerCase()) ||
+          user.lastName.toLowerCase().startsWith(searchUser.toLowerCase())
+
+      }
       );
     return users;
   };
@@ -32,11 +37,16 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => 
     return userClicked.some((u) => u.id === user.id);
   };
   const userChoosen = (u) => {
-    console.log(u)
     if (isChoosen(u)) {
       const filterUser = userClicked.filter((user) => user.id !== u.id);
       setUserClicked(filterUser);
-    } else setUserClicked((p) => [...p, u]);
+    } else {
+      setUserClicked((p) => [...p, u]);
+      setTaskContent(p => {
+        const prevUsers = p.pplAssigned;
+        return { ...p, pplAssigned: [...prevUsers, u] };
+      })
+    }
   };
 
   useEffect(() => {
@@ -92,7 +102,9 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => 
                   type="image/svg+xml"
                   style={{ width: "30px", margin: "10px" }}
                 ></object>
-                <p>{firstName}&nbsp;{lastName}</p>
+                <p style={{ textTransform: "capitalize" }}>
+                  {firstName}&nbsp;{lastName}
+                </p>
                 {/* <p>{name}</p> */}
                 {isChoosen(user) && (
                   <img src={v_sign} alt="v-sign" style={{ margin: "20px" }} />

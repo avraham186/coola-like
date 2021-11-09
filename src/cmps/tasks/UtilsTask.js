@@ -1,5 +1,6 @@
 import React from 'react';
 import { attachment_image, label, plus_sign } from '../../assets/images/icons';
+import user_icon from '../../assets/images/home-page-imgs/user_icon.png';
 
 
 export const HeadlinesTask = ({ title, icon }) => {
@@ -24,7 +25,7 @@ export const Labels = ({ colorLabel }) => {
 
                 )
             })} */}
-            <span><img src={plus_sign} alt="square plus" /></span>
+            {/* <span><img src={plus_sign} alt="square plus" /></span> */}
         </div>
     )
 }
@@ -32,10 +33,12 @@ export const Labels = ({ colorLabel }) => {
 export const AssignedTask = ({ areAssigned }) => {
     return (
         <div className="flex ">
-            {areAssigned.map((person, i) => {
+            {areAssigned.map(({ firstName, lastName, img }, i) => {
+                const name = `${firstName} ${lastName}`
                 return <span key={i} className="justify-center align-center">
-                    <object data={person.img} type="image/svg+xml" />
-                    <p>{person.name}</p>
+                    <img src={img ? img : user_icon} alt="userimg" />
+                    {/* <object data={img?} type="image/svg+xml" /> */}
+                    <p>{name}</p>
                 </span>
             })
             }

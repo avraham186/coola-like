@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TaskContext } from "../../Context/TaskContext";
 import { user, watch, label, files, erase } from "../../assets/images/icons";
 
 export const SideBar = ({ setToggleMode }) => {
+  const { removeTask } = useContext(TaskContext);
   const assignToMission = () => {
     setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }));
   };
@@ -18,9 +20,10 @@ export const SideBar = ({ setToggleMode }) => {
     setToggleMode((p) => ({ ...p, file: !p.file }));
   };
 
-  const remove = () => {
-    console.log("mission erased");
-  };
+  // const remove = () => {
+
+  //   console.log("mission erased");
+  // };
   return (
     <nav className="new-task-sidebar">
       <div className="sidebar-container flex column space-between">
@@ -47,7 +50,7 @@ export const SideBar = ({ setToggleMode }) => {
           </div>
         </div>
         <div className="erase flex">
-          <div className="flex" onClick={remove}>
+          <div className="flex" onClick={removeTask}>
             <img src={erase} alt="מחיקה" />
             &nbsp;
             <span>מחיקה</span>

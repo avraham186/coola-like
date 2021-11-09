@@ -24,17 +24,8 @@ import { TaskContext } from "../../Context/TaskContext";
 //   { name: "כלבים", color: "#ffb3cc" },
 // ]
 
-export const ContentTask = ({
-  nameTask,
-  taskMode,
-  priorityTask,
-  dueDate,
-  files,
-  comments,
-}) => {
-  const {
-    taskContent: { label, pplAssigned, file, date },
-  } = useContext(TaskContext);
+export const ContentTask = ({ nameTask, taskMode, priorityTask }) => {
+  const { taskContent: { label, pplAssigned, file, date,description,chats }, saveTask } = useContext(TaskContext);
   return (
     <div className="new-task">
       <div className="new-task-container">
@@ -46,7 +37,10 @@ export const ContentTask = ({
 
         <div className="due-date-task flex align-center">
           <input type="checkbox" />
-          <h4 style={{ margin: "10px" }}>{dueDate}</h4>
+          <h4 className="flex column"><span>תאריך התחלה:</span> {date.startDate}</h4>
+          <h4 className="flex column"><span>שעה: </span>{date.time}</h4>
+          <h4 className="flex column"><span>תאריך סוף: </span>{date.endDate}</h4>
+          <h4 className="flex column"><span>תזכורת: </span>{date.reminder}</h4>
         </div>
 
         <div className="labels-assigned flex">
@@ -70,34 +64,34 @@ export const ContentTask = ({
           />
         </div>
 
+        <div className="attachment-task">
+          <HeadlinesTask title="קבצים" icon={attachment_icon} />
+          <AttachmentsTask
+            files={[
+              { name: "שם קובץ" },
+              { name: "שם קובץ" },
+              { name: "שם קובץ" },
+            ]}
+          />
+        </div>
+
         <div className="chat-task">
           <HeadlinesTask title="פעילות" icon={chat_logo} />
           <div className="flex align-center">
             {/* <object data={shimon} type="image/svg+xml" /> */}
             <TextArea
-              id="description-area"
-              name="description"
+              id="chat-area"
+              name="chat"
               rows="1"
               cols="30"
               text="רשום תגובה...."
-            />
-          </div>
-
-          <div className="attachment-task">
-            <HeadlinesTask title="קבצים" icon={attachment_icon} />
-            <AttachmentsTask
-              files={[
-                { name: "שם קובץ" },
-                { name: "שם קובץ" },
-                { name: "שם קובץ" },
-              ]}
             />
           </div>
         </div>
       </div>
 
       <div className="submit-task">
-        <span>שמור וסגור</span>
+        <span onClick={saveTask}>שמור וסגור</span>
       </div>
     </div>
   );

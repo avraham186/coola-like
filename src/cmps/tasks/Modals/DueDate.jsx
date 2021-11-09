@@ -31,65 +31,19 @@ export const DueDate = ({ toggleMode, setToggleMode }) => {
         { value: "5 דקות לפני" },
         { value: "בזמן תאריך היעד" },
     ]
-    const handleDate = (ev, startEnd) => {
-        const date = ev.target.value
-        switch (startEnd) {
-            case 'start':
-                setTaskContent((p) => ({
-                    ...p,
-                    date: {
-                        ...date,
-                        startDate: date
-                    }
-                }));
-                setDateToSave(p => ({
-                    ...p,
-                    startDate: date
-                }))
-                break;
-            case 'end':
-                setTaskContent((p) => ({
-                    ...p,
-                    date: {
-                        ...date,
-                        endDate: date
-                    }
-                }));
-                setDateToSave(p => ({
-                    ...p,
-                    endDate: date
-                }))
-                break;
-            case 'time':
-                setTaskContent((p) => ({
-                    ...p,
-                    date: {
-                        ...date,
-                        time: date
-                    }
-                }));
-                setDateToSave(p => ({
-                    ...p,
-                    time: date
-                }))
-                break;
-            case 'reminder':
-                setTaskContent((p) => ({
-                    ...p,
-                    date: {
-                        ...date,
-                        reminder: date
-                    }
-                }));
-                setDateToSave(p => ({
-                    ...p,
-                    reminder: date
-                }))
-                break;
+    const handleDate = e => {
+        const date = e.target.value
+        const name = e.target.name
+        console.log('date', date, name);
 
-            default:
-                break;
-        }
+        setTaskContent((p) => ({
+            ...p,
+            date: {
+                ...p.date,
+                [name]: date
+            }
+        }));
+        setDateToSave(p => ({ ...p, [name]: date }))
     }
 
     return (
@@ -129,8 +83,8 @@ export const DueDate = ({ toggleMode, setToggleMode }) => {
                         </label>
                     </div>
                     {startCheckbox && <div className="due-date-start-date-body flex">
-                        <input type="date" value={dateToSave.startDate}
-                            onChange={(ev) => handleDate(ev, 'start')} />
+                        <input type="date" name="startDate" value={dateToSave.startDate}
+                            onChange={handleDate} />
                     </div>}
                     <div className="due-date-end-date-headline flex" >
                         <label className="flex justify-center align-center">
@@ -142,20 +96,22 @@ export const DueDate = ({ toggleMode, setToggleMode }) => {
                     </div>
                     {endCheckbox && <div className="due-date-end-date-body flex">
                         <input type="time"
+                            name="time"
                             value={dateToSave.time}
-                            onChange={(ev) => handleDate(ev, 'time')} />
+                            onChange={handleDate} />
                         <input type="date"
+                            name="endDate"
                             value={dateToSave.endDate}
-                            onChange={(ev) => handleDate(ev, 'end')} />
+                            onChange={handleDate} />
                     </div>}
                     <div className="due-date-set-reminder-label flex">
                         <label>קבע תזכורת</label>
                     </div>
                     <div className="due-date-set-reminder-select">
-                        <select onChange={(ev) => handleDate(ev, 'reminder')}>
-                            {DATE_VALUE.map((val) => (
-                                <option key={val.value}
-                                    value={dateToSave.reminder}>
+                        <select name="reminder" onChange={handleDate}>
+                            {DATE_VALUE.map((val, idx) => (
+                                <option key={idx}
+                                    value={taskContent.date.reminder}>
                                     {val.value}
                                 </option>
                             ))}

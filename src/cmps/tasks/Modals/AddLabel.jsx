@@ -60,6 +60,7 @@ export const AddLabel = ({ toggleMode, setToggleMode }) => {
       p.push(color);
       return [...p];
     });
+    setChoosenLabel(color)
     setTaskContent((p) => ({ ...p, label: color }));
   };
   return (
