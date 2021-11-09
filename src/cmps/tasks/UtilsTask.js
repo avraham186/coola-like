@@ -1,5 +1,5 @@
 import React from 'react';
-import { attachment_image, plus_sign } from '../../assets/images/icons';
+import { attachment_image, label, plus_sign } from '../../assets/images/icons';
 
 
 export const HeadlinesTask = ({ title, icon }) => {
@@ -10,17 +10,20 @@ export const HeadlinesTask = ({ title, icon }) => {
         </div>
     )
 }
-export const Labels = ({ labels }) => {
+export const Labels = ({ colorLabel }) => {
     return (
         <div className="labels-container flex align-center">
-            {labels.map(({ name, color }, i) => {
+            <span >
+                <p style={{ background: colorLabel }}>{'Gnerel'}</p>
+            </span>
+            {/* {labels.map(({ name, color }, i) => {
                 return (
                     <span key={i}>
                         <p style={{ background: color }}>{name}</p>
                     </span>
 
                 )
-            })}
+            })} */}
             <span><img src={plus_sign} alt="square plus" /></span>
         </div>
     )

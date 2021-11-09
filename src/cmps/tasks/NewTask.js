@@ -1,7 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useContext } from 'react';
 import { ContentTask } from './ContentTask';
 import { SideBar } from './SideBar';
 import { AddLabel, AddFile, DueDate, PeopleAssigned } from './Modals';
+import { TaskProvider } from '../../Context/TaskContext';
+
 
 const NewTask = () => {
     const [toggleMode, setToggleMode] = useState({
@@ -10,7 +12,9 @@ const NewTask = () => {
         dueDate: false,
         file: false
     })
-    const [taskToSave, setTaskToSave] = useState({label:''})
+    // const [taskToSave, setTaskToSave] = useState({ label: '' })
+
+
     // const taskToSave = {}
     // const setTaskToSave = (name,pros) => {
     //     taskToSave[name] = pros;
@@ -22,23 +26,26 @@ const NewTask = () => {
                 return <AddLabel
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode}
-                    setTaskToSave={setTaskToSave}
-                    taskToSave={taskToSave}/>
+                // setTaskToSave={setTaskToSave}
+                />
             case 'pplAssigned':
                 return <PeopleAssigned
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode}
-                    setTaskToSave={setTaskToSave} />
+                // setTaskToSave={setTaskToSave} 
+                />
             case 'dueDate':
                 return <DueDate
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode}
-                    setTaskToSave={setTaskToSave} />
+                // setTaskToSave={setTaskToSave} 
+                />
             case 'file':
                 return <AddFile
                     toggleMode={toggleMode}
                     setToggleMode={setToggleMode}
-                    setTaskToSave={setTaskToSave} />
+                // setTaskToSave={setTaskToSave} 
+                />
             default:
                 break;
         }
@@ -46,11 +53,14 @@ const NewTask = () => {
     }
 
     return (
-        <div className="main-task flex justify-center">
-            <ContentTask />
-            <SideBar setToggleMode={setToggleMode} />
-            <IsClicked />
-        </div>
+        <TaskProvider>
+            <div className="main-task flex justify-center">
+                <ContentTask />
+                <SideBar setToggleMode={setToggleMode} />
+                <IsClicked />
+            </div >
+        </TaskProvider>
+
     )
 }
 

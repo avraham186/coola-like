@@ -1,36 +1,48 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import tagsIcon from "../../../assets/images/icons/pepicons_label.png";
 import editIcon from "../../../assets/images/icons/clarity_edit-line.png";
 import { closeIcon } from "../../../assets/images/icons";
 import { Modal, Box } from "@mui/material";
-
-export const AddLabel = ({ toggleMode, setToggleMode, setTaskToSave, taskToSave }) => {
+import { TaskContext } from "../../../Context/TaskContext";
+export const AddLabel = ({
+  toggleMode,
+  setToggleMode,
+  setTaskToSave,
+  taskToSave,
+}) => {
   const [open, setOpen] = useState(false);
   const [colorPlate, setColorPlate] = useState([
-    "#61BD4F", "#F2D600", "#FF9F1A", "#EB5A46", "#0079BF"
-  ])
-  const [choosenLabel, setChoosenLabel] = useState(taskToSave.label)
+    "#61BD4F",
+    "#F2D600",
+    "#FF9F1A",
+    "#EB5A46",
+    "#0079BF",
+  ]);
+  const [choosenLabel, setChoosenLabel] = useState(taskToSave.label);
   const { label } = toggleMode;
-
+  const { setTaskContext } = useContext(TaskContext);
   const setLabel = (color) => {
-    setChoosenLabel(color)
-    setTaskToSave(p => ({ ...p, label: color }))
-  }
+    setChoosenLabel(color);
+    setTaskContext((p) => ({ ...p, label: color }));
+    // setTaskToSave((p) => ({ ...p, label: color }));
+  };
   const Labels = () => {
     return colorPlate.map((color, i) => {
-      const isClicked = choosenLabel === color
+      const isClicked = choosenLabel === color;
       const styleLabel = isClicked
-        ? { border: '3px solid black', backgroundColor: color }
-        : { backgroundColor: color }
+        ? { border: "3px solid black", backgroundColor: color }
+        : { backgroundColor: color };
       return (
-        <div key={i} className="label-container"
-        >
+        <div key={i} className="label-container">
           <img
             src={editIcon}
             style={{ width: "20px", height: "20px", marginTop: "3px" }}
           />{" "}
-          <div className="label" onClick={() => setLabel(color)}
-            style={styleLabel} />
+          <div
+            className="label"
+            onClick={() => setLabel(color)}
+            style={styleLabel}
+          />
         </div>
       );
     });
@@ -38,17 +50,16 @@ export const AddLabel = ({ toggleMode, setToggleMode, setTaskToSave, taskToSave 
 
   useEffect(() => {
     label && setOpen((p) => !p);
-  }, [label])
+  }, [label]);
 
   const handleColor = (ev) => {
-    const color = ev.target.value
-    setColorPlate(p => {
+    const color = ev.target.value;
+    setColorPlate((p) => {
       p.pop();
-      p.push(color)
-      return [...p]
-    })
-
-  }
+      p.push(color);
+      return [...p];
+    });
+  };
   return (
     <Modal
       className="modals"
@@ -60,13 +71,14 @@ export const AddLabel = ({ toggleMode, setToggleMode, setTaskToSave, taskToSave 
       <Box className="box-modal">
         <div className="label-modal">
           <div className="label-headline flex">
-            <span className="btn-close"
-              onClick={() => setToggleMode(p => ({ ...p, label: !p.label }))}>
+            <span
+              className="btn-close"
+              onClick={() => setToggleMode((p) => ({ ...p, label: !p.label }))}
+            >
               <img src={closeIcon} />
             </span>
             <div className="label-title flex align-center">
-              תגיות{" "}
-              <img src={tagsIcon} alt="due-date-title" />
+              תגיות <img src={tagsIcon} alt="due-date-title" />
             </div>
           </div>
           <hr style={{ width: "300px" }} />
@@ -83,8 +95,10 @@ export const AddLabel = ({ toggleMode, setToggleMode, setTaskToSave, taskToSave 
             <span>צור תגית חדשה</span>
           </button>
         </div>
-        <button className="save-modal-button"
-          onClick={() => setToggleMode((p) => ({ ...p, label: !p.label }))}>
+        <button
+          className="save-modal-button"
+          onClick={() => setToggleMode((p) => ({ ...p, label: !p.label }))}
+        >
           שמור
         </button>
       </Box>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   description_mission,
   chat_logo,
@@ -13,15 +13,28 @@ import {
   TextArea,
 } from "./UtilsTask";
 import { adi, stav, shimon, iris } from "../../assets/images/founders-imgs";
+import { TaskContext } from "../../Context/TaskContext";
+
+// [
+//   { name: "קורות חיים", color: "#b3ffec" },
+//   { name: "כלבים", color: "#ffb3cc" },
+//   { name: "כלבים", color: "#ffb3cc" },
+//   { name: "כלבים", color: "#ffb3cc" },
+//   { name: "כלבים", color: "#ffb3cc" },
+//   { name: "כלבים", color: "#ffb3cc" },
+// ]
 
 export const ContentTask = ({
-  nameTask = "שם המשימה",
-  taskMode = "חדש",
-  priorityTask = "עדיפות גבוהה",
-  dueDate = "15:00, יום חמישי 31/10/21",
+  nameTask,
+  taskMode,
+  priorityTask,
+  dueDate,
   files,
   comments,
 }) => {
+  const {
+    taskContent: { label, pplAssigned, file, date },
+  } = useContext(TaskContext);
   return (
     <div className="new-task">
       <div className="new-task-container">
@@ -39,27 +52,11 @@ export const ContentTask = ({
         <div className="labels-assigned flex">
           <div className="assigned-task">
             <HeadlinesTask title="מוקצים למשימה" />
-            <AssignedTask
-              areAssigned={[
-                { name: "adi", img: adi },
-                { name: "iris", img: iris },
-                { name: "shimon", img: shimon },
-                { name: "stav", img: stav },
-              ]}
-            />
+            <AssignedTask areAssigned={pplAssigned} />
           </div>
           <div className="labels">
             <HeadlinesTask title="תווית" />
-            <Labels
-              labels={[
-                { name: "קורות חיים", color: "#b3ffec" },
-                { name: "כלבים", color: "#ffb3cc" },
-                { name: "כלבים", color: "#ffb3cc" },
-                { name: "כלבים", color: "#ffb3cc" },
-                { name: "כלבים", color: "#ffb3cc" },
-                { name: "כלבים", color: "#ffb3cc" },
-              ]}
-            />
+            <Labels colorLabel={label} />
           </div>
         </div>
 
