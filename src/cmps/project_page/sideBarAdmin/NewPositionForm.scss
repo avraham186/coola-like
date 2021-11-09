@@ -1,0 +1,60 @@
+.newPosition-container{
+    margin-right: 25%;
+    padding: 30px;
+     
+     font-family: Rubik-regular;
+     z-index: 100;
+     display: flex;
+     flex-direction: column;
+     direction: rtl;
+     width: 40%;
+     border: 1px solid;
+     justify-content: flex-start;
+
+ 
+}
+.submit-btn{
+    display: flex;
+    flex-direction: column;
+
+}
+.save-btn{
+    width: 200px;
+    height: 46px;
+    background-color: #34018E;
+    font-size: 18px;
+    color: white;
+    border-radius: 2px 15px;
+    border: none;
+    font-family: Rubik, sans-serif;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+.form-check{
+    display: flex;
+    flex-direction: row;
+    
+    flex-wrap: nowrap;
+    white-space: pre;
+    align-items: center;
+
+ 
+}
+textarea{
+    padding: 7px;
+    border-radius: 5px;
+    border:1px solid #b8b8b8 ;
+   
+    margin: 15px 0;
+}
+
+input[type=text]{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #b8b8b8;
+}
