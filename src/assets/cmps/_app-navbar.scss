@@ -1,9 +1,12 @@
+.app-navbar-wrapper{
+    background-color: white;
 .app-navbar {
     padding: 5px 0 5px 0;
     background-color: #ffffff;
     margin-bottom: 10px;
     font-family: 'Rubik';
     display: flex;
+    width: 100%;
     
     
     a{
@@ -123,3 +126,4 @@
      
      
     }//navbar
+}

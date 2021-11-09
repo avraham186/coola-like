@@ -1,14 +1,24 @@
-import React from "react"
+import React, {useState} from "react"
+import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {styled} from '@mui/material/styles';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CardContent from '@mui/material/CardContent';
+import Collapse from '@mui/material/Collapse';
+import Typography from '@mui/material/Typography';
+
 
 
 const EventCard = (props) => {
+    const [expanded, setExpanded] = useState(false);
 
-        const source = "../../assets/images/founders-imgs/"
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
 
     return (
 
@@ -20,12 +30,13 @@ const EventCard = (props) => {
                     component="img"
                     height="200"
                     alt="founderImg"
-                    src=  {source+props.event.img}
+                    image={props.event.img}
                 />
-
+                <Link to='\'>
                 <IconButton className="inButton" >
                     <LinkedInIcon className="inIcon" fontSize="small" />
                 </IconButton>
+                </Link>
 
                 <CardActions className="card-footer">
 
@@ -35,21 +46,16 @@ const EventCard = (props) => {
                     <h3 className="subject_HL"> {props.event.subject} </h3>
 
                     <hr />
+                    
                     <h5 className="lecture_HL">מציג: {props.event.lecturer} </h5>
-
-
+                    
                     <span className="video">
                         <span className="videoIcon"></span>
                         קישור יישלח בסמוך לשעה
                     </span>
 
                     <input type="button" value="הירשם עכשיו" className="events-button" />
-
-
-
-
                 </CardActions>
-
             </Card>
         </div>
     )

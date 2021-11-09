@@ -6,13 +6,19 @@
     height: 1400px;
     background-repeat: no-repeat;
     background-size: cover;
+    
+.wrapper{
+    //grid-column: 2 / 3;
+
 
     .headlines{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        a{color: black;
-        font-weight: bold;}
+            a
+            {color: black;
+            font-weight: bold;
+            }   
     }
 
     .selectors{ 
@@ -70,10 +76,10 @@
                 
                 input[type=checkbox]:after{
                     font-family: "Font Awesome 6 Free";
-                    content:"\f00c";
+                    content:"\f00c";//f00c f14a
                     font-weight: 900;
                     font-size: 10px;
-                    color: rgba(108, 229, 231, 1);
+                    color: white; //#34018E;
                     display: none;
                   }
 
@@ -110,6 +116,7 @@
             position: relative;
             background-color: transparent;
             font-family: 'Rubik';
+            text-indent: 1em;
             
         }
     
@@ -138,6 +145,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+
     }
 
     .event-card {
@@ -147,6 +155,7 @@
         // justify-content: space-around;
     
         .card {
+          cursor: pointer;
           margin-top: 15%;
           width: 250px;
           height: 385px;
@@ -194,6 +203,7 @@
                 color: #3187B5 ;
                 text-align: center;
                 margin: 0;
+                
         }
 
         .lecture_HL{
@@ -258,4 +268,5 @@
 
         }
     }
+}
 }

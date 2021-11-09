@@ -6,9 +6,9 @@ import PersonIcon from "@mui/icons-material/Person"
 export function AppNav() {
 
     return (
-        <div className="app-navbar">
-
-            <div className="left-list clean-list">
+        <div className="app-navbar-wrapper">
+            <div className="app-navbar">
+                <div className="left-list clean-list">
 
                     <span>
                         <IconButton aria-label="Person" className="user_logo">
@@ -35,6 +35,6 @@ export function AppNav() {
                  </Link>
 
             </div>
-
+        </div>
     )
 }
