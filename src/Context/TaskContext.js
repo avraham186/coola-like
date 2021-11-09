@@ -5,9 +5,9 @@ export const TaskContext = createContext({ label: '', pplAssigned: [], files: []
 export const TaskProvider = ({ children }) => {
     const [taskContent, setTaskContent] = useState({ label: '', pplAssigned: [], files: [], date: {} });
 
-    // useEffect(() => {
-    //     localStorage.setItem('favoriteUsers', JSON.stringify(favorites))
-    // }, [favorites])
+    useEffect(() => {
+        console.log(taskContent);
+    }, [taskContent])
 
     return (
         <TaskContext.Provider value={{ taskContent, setTaskContent }}>

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { user, v_sign, close_sign } from "../../../assets/images/icons";
 import { adi, stav, iris, shimon } from "../../../assets/images/founders-imgs";
 import { setUsers } from "../../../store/actions/taskAction";
+import { TaskContext } from "../../../Context/TaskContext";
 import { Modal, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 const imgUsers = [adi, stav, iris, shimon]
@@ -13,14 +14,12 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => 
   const [userClicked, setUserClicked] = useState([]);
   const { pplAssigned } = toggleMode;
   const { users } = useSelector(({ entities }) => entities.taskModule)
+  const { taskContent, setTaskContent } = useContext(TaskContext);
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(setUsers())
   }, [])
-  // useEffect(() => {
-  //   setTaskToSave(p => ({ ...p, pplAssigned: userClicked }))
-  // }, [])
 
   const applyUsers = () => {
     if (searchUser)

@@ -4,12 +4,8 @@ import editIcon from "../../../assets/images/icons/clarity_edit-line.png";
 import { closeIcon } from "../../../assets/images/icons";
 import { Modal, Box } from "@mui/material";
 import { TaskContext } from "../../../Context/TaskContext";
-export const AddLabel = ({
-  toggleMode,
-  setToggleMode,
-  setTaskToSave,
-  taskToSave,
-}) => {
+
+export const AddLabel = ({ toggleMode, setToggleMode }) => {
   const [open, setOpen] = useState(false);
   const [colorPlate, setColorPlate] = useState([
     "#61BD4F",
@@ -18,12 +14,17 @@ export const AddLabel = ({
     "#EB5A46",
     "#0079BF",
   ]);
-  const [choosenLabel, setChoosenLabel] = useState(taskToSave.label);
+  const [choosenLabel, setChoosenLabel] = useState();
   const { label } = toggleMode;
-  const { setTaskContext } = useContext(TaskContext);
+  const { taskContent, setTaskContent } = useContext(TaskContext);
+
+  useEffect(() => {
+    console.log('taskContext', taskContent);
+  }, [])
+
   const setLabel = (color) => {
     setChoosenLabel(color);
-    setTaskContext((p) => ({ ...p, label: color }));
+    setTaskContent((p) => ({ ...p, label: color }));
     // setTaskToSave((p) => ({ ...p, label: color }));
   };
   const Labels = () => {
@@ -59,6 +60,7 @@ export const AddLabel = ({
       p.push(color);
       return [...p];
     });
+    setTaskContent((p) => ({ ...p, label: color }));
   };
   return (
     <Modal

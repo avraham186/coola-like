@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { watch, closeIcon } from "../../../assets/images/icons";
 import { Modal, Box } from '@mui/material'
+import { TaskContext } from "../../../Context/TaskContext";
 
-export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
+export const DueDate = ({ toggleMode, setToggleMode }) => {
 
     const [open, setOpen] = useState(false);
     const [startCheckbox, setStartCheckbox] = useState(false)
     const [endCheckbox, setEndCheckbox] = useState(false)
     const [dateToSave, setDateToSave] = useState({
         startDate: '',
-        endDte: '',
+        endDate: '',
         time: '',
-        remind: ''
+        reminder: ''
     })
+    const { taskContent, setTaskContent } = useContext(TaskContext);
     const { dueDate } = toggleMode;
 
     useEffect(() => {
         dueDate && setOpen(p => !p)
     }, [toggleMode])
-    // useEffect(() => {
-    //     setTaskToSave(p => ({ ...p, dueDate: dateToSave }))
-    // }, [startCheckbox,endCheckbox]);
 
     const DATE_VALUE = [
+        { value: taskContent.date.reminder ? taskContent.date.reminder : 'עדיין לא נבחרה התראה' },
         { value: "יום לפני תאריך הסיום" },
         { value: "יומיים לפני תאריך הסיום" },
         { value: "שעתיים לפני" },
@@ -35,27 +35,55 @@ export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
         const date = ev.target.value
         switch (startEnd) {
             case 'start':
+                setTaskContent((p) => ({
+                    ...p,
+                    date: {
+                        ...date,
+                        startDate: date
+                    }
+                }));
                 setDateToSave(p => ({
                     ...p,
                     startDate: date
                 }))
                 break;
             case 'end':
+                setTaskContent((p) => ({
+                    ...p,
+                    date: {
+                        ...date,
+                        endDate: date
+                    }
+                }));
                 setDateToSave(p => ({
                     ...p,
                     endDate: date
                 }))
                 break;
             case 'time':
+                setTaskContent((p) => ({
+                    ...p,
+                    date: {
+                        ...date,
+                        time: date
+                    }
+                }));
                 setDateToSave(p => ({
                     ...p,
                     time: date
                 }))
                 break;
             case 'reminder':
+                setTaskContent((p) => ({
+                    ...p,
+                    date: {
+                        ...date,
+                        reminder: date
+                    }
+                }));
                 setDateToSave(p => ({
                     ...p,
-                    remind: date
+                    reminder: date
                 }))
                 break;
 
@@ -101,7 +129,7 @@ export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
                         </label>
                     </div>
                     {startCheckbox && <div className="due-date-start-date-body flex">
-                        <input type="date" date-format="yy/mm/dd"
+                        <input type="date" value={dateToSave.startDate}
                             onChange={(ev) => handleDate(ev, 'start')} />
                     </div>}
                     <div className="due-date-end-date-headline flex" >
@@ -113,8 +141,12 @@ export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
                         </label>
                     </div>
                     {endCheckbox && <div className="due-date-end-date-body flex">
-                        <input type="time" onChange={(ev) => handleDate(ev, 'time')} />
-                        <input type="date" onChange={(ev) => handleDate(ev, 'end')} />
+                        <input type="time"
+                            value={dateToSave.time}
+                            onChange={(ev) => handleDate(ev, 'time')} />
+                        <input type="date"
+                            value={dateToSave.endDate}
+                            onChange={(ev) => handleDate(ev, 'end')} />
                     </div>}
                     <div className="due-date-set-reminder-label flex">
                         <label>קבע תזכורת</label>
@@ -123,7 +155,7 @@ export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
                         <select onChange={(ev) => handleDate(ev, 'reminder')}>
                             {DATE_VALUE.map((val) => (
                                 <option key={val.value}
-                                    value={val.value}>
+                                    value={dateToSave.reminder}>
                                     {val.value}
                                 </option>
                             ))}
