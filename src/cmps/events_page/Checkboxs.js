@@ -62,7 +62,7 @@ const Checkboxs = () => {
 
       <>
          <div className="checkboxs">
-            <div className="row">
+            <div className="row_checkbox_events">
                <label htmlFor="hrdwr" className="col">      חומרה
                   <input type="checkbox" id="hrdwr" name="checkbox" defaultValue="hrdware" onClick={checkboxClick}/>
                </label>
@@ -77,7 +77,7 @@ const Checkboxs = () => {
 
             </div>
 
-            <div className="row">
+            <div className="row_checkbox_events">
 
                <label htmlFor="prgrm" className="col"> פיתוח תוכנה
                   <input type="checkbox" id="prgrm" name="checkbox" defaultValue="program" onClick={checkboxClick}/>

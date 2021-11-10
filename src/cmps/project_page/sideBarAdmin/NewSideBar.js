@@ -5,12 +5,19 @@ import "./newSidebar.scss";
 import NewPositionForm from "./NewPositionForm.js";
 import AddNewEvent from "./AddNewEvent.js";
 import { NewProject } from "./NewProject.js";
+import UserPermissions from './UserPermissions.js'
 
 function NewSideBar() {
 
   const [open, setOpen] = useState(false);
 
-  const linkes = ["הוספת פרוייקט", "הוספת ארוע", "הוספת משרה"];
+  const linkes = ["הוספת פרוייקט"
+  , "הוספת ארוע"
+  , "הוספת משרה" 
+  ,"עדכון דף ארועים" 
+  ,"עדכון דף משרות" 
+  ,"שינוי הרשאות משתמשים"
+];
   const [tab, setTab] = useState("");
 
   const handelsideBar = () => {
@@ -56,6 +63,10 @@ function NewSideBar() {
       <div>{tab === "הוספת משרה" && <NewPositionForm />}</div>
       <div>{tab === "הוספת ארוע" && <AddNewEvent />}</div>
       <div>{tab === "הוספת פרוייקט" && <NewProject />}</div>
+      <div>{tab === "עדכון דף ארועים" && <NewProject />}</div>
+      <div>{tab === "עדכון דף משרות" && <NewProject />}</div>
+      <div>{tab === "שינוי הרשאות משתמשים" && <UserPermissions />}</div>
+
 
     </div>
     </div>
