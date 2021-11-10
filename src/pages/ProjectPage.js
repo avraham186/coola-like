@@ -19,6 +19,7 @@ import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
 
 import {useDispatch} from "react-redux";
 import {addProject} from "../store/projects";
+import NewSideBar from '../cmps/project_page/sideBarAdmin/NewSideBar';
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
@@ -48,7 +49,8 @@ const ProjectPage = () => {
 
     return (
         <div>
-            <SideBarAdmin />
+           {/* <SideBarAdmin />  */}
+            <NewSideBar />
             <Button variant="outlined" ></Button>
             <Button variant="outlined" onClick={() => setOpen(true)}>
                 Add new project

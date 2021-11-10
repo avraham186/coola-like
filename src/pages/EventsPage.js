@@ -12,10 +12,6 @@ const EventsPage = () => {
 
     const [searchValue,setSearchValue] = useState('');
 
-    useEffect(() => {
-        console.log(searchValue);
-     }, [searchValue]);
-
     return ( 
 <section className="eventsPage full">
     <div className="main-layout wrapper">

@@ -4,7 +4,9 @@ import shimon from "../../cmps/tasks/assets/reducer/userTwo.png";
 import stav from "../../cmps/tasks/assets/reducer/userTrhee.png";
 import iris from "../../cmps/tasks/assets/reducer/userFour.png";
 
-const initialState = [];
+const initialState = {
+  users:[]
+};
 
 export const taskReducer = (state = initialState, { type, payload }) => {
   switch (type) {

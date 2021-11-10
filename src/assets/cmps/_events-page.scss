@@ -189,7 +189,7 @@
           display: flex;
           position: relative;
           flex-direction: column;
-          justify-content: space-evenly;
+          align-items: center;
         
         .date_HL{
             margin: 0;
@@ -203,7 +203,6 @@
                 color: #3187B5 ;
                 text-align: center;
                 margin: 0;
-                
         }
 
         .lecture_HL{
