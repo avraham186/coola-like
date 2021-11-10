@@ -1,8 +1,5 @@
-import shimon from '../../assets/images/founders-imgs/shimon.svg'
-import adi from '../../assets/images/founders-imgs/adi.svg'
-import stav from '../../assets/images/founders-imgs/stav.svg'
-import iris from '../../assets/images/founders-imgs/iris.svg'
 
+import { shimon, adi, stav, iris } from '../../assets/images/founders-imgs';
 const initialState = {
     persons: [
         {
