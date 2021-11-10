@@ -20,7 +20,7 @@ function AreaSerch() {
   const [checkboxes, setCheckboxes] = useState(null);
 
   useEffect(() => {
-    setCheckboxes(document.getElementsByClassName("checkboxes")[0])
+    setCheckboxes(document.getElementsByClassName("areaSearch")[0])
   }, [])
 
   const showCheckboxes = () => {
@@ -54,7 +54,7 @@ function AreaSerch() {
             <div className="overSelect"></div>
       </div>
 
-        <div className="checkboxes">
+        <div className="checkboxes areaSearch">
           {areas.map((category, index) => (
             <label key={index} className="form-check">
               <input

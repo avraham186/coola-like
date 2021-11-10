@@ -26,15 +26,16 @@ display: none;
 border: 1px #dadada solid;
 
     label{
-        margin-left: 7%;
-        display: block;
+        display: flex;
+        gap: 10px;
         align-items: center;
+        margin-bottom: 10px;
     }
         input[type=checkbox]{
             appearance: none;
             -webkit-appearance: none;
-            // height: 80px;
-            // width: 80px;
+            height: 12.5px;
+            width: 12.5px;
             background-color: transparent;
             border-radius: 2px;
             border: 1px solid black;
@@ -50,7 +51,7 @@ border: 1px #dadada solid;
             font-family: "Font Awesome 6 Free";
             content:"\f00c";
             font-weight: 900;
-            font-size: 7px;
+            font-size: 10px;
             color: white;
             display: none;
           }

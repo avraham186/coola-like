@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { sidebarData } from "./SideBarData.js";
+
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import "./newSidebar.scss";
 import NewPositionForm from "./NewPositionForm.js";
@@ -7,21 +7,22 @@ import AddNewEvent from "./AddNewEvent.js";
 import { NewProject } from "./NewProject.js";
 
 function NewSideBar() {
+
   const [open, setOpen] = useState(false);
-  const [show, setshow] = useState(false);
 
   const linkes = ["הוספת פרוייקט", "הוספת ארוע", "הוספת משרה"];
   const [tab, setTab] = useState("");
 
   const handelsideBar = () => {
     setOpen(!open);
-    setshow(false);
+    setTab('')
   };
 
   return (
-    <div className="sidebar">
-      <ul className="sidebarList">
-        <div className="sideBar-container">
+    <div className="sideBar" >
+    <div className="sideBar-container">
+        {/* <div >  */}
+          
           {open ? (
             <div className="sidbar-left-arrow">
               <AiOutlineDoubleLeft onClick={handelsideBar} />
@@ -30,9 +31,8 @@ function NewSideBar() {
             <div className="sidebar-admin-right-arrow">
               <AiOutlineDoubleRight onClick={handelsideBar} />
               <label className="arrow-icon">תפריט ניהול</label>
-            </div>
-          )}
-        </div>
+
+              <ul className="sidebarList">
         {linkes.map((link, index) => {
           return (
             <li
@@ -48,10 +48,16 @@ function NewSideBar() {
         })}
       </ul>
 
+            </div>
+          )}
+        {/* </div> */}
+     
+
       <div>{tab === "הוספת משרה" && <NewPositionForm />}</div>
       <div>{tab === "הוספת ארוע" && <AddNewEvent />}</div>
       <div>{tab === "הוספת פרוייקט" && <NewProject />}</div>
 
+    </div>
     </div>
   );
 }

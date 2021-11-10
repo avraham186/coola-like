@@ -21,7 +21,7 @@ function TypeOfJob() {
   const [checkboxes, setCheckboxes] = useState(null);
 
   useEffect(() => {
-    setCheckboxes(document.getElementsByClassName("checkboxes")[0])
+    setCheckboxes(document.getElementsByClassName("typeOfJob")[0])
 
   }, [])
 
@@ -64,7 +64,7 @@ function TypeOfJob() {
             <div className="overSelect"></div>
       </div>
 
-        <div className="checkboxes">
+        <div className="checkboxes typeOfJob">
           {categories.map((category, index) => (
             <label key={index} className="form-check">
               <input
