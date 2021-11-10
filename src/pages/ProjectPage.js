@@ -1,14 +1,6 @@
 import React, {useState} from 'react';
 import EmptyProjects from "../cmps/project_page/EmptyProjects";
 import ProjectsList from "../cmps/project_page/ProjectsList";
-<<<<<<< HEAD
-import { Button } from "@material-ui/core";
-import { TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
-import { DesktopDatePicker, LocalizationProvider } from '@mui/lab'
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import { useDispatch, useSelector } from "react-redux";
-import { addProject, loadProjects } from "../store/projects";
-=======
 import {Button} from "@material-ui/core";
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -24,7 +16,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
->>>>>>> 9b619e84a250be6b9bfca3997b0eaf5404835f11
 
 import {useDispatch} from "react-redux";
 import {addProject} from "../store/projects";
