@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+
 const categoriesData = [
   { name: "בדיקת תוכנה" },
   { name: "אבטחת מידע וסייבר" },
@@ -12,10 +13,31 @@ const categoriesData = [
 
 function Categories() {
   const [categories, setCategories] = useState([]);
+  const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
     setCategories(categoriesData);
   }, []);
+
+  const [checkboxes, setCheckboxes] = useState(null);
+
+  useEffect(() => {
+    setCheckboxes(document.getElementsByClassName("checkboxes")[0])
+
+  }, [])
+
+  const showCheckboxes = () => {
+    
+    // expanded? setExpanded(false) : setExpanded(true);
+    if (!expanded) {
+      checkboxes.style.display = "block";
+      setExpanded(true)
+    } else if(expanded) {
+      checkboxes.style.display = "none";
+      setExpanded(false)
+
+    }
+  }
 
   const handleChange = (e) => {
     const { checked, name } = e.target;
@@ -34,16 +56,16 @@ function Categories() {
 
   return (
     <>
-      <form className="form w-100">
+      
+      <div className="multiselect">
         <div className="selectBox">
-          <select>
+          <select onClick={showCheckboxes} >
             <option>תחום</option>
           </select>
-          <div>
-            <div class="overSelect"></div>
-          </div>
-        </div>
-        <div id="checkboxes">
+            <div className="overSelect"></div>
+      </div>
+
+        <div className="checkboxes">
           {categories.map((category, index) => (
             <label key={index} className="form-check">
               <input
@@ -57,7 +79,7 @@ function Categories() {
             </label>
           ))}
         </div>
-      </form>
+        </div>
     </>
   );
 }

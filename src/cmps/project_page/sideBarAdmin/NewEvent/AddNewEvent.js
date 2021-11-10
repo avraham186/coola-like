@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
-import "./AddNewJob.scss";
-import Categories from "./Ctegories.js";
+// import "./AddNewEvent.scss";
+import Categories from "../NewPosition/Categories";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 
-function AddNewJob({ handleChange }) {
+function AddNewEvent({ handleChange }) {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
+    // <Modal
+    //   open={open}
+    //   onClose={handleClose}
+    //   aria-labelledby="modal-modal-title"
+    //   aria-describedby="modal-modal-description"
+    // >
+    //   <Box className="boxStyle">
     <div className="adding-job-container">
       <form action="adding-job">
-
-        <label className='event-title'>
+        <label className="event-title">
           כותרת הארוע
           <br />
           <input type="text" />
@@ -32,30 +43,36 @@ function AddNewJob({ handleChange }) {
         </label>
         <br />
 
-        <label className='Description'>
+        <label className="Description">
           תיאור
           <br />
           <textarea name="" id="" cols="40" rows="10"></textarea>
         </label>
         <br />
 
-        <label className='add-file'>
-          העלאת גרפיקה
-          <br />
-          <input type="file" name="" id="" />
-        </label>
+        <div id="dropZone" className="add-file">
+          גרור לכאן קובץ
+          <label className="chooseFromPC">
+            בחר מהמחשב
+            <input type="file" style={{ display: "none" }} />
+          </label>
+        </div>
+        <br />
 
-        <label className='link-To-Linkedin'>
+        <label className="link-To-Linkedin">
           קישור לעמוד הלינקדאין של המרצה
           <br />
           <input type="text" placeholder="www.linkedin//shaharpolak" />
         </label>
         <br />
-
-        <button className="save-btn">שמור וסגור</button>
+        <div className='submit-btn'>
+          <button className="save-btn">שמור וסגור</button>
+        </div>
       </form>
     </div>
+    /* </Box>
+    </Modal> */
   );
 }
 
-export default AddNewJob;
+export default AddNewEvent;

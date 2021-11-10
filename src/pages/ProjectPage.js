@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import EmptyProjects from "../cmps/project_page/EmptyProjects";
 import ProjectsList from "../cmps/project_page/ProjectsList";
-import { Button } from "@material-ui/core";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import SideBarAdmin from "../cmps/project_page/sideBarAdmin/SideBarAdmin";
+import {Button} from "@material-ui/core";
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+// import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
 
-import { useDispatch } from "react-redux";
-import { addProject } from "../store/projects";
+import {useDispatch} from "react-redux";
+import {addProject} from "../store/projects";
+import NewSideBar from '../cmps/project_page/sideBarAdmin/NewSideBar';
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState([]);
@@ -51,16 +52,15 @@ const ProjectPage = () => {
     dispatch(addProject(obj));
   };
 
-  return (
-    <div>
-      <SideBarAdmin />
-      <Button variant="outlined"></Button>
-      <Button variant="outlined" onClick={() => setOpen(true)}>
-        Add new project
-      </Button>
 
-      <br />
-      <br />
+    return (
+        <div>
+           {/* <SideBarAdmin />  */}
+            <NewSideBar />
+            <Button variant="outlined" ></Button>
+            <Button variant="outlined" onClick={() => setOpen(true)}>
+                Add new project
+            </Button>
 
       {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
 
