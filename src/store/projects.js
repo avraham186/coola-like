@@ -1,8 +1,9 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {apiCallBegan} from "./api";
+import { createSlice } from "@reduxjs/toolkit";
+import { apiCallBegan } from "./api";
 
 
 const slice = createSlice({
+
     name: 'projects',
     initialState: {
         list: [],
@@ -10,6 +11,7 @@ const slice = createSlice({
         lastFetch: null
     },
     reducers: {
+
         projectsRequested: (projects, action) => {
             projects.loading = true;
         },
@@ -19,6 +21,7 @@ const slice = createSlice({
             projects.lastFetch = Date.now();
         },
         projectAdded: (projects, action) => {
+            debugger
             projects.list.push(action.payload);
         },
         projectsRequestFailed: (projects, action) => {
@@ -46,6 +49,7 @@ export const loadProjects = () => apiCallBegan({
 });
 
 export const addProject = project => apiCallBegan({
+
     url,
     method: "post",
     data: project,

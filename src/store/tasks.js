@@ -3,75 +3,66 @@ import { apiCallBegan } from "./api";
 
 
 const slice = createSlice({
-    name: 'tasks',
+    name: 'projects',
     initialState: {
         list: [],
         loading: false,
         lastFetch: null
     },
     reducers: {
-        tasksRequested: (tasks, action) => {
-            tasks.loading = true;
+        projectsRequested: (projects, action) => {
+            projects.loading = true;
         },
-        tasksReceived: (tasks, action) => {
-            tasks.list = action.payload;
-            tasks.loading = false;
-            tasks.lastFetch = Date.now();
+        projectsReceived: (projects, action) => {
+            projects.list = action.payload;
+            projects.loading = false;
+            projects.lastFetch = Date.now();
         },
-        tasksAdded: (tasks, action) => {
-            tasks.list.push(action.payload);
+        projectAdded: (projects, action) => {
+            projects.list.push(action.payload);
         },
-        taskUpdate: (tasks, action) => {
-            tasks.list.map(task => {
-                return task._id === action.payload.task._id ? action.payload : task
-            })
-        },
-        taskDelete: (tasks, action) => {
-            tasks.list.filter(task => task._id !== action.payload)
-        },
-        tasksRequestFailed: (tasks, action) => {
-            tasks.loading = false;
+        projectsRequestFailed: (projects, action) => {
+            projects.loading = false;
         },
     }
 });
 
 export const {
-    tasksAdded,
-    taskUpdate,
-    taskDelete,
-    tasksReceived,
-    tasksRequested,
-    tasksRequestFailed
+    projectAdded,
+    projectsReceived,
+    projectsRequested,
+    projectsRequestFailed
 } = slice.actions;
 export default slice.reducer;
 
 // Action Creators
-const url = process.env.REACT_APP_TASKS;
+const url = process.env.REACT_APP_PROJECT;
 
-export const loadTasks = () => apiCallBegan({
+export const loadProjects = () => apiCallBegan({
     url,
-    onStart: tasksRequested.type,
-    onSuccess: tasksReceived.type,
-    onError: tasksRequestFailed.type
+    onStart: projectsRequested.type,
+    onSuccess: projectsReceived.type,
+    onError: projectsRequestFailed.type
 });
 
-export const addTask = task => apiCallBegan({
-    url,
-    method: "post",
-    data: task,
-    onSuccess: tasksAdded.type
-});
-export const updateTask = task => apiCallBegan({
+export const addProject = project => apiCallBegan({
     url,
     method: "post",
-    data: task,
-    onSuccess: taskUpdate.type
-});
-export const deleteTask = task_id => apiCallBegan({
-    url,
-    method: "post",
-    data: task_id,
-    onSuccess: taskDelete.type
+    data: project,
+    onSuccess: projectAdded.type
 });
 
+// Selector
 
+// Memoization
+// export const getUnresolvedBugs = createSelector(
+//     state => state.entities.bugs,
+//     state => state.entities.projects,
+//     (bugs, projects) => bugs.filter(bug => !bug.resolved)
+// );
+//
+// export const getBugsByUser = userId =>
+//     createSelector(
+//         state => state.entities.bugs,
+//         bugs => bugs.filter(bug => bug.userId === userId)
+//     );6+

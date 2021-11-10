@@ -44,6 +44,7 @@ const ProjectPage = () => {
     };
 
     const handleAdd = async () => {
+        debugger
         setOpen(false);
         const obj = {
             projectName,
@@ -62,10 +63,10 @@ const ProjectPage = () => {
 
             <br /><br />
 
-            {
+            {/* {
                 !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
-            }
-
+            } */}
+            <ProjectsList rows={projects} />
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Add new project</DialogTitle>
                 <DialogContent>
