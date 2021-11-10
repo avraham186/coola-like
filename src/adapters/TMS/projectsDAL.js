@@ -8,4 +8,8 @@ const createProject = (project) => axios.post(URI + '/api/projects/', project);
 
 const deleteProject = (id) => axios.delete(URI + '/api/projects/' + id);
 
-export default {getAllProjects, createProject, deleteProject}
+const editProject = (project) => axios.put(URI + '/api/projects/', project);
+
+
+
+export default { getAllProjects, createProject, deleteProject, editProject }

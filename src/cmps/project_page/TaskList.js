@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react';
 import "./project_page.css"
-import projectsDAL from "../../adapters/TMS/projectsDAL";
+import tasksDAL from "../../adapters/TMS/tasksDAL";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
 import { Paper } from "@material-ui/core";
 const TaskList = () => {
     debugger
-    const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
     const dispatch = useDispatch();
-    const projects = useSelector(state => state.entities.projects)
+    const tasks = useSelector(state => state.entities.tasks)
 
     useEffect(() => {
         dispatch(loadProjects());
-        console.log(projects.list)
+        console.log(tasks)
     }, [])
 
 
@@ -30,7 +29,7 @@ const TaskList = () => {
                 <th className="row-item">+</th>
             </tr>
             {
-                projects.list.map((v, i) => {
+                tasks.list.map((v, i) => {
                     return (
                         <tr className="projects-row">
 

@@ -49,7 +49,7 @@ const ProjectPage = () => {
         const obj = {
             projectName,
             description,
-            projectStatus
+            projectStatus,
         }
         dispatch(addProject(obj));
     };

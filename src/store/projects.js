@@ -6,7 +6,17 @@ const slice = createSlice({
 
     name: 'projects',
     initialState: {
-        list: [],
+        list: [
+            {
+                id: "1111",
+                projectName: "projet",
+                descirpcin: "sdfghj",
+                projecStatus: "completad",
+                startDate: "10/10/2020",
+                endDate: "14/10/2020",
+                task: []
+            }
+        ],
         loading: false,
         lastFetch: null
     },
