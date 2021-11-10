@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 const imgUsers = [adi, stav, iris, shimon]
 
 export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => {
-
   const [open, setOpen] = useState(false);
   const [searchUser, setSearchUser] = useState("")
   const [userClicked, setUserClicked] = useState([]);
@@ -25,7 +24,6 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => 
     if (searchUser)
       return users.filter((user) => {
         const name = `${user.firstName} ${user.lastName}`
-
         return user.firstName.toLowerCase().startsWith(searchUser.toLowerCase()) ||
           user.lastName.toLowerCase().startsWith(searchUser.toLowerCase())
 

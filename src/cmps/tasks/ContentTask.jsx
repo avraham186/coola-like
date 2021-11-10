@@ -27,7 +27,7 @@ import { TaskContext } from "../../Context/TaskContext";
 export const ContentTask = ({ nameTask, taskMode, priorityTask }) => {
   const { taskContent: { label, pplAssigned, file, date,description,chats }, saveTask } = useContext(TaskContext);
   return (
-    <div className="new-task">
+    <div className="new-task flex column">
       <div className="new-task-container">
         <div className="new-task-title flex align-center">
           <h2>{nameTask}</h2>
