@@ -4,18 +4,27 @@ import projectsDAL from "../../adapters/TMS/projectsDAL";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
 import { Paper } from "@material-ui/core";
-const TaskList = () => {
-  debugger;
+import {getProjById} from '../../store/projects';
+
+const TaskList = ({match}) => {
+  // debugger;
   const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
 
   useEffect(() => {
-    dispatch(loadProjects());
-    console.log(projects.list);
-  }, []);
+    loadTasks();
+    console.log('match.params.projectId', match.params.projectId);
+    
+  }, [match.params.projectId]);
 
+ const loadTasks = async () => {
+    const { projectId } = match.params;
+    const tasks = getProjById(projectId).then((res)=> res.data);
+    // console.log('tasks', tasks);
+    
+  };
   return (
     <table className="projects-table">
       <tr className="projects-row ">

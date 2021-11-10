@@ -1,11 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {apiCallBegan} from "./api";
-
+import axios from 'axios'
 
 const slice = createSlice({
     name: 'projects',
     initialState: {
-        list: [],
+        list: [ {
+                id: "1111",
+                projectName: "projet",
+                descirpcin: "sdfghj",
+                projecStatus: "completad",
+                startDate: "10/10/2020",
+                endDate: "14/10/2020",
+                task: []
+            }
+],
         loading: false,
         lastFetch: null
     },
@@ -52,6 +61,17 @@ export const addProject = project => apiCallBegan({
     onSuccess: projectAdded.type
 });
 
+export const getProjById = async (projId) =>{    
+        try {
+            const response = await axios.get(`https://cula-like-master.herokuapp.com/api/projects/${projId}`)
+console.log('response', response);
+
+        } catch(err){
+            console.log('err', err);
+            
+        }
+    
+}
 // Selector
 
 // Memoization
