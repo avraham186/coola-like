@@ -4,26 +4,21 @@ import { user, watch, label, files, erase } from "../../assets/images/icons";
 export const SideBar = ({ setToggleMode }) => {
   const assignToMission = () => {
     setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }));
-    console.log("assigned");
   };
 
   const chooseEndDate = () => {
     setToggleMode((p) => ({ ...p, dueDate: !p.dueDate }));
-    console.log("date choosed");
   };
 
   const chooseLables = () => {
     setToggleMode((p) => ({ ...p, label: !p.label }));
-    console.log("lable choosed");
   };
 
   const uploadFiles = () => {
     setToggleMode((p) => ({ ...p, file: !p.file }));
-    console.log("file upload");
   };
 
   const remove = () => {
-    // props.onRemove()
     console.log("mission erased");
   };
   return (
