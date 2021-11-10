@@ -1,66 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useContext } from 'react';
 import { ContentTask } from './ContentTask';
-import { NewTaskModal } from './NewTaskModal'
 import { SideBar } from './SideBar';
-import AddTags from './AddTags';
+import { AddLabel, AddFile, DueDate, PeopleAssigned } from './Modals';
+import { TaskProvider } from '../../Context/TaskContext';
+
 
 const NewTask = () => {
-    const [togglePeopleAssigned, setTogglePeopleAssigned] = useState(false)
-    const [toggleChoosenDate, setToggleChoosenDate] = useState(false)
-    const [toggleLables, setToggleLables] = useState(false)
-    const [toggleFiles, setToggleFiles] = useState(false)
-    const [toggleModal, setToggleModal] = useState(false)
+    const [toggleMode, setToggleMode] = useState({
+        label: false,
+        pplAssigned: false,
+        dueDate: false,
+        file: false
+    })
+    // const [taskToSave, setTaskToSave] = useState({ label: '' })
 
-    useEffect(() => {
-        whichComponent()
-    }, [togglePeopleAssigned, toggleChoosenDate, toggleLables, toggleFiles, toggleModal])
 
-    const closeModal = () => {
-        setTogglePeopleAssigned()
-        setToggleModal()
-    }
-    const whichComponent = () => {
-        // if (togglePeopleAssigned) {
-        //     return {
-        //         Comp: AssignedPpl,
-        //         closeModal
-        //     }
-        // }
-        if (toggleChoosenDate) {
-            return {
-                // component: <ChooseDate />,
-                closeModal
-            }
+    // const taskToSave = {}
+    // const setTaskToSave = (name,pros) => {
+    //     taskToSave[name] = pros;
+    // }
+    const IsClicked = () => {
+        const isClicked = Object.keys(toggleMode).filter(k => toggleMode[k])
+        switch (isClicked[0]) {
+            case 'label':
+                return <AddLabel
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode}
+                // setTaskToSave={setTaskToSave}
+                />
+            case 'pplAssigned':
+                return <PeopleAssigned
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode}
+                // setTaskToSave={setTaskToSave} 
+                />
+            case 'dueDate':
+                return <DueDate
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode}
+                // setTaskToSave={setTaskToSave} 
+                />
+            case 'file':
+                return <AddFile
+                    toggleMode={toggleMode}
+                    setToggleMode={setToggleMode}
+                // setTaskToSave={setTaskToSave} 
+                />
+            default:
+                break;
         }
-        if (toggleLables)
-            return {
-                component: AddTags,
-                closeModal
-            }
-        if (toggleFiles)
-            return {
-                // component: <ChooseFiles />,
-                closeModal
-            }
-        console.log('something clicked');
-        return
+        return null;
     }
-    return (
-        <div className="main-task justify-center flex">
-            <ContentTask />
-            <SideBar
-                setTogglePeopleAssigned={setTogglePeopleAssigned}
-                setToggleChoosenDate={setToggleChoosenDate}
-                setToggleLables={setToggleLables}
-                setToggleFiles={setToggleFiles}
-                setToggleModal={setToggleModal} />
 
-            {toggleModal &&
-                <NewTaskModal Comp={whichComponent()}
-                />}
-        </div>
+    return (
+        <TaskProvider>
+            <div className="main-task flex justify-center">
+                <ContentTask />
+                <SideBar setToggleMode={setToggleMode} />
+                <IsClicked />
+            </div >
+        </TaskProvider>
+
     )
 }
 
 export default NewTask;
-

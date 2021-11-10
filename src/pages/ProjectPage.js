@@ -49,8 +49,8 @@ const ProjectPage = () => {
 
     return (
         <div>
-           <SideBarAdmin /> 
-             {/* <NewSideBar />  */}
+           {/* <SideBarAdmin />  */}
+            <NewSideBar />
             <Button variant="outlined" ></Button>
             <Button variant="outlined" onClick={() => setOpen(true)}>
                 Add new project

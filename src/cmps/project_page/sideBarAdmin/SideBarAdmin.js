@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import AddNewEvent from "./AddNewEvent.js";
 import NewPositionForm from "./NewPositionForm.js";
-import NewProject from "./NewProject.js";
+import {NewProject} from "./NewProject.js";
 import "./SidebarAdmin.scss";
+import UserPermissions from "./UserPermissions.js";
 
 function SideBarAdmin() {
   const [openSideBar, setOpenSideBar] = useState(false);
@@ -11,9 +12,14 @@ function SideBarAdmin() {
   //     {title: "addNewProject", active: false, cmp: <NewProject />},
   //     {title: "addNewJob", active: false, cmp: <AddNewJob />}
   // ]);
+
+
+
+
   const [show, setshow] = useState(false)
   const [clickNewJob, setClickNewJob] = useState(false)
   const [newProject, setNewProject] = useState(false)
+  const [showUsers, setShowUsers] = useState(false)
   
   const [selectedMenu, setSelectedMenu] = useState('');
 
@@ -67,6 +73,11 @@ function SideBarAdmin() {
     // console.log("updateJobsPage");
   };
   const changeUserPermissions = () => {
+    if (showUsers === false) {
+      setShowUsers(true);
+    } else if (showUsers === true) {
+      setShowUsers(false);
+    }
     // props.onRemove()
     console.log("changeUserPermissions");
   };
@@ -113,8 +124,9 @@ function SideBarAdmin() {
       {/* { show.forEach((obj)=> obj.title.toString().toLowerCase() === selectedMenu.toString().toLowerCase()? obj.cmp : null)} */}
       {show ? <AddNewEvent /> : null} 
       {/* {show ? <NewProject /> : null}  */}
-      {clickNewJob ? <NewPositionForm />: null}
-      {newProject ? <NewProject/>: null}
+      {clickNewJob && <NewPositionForm />}
+      {newProject && <NewProject/>}
+      {showUsers && <UserPermissions/>}
 
       
     </div>
