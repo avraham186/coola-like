@@ -1,20 +1,16 @@
 .app-navbar-wrapper{
     background-color: white;
+    
 .app-navbar {
     padding: 5px 0 5px 0;
     background-color: #ffffff;
     margin-bottom: 10px;
-<<<<<<< HEAD:src/assets/cmps/_app-navbar.scss
     font-family: 'Rubik';
     display: flex;
     width: 100%;
     
     
     a{
-=======
-
-    a {
->>>>>>> ac4070f8cf59dc5725719d47ab2e2ae3f073c666:src/assets/cmps/home-page/_app-navbar.scss
         text-decoration: none;
         color: black;
     }
@@ -29,7 +25,6 @@
         display: flex;
         list-style: none;
         flex-direction: row;
-<<<<<<< HEAD:src/assets/cmps/_app-navbar.scss
         justify-content: space-between;
         padding-left:0;
         width: 25vw;
@@ -78,29 +73,6 @@
         .user_logo:hover{
     
             opacity: .75;
-=======
-        justify-content: space-around;
-        padding-left: 0;
-        // width: 25vw;
-        margin: auto;
-        font-family: 'Rubik';
-        width: 100%;
-
-        .events-button-list {
-
-            border: 2px solid #34018E;
-            font-weight: bold;
-            box-sizing: border-box;
-            background-color: #34018E;
-            cursor: pointer;
-            border-radius: 2px 15px;
-            font-family: Rubik, sans-serif;
-            font-size: 16px;
-            margin-left: 25px;
-            width: 153px;
-            height: 40px;
-            margin: auto 10px auto 10px;
->>>>>>> ac4070f8cf59dc5725719d47ab2e2ae3f073c666:src/assets/cmps/home-page/_app-navbar.scss
         }
 
         li {
@@ -114,24 +86,11 @@
                 color: white;
                
             }
-<<<<<<< HEAD:src/assets/cmps/_app-navbar.scss
             
          }
     }
 
     .selected{
-=======
-
-            img {
-                width: 40px;
-                height: 40px;
-                //border: 1px black solid;
-            }
-        }
-    }
-
-    .selected {
->>>>>>> ac4070f8cf59dc5725719d47ab2e2ae3f073c666:src/assets/cmps/home-page/_app-navbar.scss
         text-decoration: underline;
     }
 
@@ -139,32 +98,22 @@
 
         gap: 10px;
         border-radius: 50%;
-<<<<<<< HEAD:src/assets/cmps/_app-navbar.scss
         padding-left:0;
         width: 100%;
-=======
-        padding-left: 0;
-        width: 90vw;
->>>>>>> ac4070f8cf59dc5725719d47ab2e2ae3f073c666:src/assets/cmps/home-page/_app-navbar.scss
         display: flex;
         list-style: none;
         flex-direction: row-reverse;
         justify-content: space-around;
+        align-items: center;
         font-family: 'Rubik';
         font-weight: 600;
 
 
         li {
             margin-left: 4%;
-<<<<<<< HEAD:src/assets/cmps/_app-navbar.scss
             margin-right: 2%;
             
             
-=======
-            margin-right: 8%;
-
-
->>>>>>> ac4070f8cf59dc5725719d47ab2e2ae3f073c666:src/assets/cmps/home-page/_app-navbar.scss
         }
 
         :hover {
@@ -172,7 +121,6 @@
         }
     }
 
-<<<<<<< HEAD:src/assets/cmps/_app-navbar.scss
      .coola_like_logo {
          padding-left: 5px;
          cursor: pointer;
@@ -182,14 +130,3 @@
      
     }//navbar
 }
-=======
-    .logo {
-        padding-left: 5px;
-    }
-
-
-
-}
-
-//navbar
->>>>>>> ac4070f8cf59dc5725719d47ab2e2ae3f073c666:src/assets/cmps/home-page/_app-navbar.scss

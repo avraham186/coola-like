@@ -40,20 +40,18 @@ const Checkboxs = () => {
             }
             else return event
 
-         }//filter function
-         )//filter arguments brackets
-         )//events: argument
-         ]//events: array
-         })//dispatch() argument
+         }
+         )
+         )
+         ]
+         })
    }//try
    catch(err){
       console.log(err);
    }
-      //dispatch argumnets brackets
-}// dispatch callback   
-   //setEvents function;
+}
    
-      setEvents(events);
+      //setEvents(events);
    
    },
       [checkboxSelected]
