@@ -15,7 +15,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
+// import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
 
 import {useDispatch} from "react-redux";
 import {addProject} from "../store/projects";

@@ -24,6 +24,12 @@
 @import './cmps/tasks-page/new-task-sidebar';
 @import './cmps/tasks-page/new-task-modals';
 
+//project page
+@import './cmps/Project-page/AddNewEvent';
+@import './cmps/Project-page/Categories';
+@import './cmps/Project-page/NewPositionForm';
+@import './cmps/Project-page/newSidebar';
+
 //views
 @import './views/home-page';
 @import './views/project-page';

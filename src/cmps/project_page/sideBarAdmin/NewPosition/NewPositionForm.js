@@ -1,7 +1,7 @@
 import React from "react";
-import "./NewPositionForm.scss";
+
 import AreaSerch from "./AreaSearch";
-import Categories from "./Ctegories";
+import Categories from "./Categories";
 import TypeOfJob from "./TypeOfJob";
 
 export default function NewPositionForm() {

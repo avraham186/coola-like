@@ -3,7 +3,7 @@ import React from 'react'
 function UserPermissions() {
     return (
         <div>
-            user permissions 
+           <p>user permissions </p> 
         </div>
     )
 }

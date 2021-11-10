@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './Categories.scss'
+// import './Categories.scss'
 
 const typsData = [
   { name: "משרה מלאה" },
