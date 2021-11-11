@@ -8,16 +8,16 @@ import updateProjects from '../../store/projects'
 import delateProjectById from '../../store/projects'
 import { updateProjects1, loadProjects } from "../../store/projects";
 import { useDispatch } from 'react-redux';
+
 const EditProject = ({ openModal, setOpenModal, stateModal, setStateModal }) => {
     const dispatch = useDispatch()
-    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
+    const statusOptions = ['IN_PROCESS', 'DELAY', 'COMPLETED', 'STARTED', 'CANCELED']
     const { description, projectName, endDate, startDate, projectStatus, id, tasks, adminProject, projectPriority } = stateModal
-    console.log(stateModal)
+    // console.log(stateModal)
 
 
     const handleEdit = async () => {
         await projectsDAL.editProject(stateModal)
-
         dispatch(loadProjects())
         setOpenModal(p => !p)
     }

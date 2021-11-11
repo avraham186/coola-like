@@ -35,11 +35,6 @@ const ProjectsList = () => {
         console.log(projects.list)
     }, [])
 
-
-
-
-
-
     if (!projects) return <div>Loading...</div>;
     return (
         <React.Fragment style={{ direction: "rtl" }}>

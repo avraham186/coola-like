@@ -55,7 +55,7 @@ const ProjectPage = () => {
     };
 
     const handleAdd = async () => {
-        debugger
+        // debugger
         setOpen(false);
         const obj = {
             projectName,

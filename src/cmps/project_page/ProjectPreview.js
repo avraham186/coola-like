@@ -13,18 +13,23 @@ import delateProjectById from '../../store/projects'
 import { loadProjects } from "../../store/projects";
 
 export const ProjectPreview = ({ project }) => {
-    const dispatch = useDispatch()
-    const { projectName, startDate, description, endDate, projectStatus, id, tasks, adminProject, projectPriority } = project
-    const [stateModal, setStateModal] = useState({ description, projectName, endDate, startDate, projectStatus, id, tasks, adminProject, projectPriority })
-    console.log(stateModal)
+
+    const { projectName, startDate, description, endDate, projectStatus, id,
+        tasks, adminProject, projectPriority } = project
+    
+    const [stateModal, setStateModal] = useState({
+        description, projectName, endDate, startDate, projectStatus, id,
+        tasks, adminProject, projectPriority
+    })
     const [open, setOpen] = useState(false);
     const deleteProject = async (id) => await projectsDAL.deleteProject(id);
-
 
     const [finisehdTasks, setTasks] = useState();
     useEffect(() => {
         getFinishedTasks();
     }, [])
+
+    const dispatch = useDispatch()
 
     const getFinishedTasks = () => {
         if (!project.tasks) return
@@ -46,12 +51,8 @@ export const ProjectPreview = ({ project }) => {
         return yyyy + '.' + (mmChars[1] ? mm : "0" + mmChars[0]) + '.' + (ddChars[1] ? dd : "0" + ddChars[0]);
     }
 
-
-
-
-
-    const handelDelate = (id) => {
-        deleteProject(id)
+    const handelDelate = async (id) => {
+        await deleteProject(id)
         dispatch(loadProjects())
     }
     return (
@@ -69,7 +70,7 @@ export const ProjectPreview = ({ project }) => {
                 </Link>
                 <td style={{ textAlign: 'left' }}>
                     <img
-                        onClick={() => { handelDelate() }}
+                        onClick={() => { handelDelate(project.id) }}
                         src={erase}
                     />
                 </td>
