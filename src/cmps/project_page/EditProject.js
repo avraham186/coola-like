@@ -13,18 +13,7 @@ const EditProject = ({ openModal, setOpenModal, stateModal, setStateModal }) => 
     const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
     const { description, projectName, endDate, startDate, projectStatus, id, tasks, adminProject, projectPriority } = stateModal
     console.log(stateModal)
-    // const handleChangeStart = (newValue) => {
-    //     setStartDate(newValue);
-    // };
 
-    // const handleChangeEnd = (newValue) => {
-    //     setEndDate(newValue);
-    // };
-
-    // const handleStatus = (event) => {
-    //     setProjectStatus(event.target.value);
-    // };
-    // const editProject = async (stateModal) => { };
 
     const handleEdit = async () => {
         await projectsDAL.editProject(stateModal)
