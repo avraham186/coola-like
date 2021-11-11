@@ -6,9 +6,9 @@ export const TaskContext = createContext(data);
 export const TaskProvider = ({ children }) => {
     const [taskContent, setTaskContent] = useState(data);
 
-    useEffect(() => {
-        console.log(taskContent);
-    }, [taskContent])
+    // useEffect(() => {
+    //     console.log(taskContent);
+    // }, [taskContent])
 
     const removeTask = () => {
         setTaskContent(data)
