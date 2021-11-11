@@ -1,21 +1,31 @@
-import React, { useEffect } from 'react';
-import "./project_page.css"
-import tasksDAL from "../../adapters/TMS/tasksDAL";
+import React, { useEffect } from "react";
+import "./project_page.css";
+import taskDAL from "../../adapters/TMS/tasksDAL";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
 import { Paper } from "@material-ui/core";
-const TaskList = () => {
-    debugger
+import { getProjById } from '../../store/projects';
+
+const TaskList = ({ match }) => {
+    // debugger;
+    // const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
     const dispatch = useDispatch();
-    const tasks = useSelector(state => state.entities.tasks)
+    const projects = useSelector((state) => state.entities.projects);
 
     useEffect(() => {
-        dispatch(loadProjects());
-        console.log(tasks)
-    }, [])
+        loadTasks();
+        console.log('match.params.projectId', match.params.projectId);
 
+    }, [match.params.projectId]);
 
+    const loadTasks = async () => {
+        const { projectId } = match.params;
+        taskDAL.getAllTasks(projectId).then((res) => console.log(res));
+        // console.log('tasks', tasks);
+        // const deleteProject = async (id) => await projectsDAL.deleteProject(id);
+
+    };
     return (
         <table className="projects-table">
             <tr className="projects-row ">
@@ -28,40 +38,47 @@ const TaskList = () => {
                 <th className="row-item">סטאטוס</th>
                 <th className="row-item">+</th>
             </tr>
-            {
-                tasks.list.map((v, i) => {
-                    return (
-                        <tr className="projects-row">
-
-                            <td><Paper elevation={3} className="row-item" >
+            {projects.list.map((v, i) => {
+                return (
+                    <tr className="projects-row">
+                        <td>
+                            <Paper elevation={3} className="row-item">
                                 {v.projectName}
-                            </Paper></td>
-                            {/* <td><Paper elevation={3} className="row-item" >
+                            </Paper>
+                        </td>
+                        {/* <td><Paper elevation={3} className="row-item" >
                                 {v.startDate}
                             </Paper></td>  יש צורך?*/}
-                            <td> <Paper elevation={3} className="row-item" >
+                        <td>
+                            {" "}
+                            <Paper elevation={3} className="row-item">
                                 {v.maneger}
-                            </Paper></td>
-                            {/* <td> <Paper elevation={3} className="row-item" >
+                            </Paper>
+                        </td>
+                        {/* <td> <Paper elevation={3} className="row-item" >
                                 {v.(מוקצים למשימה)}
                             </Paper></td> */}
-                            <td> <Paper elevation={3} className="row-item" >
+                        <td>
+                            {" "}
+                            <Paper elevation={3} className="row-item">
                                 {v.endDate}
-                            </Paper></td>
-                            <td><Paper elevation={3} className="row-item" >
+                            </Paper>
+                        </td>
+                        <td>
+                            <Paper elevation={3} className="row-item">
                                 {v.description}
-                            </Paper></td>
-                            <td><Paper elevation={3} className="row-item" >
+                            </Paper>
+                        </td>
+                        <td>
+                            <Paper elevation={3} className="row-item">
                                 {v.projectStatus}
-                            </Paper></td>
-
-                        </tr>
-                    )
-                })
-            }
+                            </Paper>
+                        </td>
+                    </tr>
+                );
+            })}
         </table>
-
-    )
+    );
 };
 
 export default TaskList;

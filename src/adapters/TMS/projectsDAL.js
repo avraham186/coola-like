@@ -8,7 +8,7 @@ const createProject = (project) => axios.post(URI + '/api/projects/', project);
 
 const deleteProject = (id) => axios.delete(URI + '/api/projects/' + id);
 
-const editProject = (project) => axios.put(URI + '/api/projects/', project);
+const editProject = (project) => { axios.put(URI + '/api/projects/', project) }
 
 
 

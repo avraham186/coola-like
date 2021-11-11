@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./api";
+import axios from 'axios'
 
 
 const slice = createSlice({
@@ -7,15 +8,7 @@ const slice = createSlice({
     name: 'projects',
     initialState: {
         list: [
-            {
-                id: "1111",
-                projectName: "projet",
-                descirpcin: "sdfghj",
-                projecStatus: "completad",
-                startDate: "10/10/2020",
-                endDate: "14/10/2020",
-                task: []
-            }
+
         ],
         loading: false,
         lastFetch: null
@@ -37,14 +30,30 @@ const slice = createSlice({
         projectsRequestFailed: (projects, action) => {
             projects.loading = false;
         },
+        updateProjects: (projects, action) => {
+            debugger
+            projects.list.map(prod => {
+                return prod.id === action.payload.project.id ? action.payload.project : prod
+            })
+        },
+        delateProject: (projects, action) => {
+            projects.list.filter(prod => prod.id !== action.id)
+        }
+        //     case 'UPDATE_PERSON':
+        // return {
+        //     ...state, persons: state.persons.map(person => {
+        //     })
     }
-});
+}
+)
 
 export const {
     projectAdded,
     projectsReceived,
     projectsRequested,
-    projectsRequestFailed
+    projectsRequestFailed,
+    updateProjects,
+    delateProject
 } = slice.actions;
 export default slice.reducer;
 
@@ -64,6 +73,29 @@ export const addProject = project => apiCallBegan({
     method: "post",
     data: project,
     onSuccess: projectAdded.type
+});
+export const getProjById = async (projId) => {
+    try {
+        const response = await axios.get(`https://cula-like-master.herokuapp.com/api/projects/${projId}`)
+        console.log('response', response);
+
+    } catch (err) {
+        console.log('err', err);
+
+    }
+
+}
+export const delateProjectById = projectId => apiCallBegan({
+    url,
+    method: "delete",
+    data: projectId,
+    onSuccess: delateProject.type
+})
+export const updateProjects1 = project => apiCallBegan({
+    url,
+    method: "put",
+    data: project,
+    onSuccess: updateProjects.type
 });
 
 // Selector

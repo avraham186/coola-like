@@ -12,8 +12,8 @@ export const routes = [
         component: ProjectPage
     },
     {
-        path: '/projects/task',
-        component: TaskList
+        path: "/projects/task/:projectId",
+        component: TaskList,
     },
 
 ]
