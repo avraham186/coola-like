@@ -1,33 +1,16 @@
 import React, { useContext } from "react";
-import {
-  description_mission,
-  chat_logo,
-  attachment_icon,
-} from "../../assets/images/icons";
-
-import {
-  AssignedTask,
-  AttachmentsTask,
-  HeadlinesTask,
-  Labels,
-  TextArea,
-} from "./UtilsTask";
-import { adi, stav, shimon, iris } from "../../assets/images/founders-imgs";
+import { description_mission, chat_logo, attachment_icon, plus_sign } from "../../assets/images/icons";
+import { AssignedTask, AttachmentsTask, HeadlinesTask, Labels, TextArea, ChatsTask } from "./UtilsTask";
 import { TaskContext } from "../../Context/TaskContext";
 
-// [
-//   { name: "קורות חיים", color: "#b3ffec" },
-//   { name: "כלבים", color: "#ffb3cc" },
-//   { name: "כלבים", color: "#ffb3cc" },
-//   { name: "כלבים", color: "#ffb3cc" },
-//   { name: "כלבים", color: "#ffb3cc" },
-//   { name: "כלבים", color: "#ffb3cc" },
-// ]
 
-export const ContentTask = ({ nameTask, taskMode, priorityTask }) => {
-  const { taskContent: { label, pplAssigned, file, date,description,chats }, saveTask } = useContext(TaskContext);
+export const ContentTask = ({ nameTask, taskMode, priorityTask, setToggleMode }) => {
+  const {
+    taskContent: { label, pplAssigned, date, description, chats },
+    saveTask, } = useContext(TaskContext);
+
   return (
-    <div className="new-task">
+    <div className="new-task flex column">
       <div className="new-task-container">
         <div className="new-task-title flex align-center">
           <h2>{nameTask}</h2>
@@ -37,17 +20,37 @@ export const ContentTask = ({ nameTask, taskMode, priorityTask }) => {
 
         <div className="due-date-task flex align-center">
           <input type="checkbox" />
-          <h4 className="flex column"><span>תאריך התחלה:</span> {date.startDate}</h4>
-          <h4 className="flex column"><span>שעה: </span>{date.time}</h4>
-          <h4 className="flex column"><span>תאריך סוף: </span>{date.endDate}</h4>
-          <h4 className="flex column"><span>תזכורת: </span>{date.reminder}</h4>
+          <h4 className="flex column">
+            <span>תאריך התחלה:</span> {date.startDate}
+          </h4>
+          <h4 className="flex column">
+            <span>שעה: </span>
+            {date.time}
+          </h4>
+          <h4 className="flex column">
+            <span>תאריך סוף: </span>
+            {date.endDate}
+          </h4>
+          <h4 className="flex column">
+            <span>תזכורת: </span>
+            {date.reminder}
+          </h4>
         </div>
 
         <div className="labels-assigned flex">
           <div className="assigned-task">
             <HeadlinesTask title="מוקצים למשימה" />
-            <AssignedTask areAssigned={pplAssigned} />
+            <AssignedTask areAssigned={pplAssigned}>
+              <span
+                onClick={() =>
+                  setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }))
+                }
+              >
+                <img src={plus_sign} alt="circle plus" />
+              </span>
+            </AssignedTask>
           </div>
+
           <div className="labels">
             <HeadlinesTask title="תווית" />
             <Labels colorLabel={label} />
@@ -67,25 +70,22 @@ export const ContentTask = ({ nameTask, taskMode, priorityTask }) => {
         <div className="attachment-task">
           <HeadlinesTask title="קבצים" icon={attachment_icon} />
           <AttachmentsTask
-            files={[
-              { name: "שם קובץ" },
-              { name: "שם קובץ" },
-              { name: "שם קובץ" },
-            ]}
+            files={[{ name: "קובץ 1" }, { name: "קובץ 2" }, { name: "קובץ 3" }]}
           />
         </div>
 
         <div className="chat-task">
           <HeadlinesTask title="פעילות" icon={chat_logo} />
-          <div className="flex align-center">
+          <div className="chat-users flex column">
             {/* <object data={shimon} type="image/svg+xml" /> */}
             <TextArea
               id="chat-area"
-              name="chat"
+              name="chats"
               rows="1"
               cols="30"
-              text="רשום תגובה...."
+              placeHolder="רשום תגובה...."
             />
+            <ChatsTask chats={chats} />
           </div>
         </div>
       </div>

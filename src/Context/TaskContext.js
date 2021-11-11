@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-const data = { label: '', pplAssigned: [], files: [], date: {},description:'',chats:[] }
+const data = { label: '', pplAssigned: [], files: [], date: {}, description: '', chats: [] }
 
 export const TaskContext = createContext(data);
 
@@ -7,7 +7,7 @@ export const TaskProvider = ({ children }) => {
     const [taskContent, setTaskContent] = useState(data);
 
     useEffect(() => {
-        console.log(taskContent);
+        console.log('Context Updated: ', taskContent);
     }, [taskContent])
 
     const removeTask = () => {
