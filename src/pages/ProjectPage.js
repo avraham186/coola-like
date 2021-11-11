@@ -55,14 +55,19 @@ const ProjectPage = () => {
 
     return (
         <div>
-           {/* <SideBarAdmin />  */}
             <NewSideBar />
-            <Button variant="outlined" ></Button>
-            <Button variant="outlined" onClick={() => setOpen(true)}>
-                Add new project
-            </Button>
 
-      {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
+
+      { projects ?
+          <>
+            <Button variant="outlined" onClick={() => setOpen(true)}>
+              Add new project
+            </Button>
+            <ProjectsList />
+          </>
+          :
+          <EmptyProjects />
+      }
 
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Add new project</DialogTitle>
