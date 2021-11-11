@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import AreaSerch from "./AreaSearch";
 import Categories from "./Categories";
@@ -6,15 +6,50 @@ import TypeOfJob from "./TypeOfJob";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
-export default function NewPositionForm({toggleUserPermissions, setToggleUserPermissions}) {
+const initialNewPositionFormData = {
+    JobTitle: "",
+    Location: "",
+    Categories: [],
+    AreaSearch: [],
+    TypeOfJob: [],
+    Description:"",
+    Requirements: "",
+    Link: "",
+  }
+
+
+export default function NewPositionForm({
+  toggleUserPermissions,
+  setToggleUserPermissions,
+}) {
   const [open, setOpen] = React.useState(false);
+  const [formData, setFormData] = useState(initialNewPositionFormData);
+  
   // const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);
+  useEffect(()=>{
+    console.log(formData)
+  },[formData])
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData({
+      ...formData,
+      [name]: value,
+
+      // Trimming any whitespace
+    });
+  };
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    // ... submit to API or something
+  };
 
   useEffect(() => {
     toggleUserPermissions && setOpen((p) => !p);
   }, [toggleUserPermissions]);
-
 
   return (
     <Modal
@@ -32,59 +67,91 @@ export default function NewPositionForm({toggleUserPermissions, setToggleUserPer
         <div className="newPosition-container">
           <form action="">
             <label className="event-title">
-              כותרת הארוע
+              כותרת המשרה
               <br />
-              <input type="text" />
+              <input
+                type="text"
+                name="JobTitle"
+                value={formData.EventTitle}
+                onChange={handleChange}
+              />
             </label>
             <br />
 
             <label className="event-title">
               מיקום <br />
-              <input type="text" />
+              <input
+                type="text"
+                name="Location"
+                value={formData.Location}
+                onChange={handleChange}
+              />
             </label>
             <br />
 
             <label>
               תחום
               <br />
-              <Categories />
+              <Categories setFormData={setFormData} />
             </label>
             <br />
             <label>
               אזור
               <br />
-              <AreaSerch />
+              <AreaSerch setFormData={setFormData}/>
             </label>
             <br />
             <label>
               סוג המשרה
               <br />
-              <TypeOfJob />
+              <TypeOfJob setFormData={setFormData} />
             </label>
             <br />
 
             <label className="Description">
               תיאור
               <br />
-              <textarea name="" id="" cols="40" rows="10"></textarea>
+              <textarea
+                name="Description"
+                // value={formData.Description}
+                id=""
+                cols="40"
+                rows="5"
+                onChange={handleChange}
+              ></textarea>
             </label>
             <br />
 
             <label className="Description">
               דרישות
               <br />
-              <textarea name="" id="" cols="40" rows="10"></textarea>
+              <textarea
+                name="Requirements"
+                // value={formData.Requirements}
+                id=""
+                cols="40"
+                rows="5"
+                onChange={handleChange}
+              ></textarea>
             </label>
             <br />
 
             <label className="link-To-Linkedin">
               קישור לעמוד המשרה
               <br />
-              <input type="text" placeholder="www.linkedin//shaharpolak" />
+              <input
+                type="text"
+                name="Link"
+                value={formData.Link}
+                placeholder="www.linkedin//shaharpolak"
+                onChange={handleChange}
+              />
             </label>
             <br />
             <div className="submit-btn">
-              <button className="save-btn">העלה משרה</button>
+              <button className="save-btn" onClick={handleSubmit}>
+                העלה משרה
+              </button>
             </div>
           </form>
         </div>
