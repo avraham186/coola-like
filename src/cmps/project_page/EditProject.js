@@ -41,7 +41,7 @@ const EditProject = ({ openModal, setOpenModal, stateModal, setStateModal }) => 
         // }
         debugger
         // editProject(stateModal)
-        dispatch(loadProjects)
+        dispatch(loadProjects())
         setOpenModal(p => !p)
     }
     return (

@@ -10,6 +10,7 @@ import { useDispatch, useSelector, } from "react-redux";
 import projectsDAL from "../../adapters/TMS/projectsDAL";
 import EditProject from './EditProject';
 import delateProjectById from '../../store/projects'
+import { loadProjects } from "../../store/projects";
 
 export const ProjectPreview = ({ project }) => {
     debugger
@@ -90,6 +91,7 @@ export const ProjectPreview = ({ project }) => {
     }
     const handelDelate = (id) => {
         deleteProject(id)
+        dispatch(loadProjects())
     }
     return (
         <>
