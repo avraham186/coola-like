@@ -13,22 +13,9 @@ const EditProject = ({ openModal, setOpenModal, stateModal, setStateModal }) => 
     const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
     const { description, projectName, endDate, startDate, projectStatus, id, tasks, adminProject, projectPriority } = stateModal
 
-
     const handleEdit = async () => {
         await projectsDAL.editProject(stateModal)
-        // const project = {
-        //     id: 3,
-        //     projectName: "doing something",
-        //     description: "abcdefghi.....",
-        //     startDate: null,
-        //     endDate: null,
-        //     projectPriority: null,
-        //     projectStatus: "Done",
-        //     tasks: [],
-        //     adminProject: [],
-        // }
-        debugger
-        // editProject(stateModal)
+
         dispatch(loadProjects())
         setOpenModal(p => !p)
     }
