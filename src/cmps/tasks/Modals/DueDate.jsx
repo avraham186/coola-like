@@ -3,7 +3,7 @@ import { watch, closeIcon } from "../../../assets/images/icons";
 import { Modal, Box } from '@mui/material'
 import { TaskContext } from "../../../Context/TaskContext";
 
-export const DueDate = ({ toggleMode, setToggleMode }) => {
+export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
 
     const [open, setOpen] = useState(false);
     const [startCheckbox, setStartCheckbox] = useState(false)
@@ -20,6 +20,9 @@ export const DueDate = ({ toggleMode, setToggleMode }) => {
     useEffect(() => {
         dueDate && setOpen(p => !p)
     }, [toggleMode])
+    // useEffect(() => {
+    //     setTaskToSave(p => ({ ...p, dueDate: dateToSave }))
+    // }, [startCheckbox,endCheckbox]);
 
     const DATE_VALUE = [
         { value: taskContent.date.reminder ? taskContent.date.reminder : 'עדיין לא נבחרה התראה' },

@@ -1,69 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import "./project_page.css"
 import projectsDAL from "../../adapters/TMS/projectsDAL";
 import { loadProjects } from "../../store/projects";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, } from "react-redux";
 import { Paper } from "@material-ui/core";
+import { width } from '@mui/system';
+import TaskList from "./TaskList"
+import edit from '../../assets/images/icons/edit_pen.png';
+import erase from '../../assets/images/icons/erase.png';
+import { TextField, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+import { DesktopDatePicker, LocalizationProvider } from '@mui/lab'
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { ProjectPreview } from "./ProjectPreview";
 
 const ProjectsList = () => {
-  const deleteProject = async (id) => await projectsDAL.deleteProject(id);
+    const descriptionRef = React.createRef()
+    const projectNameRef = React.createRef()
+    const endDateRef = React.createRef()
+    const startDateRef = React.createRef()
+    const [project, setProject] = useState({})
+    const dispatch = useDispatch();
+    const projects = useSelector(state => state.entities.projects)
+    const [open, setOpen] = useState(false);
+    const [projectName, setProjectName] = useState('');
+    const [description, setDescription] = useState('');
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [projectStatus, setProjectStatus] = useState('')
+    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
 
-  const dispatch = useDispatch();
-  const projects = useSelector((state) => state.entities.projects);
-  const [finishedTasks, setState] = useState();
-  useEffect(() => {
-    dispatch(loadProjects());
-    console.log(projects.list);
-    getFinishProj();
-  }, []);
 
-  const getFinishProj = () => {
-    const finishedTasks = projects.list.reduce(
-      (acc, project) => {
-        acc["taskCount"] += project.tasks.length;
-        project.tasks.forEach((task) => {
-          if (task.taskStatus === "COMPLETED") {
-            acc["taskCountDone"]++;
-          }
-        });
-        return acc;
-      },
-      { taskCount: 0, taskCountDone: 0 }
+    useEffect(() => {
+        dispatch(loadProjects());
+        console.log(projects.list)
+    }, [])
+
+
+
+
+
+
+    if (!projects) return <div>Loading...</div>;
+    return (
+        <React.Fragment style={{ direction: "rtl" }}>
+            <table className="projects-table">
+                <tr className="projects-row ">
+                    <th className="row-item">שם הפרויקט</th>
+                    <th className="row-item">סטטוס</th>
+                    <th className="row-item">תאריך התחלה וסיום</th>
+                    <th className="row-item">השלמת המשימה</th>
+                    <th className="row-item">משימות שהושלמו</th>
+                </tr>
+
+                {projects.list.map((project, idx) => (
+                    <ProjectPreview project={project} key={idx} />
+                ))}
+            </table>
+
+        </React.Fragment>
     );
-    setState(finishedTasks);
-  };
-
-  return (
-    <div className="projects-table">
-      <div className="project-title flex">
-        <p>שם הפרוייקט</p>
-        <p>סטאטוס</p>
-        <p>תאריך התחלה וסיום</p>
-        <p>השלמת משימות</p>
-        <p>משימות שהושלמו</p>
-      </div>
-      {projects.list.map((v, i) => {
-        return (
-          <div className="projects-row">
-            {/* <Paper elevation={3} className="row-item" > */}
-            {v.projectName}
-            {/* </Paper> */}
-            {v.projectStatus}
-            {/* <Paper elevation={3} className="row-item" > */}
-            {/* {v.description} */}
-            {/* </Paper> */}
-            {/* <Paper elevation={3} className="row-item" > */}
-            {v.startDate}
-            {/* </Paper> */}
-            {/* <Paper elevation={3} className="row-item" > */}
-            {v.endDate}
-            {/* </Paper> */}
-            {/* <Paper elevation={3} className="row-item" > */}
-            {/* </Paper> */}
-          </div>
-        );
-      })}
-    </div>
-  );
 };
 
 export default ProjectsList;

@@ -34,7 +34,8 @@ export const AddLabel = ({ toggleMode, setToggleMode }) => {
         ? { border: "3px solid black", backgroundColor: color }
         : { backgroundColor: color };
       return (
-        <div key={i} className="label-container">
+        <div key={i} className="label-container"
+        >
           <img
             src={editIcon}
             style={{ width: "20px", height: "20px", marginTop: "3px" }}
@@ -51,8 +52,7 @@ export const AddLabel = ({ toggleMode, setToggleMode }) => {
 
   useEffect(() => {
     label && setOpen((p) => !p);
-  }, [label]);
-
+  }, [label])
   const handleColor = (ev) => {
     const color = ev.target.value;
     setColorPlate((p) => {

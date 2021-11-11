@@ -2,9 +2,11 @@
     // border: 1px dotted black;
     direction: rtl;
     font-family: Rubik, sans-serif;
+    width: 100vw;
     font-style: normal;
     padding: 20px 50px 20px 40px;
     color: #4a4a4a;
+    gap: rem(50px);
 
     .new-task-container {
     }

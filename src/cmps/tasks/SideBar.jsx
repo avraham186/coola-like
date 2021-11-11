@@ -20,10 +20,9 @@ export const SideBar = ({ setToggleMode }) => {
     setToggleMode((p) => ({ ...p, file: !p.file }));
   };
 
-  // const remove = () => {
-
-  //   console.log("mission erased");
-  // };
+  const remove = () => {
+    console.log("mission erased");
+  };
   return (
     <nav className="new-task-sidebar">
       <div className="sidebar-container flex column space-between">

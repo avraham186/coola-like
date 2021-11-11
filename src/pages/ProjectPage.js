@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from 'react';
 import EmptyProjects from "../cmps/project_page/EmptyProjects";
+import projectsDAL from "../adapters/TMS/projectsDAL";
 import ProjectsList from "../cmps/project_page/ProjectsList";
-import {Button} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -16,65 +17,77 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 // import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
-import {useDispatch} from "react-redux";
-import {addProject} from "../store/projects";
-import NewSideBar from '../cmps/project_page/sideBarAdmin/NewSideBar';
+
+import { useDispatch } from "react-redux";
+import { addProject } from "../store/projects";
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
     const [open, setOpen] = useState(false);
-    const [projectName, setProjectName] = useState("");
-    const [description, setDescription] = useState("");
+    const [projectName, setProjectName] = useState('');
+    const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [projectStatus, setProjectStatus] = useState("");
+    const [projectStatus, setProjectStatus] = useState('')
 
-    const statusOptions = [
-        "COMPLETED",
-        "STARTED",
-        "IN_PROCESS",
-        "CANCELED",
-        "DELAY",
-    ];
+    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
 
     const dispatch = useDispatch();
 
+    const handleChangeStart = (newValue) => {
+        setStartDate(newValue);
+    };
+
+    const handleChangeEnd = (newValue) => {
+        setEndDate(newValue);
+    };
+
+    const handleStatus = (event) => {
+        setProjectStatus(event.target.value);
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = async () => {
+        setOpen(false);
+    };
+
     const handleAdd = async () => {
+        debugger
         setOpen(false);
         const obj = {
             projectName,
             description,
-            startDate,
-            endDate,
             projectStatus,
-        };
+        }
         dispatch(addProject(obj));
     };
 
 
     return (
         <div>
-
-            {projects &&
-            <Button variant="outlined" onClick={() => setOpen(true)}>
+            <Button variant="outlined" onClick={handleClickOpen}>
                 Add new project
             </Button>
-            }
-            <div className="project-wrapper">
-            {projects ?
-                <>
-                    <NewSideBar/>
-                    <ProjectsList/>
-                </>
 
-                :
-                <EmptyProjects/>
+            <br /><br />
+
+            {
+                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
             }
-            </div>
-            <Dialog open={open} onClose={() => setOpen(false)}>
+
+            {/* {
+                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
+            } */}
+            <ProjectsList rows={projects} />
+            <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Add new project</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>Please provide the data</DialogContentText>
+                    <DialogContentText>
+                        Please provide the data
+                    </DialogContentText>
                     <TextField
                         margin="dense"
                         id="name"
@@ -98,40 +111,38 @@ const ProjectPage = () => {
                             id="select"
                             value={projectStatus}
                             label="Status"
-                            onChange={(event) => setProjectStatus(event.target.value)}
+                            onChange={handleStatus}
                         >
-                            {statusOptions.map((x, index) => {
-                                return (
-                                    <MenuItem key={index} value={x}>
-                                        {x}
-                                    </MenuItem>
-                                );
-                            })}
+                            {
+                                statusOptions.map((x, index) => {
+                                    return <MenuItem key={index} value={x}>{x}</MenuItem>
+                                })
+                            }
+
                         </Select>
                     </FormControl>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DesktopDatePicker
                             label="Start Date"
                             inputFormat="dd/MM/yyyy"
                             value={startDate}
-                            onChange={(newValue) => setStartDate(newValue)}
+                            onChange={handleChangeStart}
                             renderInput={(params) => <TextField {...params} />}
-                        />
-                        <br/>
-                        <br/>
+                        /><br /><br />
                         <DesktopDatePicker
                             label="End desktop"
                             inputFormat="dd/MM/yyyy"
                             value={endDate}
-                            onChange={(newValue) => setEndDate(newValue)}
+                            onChange={handleChangeEnd}
                             renderInput={(params) => <TextField {...params} />}
                         />
                     </LocalizationProvider>
+
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleAdd}>Add</Button>
                 </DialogActions>
             </Dialog>
