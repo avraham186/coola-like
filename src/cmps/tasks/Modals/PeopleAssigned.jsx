@@ -35,6 +35,7 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => 
     return userClicked.some((u) => u.id === user.id);
   };
   const userChoosen = (u) => {
+    console.log(u)
     if (isChoosen(u)) {
       const filterUser = userClicked.filter((user) => user.id !== u.id);
       setUserClicked(filterUser);

@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
   taskModule: taskReducer,
   communityHeartModule: communityHeartReducer
 })
-
 export const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(ReduxThunk))
