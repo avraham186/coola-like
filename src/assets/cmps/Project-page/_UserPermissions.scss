@@ -1,0 +1,22 @@
+.save-modal-button{
+    width: 200px;
+    height: 46px;
+    background-color: #34018E;
+    font-size: 18px;
+    color: white;
+    border-radius: 2px 15px;
+    border: none;
+    font-family: Rubik, sans-serif;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+input[type=text] {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #b8b8b8;
+}

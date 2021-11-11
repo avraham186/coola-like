@@ -4,18 +4,26 @@ import Categories from "../NewPosition/Categories";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
-function AddNewEvent({ handleChange }) {
+function AddNewEvent({ handleChange , toggleUserPermissions, setToggleUserPermissions}) {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    toggleUserPermissions && setOpen((p) => !p);
+  }, [toggleUserPermissions]);
+
+
   return (
-    // <Modal
-    //   open={open}
-    //   onClose={handleClose}
-    //   aria-labelledby="modal-modal-title"
-    //   aria-describedby="modal-modal-description"
-    // >
-    //   <Box className="boxStyle">
+    <Modal
+      open={open}
+      onClose={() =>
+        setToggleUserPermissions((p) => ({ ...p, toggleUserPermissions: !p.toggleUserPermissions }))
+      }
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box className="boxStyle">
     <div className="adding-job-container">
       <form action="adding-job">
         <label className="event-title">
@@ -70,8 +78,8 @@ function AddNewEvent({ handleChange }) {
         </div>
       </form>
     </div>
-    /* </Box>
-    </Modal> */
+    </Box>
+    </Modal>
   );
 }
 
