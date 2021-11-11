@@ -24,14 +24,12 @@ const slice = createSlice({
             projects.lastFetch = Date.now();
         },
         projectAdded: (projects, action) => {
-            debugger
             projects.list.push(action.payload);
         },
         projectsRequestFailed: (projects, action) => {
             projects.loading = false;
         },
         updateProjects: (projects, action) => {
-            debugger
             projects.list.map(prod => {
                 return prod.id === action.payload.project.id ? action.payload.project : prod
             })
@@ -39,10 +37,7 @@ const slice = createSlice({
         delateProject: (projects, action) => {
             projects.list.filter(prod => prod.id !== action.id)
         }
-        //     case 'UPDATE_PERSON':
-        // return {
-        //     ...state, persons: state.persons.map(person => {
-        //     })
+
     }
 }
 )

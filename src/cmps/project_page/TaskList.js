@@ -7,8 +7,6 @@ import { Paper } from "@material-ui/core";
 import { getProjById } from '../../store/projects';
 
 const TaskList = ({ match }) => {
-    // debugger;
-    // const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
     const dispatch = useDispatch();
     const projects = useSelector((state) => state.entities.projects);

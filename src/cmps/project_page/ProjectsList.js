@@ -29,7 +29,6 @@ const ProjectsList = () => {
     const [projectStatus, setProjectStatus] = useState('')
     const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
 
-    // const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(loadProjects());
@@ -38,53 +37,9 @@ const ProjectsList = () => {
 
 
 
-    const handleChangeStart = (newValue) => {
-        setStartDate(newValue);
-    };
-
-    const handleChangeEnd = (newValue) => {
-        setEndDate(newValue);
-    };
-
-    const handleStatus = (event) => {
-        setProjectStatus(event.target.value);
-    };
-    // const handleClose = async () => {
-    //     setOpen(false);
-    // };
 
 
-    const tasksProject = () => {
-        debugger
-        // <TaskList></TaskList>
-    }
-    const editproject = (project) => {
-        // const project = {
-        //     projectName: "first_project",
-        //     description: "zsxdcfvg",
-        //     startDate: "10/12/2013",
-        //     endDate: "10/15/2013",
 
-        // }
-        setProject(project)
-        setOpen(true)
-    }
-    const editProject = async (id) => await projectsDAL.editProject(id);
-
-    const handleEdit = (project) => {
-        debugger
-        const newProject = {
-            // id: project.id,
-            projectName: projectName,
-            description: description,
-            startDate: startDate,
-            endDate: endDate,
-            // task: project.task
-
-        }
-        editProject(newProject)
-        // handleClose()
-    }
     if (!projects) return <div>Loading...</div>;
     return (
         <React.Fragment style={{ direction: "rtl" }}>

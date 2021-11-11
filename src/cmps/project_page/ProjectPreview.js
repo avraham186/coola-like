@@ -13,19 +13,12 @@ import delateProjectById from '../../store/projects'
 import { loadProjects } from "../../store/projects";
 
 export const ProjectPreview = ({ project }) => {
-    debugger
     const dispatch = useDispatch()
     const { projectName, startDate, description, endDate, projectStatus, id, tasks, adminProject, projectPriority } = project
     const [stateModal, setStateModal] = useState({ description, projectName, endDate, startDate, projectStatus, id, tasks, adminProject, projectPriority })
     console.log(stateModal)
     const [open, setOpen] = useState(false);
     const deleteProject = async (id) => await projectsDAL.deleteProject(id);
-
-    // const [project1, setProject1] = useState({})
-    // const dispatch = useDispatch();
-
-
-    // const [projectStatus, setProjectStatus] = useState('')
 
 
     const [finisehdTasks, setTasks] = useState();
@@ -54,41 +47,9 @@ export const ProjectPreview = ({ project }) => {
     }
 
 
-    const handleClose = async () => {
-        setOpen(false);
-    };
 
 
-    const tasksProject = () => {
-        // <TaskList></TaskList>
-    }
-    const editproject = (project) => {
-        // const project = {
-        //     projectName: "first_project",
-        //     description: "zsxdcfvg",
-        //     startDate: "10/12/2013",
-        //     endDate: "10/15/2013",
 
-        // }
-        // setProject1(project1)
-        // setOpen(true)
-    }
-
-    const handleEdit = (project) => {
-
-    }
-    const editproject1 = (project) => {
-        // const project = {
-        //     projectName: "first_project",
-        //     description: "zsxdcfvg",
-        //     startDate: "10/12/2013",
-        //     endDate: "10/15/2013",
-
-        // }
-        // setProject1(project)
-        // setOpen(true)
-
-    }
     const handelDelate = (id) => {
         deleteProject(id)
         dispatch(loadProjects())
