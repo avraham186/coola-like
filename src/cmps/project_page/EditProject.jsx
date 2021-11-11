@@ -16,8 +16,6 @@ const EditProject = ({ openModal, setOpenModal, stateModal, setStateModal }) => 
     const handleEdit = async () => {
         await projectsDAL.editProject(stateModal)
 
-        debugger
-        // editProject(stateModal)
         dispatch(loadProjects())
         setOpenModal(p => !p)
     }
