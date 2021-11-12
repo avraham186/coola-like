@@ -48,6 +48,7 @@ function NewSideBar() {
                   <li
                     key={index}
                     className="row"
+                    id={window.location.pathname === link ? 'active' : ""}
                     onClick={() => {
                       setTab(link);
                       setToggleUserPermissions(!toggleUserPermissions)

@@ -7,14 +7,14 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
 const initialNewPositionFormData = {
-    JobTitle: "",
-    Location: "",
+    title: "",
+    location: "",
     Categories: [],
     AreaSearch: [],
     TypeOfJob: [],
-    Description:"",
-    Requirements: "",
-    Link: "",
+    description:"",
+    requirements: "",
+    link: "",
   }
 
 
@@ -71,8 +71,8 @@ export default function NewPositionForm({
               <br />
               <input
                 type="text"
-                name="JobTitle"
-                value={formData.EventTitle}
+                name="title"
+                value={formData.title}
                 onChange={handleChange}
               />
             </label>
@@ -82,8 +82,8 @@ export default function NewPositionForm({
               מיקום <br />
               <input
                 type="text"
-                name="Location"
-                value={formData.Location}
+                name="location"
+                value={formData.location}
                 onChange={handleChange}
               />
             </label>
@@ -112,7 +112,7 @@ export default function NewPositionForm({
               תיאור
               <br />
               <textarea
-                name="Description"
+                name="description"
                 // value={formData.Description}
                 id=""
                 cols="40"
@@ -126,7 +126,7 @@ export default function NewPositionForm({
               דרישות
               <br />
               <textarea
-                name="Requirements"
+                name="requirements"
                 // value={formData.Requirements}
                 id=""
                 cols="40"
@@ -141,8 +141,8 @@ export default function NewPositionForm({
               <br />
               <input
                 type="text"
-                name="Link"
-                value={formData.Link}
+                name="link"
+                value={formData.link}
                 placeholder="www.linkedin//shaharpolak"
                 onChange={handleChange}
               />

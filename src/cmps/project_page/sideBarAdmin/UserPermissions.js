@@ -5,6 +5,8 @@ import { setUsers } from "../../../store/actions/taskAction";
 import { TaskContext } from "../../../Context/TaskContext";
 import { Modal, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
+// import DropdownPermits from "./DropdownPermits";
+
 const imgUsers = [adi, stav, iris, shimon]
 
 export const UserPermissions = ({ toggleUserPermissions , setToggleUserPermissions }) => {
@@ -76,7 +78,7 @@ const dispatch = useDispatch()
             <img src={close_sign} />
           </span>
           <div className="ppl-assigned-title flex align-center">
-            מוקצים למשימה{" "}
+           הרשאות משתמשים {" "}
             <img src={user} alt="ppl-assigned-title" />
           </div>
         </div>
@@ -108,9 +110,11 @@ const dispatch = useDispatch()
                 <p style={{ textTransform: "capitalize" }}>
                   {firstName}&nbsp;{lastName}
                 </p>
+                {/* <DropdownPermits /> */}
                 {/* <p>{name}</p> */}
                 {isChoosen(user) && (
                   <img src={v_sign} alt="v-sign" style={{ margin: "20px" }} />
+                  
                 )}
               </div>
             );

@@ -5,13 +5,13 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
 const initialEventData = {
-  EventTitle: "",
-  Date: "",
-  Time: "",
+  title: "",
+  eventDate: "",
+  time: "",
   Categories: [],
-  Description: "",
-  File: "",
-  Link: "",
+  description: "",
+  file: "",
+  link: "",
 };
 
 function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
@@ -63,8 +63,8 @@ function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
               <br />
               <input
                 type="text"
-                value={formData.EventTitle}
-                name="EventTitle"
+                value={formData.title}
+                name="title"
                 onChange={handleChange}
               />
             </label>
@@ -76,14 +76,14 @@ function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
               <div className="data-and-time-input">
                 <input
                   type="date"
-                  name="Date"
-                  value={formData.Date}
+                  name="eventDate"
+                  value={formData.eventDate}
                   placeholder="dd/mm/yyyy"
                   onChange={handleChange}
                 />
                 <input
                   type="time"
-                  name="Time"
+                  name="time"
                   value={formData.Time}
                   placeholder="00:00"
                   onChange={handleChange}
@@ -104,7 +104,7 @@ function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
               תיאור
               <br />
               <textarea
-                name="Description"
+                name="description"
                 onChange={handleChange}
                 id=""
                 cols="40"
@@ -119,8 +119,8 @@ function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
                 בחר מהמחשב
                 <input
                   type="file"
-                  name="File"
-                  value={formData.File}
+                  name="file"
+                  value={formData.file}
                   onChange={handleChange}
                   style={{ display: "none" }}
                 />
@@ -133,8 +133,8 @@ function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
               <br />
               <input
                 type="text"
-                name="Link"
-                value={formData.Link}
+                name="link"
+                value={formData.link}
                 onChange={handleChange}
                 placeholder="www.linkedin//shaharpolak"
               />
