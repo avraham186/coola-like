@@ -1,77 +1,79 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {apiCallBegan} from "./api";
-import axios from 'axios'
+import { createSlice } from "@reduxjs/toolkit";
+import { apiCallBegan } from "./api";
+import axios from "axios";
 
 const slice = createSlice({
-    name: 'projects',
-    initialState: {
-        list: [ {
-                id: "1111",
-                projectName: "projet",
-                descirpcin: "sdfghj",
-                projecStatus: "completad",
-                startDate: "10/10/2020",
-                endDate: "14/10/2020",
-                task: []
-            }
-],
-        loading: false,
-        lastFetch: null
+  name: "projects",
+  initialState: {
+    list: [
+      {
+        id: "1111",
+        projectName: "projet",
+        descirpcin: "sdfghj",
+        projecStatus: "completad",
+        startDate: "10/10/2020",
+        endDate: "14/10/2020",
+        task: [],
+      },
+    ],
+    loading: false,
+    lastFetch: null,
+  },
+  reducers: {
+    projectsRequested: (projects, action) => {
+      projects.loading = true;
     },
-    reducers: {
-        projectsRequested: (projects, action) => {
-            projects.loading = true;
-        },
-        projectsReceived: (projects, action) => {
-            projects.list = action.payload;
-            projects.loading = false;
-            projects.lastFetch = Date.now();
-        },
-        projectAdded: (projects, action) => {
-            projects.list.push(action.payload);
-        },
-        projectsRequestFailed: (projects, action) => {
-            projects.loading = false;
-        },
-    }
+    projectsReceived: (projects, action) => {
+      projects.list = action.payload;
+      projects.loading = false;
+      projects.lastFetch = Date.now();
+    },
+    projectAdded: (projects, action) => {
+      projects.list.push(action.payload);
+    },
+    projectsRequestFailed: (projects, action) => {
+      projects.loading = false;
+    },
+  },
 });
 
 export const {
-    projectAdded,
-    projectsReceived,
-    projectsRequested,
-    projectsRequestFailed
+  projectAdded,
+  projectsReceived,
+  projectsRequested,
+  projectsRequestFailed,
 } = slice.actions;
 export default slice.reducer;
 
 // Action Creators
 const url = process.env.REACT_APP_PROJECT;
 
-export const loadProjects = () => apiCallBegan({
+export const loadProjects = () =>
+  apiCallBegan({
     url,
     onStart: projectsRequested.type,
     onSuccess: projectsReceived.type,
-    onError: projectsRequestFailed.type
-});
+    onError: projectsRequestFailed.type,
+  });
 
-export const addProject = project => apiCallBegan({
+export const addProject = (project) =>
+  apiCallBegan({
     url,
     method: "post",
     data: project,
-    onSuccess: projectAdded.type
-});
+    onSuccess: projectAdded.type,
+  });
 
-export const getProjById = async (projId) =>{    
-        try {
-            const response = await axios.get(`https://cula-like-master.herokuapp.com/api/projects/${projId}`)
-console.log('response', response);
-
-        } catch(err){
-            console.log('err', err);
-            
-        }
-    
-}
+export const getProjById = async (projId) => {
+  try {
+    const response = await axios.get(
+      `https://cula-like-master.herokuapp.com/api/projects/one/${projId}`
+    );
+    console.log("response", response.data);
+  } catch (err) {
+    console.log("err", err);
+  }
+};
 // Selector
 
 // Memoization

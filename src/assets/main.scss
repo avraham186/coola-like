@@ -28,7 +28,9 @@
 @import './views/home-page';
 @import './views/project-page';
 
-
+//project-page
+@import './cmps/project-page/project-list';
+@import './cmps/project-page/project-preview';
 
 // @import './cmps/city-search';
 // @import './cmps/weather-list';

@@ -4,9 +4,9 @@ import projectsDAL from "../../adapters/TMS/projectsDAL";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
 import { Paper } from "@material-ui/core";
-import {getProjById} from '../../store/projects';
+import { getProjById } from "../../store/projects";
 
-const TaskList = ({match}) => {
+const TaskList = ({ match }) => {
   // debugger;
   const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
@@ -15,15 +15,13 @@ const TaskList = ({match}) => {
 
   useEffect(() => {
     loadTasks();
-    console.log('match.params.projectId', match.params.projectId);
-    
+    console.log("match.params.projectId", match.params.projectId);
   }, [match.params.projectId]);
 
- const loadTasks = async () => {
+  const loadTasks = async () => {
     const { projectId } = match.params;
-    const tasks = getProjById(projectId).then((res)=> res.data);
-    // console.log('tasks', tasks);
-    
+    const tasks = getProjById(projectId).then((res) => res);
+    console.log("tasks", tasks);
   };
   return (
     <table className="projects-table">
