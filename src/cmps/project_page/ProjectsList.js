@@ -1,51 +1,63 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
+import "./project_page.css"
 import projectsDAL from "../../adapters/TMS/projectsDAL";
-import {loadProjects} from "../../store/projects";
-import {useDispatch, useSelector} from "react-redux";
-import {Paper} from "@material-ui/core";
+import { loadProjects } from "../../store/projects";
+import { useDispatch, useSelector, } from "react-redux";
+import { Paper } from "@material-ui/core";
+import { width } from '@mui/system';
+import TaskList from "./TaskList"
+import edit from '../../assets/images/icons/edit_pen.png';
+import erase from '../../assets/images/icons/erase.png';
+import { TextField, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+import { DesktopDatePicker, LocalizationProvider } from '@mui/lab'
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { ProjectPreview } from "./ProjectPreview";
 
 const ProjectsList = () => {
-
-    const deleteProject = async (id) => await projectsDAL.deleteProject(id);
-
+    const descriptionRef = React.createRef()
+    const projectNameRef = React.createRef()
+    const endDateRef = React.createRef()
+    const startDateRef = React.createRef()
+    const [project, setProject] = useState({})
     const dispatch = useDispatch();
     const projects = useSelector(state => state.entities.projects)
+    const [open, setOpen] = useState(false);
+    const [projectName, setProjectName] = useState('');
+    const [description, setDescription] = useState('');
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [projectStatus, setProjectStatus] = useState('')
+    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
+
 
     useEffect(() => {
         dispatch(loadProjects());
-        console.log(projects.list)
     }, [])
 
-
+    if (!projects) return <div>Loading...</div>;
     return (
-        <div className="projects-table">
-            {
-                projects.list.map((v, i) => {
-                    return (
-                        <div className="projects-row">
+        <div style={{ direction: "rtl" }}>
+            <table className="projects-table">
+                <thead>
+                    <tr className="projects-row ">
+                        <th></th>
+                        <th className="row-item">שם הפרויקט</th>
+                        <th className="row-item">סטטוס</th>
+                        <th className="row-item">תאריך התחלה וסיום</th>
+                        <th className="row-item">השלמת המשימה</th>
+                        <th className="row-item">משימות שהושלמו</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {projects.list.map((project) => (
+                        <ProjectPreview project={project} key={project.id} />
+                    ))}
+                </tbody>
+            </table>
 
-                            <Paper elevation={3} className="row-item" >
-                                {v.projectName}
-                            </Paper>
-                            <Paper elevation={3} className="row-item" >
-                                {v.description}
-                            </Paper>
-                            <Paper elevation={3} className="row-item" >
-                                {v.startDate}
-                            </Paper>
-                            <Paper elevation={3} className="row-item" >
-                                {v.endDate}
-                            </Paper>
-                            <Paper elevation={3} className="row-item" >
-                                {v.projectStatus}
-                            </Paper>
-                        </div>
-                    )
-                })
-            }
         </div>
-
-    )
+    );
 };
 
 export default ProjectsList;

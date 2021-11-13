@@ -19,8 +19,7 @@ const initialNewPositionFormData = {
 
 
 export default function NewPositionForm({
-  toggleUserPermissions,
-  setToggleUserPermissions,
+  toggleLinks, setToggleLinks
 }) {
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState(initialNewPositionFormData);
@@ -48,16 +47,16 @@ export default function NewPositionForm({
   };
 
   useEffect(() => {
-    toggleUserPermissions && setOpen((p) => !p);
-  }, [toggleUserPermissions]);
+    toggleLinks && setOpen((p) => !p);
+  }, [toggleLinks]);
 
   return (
     <Modal
       open={open}
       onClose={() =>
-        setToggleUserPermissions((p) => ({
+        setToggleLinks((p) => ({
           ...p,
-          toggleUserPermissions: !p.toggleUserPermissions,
+          toggleLinks: !p.toggleLinks,
         }))
       }
       aria-labelledby="modal-modal-title"

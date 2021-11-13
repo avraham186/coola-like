@@ -5,8 +5,8 @@ export const setUsers = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `https://cula-system.herokuapp.com/api/users`
-        );
+        `https://cula-like-master.herokuapp.com/api/users`
+      );
       const action = {
         type: ActionTypes.SET_USERS,
         payload: response.data,
