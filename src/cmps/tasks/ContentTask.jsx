@@ -1,21 +1,64 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { description_mission, chat_logo, attachment_icon, plus_sign } from "../../assets/images/icons";
 import { AssignedTask, AttachmentsTask, HeadlinesTask, Labels, TextArea, ChatsTask } from "./UtilsTask";
+import { modes, ModeChoosen, PriorityChoosen } from "./UtilsTask";
 import { TaskContext } from "../../Context/TaskContext";
 
 
-export const ContentTask = ({ nameTask, taskMode, priorityTask, setToggleMode }) => {
-  const {
-    taskContent: { label, pplAssigned, date, description, chats },
-    saveTask, } = useContext(TaskContext);
+
+export const ContentTask = ({ setToggleMode }) => {
+  const { taskContent: { title, priority, taskMode, label, pplAssigned, date, description, chats },
+    saveTask, setTaskContent } = useContext(TaskContext);
+  const [isClicked, setIsClicked] = useState({ priority: false, taskMode: false, title: false })
+
+  const handleChangeTaskMode = (e) => {
+    const nameClicked = e.target.getAttribute('name')
+    const value = e.target.getAttribute('value');
+    setTaskContent(prev => ({ ...prev, [nameClicked]: value }))
+    setIsClicked(prev => ({ ...prev, [nameClicked]: !prev[nameClicked] }))
+  }
 
   return (
     <div className="new-task flex column">
       <div className="new-task-container">
         <div className="new-task-title flex align-center">
-          <h2>{nameTask}</h2>
-          <span id="task-mode">{taskMode}</span>
-          <span id="priority-task">{priorityTask}</span>
+          <div className='title'>
+            {!isClicked.title
+              ? <h2 onClick={() => setIsClicked(p => ({ ...p, title: !p.title }))}>
+                {title || "משימה חדשה"}
+              </h2>
+              : <input
+                type="text"
+                autoFocus
+                value={title}
+                onChange={(e) => setTaskContent(p => ({ ...p, title: e.target.value }))}
+                onKeyPress={e => e.key === 'Enter' && setIsClicked(p => ({ ...p, title: !p.title }))}
+              />
+            }
+
+          </div>
+          <div className="task-mode flex column" >
+            {!isClicked.taskMode
+              ? <span
+                onClick={() => setIsClicked(p => ({ ...p, taskMode: !p.taskMode }))}
+                id={`task-mode${modes.indexOf(taskMode) + 1}`}
+              >
+                {taskMode}
+              </span>
+              : <ModeChoosen handleChangeTaskMode={handleChangeTaskMode} />
+            }
+          </div>
+          <div className="priority-task flex column">
+            {!isClicked.priority
+              ? <span
+                onClick={() => setIsClicked(p => ({ ...p, priority: !p.priority }))}
+                id="priority-task"
+              >
+                {priority}
+              </span>
+              : <PriorityChoosen handleChangeTaskMode={handleChangeTaskMode} />
+            }
+          </div>
         </div>
 
         <div className="due-date-task flex align-center">
@@ -64,6 +107,7 @@ export const ContentTask = ({ nameTask, taskMode, priorityTask, setToggleMode })
             name="description"
             rows="5"
             cols="40"
+            defaultVal={description}
           />
         </div>
 
@@ -88,11 +132,11 @@ export const ContentTask = ({ nameTask, taskMode, priorityTask, setToggleMode })
             <ChatsTask chats={chats} />
           </div>
         </div>
-      </div>
+      </div >
 
       <div className="submit-task">
         <span onClick={saveTask}>שמור וסגור</span>
       </div>
-    </div>
+    </div >
   );
 };

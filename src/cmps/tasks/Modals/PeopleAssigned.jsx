@@ -14,8 +14,7 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
   const [searchUser, setSearchUser] = useState("");
   const [userClicked, setUserClicked] = useState([...taskContent.pplAssigned]);
   const { pplAssigned } = toggleMode;
-  const { users } = useSelector(({ entities }) => entities.taskModule);
-
+  const { users } = useSelector(({ entities }) => entities.taskModule)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +25,6 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
     if (searchUser)
       return users.filter((user) => {
         const name = `${user.firstName} ${user.lastName}`;
-
         return (
           user.firstName.toLowerCase().startsWith(searchUser.toLowerCase()) ||
           user.lastName.toLowerCase().startsWith(searchUser.toLowerCase())

@@ -4,15 +4,34 @@
     font-style: normal;
     padding: 20px 50px 20px 40px;
     color: #4a4a4a;
+
     gap: rem(50px);
     width: 100vw;
 
     .new-task-title {
         text-align: right;
 
+
+        .title {
+            cursor: pointer;
+            font-size: .8rem;
+
+            input {
+                width: 85%;
+                font-size: 1rem;
+                border: none;
+                border-bottom: 1px solid blue;
+            }
+
+            input:focus {
+                outline: none;
+            }
+        }
+
         span,
         h2 {
-            margin: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         span {
@@ -24,13 +43,48 @@
             text-decoration: none;
         }
 
-        #task-mode {
-            background-color: $modeC1;
+        .task-mode {
+            gap: 5px;
+
+            span {
+                font-size: .8rem;
+                text-align: center;
+                border-radius: 5px;
+                padding: 3px 25px 3px 25px;
+            }
+
+            #task-mode1 {
+                background-color: $modeC1;
+            }
+
+            #task-mode2 {
+                background-color: $modeC2;
+            }
+
+            #task-mode3 {
+                background-color: $modeC3;
+            }
+
+            #task-mode4 {
+                background-color: $modeC4;
+            }
         }
 
-        #priority-task {
-            color: white;
-            background-color: $priority;
+
+        .priority-task {
+            gap: 5px;
+
+            span {
+                font-size: .8rem;
+                text-align: center;
+                border-radius: 5px;
+                padding: 3px 25px 3px 25px;
+            }
+
+            #priority-task {
+                color: white;
+                background-color: $priority;
+            }
         }
     }
 
@@ -89,6 +143,10 @@
 
     .assigned-task {
         margin-left: 35px;
+
+        .users-render {
+            flex-wrap: wrap;
+        }
 
         img[alt="userimg"] {
             width: 50px;

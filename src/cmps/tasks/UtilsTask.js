@@ -3,6 +3,21 @@ import { attachment_image, label, plus_sign } from '../../assets/images/icons';
 import user_icon from '../../assets/images/home-page-imgs/user_icon.png';
 import { TaskContext } from "../../Context/TaskContext";
 
+export const modes = ['חדש', 'בתהליך', 'באיחור', 'הושלם']
+export const priorities = ['עדיפות גבוהה', 'עדיפות בינונית', 'עדיפות נמוכה']
+
+export const ModeChoosen = ({ handleChangeTaskMode }) => {
+    return modes.map((mode, i) => {
+        return <span onClick={handleChangeTaskMode} key={i} name='taskMode' value={mode} id={`task-mode${i + 1}`}>{mode}</span>
+
+    })
+}
+export const PriorityChoosen = ({ handleChangeTaskMode }) => {
+    return priorities.map((priority, i) => {
+        return <span onClick={handleChangeTaskMode} key={i} name='priority' value={priority} id='priority-task'>{priority}</span>
+    })
+}
+
 export const HeadlinesTask = ({ title, icon }) => {
     return (
         <div className="headlines-task flex align-center">
@@ -26,7 +41,7 @@ export const Labels = ({ colorLabel }) => {
 
 export const AssignedTask = ({ areAssigned, children }) => {
     return (
-        <div className="flex ">
+        <div className="users-render flex">
             {areAssigned.map(({ firstName, lastName, img }, i) => {
                 const name = `${firstName} ${lastName}`
                 return <span key={i} className="justify-center align-center">
@@ -65,19 +80,18 @@ export const ChatsTask = ({ chats }) => {
                     </div>
                     <span className='user-message'>{user.content}</span>
                 </div>
-
             })}
         </div>
     )
 
 
 }
-export const TextArea = ({ id, name, rows, cols, placeHolder }) => {
+export const TextArea = ({ id, name, rows, cols, placeHolder, defaultVal }) => {
     const { setTaskContent } = useContext(TaskContext)
     // const getUser = JSON.parse(localStorage.getItem('user'))
     const getUser = 'Guy Hassan'
-
     const [text, setText] = useState('')
+
     function debounce(func) {
         let timer;
         return function (...args) {
@@ -92,18 +106,18 @@ export const TextArea = ({ id, name, rows, cols, placeHolder }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target
+        setText(value);
         if (e.target.name === 'description') {
             setTaskContent(p => ({ ...p, [name]: value }))
             return;
         }
-        setText(value);
     }
 
     const optimaize = useCallback(debounce(handleChange), [])
 
     const handleSubmitChat = () => {
-        if (text)
-            setTaskContent(p => ({ ...p, chats: [...p.chats, { user: getUser, content: text, img: '' }] }))
+        if (text) setTaskContent(p => ({ ...p, chats: [...p.chats, { user: getUser, content: text, img: '' }] }))
+        setText('')
     }
 
     return (
@@ -116,6 +130,7 @@ export const TextArea = ({ id, name, rows, cols, placeHolder }) => {
                 maxLength="400"
                 placeholder={placeHolder}
                 onChange={optimaize}
+                defaultValue={text || defaultVal}
             />
             {placeHolder && <span className="save-chat" onClick={handleSubmitChat}>שמור</span>}
         </div>
