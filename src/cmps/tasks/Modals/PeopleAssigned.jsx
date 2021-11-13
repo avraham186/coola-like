@@ -6,16 +6,10 @@ import { setUsers } from "../../../store/actions/taskAction";
 import { TaskContext } from "../../../Context/TaskContext";
 import { Modal, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-<<<<<<< HEAD
-const imgUsers = [adi, stav, iris, shimon]
-
-export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => {
-=======
 // const imgUsers = [adi, stav, iris, shimon];
 
 export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
   const { taskContent, setTaskContent } = useContext(TaskContext);
->>>>>>> ae8410d913210259b044966d3d51bef68c2085da
   const [open, setOpen] = useState(false);
   const [searchUser, setSearchUser] = useState("");
   const [userClicked, setUserClicked] = useState([...taskContent.pplAssigned]);
@@ -30,14 +24,9 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
   const applyUsers = () => {
     if (searchUser)
       return users.filter((user) => {
-<<<<<<< HEAD
-        const name = `${user.firstName} ${user.lastName}`
-        return user.firstName.toLowerCase().startsWith(searchUser.toLowerCase()) ||
-=======
         const name = `${user.firstName} ${user.lastName}`;
         return (
           user.firstName.toLowerCase().startsWith(searchUser.toLowerCase()) ||
->>>>>>> ae8410d913210259b044966d3d51bef68c2085da
           user.lastName.toLowerCase().startsWith(searchUser.toLowerCase())
         );
       });
