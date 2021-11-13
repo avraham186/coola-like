@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/coola-like/static/css/main.3aeac670.chunk.css",
-    "main.js": "/coola-like/static/js/main.78c4100e.chunk.js",
-    "main.js.map": "/coola-like/static/js/main.78c4100e.chunk.js.map",
+    "main.css": "/coola-like/static/css/main.1c9360d0.chunk.css",
+    "main.js": "/coola-like/static/js/main.f3d49e22.chunk.js",
+    "main.js.map": "/coola-like/static/js/main.f3d49e22.chunk.js.map",
     "runtime-main.js": "/coola-like/static/js/runtime-main.729a6390.js",
     "runtime-main.js.map": "/coola-like/static/js/runtime-main.729a6390.js.map",
-    "static/js/2.9da27a3e.chunk.js": "/coola-like/static/js/2.9da27a3e.chunk.js",
-    "static/js/2.9da27a3e.chunk.js.map": "/coola-like/static/js/2.9da27a3e.chunk.js.map",
+    "static/js/2.95a057ee.chunk.js": "/coola-like/static/js/2.95a057ee.chunk.js",
+    "static/js/2.95a057ee.chunk.js.map": "/coola-like/static/js/2.95a057ee.chunk.js.map",
     "index.html": "/coola-like/index.html",
-    "static/css/main.3aeac670.chunk.css.map": "/coola-like/static/css/main.3aeac670.chunk.css.map",
-    "static/js/2.9da27a3e.chunk.js.LICENSE.txt": "/coola-like/static/js/2.9da27a3e.chunk.js.LICENSE.txt",
+    "static/css/main.1c9360d0.chunk.css.map": "/coola-like/static/css/main.1c9360d0.chunk.css.map",
+    "static/js/2.95a057ee.chunk.js.LICENSE.txt": "/coola-like/static/js/2.95a057ee.chunk.js.LICENSE.txt",
     "static/media/Header_logo.c2b85ae2.svg": "/coola-like/static/media/Header_logo.c2b85ae2.svg",
-    "static/media/main.scss": "/coola-like/static/media/background.062bb7bd.jpg",
-    "static/media/Under construction.3ff2d7cc.svg": "/coola-like/static/media/Under construction.3ff2d7cc.svg",
+    "static/media/main.scss": "/coola-like/static/media/eventsBG.f8b59458.jpg",
+    "static/media/Under construction.8a78d158.svg": "/coola-like/static/media/Under construction.8a78d158.svg",
     "static/media/adi.d0790f45.svg": "/coola-like/static/media/adi.d0790f45.svg",
+    "static/media/coola_like_logo.8981e283.svg": "/coola-like/static/media/coola_like_logo.8981e283.svg",
     "static/media/iris.b591831d.svg": "/coola-like/static/media/iris.b591831d.svg",
     "static/media/lecture2.d8d329e3.png": "/coola-like/static/media/lecture2.d8d329e3.png",
     "static/media/linkedin.04fbdf81.svg": "/coola-like/static/media/linkedin.04fbdf81.svg",
     "static/media/shimon.37efd7d7.svg": "/coola-like/static/media/shimon.37efd7d7.svg",
-    "static/media/stav.b4f5042a.svg": "/coola-like/static/media/stav.b4f5042a.svg",
-    "static/media/user_icon.cb8e9b2e.svg": "/coola-like/static/media/user_icon.cb8e9b2e.svg"
+    "static/media/stav.b4f5042a.svg": "/coola-like/static/media/stav.b4f5042a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.729a6390.js",
-    "static/js/2.9da27a3e.chunk.js",
-    "static/css/main.3aeac670.chunk.css",
-    "static/js/main.78c4100e.chunk.js"
+    "static/js/2.95a057ee.chunk.js",
+    "static/css/main.1c9360d0.chunk.css",
+    "static/js/main.f3d49e22.chunk.js"
   ]
 }
