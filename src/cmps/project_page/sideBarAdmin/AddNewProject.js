@@ -1,68 +1,117 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { watch, closeIcon } from "../../../assets/images/icons";
-import { Modal, Box } from '@mui/material'
-import { TaskContext } from "../../../Context/TaskContext";
+import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { user, v_sign, close_sign } from "../../../assets/images/icons";
+import { adi, stav, iris, shimon } from "../../../assets/images/founders-imgs";
 
-export const AddNewProject = ({ toggleMode, setToggleMode }) => {
+const imgUsers = [adi, stav, iris, shimon];
 
-    // const [open, setOpen] = useState(false);
-    // const [startCheckbox, setStartCheckbox] = useState(false)
-    // const [endCheckbox, setEndCheckbox] = useState(false)
-    // const [dateToSave, setDateToSave] = useState({
-    //     startDate: '',
-    //     endDate: '',
-    //     time: '',
-    //     reminder: ''
-    // })
-    // const { taskContent, setTaskContent } = useContext(TaskContext);
-    // // const { dueDate } = toggleMode;
+const projectData = {
+  projectName: "",
+  startDate: "",
+  endDate: "",
+  adminProject: [],
+};
 
-    // useEffect(() => {
-    //     // dueDate && setOpen(p => !p)
-    // }, [toggleMode])
+function AddNewProject({ toggleLinks, setToggleLinks }) {
+  const [open, setOpen] = React.useState(false);
+  const [newProjData, setNewProjData] = useState(projectData);
 
-    // const DATE_VALUE = [
-    //     { value: taskContent.date.reminder ? taskContent.date.reminder : 'עדיין לא נבחרה התראה' },
-    //     { value: "יום לפני תאריך הסיום" },
-    //     { value: "יומיים לפני תאריך הסיום" },
-    //     { value: "שעתיים לפני" },
-    //     { value: "שעה לפני" },
-    //     { value: "10 דקות לפני" },
-    //     { value: "5 דקות לפני" },
-    //     { value: "בזמן תאריך היעד" },
-    // ]
-    // const handleDate = e => {
-    //     const date = e.target.value
-    //     const name = e.target.name
-    //     console.log('date', date, name);
+  useEffect(() => {
+    console.log(newProjData);
+  }, [newProjData]);
 
-    //     setTaskContent((p) => ({
-    //         ...p,
-    //         date: {
-    //             ...p.date,
-    //             [name]: date
-    //         }
-    //     }));
-    //     setDateToSave(p => ({ ...p, [name]: date }))
-    // }
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setNewProjData({
+      ...newProjData,
+      [name]: value,
 
-    return (
-        <Modal
-        //     className="modals"
-        //     open={open}
-        //     onClose={() => setToggleMode(p => ({
-        //         ...p,
-        //         dueDate: !p.dueDate
-        //     }))
-        //     }
-        //     aria-labelledby="modal-modal-title"
-        //     aria-describedby="modal-modal-description"
-         >
-            <Box className="box-modal">
-                <div className="box">
-                 Helo New Pro
-                </div>
-            </Box>
-        </Modal>
-    );
+      // Trimming any whitespace
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(newProjData);
+    // ... submit to API or something
+  };
+
+  useEffect(() => {
+    toggleLinks && setOpen((p) => !p);
+  }, [toggleLinks]);
+
+  return (
+    <Modal
+      open={open}
+      onClose={() =>
+        setToggleLinks((p) => ({
+          ...p,
+          toggleLinks: !p.toggleLinks,
+        }))
+      }
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box className="boxStyle">
+        <div className="newProj-container">
+          <input
+            placeholder="שם הפרויקט"
+            type="text"
+            name="title"
+            value={newProjData.projectName}
+            onChange={handleChange}
+          />{" "}
+          {/* <h2> {newProjData.projectName} </h2> */}
+          <div>
+            <h4>תאריך התחלה וסיום</h4>
+            <label>
+              <input type="checkbox" />
+              הגדרת פרוייקט שנתי
+            </label>
+            <br />
+
+            <div className="input-date">
+              <label>
+                <input type="checkbox" />
+                תאריך התחלה
+                <br />
+                <input
+                  type="date"
+                  name="startDate"
+                  value={newProjData.startDate}
+                  onChange={handleChange}
+                />
+              </label>
+              <br />
+
+              <label>
+                <input type="checkbox" />
+                תאריך סיום
+                <br />
+                <input
+                  type="date"
+                  name="endDate"
+                  value={newProjData.endDate}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="assigned-task">
+            <h4>מוקצים למשימה</h4>
+            {/* <AssignedTask areAssigned={pplAssigned} /> */}
+          </div>
+          <div className="submit-task">
+            <button className="save-btn" onClick={handleSubmit}>
+              שמור וסגור
+            </button>
+          </div>
+        </div>
+      </Box>
+    </Modal>
+  );
 }
+
+export default AddNewProject;

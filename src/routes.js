@@ -18,8 +18,12 @@ export const routes = [
         component: NewTask,
     },
     {
+        path: '/events',
+        component: EventsPage
+    },
+    {
         path: "/projects/task/:projectId",
         component: TaskList,
-    },
+    }
 
 ]

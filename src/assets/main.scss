@@ -24,11 +24,13 @@
 @import "./cmps/tasks-page/new-task-modals";
 
 //project page
-@import "./cmps/Project-page/AddNewEvent";
-@import "./cmps/Project-page/Categories";
-@import "./cmps/Project-page/NewPositionForm";
-@import "./cmps/Project-page/newSidebar";
-@import "./cmps/Project-page/project-list";
+@import './cmps/Project-page/AddNewEvent';
+@import './cmps/Project-page/Categories';
+@import './cmps/Project-page/NewPositionForm';
+@import './cmps/Project-page/newSidebar';
+@import './cmps/Project-page/AddNewProject';
+@import './cmps/Project-page/UserPermissions';
+
 
 //views
 @import "./views/home-page";

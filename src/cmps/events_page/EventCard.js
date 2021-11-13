@@ -30,20 +30,21 @@ const EventCard = (props) => {
                 />
                 <Link to='\'>
                 <IconButton className="inButton" >
-                    <LinkedInIcon className="inIcon" fontSize="small" />
+                    <LinkedInIcon className="inIcon" fontSize="medium" />
                 </IconButton>
                 </Link>
 
                 <CardActions className="card-footer">
 
-                    <h3 className="date_HL">{props.event.date + ' ' + props.event.day}</h3>
+                    <h2 className="date_HL">{props.event.date + ' ' + props.event.day}</h2>
+
                     <span className="time_HL">בשעה {props.event.hour}</span>
 
-                    <h3 className="subject_HL"> {props.event.subject} </h3>
+                    <h2 className="subject_HL"> {props.event.subject} </h2>
 
                     <hr />
                     
-                    <h5 className="lecture_HL">מציג: {props.event.lecturer} </h5>
+                    <h4 className="lecture_HL">מציג: {props.event.lecturer} </h4>
                     
                     <span className="video">
                         <span className="videoIcon"></span>

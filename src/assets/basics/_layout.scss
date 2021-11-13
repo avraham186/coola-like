@@ -18,6 +18,9 @@
             grid-column: 2;
         
         }
+        .footer__bg{
+            grid-column: 2;
+        }
     
     }
 
@@ -27,10 +30,16 @@
             minmax(auto, $mobile-breakpoint)
             minmax(2rem, 1fr);
     }
-    @include for-normal-layout {
+    @include for-medium-layout {
         grid-template-columns:
             minmax(2rem, 1fr)
             minmax(auto, $narrow-breakpoint)
+            minmax(2rem, 1fr);
+    }
+    @include for-normal-layout {
+        grid-template-columns:
+            minmax(2rem, 1fr)
+            minmax(auto, $medium-breakpoint)
             minmax(2rem, 1fr);
     }
     @include for-wide-layout {
