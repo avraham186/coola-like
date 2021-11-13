@@ -3,7 +3,7 @@ import { watch, closeIcon } from "../../../assets/images/icons";
 import { Modal, Box } from '@mui/material'
 import { TaskContext } from "../../../Context/TaskContext";
 
-export const AddNewProject = ({ toggleMode, setToggleMode }) => {
+export const NewProject = ({ toggleMode, setToggleMode }) => {
 
     // const [open, setOpen] = useState(false);
     // const [startCheckbox, setStartCheckbox] = useState(false)

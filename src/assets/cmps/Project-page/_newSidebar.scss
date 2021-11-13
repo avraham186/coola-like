@@ -17,7 +17,8 @@
 .sidebarList {
     height: 100%;
     width: 100%;
-   
+    padding: 0;
+//    padding: 15px;
     // background-color: blue;
     // padding: 25px;
     
@@ -27,21 +28,26 @@
         height: 50px;
         list-style-type: none;
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
         align-items: center;
         font-family: Rubik-regular;
-        // padding-left: 15px;
+        padding: 2px;
         white-space: nowrap;
       
     }
 
 }
 .row:hover {
-    
+    box-sizing: border-box;
     background-color: #f2f2f2;
     border-radius: 0 35px 35px 0;
     cursor: pointer;
     width: 100%;
+    // padding: 5px;
+    
+}
+#active{
+    background-color: #f2f2f2;
 }
 
 .sidebar-admin-right-arrow{
@@ -67,4 +73,9 @@
     flex-direction: row-reverse;
     justify-content: center;
 
+}
+.menu-toggle{
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

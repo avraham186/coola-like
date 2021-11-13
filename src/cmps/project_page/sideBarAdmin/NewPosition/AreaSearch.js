@@ -9,7 +9,7 @@ const areaData = [
   { name: "עבודה מהבית" },
 ];
 
-function AreaSerch() {
+function AreaSerch({setFormData}) {
   const [areas, setAreas] = useState([]);
   const [expanded, setExpanded] = useState(false)
 
@@ -40,6 +40,14 @@ function AreaSerch() {
         category.name === name ? { ...category, isChecked: checked } : category
       );
       setAreas(tempCategory);
+      setFormData((p) => {
+        return {
+          ...p,
+          AreaSearch: checked 
+            ? [...p.AreaSearch,name]
+            : p.AreaSearch.filter((v) => v !== name)
+        };
+      });
 
   };
 

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 // import "./newSidebar.scss";
 import NewPositionForm from "./NewPosition/NewPositionForm";
 import AddNewEvent from "./NewEvent/AddNewEvent.js";
-import {AddNewProject}  from "./AddNewProject.js";
-import UserPermissions from "./UserPermissions.js";
+import { NewProject } from "./NewProject.js";
+import {UserPermissions} from "./UserPermissions.js";
 
 function NewSideBar() {
   const [open, setOpen] = useState(false);
@@ -19,6 +18,8 @@ function NewSideBar() {
     "שינוי הרשאות משתמשים",
   ];
   const [tab, setTab] = useState("");
+
+  const [toggleUserPermissions, setToggleUserPermissions] = useState(false);
 
   const handelsideBar = () => {
     setOpen(!open);
@@ -36,17 +37,20 @@ function NewSideBar() {
           </div>
         ) : (
           <div className="sidebar-admin-right-arrow">
+            <div className='menu-toggle'>
             <AiOutlineDoubleRight onClick={handelsideBar} />
             <label className="arrow-icon">תפריט ניהול</label>
-
+            </div>
             <ul className="sidebarList">
               {linkes.map((link, index) => {
                 return (
                   <li
                     key={index}
                     className="row"
+                    id={window.location.pathname === link ? 'active' : ""}
                     onClick={() => {
                       setTab(link);
+                      setToggleUserPermissions(!toggleUserPermissions)
                     }}
                   >
                     {link}
@@ -58,12 +62,14 @@ function NewSideBar() {
         )}
         {/* </div> */}
 
-        <div>{tab === "הוספת משרה" && <NewPositionForm />}</div>
-        <div>{tab === "הוספת ארוע" && <AddNewEvent />}</div>
-        <div>{tab === "הוספת פרוייקט" && <AddNewProject />}</div>
-        <div>{tab === "עדכון דף ארועים" && <AddNewProject />}</div>
-        <div>{tab === "עדכון דף משרות" && <AddNewProject />}</div>
-        <div>{tab === "שינוי הרשאות משתמשים" && <UserPermissions />}</div>
+        <div>{tab === "הוספת משרה" && <NewPositionForm toggleUserPermissions={toggleUserPermissions} setToggleUserPermissions={setToggleUserPermissions}/>}</div>
+        <div>{tab === "הוספת ארוע" && <AddNewEvent  toggleUserPermissions={toggleUserPermissions} setToggleUserPermissions={setToggleUserPermissions}/>}</div>
+        <div>{tab === "הוספת פרוייקט" && <NewProject />}</div>
+        <div>{tab === "עדכון דף ארועים" && <NewProject />}</div>
+        <div>{tab === "עדכון דף משרות" && <NewProject />}</div>
+        
+      <div>
+          {tab === "שינוי הרשאות משתמשים" && <UserPermissions toggleUserPermissions={toggleUserPermissions} setToggleUserPermissions={setToggleUserPermissions} />}</div>
       </div>
     </div>
   );

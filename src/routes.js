@@ -15,7 +15,7 @@ export const routes = [
     }
     ,
     {
-        path: '/pages/EventsPage.js',
+        path: '/events',
         component: EventsPage
     }
 ]

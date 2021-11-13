@@ -7,7 +7,7 @@ import { Modal, Box } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 const imgUsers = [adi, stav, iris, shimon]
 
-export const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => {
+export  const PeopleAssigned = ({ toggleMode, setToggleMode, setTaskToSave }) => {
 
   const [open, setOpen] = useState(false);
   const [searchUser, setSearchUser] = useState("")
