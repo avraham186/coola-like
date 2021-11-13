@@ -1,8 +1,8 @@
+import TaskList from './cmps/project_page/TaskList';
 import HomePage from './pages/HomePage'
 import ProjectPage from "./pages/ProjectPage";
 import EventsPage from './pages/EventsPage';
-// import { ToyDetails } from './pages/ToyDetails'
-// import {ToyEdit} from './pages/ToyEdit'
+import NewTask from './cmps/tasks/NewTask'
 
 export const routes = [
     {
@@ -12,10 +12,14 @@ export const routes = [
     {
         path: '/projects',
         component: ProjectPage
-    }
-    ,
+    },
     {
-        path: '/pages/EventsPage.js',
-        component: EventsPage
-    }
+        path: "/projects/task/newTask",
+        component: NewTask,
+    },
+    {
+        path: "/projects/task/:projectId",
+        component: TaskList,
+    },
+
 ]

@@ -1,47 +1,79 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import EmptyProjects from "../cmps/project_page/EmptyProjects";
+import projectsDAL from "../adapters/TMS/projectsDAL";
 import ProjectsList from "../cmps/project_page/ProjectsList";
-import {Button} from "@material-ui/core";
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { Button } from "@material-ui/core";
+import {
+    TextField, Dialog, DialogActions, DialogContent, DialogContentText,
+    DialogTitle, InputLabel, MenuItem, FormControl, Select
+} from '@mui/material';
+import { DesktopDatePicker, LocalizationProvider } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+// import TextField from '@mui/material/TextField';
+// import Dialog from '@mui/material/Dialog';
+// import DialogActions from '@mui/material/DialogActions';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogContentText from '@mui/material/DialogContentText';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import LocalizationProvider from '@mui/lab/LocalizationProvider';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
 // import SideBarAdmin from '../cmps/project_page/sideBarAdmin/SideBarAdmin';
 
-import {useDispatch} from "react-redux";
-import {addProject} from "../store/projects";
-import NewSideBar from '../cmps/project_page/sideBarAdmin/NewSideBar';
+import { useDispatch } from "react-redux";
+import { addProject } from "../store/projects";
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
     const [open, setOpen] = useState(false);
     const [projectName, setProjectName] = useState('');
     const [description, setDescription] = useState('');
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
     const [projectStatus, setProjectStatus] = useState('')
+    const [projectPriority, setProjectPriority] = useState('')
 
-    const statusOptions = ['COMPLETED', 'STARTED', 'IN_PROCESS', 'CANCELED', 'DELAY']
+    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
+    const priorityOptions = ['High', 'Low', 'Medium']
 
     const dispatch = useDispatch();
+
+    const handleChangeStart = (newValue) => {
+        setStartDate(newValue);
+    };
+
+    const handleChangeEnd = (newValue) => {
+        setEndDate(newValue);
+    };
+
+    const handleStatus = (event) => {
+        setProjectStatus(event.target.value);
+    };
+    const handlePriority = (event) => {
+        setProjectPriority(event.target.value);
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = async () => {
+        setOpen(false);
+    };
 
     const handleAdd = async () => {
         setOpen(false);
         const obj = {
             projectName,
             description,
-            startDate,
+            projectStatus,
+            projectPriority,
             endDate,
-            projectStatus
+            startDate,
+            adminProject: [],
+            tasks: []
         }
         dispatch(addProject(obj));
     };
@@ -49,20 +81,21 @@ const ProjectPage = () => {
 
     return (
         <div>
-           {/* <SideBarAdmin />  */}
-            <NewSideBar />
-            <Button variant="outlined" ></Button>
-            <Button variant="outlined" onClick={() => setOpen(true)}>
+            <Button variant="outlined" onClick={handleClickOpen}>
                 Add new project
             </Button>
 
-            <br/><br/>
+            <br /><br />
 
             {
-                !projects ? <EmptyProjects/> : <ProjectsList rows={projects}/>
+                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
             }
 
-            <Dialog open={open} onClose={() => setOpen(false)}>
+            {/* {
+                !projects ? <EmptyProjects /> : <ProjectsList rows={projects} />
+            } */}
+            {/* <ProjectsList rows={projects} /> */}
+            <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Add new project</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -91,7 +124,7 @@ const ProjectPage = () => {
                             id="select"
                             value={projectStatus}
                             label="Status"
-                            onChange={(event) => setProjectStatus(event.target.value)}
+                            onChange={handleStatus}
                         >
                             {
                                 statusOptions.map((x, index) => {
@@ -101,28 +134,45 @@ const ProjectPage = () => {
 
                         </Select>
                     </FormControl>
-                    <br/>
-                    <br/>
+                    <FormControl fullWidth>
+                        <InputLabel id="select-priority">Priority</InputLabel>
+                        <Select
+                            labelId="select-priority"
+                            id="Priority"
+                            value={projectPriority}
+                            // label="Priority"
+                            onChange={handlePriority}
+                        >
+                            {
+                                priorityOptions.map((priority, index) => {
+                                    return <MenuItem key={index} value={priority}>{priority}</MenuItem>
+                                })
+                            }
+
+                        </Select>
+                    </FormControl>
+                    <br />
+                    <br />
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DesktopDatePicker
                             label="Start Date"
                             inputFormat="dd/MM/yyyy"
                             value={startDate}
-                            onChange={(newValue) => setStartDate(newValue)}
+                            onChange={handleChangeStart}
                             renderInput={(params) => <TextField {...params} />}
-                        /><br/><br/>
+                        /><br /><br />
                         <DesktopDatePicker
                             label="End desktop"
                             inputFormat="dd/MM/yyyy"
                             value={endDate}
-                            onChange={(newValue) => setEndDate(newValue)}
+                            onChange={handleChangeEnd}
                             renderInput={(params) => <TextField {...params} />}
                         />
                     </LocalizationProvider>
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleAdd}>Add</Button>
                 </DialogActions>
             </Dialog>
