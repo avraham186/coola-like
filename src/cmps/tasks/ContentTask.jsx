@@ -137,7 +137,7 @@ export const ContentTask = ({ setToggleMode }) => {
       </div >
 
       <div className="submit-task">
-        <span onClick={() => saveTask(projectId)}>שמור וסגור</span>
+        <span onClick={() => saveTask(+projectId)}>שמור וסגור</span>
       </div>
     </div >
   );
