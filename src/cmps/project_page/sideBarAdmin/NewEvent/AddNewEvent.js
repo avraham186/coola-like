@@ -14,7 +14,7 @@ const initialEventData = {
   link: "",
 };
 
-function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
+function AddNewEvent({toggleLinks, setToggleLinks}) {
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState(initialEventData);
 
@@ -40,16 +40,16 @@ function AddNewEvent({ toggleUserPermissions, setToggleUserPermissions }) {
   };
 
   useEffect(() => {
-    toggleUserPermissions && setOpen((p) => !p);
-  }, [toggleUserPermissions]);
+    toggleLinks && setOpen((p) => !p);
+  }, [toggleLinks]);
 
   return (
     <Modal
       open={open}
       onClose={() =>
-        setToggleUserPermissions((p) => ({
+        setToggleLinks((p) => ({
           ...p,
-          toggleUserPermissions: !p.toggleUserPermissions,
+          toggleLinks: !p.toggleLinks,
         }))
       }
       aria-labelledby="modal-modal-title"

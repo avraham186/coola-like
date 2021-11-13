@@ -29,11 +29,16 @@
 @import './cmps/Project-page/Categories';
 @import './cmps/Project-page/NewPositionForm';
 @import './cmps/Project-page/newSidebar';
+@import './cmps/Project-page/AddNewProject';
+@import './cmps/Project-page/UserPermissions';
+
 
 //views
 @import './views/home-page';
 @import './views/project-page';
 
+//events-page components
+@import './cmps/events-page/events-page'
 
 
 // @import './cmps/city-search';

@@ -9,7 +9,16 @@
         grid-column: 2;
         &.full {
             grid-column: 1 / -1;
+        
         }
+        .app-navbar-wrapper{
+            grid-column: 1 / -1;
+        }
+        .app-navbar{
+            grid-column: 2;
+        
+        }
+    
     }
 
     @include for-narrow-layout {
@@ -18,10 +27,16 @@
             minmax(auto, $mobile-breakpoint)
             minmax(2rem, 1fr);
     }
-    @include for-normal-layout {
+    @include for-medium-layout {
         grid-template-columns:
             minmax(2rem, 1fr)
             minmax(auto, $narrow-breakpoint)
+            minmax(2rem, 1fr);
+    }
+    @include for-normal-layout {
+        grid-template-columns:
+            minmax(2rem, 1fr)
+            minmax(auto, $medium-breakpoint)
             minmax(2rem, 1fr);
     }
     @include for-wide-layout {

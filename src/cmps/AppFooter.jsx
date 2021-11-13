@@ -6,8 +6,8 @@ import logo from "../assets/images/home-page-imgs/coola_like_logo.png";
 
 export function AppFooter() {
   return (
-    <footer className="footer">
-      <div className="footer__bg">
+    <footer className="footer ">
+      <div className="footer__bg full">
         <div className="footer__container container grid">
           <div className="footer__socials">
             <a

@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const imgUsers = [adi, stav, iris, shimon]
 
-export const UserPermissions = ({ toggleUserPermissions , setToggleUserPermissions }) => {
+const UserPermissions = ({ toggleLinks, setToggleLinks }) => {
 
   const [open, setOpen] = useState(false);
   const [searchUser, setSearchUser] = useState("")
@@ -53,15 +53,15 @@ const dispatch = useDispatch()
   };
 
   useEffect(() => {
-    toggleUserPermissions && setOpen((p) => !p);
-  }, [toggleUserPermissions]);
+    toggleLinks && setOpen((p) => !p);
+  }, [toggleLinks]);
 
   return (
     <Modal
       className="modals"
       open={open}
       onClose={() =>
-        setToggleUserPermissions((p) => ({ ...p, toggleUserPermissions: !p.toggleUserPermissions }))
+        setToggleLinks((p) => ({ ...p, toggleLinks: !p.toggleLinks }))
       }
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
@@ -70,9 +70,9 @@ const dispatch = useDispatch()
       <Box className="box-modal">
         <div className="ppl-assigned-headline flex">
           <span className="btn-close"
-            onClick={() => setToggleUserPermissions((p) => ({
+            onClick={() => setToggleLinks((p) => ({
               ...p,
-              toggleUserPermissions: !p.toggleUserPermissions,
+              toggleLinks: !p.toggleLinks,
             }))
             }>
             <img src={close_sign} />
@@ -89,7 +89,7 @@ const dispatch = useDispatch()
           className="addLinkInput"
           onChange={(e) => setSearchUser(e.target.value)}
           placeholder="..חפש משתמש"
-          style={{ width: "300px" }}
+         
         />
         <div className="users-assigned">
           {applyUsers().map((user, i) => {
@@ -110,8 +110,23 @@ const dispatch = useDispatch()
                 <p style={{ textTransform: "capitalize" }}>
                   {firstName}&nbsp;{lastName}
                 </p>
-                {/* <DropdownPermits /> */}
-                {/* <p>{name}</p> */}
+
+                <select name="dropdownPermits" className='dropdownPermits'>
+                  <option value="הרשאת מתנדב">
+                    הרשאת מתנדב
+                  </option>
+                  <option value="הרשאת מנהל משימה">
+                    הרשאת מנהל משימה
+                  </option>
+                  <option value="הרשאת אדמין">
+                    הרשאת אדמין
+                  </option>
+                  <option value="הסרת הרשאות ">
+                    הסרת הרשאות
+                  </option>
+                </select>
+
+             
                 {isChoosen(user) && (
                   <img src={v_sign} alt="v-sign" style={{ margin: "20px" }} />
                   
@@ -121,10 +136,14 @@ const dispatch = useDispatch()
           })}
         </div>
         <button className="save-modal-button"
-          onClick={() => setToggleUserPermissions((p) => ({ ...p, toggleUserPermissions: !p.toggleUserPermissions}))}>
+          onClick={() => setToggleLinks((p) => ({ ...p, toggleLinks: !p.toggleLinks}))}>
           שמור
         </button>
       </Box>
     </Modal>
   );
 };
+
+export default UserPermissions;
+
+
