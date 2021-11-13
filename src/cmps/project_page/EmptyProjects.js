@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import logo from "../../assets/images/Under construction.svg";
+import React from 'react';
+import logo from "../../assets/images/home-page-imgs/Under construction.svg";
 import { Link } from 'react-router-dom';
 
 const EmptyProjects = () => {

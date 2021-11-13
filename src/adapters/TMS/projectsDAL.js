@@ -2,10 +2,12 @@ import axios from "axios";
 
 const URI = process.env.REACT_APP_URI;
 
-const getAllProjects = () => axios.get(URI + '/api/projects/');
+const getAllProjects = async () => await axios.get(URI + '/api/projects/');
 
-const createProject = (project) => axios.post(URI + '/api/projects/', project);
+const createProject = async (project) => { await axios.post(URI + '/api/projects/', project) };
 
-const deleteProject = (id) => axios.delete(URI + '/api/projects/' + id);
+const deleteProject = async (id) => { await axios.delete(URI + '/api/projects/' + id); }
 
-export default {getAllProjects, createProject, deleteProject}
+const editProject = (project) => { axios.put(URI + '/api/projects/', project) }
+
+export default { getAllProjects, createProject, deleteProject, editProject }

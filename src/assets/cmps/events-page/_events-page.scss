@@ -1,0 +1,271 @@
+
+    
+.eventsPage{
+    background-image: url('../../images/eventsBG.jpg') ;
+    width: 100%;
+    height: 1400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+.wrapper{
+    //grid-column: 2 / 3;
+
+
+    .headlines{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+            a
+            {color: black;
+            font-weight: bold;
+            }   
+    }
+
+    .selectors{ 
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+    
+    .choose_HL{
+            margin-top: 0;
+            padding-left: 1%;
+            width: 15%;
+            text-align: top;
+        }
+
+    .checkboxs{
+            display: flex;
+            flex-flow: row wrap-reverse;
+            justify-content: right;
+
+            .row_checkbox_events{
+                display: flex;
+                flex-wrap: wrap;
+                
+                // width: 100%;
+                // justify-content: right;
+            }
+            .col{
+                display: flex;
+                justify-content: right;
+            }
+            label{
+                //margin-left: 7%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                margin-left: 10px;
+
+                input[type=checkbox]{
+                    appearance: none;
+                    -webkit-appearance: none;
+                    height: 12.5px;
+                    width: 12.5px;
+                    background-color: transparent;
+                    border-radius: 2px;
+                    border: 1px solid black;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    align-content: center;
+                    
+                }
+                
+                input[type=checkbox]:after{
+                    font-family: "Font Awesome 6 Free";
+                    content:"\f00c";//f00c f14a
+                    font-weight: 900;
+                    font-size: 10px;
+                    color: white; //#34018E;
+                    display: none;
+                  }
+
+                input[type=checkbox]:hover{
+                    background-color: #34018E;
+                }
+                input[type=checkbox]:checked{
+                    background-color: #34018E;
+                }
+                input[type=checkbox]:checked:after{
+                        display: block;
+                }
+            }
+
+    }
+
+    .searchBar{
+        display: flex;
+        flex-direction: row;
+        height: 35px;
+        border: 1px solid rgba(43, 43, 43, 0.493);
+        background-color: white;
+        border-radius: 12px;
+        width: 25%;
+     
+
+        .searchInput{
+            text-indent: 2px;
+            border: 0;
+            border-left: none;
+            direction: rtl;
+            width: 100%;
+            flex-grow: 2;
+            position: relative;
+            background-color: transparent;
+            font-family: 'Rubik';
+            text-indent: 1em;
+            
+        }
+    
+        .searchInput:focus{
+            outline:none;
+        }
+    
+        .search_logo{
+            position: relative;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: medium;
+            opacity: .5;
+            background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
+        }
+    
+        .search_logo:hover{
+            opacity: .75;
+        }
+
+        }
+    }
+
+    .eventsCards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+
+    .event-card {
+        // display: flex;
+        // flex-wrap: wrap;
+        // flex-direction: row-reverse;
+        // justify-content: space-around;
+    
+        .card {
+          cursor: pointer;
+          margin-top: 15%;
+          width: 250px;
+          height: 385px;
+          border-radius: 15px;
+        //  position: absolute;
+          
+        }
+    
+        .card-img {
+          border-radius: 50%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          width: 100px;
+          height: 100px;
+          margin: auto;
+          margin-top: 5%;
+          //position: relative;
+        }
+
+        .inButton{
+            top: -8%;
+            left: 60%;
+            color: #ffffff;
+            background: linear-gradient(to bottom, rgb(108, 66, 182) 0%, rgb(144, 241, 243) 100%);        
+        }
+        
+        .inButton:hover{
+            background: linear-gradient(to bottom, rgb(98, 55, 172) 0%, rgb(102, 221, 223) 100%); 
+        }
+
+        .card-footer {
+          display: flex;
+          position: relative;
+          flex-direction: column;
+          align-items: center;
+        
+        .date_HL{
+            margin: 0;
+            margin-bottom: 3%;
+        }
+
+        .time_HL{
+            margin-bottom: 5%;
+        }
+        .subject_HL{    
+                color: #3187B5 ;
+                text-align: center;
+                margin: 0;
+        }
+
+        .lecture_HL{
+            margin: 3%;
+        }
+
+          hr{
+            width: 50px;
+            background-color:rgb(46, 46, 46);
+            border: 1px solid rgb(46, 46, 46);
+            margin-bottom: 0;
+        }
+
+        .video{
+            display: flex;
+            flex-direction: row;
+            font-size: x-small;
+            align-items: center;
+            justify-content: space-between;
+            width: 125px;
+            margin: 0;
+        }
+        
+        .videoIcon{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #34018E;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        .videoIcon:after{
+            font-family: "Font Awesome 6 Free";
+            content: '\f03d';
+            font-weight: 900;
+            color: white;
+            font-size: 8px;
+            }
+    
+          .events-button {
+            border: 3px solid #34018E;
+            padding: 4px 32px;
+            font-weight: bold;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 2px 15px;
+            font-family: Rubik, sans-serif;
+            font-size: 16px;
+            color: #34018E;
+            margin-top: 10px;
+            //margin-bottom: 15px;
+          }
+    
+          .events-button:hover {
+            background-color: $clr7;
+            color: $clr6;
+            transition: 0.5s;
+          }
+          
+
+        }
+    }
+}
+}

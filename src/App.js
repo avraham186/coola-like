@@ -1,14 +1,14 @@
 import './assets/main.scss';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom'
-import {routes} from './routes';
-import {AppNav} from './cmps/AppNav'
-import {AppFooter} from './cmps/AppFooter'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { routes } from './routes';
+import { AppNav } from './cmps/AppNav'
+import { AppFooter } from './cmps/AppFooter'
 
 export function App() {
     return (
         <div className="main-layout">
             <Router>
-                <AppNav/>
+                <AppNav />
                 <Switch>
                     {
                         routes.map(route => {
@@ -23,7 +23,7 @@ export function App() {
                         })
                     }
                 </Switch>
-                <AppFooter/>
+                <AppFooter />
             </Router>
         </div>
     );
