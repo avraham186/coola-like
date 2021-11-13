@@ -10,7 +10,7 @@ const typsData = [
   { name: "משמרות" },
 ];
 
-function TypeOfJob() {
+function TypeOfJob({setFormData}) {
   const [categories, setCategories] = useState([]);
   const [expanded, setExpanded] = useState(false)
 
@@ -50,6 +50,14 @@ function TypeOfJob() {
         category.name === name ? { ...category, isChecked: checked } : category
       );
       setCategories(tempCategory);
+      setFormData((p) => {
+        return {
+          ...p,
+          TypeOfJob: checked 
+            ? [...p.TypeOfJob,name]
+            : p.TypeOfJob.filter((v) => v !== name)
+        };
+      });
     // }
   };
 
