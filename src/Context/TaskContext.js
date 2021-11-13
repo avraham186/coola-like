@@ -1,14 +1,17 @@
 import React, { createContext, useEffect, useState } from "react";
-const data = { label: '', pplAssigned: [], files: [], date: {},description:'',chats:[] }
+const data = {
+    title: 'משימה חדשה', priority: 'עדיפות גבוהה', taskMode: 'חדש', label: '',
+    pplAssigned: [], files: [], date: {}, description: '', chats: []
+}
 
 export const TaskContext = createContext(data);
 
 export const TaskProvider = ({ children }) => {
     const [taskContent, setTaskContent] = useState(data);
 
-    // useEffect(() => {
-    //     console.log(taskContent);
-    // }, [taskContent])
+    useEffect(() => {
+        console.log('Context Updated: ', taskContent);
+    }, [taskContent])
 
     const removeTask = () => {
         setTaskContent(data)
