@@ -12,11 +12,13 @@ import { useDispatch } from 'react-redux';
 const EditProject = ({ openModal, setOpenModal, stateModal, setStateModal }) => {
     const dispatch = useDispatch()
     const statusOptions = ['IN_PROCESS', 'DELAY', 'COMPLETED', 'STARTED', 'CANCELED']
-    const { description, projectName, endDate, startDate, projectStatus, id, tasks, adminProject, projectPriority } = stateModal
+    const { description, projectName, endDate, startDate,
+        projectStatus, id, tasks, adminProject, projectPriority } = stateModal
     // console.log(stateModal)
 
 
     const handleEdit = async () => {
+        console.log('state modal', stateModal);
         await projectsDAL.editProject(stateModal)
         dispatch(loadProjects())
         setOpenModal(p => !p)

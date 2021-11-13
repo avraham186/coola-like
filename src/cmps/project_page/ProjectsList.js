@@ -32,27 +32,31 @@ const ProjectsList = () => {
 
     useEffect(() => {
         dispatch(loadProjects());
-        console.log(projects.list)
     }, [])
 
     if (!projects) return <div>Loading...</div>;
     return (
-        <React.Fragment style={{ direction: "rtl" }}>
+        <div style={{ direction: "rtl" }}>
             <table className="projects-table">
-                <tr className="projects-row ">
-                    <th className="row-item">שם הפרויקט</th>
-                    <th className="row-item">סטטוס</th>
-                    <th className="row-item">תאריך התחלה וסיום</th>
-                    <th className="row-item">השלמת המשימה</th>
-                    <th className="row-item">משימות שהושלמו</th>
-                </tr>
-
-                {projects.list.map((project, idx) => (
-                    <ProjectPreview project={project} key={idx} />
-                ))}
+                <thead>
+                    <tr className="projects-row ">
+                        <th></th>
+                        <th className="row-item">שם הפרויקט</th>
+                        <th className="row-item">סטטוס</th>
+                        <th className="row-item">תאריך התחלה וסיום</th>
+                        <th className="row-item">השלמת המשימה</th>
+                        <th className="row-item">משימות שהושלמו</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {projects.list.map((project) => (
+                        <ProjectPreview project={project} key={project.id} />
+                    ))}
+                </tbody>
             </table>
 
-        </React.Fragment>
+        </div>
     );
 };
 

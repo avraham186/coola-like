@@ -16,7 +16,7 @@ export const ProjectPreview = ({ project }) => {
 
     const { projectName, startDate, description, endDate, projectStatus, id,
         tasks, adminProject, projectPriority } = project
-    
+
     const [stateModal, setStateModal] = useState({
         description, projectName, endDate, startDate, projectStatus, id,
         tasks, adminProject, projectPriority
@@ -56,26 +56,32 @@ export const ProjectPreview = ({ project }) => {
         dispatch(loadProjects())
     }
     return (
-        <>
-            <tr style={{ direction: "rtl" }} className="projects-row">
-                <td> <img onClick={() => setOpen(p => !p)} src={edit}></img></td>
-                <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
-                    <td>{projectName}</td>
-                    <td>{projectStatus}</td>
-                    <td>
-                        {convertDate(new Date(startDate))}-{convertDate(new Date(endDate))}
-                    </td>
-                    <td>{finisehdTasks}</td>
-                    <td></td>
-                </Link>
-                <td style={{ textAlign: 'left' }}>
-                    <img
-                        onClick={() => { handelDelate(project.id) }}
-                        src={erase}
-                    />
-                </td>
-            </tr>
-            <EditProject openModal={open} setOpenModal={setOpen} stateModal={stateModal} setStateModal={setStateModal} />
-        </>
+        <tr style={{ direction: "rtl" }} className="projects-row">
+            <td> <img onClick={() => setOpen(p => !p)} src={edit}></img></td>
+            {/* <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}> */}
+            <td>
+                <Link style={{ direction: "rtl" }}
+                    to={`/projects/task/${project.id}`}>{projectName}</Link>
+            </td>
+            <td>
+                <Link style={{ direction: "rtl" }}
+                    to={`/projects/task/${project.id}`}>{projectStatus}</Link></td>
+            <td>
+                {convertDate(new Date(startDate))}-{convertDate(new Date(endDate))}
+            </td>
+            <td>
+                <Link style={{ direction: "rtl" }}
+                    to={`/projects/task/${project.id}`}>{finisehdTasks}</Link>
+            </td>
+            <td></td>
+            <td style={{ textAlign: 'left' }}>
+                <img
+                    onClick={() => { handelDelate(project.id) }}
+                    src={erase}
+                />
+            </td>
+            <EditProject openModal={open} setOpenModal={setOpen}
+                stateModal={stateModal} setStateModal={setStateModal} />
+        </tr>
     )
 };

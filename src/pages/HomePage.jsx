@@ -5,7 +5,6 @@ import Jobs from "../cmps/home_page/Jobs";
 import { Founders } from "../cmps/home_page/Founders.jsx";
 import { Subscribe } from "../cmps/home_page/Subscribe.jsx";
 import { useSelector } from "react-redux";
-import NewTask from "../cmps/tasks/NewTask";
 import CreateNewProject from "../cmps/project_page/CreateNewProject";
 
 export default function HomePage() {
@@ -15,7 +14,6 @@ export default function HomePage() {
 
   return (
     <div>
-      <NewTask />
       <Header />
       <Events />
       <Jobs />
