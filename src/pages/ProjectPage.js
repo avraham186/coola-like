@@ -35,8 +35,8 @@ const ProjectPage = () => {
     const [projectStatus, setProjectStatus] = useState('')
     const [projectPriority, setProjectPriority] = useState('')
 
-    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
-    const priorityOptions = ['High', 'Low', 'Medium']
+    const statusOptions = ['IN_PROCESS', 'DELAY', 'COMPLETED', 'STARTED', 'CANCELED']
+    const priorityOptions = ['HIGH', 'LOW', 'MEDIUM']
 
     const dispatch = useDispatch();
 

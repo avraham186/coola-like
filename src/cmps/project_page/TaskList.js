@@ -16,11 +16,12 @@ const TaskList = ({ match }) => {
 
     useEffect(() => {
         dispatch(loadProjects())
-    }, [match.params.projectId, projects]);
+    }, [match.params.projectId]);
 
     return (
         <div className="task-list">
-            <Link to="/projects/task/newTask">Add New Task</Link>
+            <Link to={`/projects/task/new-task/${projectId}`}>Add New Task</Link>
+            {/* <Link to="/projects/task/new-task">Add New Task</Link> */}
             <table className="projects-table">
                 <thead>
                     <tr className="projects-row ">
