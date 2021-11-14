@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useParams } from 'react-router';
 import { description_mission, chat_logo, attachment_icon, plus_sign } from "../../assets/images/icons";
 import { AssignedTask, AttachmentsTask, HeadlinesTask, Labels, TextArea, ChatsTask } from "./UtilsTask";
 import { modes, ModeChoosen, PriorityChoosen } from "./UtilsTask";
@@ -7,11 +8,13 @@ import { TaskContext } from "../../Context/TaskContext";
 
 
 export const ContentTask = ({ setToggleMode }) => {
-  const { taskContent: { title, priority, taskMode, label, pplAssigned, date, description, chats },
+  const { taskContent: { title, priority, Status, label, pplAssigned, date, description, chats },
     saveTask, setTaskContent } = useContext(TaskContext);
-  const [isClicked, setIsClicked] = useState({ priority: false, taskMode: false, title: false })
+  const [isClicked, setIsClicked] = useState({ priority: false, Status: false, title: false })
+  const { projectId } = useParams()
+  // console.log('project id', projectId);
 
-  const handleChangeTaskMode = (e) => {
+  const handleChangeStatus = (e) => {
     const nameClicked = e.target.getAttribute('name')
     const value = e.target.getAttribute('value');
     setTaskContent(prev => ({ ...prev, [nameClicked]: value }))
@@ -35,17 +38,16 @@ export const ContentTask = ({ setToggleMode }) => {
                 onKeyPress={e => e.key === 'Enter' && setIsClicked(p => ({ ...p, title: !p.title }))}
               />
             }
-
           </div>
           <div className="task-mode flex column" >
-            {!isClicked.taskMode
+            {!isClicked.Status
               ? <span
-                onClick={() => setIsClicked(p => ({ ...p, taskMode: !p.taskMode }))}
-                id={`task-mode${modes.indexOf(taskMode) + 1}`}
+                onClick={() => setIsClicked(p => ({ ...p, Status: !p.Status }))}
+                id={`task-mode${modes.indexOf(Status) + 1}`}
               >
-                {taskMode}
+                {Status}
               </span>
-              : <ModeChoosen handleChangeTaskMode={handleChangeTaskMode} />
+              : <ModeChoosen handleChangeStatus={handleChangeStatus} />
             }
           </div>
           <div className="priority-task flex column">
@@ -56,7 +58,7 @@ export const ContentTask = ({ setToggleMode }) => {
               >
                 {priority}
               </span>
-              : <PriorityChoosen handleChangeTaskMode={handleChangeTaskMode} />
+              : <PriorityChoosen handleChangeStatus={handleChangeStatus} />
             }
           </div>
         </div>
@@ -135,7 +137,7 @@ export const ContentTask = ({ setToggleMode }) => {
       </div >
 
       <div className="submit-task">
-        <span onClick={saveTask}>שמור וסגור</span>
+        <span onClick={() => saveTask(+projectId)}>שמור וסגור</span>
       </div>
     </div >
   );

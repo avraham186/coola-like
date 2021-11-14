@@ -44,15 +44,8 @@ const ProjectPage = () => {
   const [projectStatus, setProjectStatus] = useState("");
   const [projectPriority, setProjectPriority] = useState("");
 
-  const statusOptions = [
-    "On Track",
-    "On Hold",
-    "Done",
-    "Ready",
-    "Off Track",
-    "Blocked",
-  ];
-  const priorityOptions = ["High", "Low", "Medium"];
+  const statusOptions = ['COMPLETED', 'STARTED', 'IN_PROCESS', 'CANCELED', 'DELAY'];
+  const priorityOptions = ["HIGH", "LOW", "MEDIUM"];
 
   const dispatch = useDispatch();
 
@@ -95,7 +88,7 @@ const ProjectPage = () => {
   };
 
   return (
-    <div className="flex justify-center " style={{gap:'30px'}}>
+    <div className="flex justify-center " style={{ gap: '30px' }}>
       <div>
         <Button variant="outlined" onClick={handleClickOpen}>
           Add new project
