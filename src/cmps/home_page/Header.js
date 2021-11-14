@@ -14,8 +14,8 @@ const Header = () => {
                 </div>
 
                 <div className="header-buttons">
-                    <Link to=""> <span>כניסה</span></Link>
-                    <Link to=""> <span> התחברות</span></Link>
+                    <Link to="/login"> <span>כניסה</span></Link>
+                    <Link to="/login"> <span> התחברות</span></Link>
                 </div>
             </div>
 
