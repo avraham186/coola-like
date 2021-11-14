@@ -27,7 +27,7 @@ const ProjectsList = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [projectStatus, setProjectStatus] = useState('')
-    const statusOptions = ['On Track', 'On Hold', 'Done', 'Ready', 'Off Track', 'Blocked']
+    const statusOptions = ['COMPLETED', 'DELAY', 'IN_PROCESS', 'STARTED', 'CANCELED']
 
 
     useEffect(() => {

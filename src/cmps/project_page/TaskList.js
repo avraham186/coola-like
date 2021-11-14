@@ -59,17 +59,17 @@ const TaskList = ({ match }) => {
                                 <td>
                                     <Paper elevation={3} className="row-item">
                                         {task.team.map((member) => {
-                                            return <span>{member}</span>
+                                            return <span>{member.firsName}&nbsp;{member.lastName}</span>
                                         })}
                                     </Paper>
                                 </td>
                                 <td>
                                     <Paper elevation={3} className="row-item">
-                                        {task.startDate}
+                                        {new Date(task.startDate * 1000).toLocaleString()}
                                     </Paper>
                                     -
                                     <Paper elevation={3} className="row-item">
-                                        {task.endDate}
+                                        {new Date(task.endDate * 1000).toLocaleString()}
                                     </Paper>
                                 </td>
                                 <td>
@@ -97,5 +97,4 @@ const TaskList = ({ match }) => {
         </div>
     );
 };
-
 export default TaskList;

@@ -46,12 +46,12 @@
     align-self: center;
     justify-content: center;
 }
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    text-align: center;
-    -webkit-appearance: none;
-}
+// input[type="date"]::-webkit-inner-spin-button,
+// input[type="date"]::-webkit-calendar-picker-indicator {
+//     display: none;
+//     text-align: center;
+//     -webkit-appearance: none;
+// }
 .input-date{
 display: flex;
 gap: 20px;
