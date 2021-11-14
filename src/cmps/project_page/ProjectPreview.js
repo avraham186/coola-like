@@ -48,7 +48,7 @@ export const ProjectPreview = ({ project }) => {
     getFinishedTasks();
   }, []);
 
-useEffect(() => {
+  useEffect(() => {
     getPrecent();
   }, [finisehdTasks]);
 
@@ -56,19 +56,19 @@ useEffect(() => {
 
   const getFinishedTasks = () => {
     if (!project.tasks) return;
-    const tasksDisplay = project.tasks.reduce((acc, task) => {      
+    const tasksDisplay = project.tasks.reduce((acc, task) => {
       if (task.taskStatus === "COMPLETED") acc++;
       return acc;
     }, 0);
     setTasks(tasksDisplay);
   };
 
-function getPrecent(){  
-    const precent = project.tasks.length ? (finisehdTasks / project.tasks.length ) * 100 : 0 ;    
-    setPrecenTasks(precent);
-}
+  function getPrecent() {
+    const precent = project.tasks.length ? (finisehdTasks / project.tasks.length) * 100 : 0;
+    setPrecenTasks(precent.toFixed(2));
+  }
 
-  
+
   function convertDate(date) {
     var yyyy = date.getFullYear().toString();
     var mm = (date.getMonth() + 1).toString();
@@ -86,16 +86,16 @@ function getPrecent(){
     );
   }
 
-const setStatusClass = () =>{    
-  setstatusClass(projectStatus.toLowerCase());
-    
-}
+  const setStatusClass = () => {
+    setstatusClass(projectStatus.toLowerCase());
+
+  }
   const handelDelate = async (id) => {
     await deleteProject(id);
     dispatch(loadProjects());
   };
 
-  if(!projectStatus) return
+  if (!projectStatus) return
   return (
     <tr style={{ direction: "rtl" }} className="projects-row">
       <td>
@@ -121,7 +121,8 @@ const setStatusClass = () =>{
           {project.tasks.length} / {finisehdTasks}
         </Link>
       </td>
-      <td> <p className="precent completed" style={{width: precenTasks}}>% {precenTasks} </p></td>
+      <td> <p className="precent completed" style={{ width: precenTasks  }}>% {precenTasks} </p></td>
+
       <td style={{ textAlign: "left" }}>
         <img
           onClick={() => {
