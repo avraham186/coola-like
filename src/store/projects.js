@@ -90,16 +90,16 @@ export const updateProjects1 = (project) =>
     onSuccess: updateProjects.type,
   });
 
-export const getProjById = async (projId) => {
-  try {
-    const response = await axios.get(
-      `https://cula-like-master.herokuapp.com/api/projects/one/${projId}`
-    );
-    console.log("response", response.data);
-  } catch (err) {
-    console.log("err", err);
-  }
-};
+// export const getProjById = async (projId) => {
+//   try {
+//     const response = await axios.get(
+//       `https://cula-like-master.herokuapp.com/api/projects/one/${projId}`
+//     );
+//     console.log("response", response.data);
+//   } catch (err) {
+//     console.log("err", err);
+//   }
+// };
 // Selector
 
 // Memoization

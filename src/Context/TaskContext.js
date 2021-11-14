@@ -21,7 +21,7 @@ export const TaskProvider = ({ children }) => {
             projectId,
             task: taskContent
         }
-        taskDAL.createTask(projectId,taskToSend)
+        taskDAL.createTask(taskToSend)
         // console.log('');
     }
     return (

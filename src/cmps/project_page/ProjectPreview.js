@@ -2,7 +2,7 @@ import edit from "../../assets/images/icons/edit_pen.png";
 import erase from "../../assets/images/icons/erase.png";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import "./project_page.css";
+// import "./project_page.css";
 import { Paper } from "@material-ui/core";
 import { width } from "@mui/system";
 import TaskList from "./TaskList";
@@ -37,24 +37,38 @@ export const ProjectPreview = ({ project }) => {
     projectPriority,
   });
   const [open, setOpen] = useState(false);
+  const [statusClass, setstatusClass] = useState();
+  const [finisehdTasks, setTasks] = useState();
+  const [precenTasks, setPrecenTasks] = useState();
+
   const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
-  const [finisehdTasks, setTasks] = useState();
   useEffect(() => {
+    setStatusClass();
     getFinishedTasks();
   }, []);
+
+useEffect(() => {
+    getPrecent();
+  }, [finisehdTasks]);
 
   const dispatch = useDispatch();
 
   const getFinishedTasks = () => {
     if (!project.tasks) return;
-    const tasksDisplay = project.tasks.reduce((acc, task) => {
+    const tasksDisplay = project.tasks.reduce((acc, task) => {      
       if (task.taskStatus === "COMPLETED") acc++;
-
       return acc;
     }, 0);
     setTasks(tasksDisplay);
   };
+
+function getPrecent(){  
+    const precent = project.tasks.length ? (finisehdTasks / project.tasks.length ) * 100 : 0 ;    
+    setPrecenTasks(precent);
+}
+
+  
   function convertDate(date) {
     var yyyy = date.getFullYear().toString();
     var mm = (date.getMonth() + 1).toString();
@@ -72,10 +86,16 @@ export const ProjectPreview = ({ project }) => {
     );
   }
 
+const setStatusClass = () =>{    
+  setstatusClass(projectStatus.toLowerCase());
+    
+}
   const handelDelate = async (id) => {
     await deleteProject(id);
     dispatch(loadProjects());
   };
+
+  if(!projectStatus) return
   return (
     <tr style={{ direction: "rtl" }} className="projects-row">
       <td>
@@ -88,8 +108,8 @@ export const ProjectPreview = ({ project }) => {
           {projectName}
         </Link>
       </td>
-      <td>
-        <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
+      <td className={statusClass}>
+        <Link className={statusClass} style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
           {projectStatus}
         </Link>
       </td>
@@ -98,10 +118,10 @@ export const ProjectPreview = ({ project }) => {
       </td>
       <td>
         <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
-          {finisehdTasks}
+          {project.tasks.length} / {finisehdTasks}
         </Link>
       </td>
-      <td></td>
+      <td> <p className="precent completed" style={{width: precenTasks}}>% {precenTasks} </p></td>
       <td style={{ textAlign: "left" }}>
         <img
           onClick={() => {

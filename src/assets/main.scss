@@ -30,17 +30,12 @@
 @import './cmps/Project-page/newSidebar';
 @import './cmps/Project-page/AddNewProject';
 @import './cmps/Project-page/UserPermissions';
+@import './cmps/Project-page/project-list';
 
-<<<<<<< HEAD
-//project-page
-@import './cmps/project-page/project-list';
-@import './cmps/project-page/project-preview';
-=======
 
 //views
 @import "./views/home-page";
 @import "./views/project-page";
->>>>>>> 5466423bd54fa4d99630ef14397dc22f2b8b3c71
 
 //events-page components
 @import "./cmps/events-page/events-page"; // @import './cmps/city-search';

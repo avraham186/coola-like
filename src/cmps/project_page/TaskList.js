@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./project_page.css";
 import taskDAL from "../../adapters/TMS/tasksDAL";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
