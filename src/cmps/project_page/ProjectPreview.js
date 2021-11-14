@@ -13,7 +13,6 @@ import delateProjectById from "../../store/projects";
 import { loadProjects } from "../../store/projects";
 
 export const ProjectPreview = ({ project }) => {
-  const dispatch = useDispatch();
   const {
     projectName,
     startDate,
@@ -25,6 +24,7 @@ export const ProjectPreview = ({ project }) => {
     adminProject,
     projectPriority,
   } = project;
+
   const [stateModal, setStateModal] = useState({
     description,
     projectName,
@@ -36,13 +36,15 @@ export const ProjectPreview = ({ project }) => {
     adminProject,
     projectPriority,
   });
-  console.log(stateModal);
   const [open, setOpen] = useState(false);
   const deleteProject = async (id) => await projectsDAL.deleteProject(id);
+
   const [finisehdTasks, setTasks] = useState();
   useEffect(() => {
     getFinishedTasks();
   }, []);
+
+  const dispatch = useDispatch();
 
   const getFinishedTasks = () => {
     if (!project.tasks) return;
@@ -53,7 +55,6 @@ export const ProjectPreview = ({ project }) => {
     }, 0);
     setTasks(tasksDisplay);
   };
-
   function convertDate(date) {
     var yyyy = date.getFullYear().toString();
     var mm = (date.getMonth() + 1).toString();
@@ -71,57 +72,50 @@ export const ProjectPreview = ({ project }) => {
     );
   }
 
-  const editproject = (project) => {
-    // const project = {
-    //     projectName: "first_project",
-    //     description: "zsxdcfvg",
-    //     startDate: "10/12/2013",
-    //     endDate: "10/15/2013",
-    // }
-    // setProject1(project1)
-    // setOpen(true)
-  };
-
-  const handleEdit = (project) => {};
-  const handleClose = async () => {
-    setOpen(false);
-  };
-
-  const handelDelate = (id) => {
-    deleteProject(id);
+  const handelDelate = async (id) => {
+    await deleteProject(id);
     dispatch(loadProjects());
   };
-
   return (
-    <>
-      <div className="projects-data grid">
-        <p>
-          <img onClick={() => setOpen((p) => !p)} src={edit}></img>
-        </p>
-        <Link className="link-project grid" to={`/projects/task/${project.id}`}>
-          <p className="project-name">{projectName}</p>
-          <p className="project-status">{projectStatus}</p>
-          <p className="project-data">
-            {convertDate(new Date(startDate))}-{convertDate(new Date(endDate))}
-          </p>
-          <p className="finished-tasks">{finisehdTasks}</p>
-          <p className="finished-tasks-precent"></p>
+    <tr style={{ direction: "rtl" }} className="projects-row">
+      <td>
+        {" "}
+        <img onClick={() => setOpen((p) => !p)} src={edit}></img>
+      </td>
+      {/* <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}> */}
+      <td>
+        <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
+          {projectName}
         </Link>
-        <p style={{ textAlign: "left" }}>
-          <img
-            onClick={() => {
-              handelDelate();
-            }}
-            src={erase}
-          />
-        </p>
-      </div>
+      </td>
+      <td>
+        <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
+          {projectStatus}
+        </Link>
+      </td>
+      <td>
+        {convertDate(new Date(startDate))}-{convertDate(new Date(endDate))}
+      </td>
+      <td>
+        <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
+          {finisehdTasks}
+        </Link>
+      </td>
+      <td></td>
+      <td style={{ textAlign: "left" }}>
+        <img
+          onClick={() => {
+            handelDelate(project.id);
+          }}
+          src={erase}
+        />
+      </td>
       <EditProject
         openModal={open}
         setOpenModal={setOpen}
         stateModal={stateModal}
         setStateModal={setStateModal}
       />
-    </>
+    </tr>
   );
 };

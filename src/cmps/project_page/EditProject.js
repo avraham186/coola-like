@@ -20,6 +20,7 @@ import updateProjects from "../../store/projects";
 import delateProjectById from "../../store/projects";
 import { updateProjects1, loadProjects } from "../../store/projects";
 import { useDispatch } from "react-redux";
+
 const EditProject = ({
   openModal,
   setOpenModal,
@@ -28,12 +29,11 @@ const EditProject = ({
 }) => {
   const dispatch = useDispatch();
   const statusOptions = [
-    "On Track",
-    "On Hold",
-    "Done",
-    "Ready",
-    "Off Track",
-    "Blocked",
+    "IN_PROCESS",
+    "DELAY",
+    "COMPLETED",
+    "STARTED",
+    "CANCELED",
   ];
   const {
     description,
@@ -46,35 +46,11 @@ const EditProject = ({
     adminProject,
     projectPriority,
   } = stateModal;
-  console.log(stateModal);
-  // const handleChangeStart = (newValue) => {
-  //     setStartDate(newValue);
-  // };
-
-  // const handleChangeEnd = (newValue) => {
-  //     setEndDate(newValue);
-  // };
-
-  // const handleStatus = (event) => {
-  //     setProjectStatus(event.target.value);
-  // };
-  // const editProject = async (stateModal) => { };
+  // console.log(stateModal)
 
   const handleEdit = async () => {
+    console.log("state modal", stateModal);
     await projectsDAL.editProject(stateModal);
-    // const project = {
-    //     id: 3,
-    //     projectName: "doing something",
-    //     description: "abcdefghi.....",
-    //     startDate: null,
-    //     endDate: null,
-    //     projectPriority: null,
-    //     projectStatus: "Done",
-    //     tasks: [],
-    //     adminProject: [],
-    // }
-    // debugger;
-    // editProject(stateModal)
     dispatch(loadProjects());
     setOpenModal((p) => !p);
   };

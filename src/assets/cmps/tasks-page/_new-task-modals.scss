@@ -10,6 +10,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
+    max-height: 450px;
     background-color: white;
     text-align: center;
     color: #4a4a4a;
@@ -18,16 +19,25 @@
     justify-content: center;
     align-items: center;
 
+    .search-user-assigned {
+      width: 70%;
+      direction: rtl;
+      font-size: rem(18px);
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid #d6d6d6;
+    }
+
     .add-files-headline {
       width: 100%;
-      // border-bottom: 1px solid #787878;
-      // padding: 10px 0px 10px 0px;
+
       .add-files-title {
         width: 102px;
         font-size: rem(18px);
         flex-basis: 170px;
         justify-content: flex-end;
       }
+
       .btn-close {
         width: 25px;
         height: 25px;
@@ -35,6 +45,7 @@
         justify-self: flex-end;
       }
     }
+
     .drag-drop-file {
       display: flex;
       justify-content: center;
@@ -72,12 +83,14 @@
       .label-headline {
         width: 100%;
         padding: 10px 0px 10px 0px;
+
         .label-title {
           width: 102px;
           font-size: rem(18px);
           flex-basis: 170px;
           justify-content: flex-end;
         }
+
         .btn-close {
           width: 25px;
           height: 25px;
@@ -85,6 +98,9 @@
           justify-self: flex-end;
         }
       }
+
+
+
       .add-link-input {
         // width: 150px;
         border: 1px solid black;
@@ -133,26 +149,41 @@
     .ppl-assigned-headline {
       width: 100%;
       padding: 10px 0px 10px 0px;
+
       .ppl-assigned-title {
-        width: 102px;
+        width: 100%;
         font-size: rem(18px);
-        flex-basis: 170px;
-        justify-content: flex-end;
       }
+
       .btn-close {
-        width: 25px;
-        height: 25px;
-        flex-basis: 25px;
-        justify-self: flex-end;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: .5s;
+      }
+
+      .btn-close:hover {
+        background-color: rgba($clr4, 0.3);
+
       }
     }
+
     .users-assigned {
       width: 100%;
+      overflow-y: scroll;
+      margin: 15px;
 
       .each-user {
         cursor: pointer;
         direction: rtl;
         margin: auto 10px auto auto;
+
+        object,
+        img[alt="userimg"] {
+          width: 60px;
+        }
       }
     }
 
@@ -167,18 +198,21 @@
     }
 
     .new-task-due-date-style {
-      // font-family: Rubik-regular, sans-serif;
       height: 100%;
+
       .due-date-headline {
         width: 100%;
         border-bottom: 1px solid #787878;
         padding: 10px 0px 10px 0px;
+
+
         .due-date-title {
           width: 102px;
           font-size: rem(18px);
           flex-basis: 170px;
           justify-content: flex-end;
         }
+
         .btn-close {
           width: 25px;
           height: 25px;
@@ -186,11 +220,13 @@
           justify-self: flex-end;
         }
       }
+
       .due-date-start-date-headline {
         color: #4a4a4a;
         width: 100%;
         justify-content: flex-end;
         padding: 10px 0px 10px 0px;
+
         label {
           input {
             width: rem(20px);
@@ -198,10 +234,12 @@
           }
         }
       }
+
       .due-date-start-date-body {
         justify-content: flex-end;
         width: 300px;
         flex-basis: 80%;
+
         input {
           text-transform: uppercase;
           color: #4a4a4a;
@@ -211,11 +249,13 @@
           margin: 0px 30px 0px 0px;
         }
       }
+
       .due-date-end-date-headline {
         width: 100%;
         color: #4a4a4a;
         justify-content: flex-end;
         padding: 10px 0px 10px 0px;
+
         label {
           input {
             width: rem(20px);
@@ -223,10 +263,12 @@
           }
         }
       }
+
       .due-date-end-date-body {
         justify-content: flex-end;
         width: 100%;
         flex-basis: 80%;
+
         input[type="date"] {
           color: #4a4a4a;
           background-color: #f2f2f2;
@@ -235,8 +277,11 @@
           font-size: rem(14px);
           border: 1px solid lightgray;
           margin: 0px 30px 0px 0px;
+          margin-left: 5px;
         }
+
         input[type="time"] {
+          width: 100%;
           color: #4a4a4a;
           background-color: #f2f2f2;
           width: rem(92px);
@@ -245,17 +290,20 @@
           border: 1px solid lightgray;
         }
       }
+
       .due-date-set-reminder-label {
         width: 100%;
         justify-content: flex-end;
         color: #4a4a4a;
         padding: 10px 0px 10px 0px;
+
         label {
           width: rem(85px);
           font-size: rem(16px);
           margin-right: 2px;
         }
       }
+
       .due-date-set-reminder-select {
         select {
           direction: rtl;
@@ -267,12 +315,20 @@
           border: 1px solid lightgray;
         }
       }
+
       .save-btn {
         width: rem(153px);
         height: rem(40px);
-        background-color: $clr1;
+        background-color: $clr7;
         color: white;
         margin: 30px 0px 30px 0px;
+        border-radius: 5px 15px;
+        cursor: pointer;
+      }
+
+      .save-btn:hover {
+        background-color: rgba($clr7, 0.9);
+
       }
     }
 
@@ -282,11 +338,16 @@
       border-radius: 2px;
       font-size: 15px;
       border-radius: 5px 15px;
-      background-color: #34018e;
+      background-color: $clr1;
       color: white;
       text-align: center;
       padding: 8px;
       margin: 10px;
+      cursor: pointer;
+    }
+
+    .save-modal-button:hover {
+      background-color: rgba($clr1, 0.9);
     }
   }
 }

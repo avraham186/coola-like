@@ -30,7 +30,6 @@ const ProjectsList = () => {
   const projectNameRef = React.createRef();
   const endDateRef = React.createRef();
   const startDateRef = React.createRef();
-  const deleteProject = async (id) => await projectsDAL.deleteProject(id);
   const [project, setProject] = useState({});
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
@@ -49,79 +48,32 @@ const ProjectsList = () => {
     "Blocked",
   ];
 
-  // const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(loadProjects());
-    console.log(projects.list);
   }, []);
 
-  const handleChangeStart = (newValue) => {
-    setStartDate(newValue);
-  };
-
-  const handleChangeEnd = (newValue) => {
-    setEndDate(newValue);
-  };
-
-  const handleStatus = (event) => {
-    setProjectStatus(event.target.value);
-  };
-  // const handleClose = async () => {
-  //     setOpen(false);
-  // };
-
-  const tasksProject = () => {
-    debugger;
-    // <TaskList></TaskList>
-  };
-  const editproject = () => {
-    // const project = {
-    //     projectName: "first_project",
-    //     description: "zsxdcfvg",
-    //     startDate: "10/12/2013",
-    //     endDate: "10/15/2013",
-
-    // }
-    setProject(project);
-    setOpen(true);
-  };
-  const editProject = async (id) => await projectsDAL.editProject(id);
-
-  const handleEdit = (project) => {
-    debugger;
-    const newProject = {
-      // id: project.id,
-      projectName: projectName,
-      description: description,
-      startDate: startDate,
-      endDate: endDate,
-      // task: project.task
-    };
-    editProject(newProject);
-    // handleClose();
-  };
   if (!projects) return <div>Loading...</div>;
   return (
-    <React.Fragment>
-      <div className="projects-table grid">
-        <div className="projects-title grid">
-          <p>שם הפרויקט</p>
-          <p>סטטוס</p>
-          <p>תאריך התחלה וסיום</p>
-          <p>השלמת המשימה</p>
-          <p>משימות שהושלמו</p>
-        </div>
-
-        {projects.list.map((project, idx) => (
-          <ProjectPreview
-            project={project}
-            editproject={editproject}
-            key={idx}
-          />
-        ))}
-      </div>
-    </React.Fragment>
+    <div style={{ direction: "rtl" }}>
+      <table className="projects-table">
+        <thead>
+          <tr className="projects-row ">
+            <th></th>
+            <th className="row-item">שם הפרויקט</th>
+            <th className="row-item">סטטוס</th>
+            <th className="row-item">תאריך התחלה וסיום</th>
+            <th className="row-item">השלמת המשימה</th>
+            <th className="row-item">משימות שהושלמו</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {projects.list.map((project) => (
+            <ProjectPreview project={project} key={project.id} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

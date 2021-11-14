@@ -1,38 +1,49 @@
 //setup
-@import './setup/variables';
-@import './setup/functions';
-@import './setup/mixins';
-@import './setup/Rubik-font';
+@import "./setup/variables";
+@import "./setup/functions";
+@import "./setup/mixins";
+@import "./setup/Rubik-font";
 //base
-@import './basics/helpers';
-@import './basics/layout';
-@import './basics/base';
+@import "./basics/helpers";
+@import "./basics/layout";
+@import "./basics/base";
 // @import './basics/buttons';
 
-
 //components
-@import './cmps/home-page/app-header';
-@import './cmps/home-page/app-footer';
+@import "./cmps/home-page/app-header";
+@import "./cmps/home-page/app-footer";
 
 //home components
-@import './cmps/home-page/_subscribe';
-@import './cmps/home-page/_founders';
-@import './cmps/home-page/app-navbar';
+@import "./cmps/home-page/_subscribe";
+@import "./cmps/home-page/_founders";
+@import "./cmps/home-page/app-navbar";
 
 //new-task-components
-@import './cmps/tasks-page/new-task';
-@import './cmps/tasks-page/new-task-sidebar';
-@import './cmps/tasks-page/new-task-modals';
+@import "./cmps/tasks-page/new-task";
+@import "./cmps/tasks-page/new-task-sidebar";
+@import "./cmps/tasks-page/new-task-modals";
 
-//views
-@import './views/home-page';
-@import './views/project-page';
+//project page
+@import './cmps/Project-page/AddNewEvent';
+@import './cmps/Project-page/Categories';
+@import './cmps/Project-page/NewPositionForm';
+@import './cmps/Project-page/newSidebar';
+@import './cmps/Project-page/AddNewProject';
+@import './cmps/Project-page/UserPermissions';
 
+<<<<<<< HEAD
 //project-page
 @import './cmps/project-page/project-list';
 @import './cmps/project-page/project-preview';
+=======
 
-// @import './cmps/city-search';
+//views
+@import "./views/home-page";
+@import "./views/project-page";
+>>>>>>> 5466423bd54fa4d99630ef14397dc22f2b8b3c71
+
+//events-page components
+@import "./cmps/events-page/events-page"; // @import './cmps/city-search';
 // @import './cmps/weather-list';
 // @import './cmps/weather-preview';
 // @import './cmps/favorit-list';
