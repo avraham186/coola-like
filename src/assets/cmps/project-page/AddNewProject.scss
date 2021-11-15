@@ -26,9 +26,9 @@
         // border: 1px solid;
         justify-content: flex-start;
         background-color: white;
-        overflow-y: auto;
+        // overflow-y: auto;
         width: 400px;
-        height: 500px;
+        height: 400px;
     }
 
     .save-btn {
@@ -75,5 +75,10 @@
 
         }
 
+    }
+    .submit-task{
+        display: flex;
+        justify-content: center;
+        
     }
 }
