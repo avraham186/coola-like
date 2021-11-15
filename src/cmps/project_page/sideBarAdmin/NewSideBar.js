@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 // import "./newSidebar.scss";
@@ -7,7 +7,7 @@ import AddNewEvent from "./NewEvent/AddNewEvent.js";
 import AddNewProject  from "./AddNewProject.js";
 import UserPermissions from "./UserPermissions.js";
 
-function NewSideBar() {
+function NewSideBar({addProjToggle, setAddProjToggle}) {
   const [open, setOpen] = useState(true);
 
   const linkes = [
@@ -22,12 +22,22 @@ function NewSideBar() {
 
   const [toggleLinks, setToggleLinks] = useState(false)
 
+  useEffect(() => {
+    if(addProjToggle){
+      setToggleLinks(true)
+    }
+    if(!toggleLinks) {
+      setAddProjToggle((p)=> !p)
+    }
+  }, [])
+
   const handelsideBar = () => {
     setOpen(!open);
     setTab("");
     
   };
 
+ 
   return (
     <div className='main-sidebar'>
     <div className="sideBar">

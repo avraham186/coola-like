@@ -33,6 +33,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { useDispatch } from "react-redux";
 import { addProject } from "../store/projects";
 import NewSideBar from "../cmps/project_page/sideBarAdmin/NewSideBar";
+import { height } from "@mui/system";
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState([]);
@@ -43,6 +44,7 @@ const ProjectPage = () => {
   const [endDate, setEndDate] = useState("");
   const [projectStatus, setProjectStatus] = useState("");
   const [projectPriority, setProjectPriority] = useState("");
+  const [addProjToggle, setAddProjToggle] = useState(false)
 
   const statusOptions = [
     "On Track",
@@ -95,9 +97,9 @@ const ProjectPage = () => {
   };
 
   return (
-    <div className="flex justify-center align-center" style={{gap:'30px'}}>
+    <div className="flex justify-center " style={{gap:'30px', height:"100%"}}>
       <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button variant="outlined" onClick={()=>setAddProjToggle((p)=>!p)}>
           Add new project
         </Button>
 
@@ -117,7 +119,7 @@ const ProjectPage = () => {
             <TextField
               margin="dense"
               id="name"
-              label="Project Name"
+              label="שם הפרוייקט"
               type="text"
               onChange={(e) => setProjectName(e.target.value)}
               fullWidth
@@ -125,7 +127,7 @@ const ProjectPage = () => {
             <TextField
               margin="dense"
               id="description"
-              label="Project Description"
+              label="תיאור"
               type="text"
               onChange={(e) => setDescription(e.target.value)}
               fullWidth
@@ -170,7 +172,8 @@ const ProjectPage = () => {
             <br />
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DesktopDatePicker
-                label="Start Date"
+              className="input-date"
+                label="תאריך התחלה"
                 inputFormat="dd/MM/yyyy"
                 value={startDate}
                 onChange={handleChangeStart}
@@ -179,7 +182,8 @@ const ProjectPage = () => {
               <br />
               <br />
               <DesktopDatePicker
-                label="End desktop"
+              className="input-date"
+                label="תאריך סיום"
                 inputFormat="dd/MM/yyyy"
                 value={endDate}
                 onChange={handleChangeEnd}
@@ -188,13 +192,13 @@ const ProjectPage = () => {
             </LocalizationProvider>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleAdd}>Add</Button>
+            {/* <Button onClick={handleClose}>Cancel</Button> */}
+            <Button className="save-btn" onClick={handleAdd}>שמור וסגור</Button>
           </DialogActions>
         </Dialog>
       </div>
 
-      <NewSideBar />
+      <NewSideBar addProjToggle={addProjToggle} setAddProjToggle={setAddProjToggle}/>
     </div>
   );
 };
