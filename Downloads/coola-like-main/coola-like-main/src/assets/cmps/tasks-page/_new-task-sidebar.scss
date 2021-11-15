@@ -1,0 +1,29 @@
+.new-task-sidebar {
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    font-family: Rubik-regular;
+    direction: rtl;
+    width: 30%;
+    height: 100%;
+    padding: 30px 40px 10px 0px;
+
+    .sidebar-container {
+        height: 100%;
+
+        .content,
+        .erase {
+            gap: 40px;
+
+            div {
+                cursor: pointer;
+                width: 150px;
+                transition: 0.2s;
+
+                &:hover {
+                    transition: 0.2s;
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}

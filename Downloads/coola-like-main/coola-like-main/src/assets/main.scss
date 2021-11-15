@@ -1,0 +1,39 @@
+//setup
+@import './setup/variables';
+@import './setup/functions';
+@import './setup/mixins';
+@import './setup/Rubik-font';
+//base
+@import './basics/helpers';
+@import './basics/layout';
+@import './basics/base';
+// @import './basics/buttons';
+
+
+//components
+@import './cmps/app-header';
+@import './cmps/app-footer';
+
+//home components
+@import './cmps/home-page/subscribe';
+@import './cmps/_founders';
+@import './cmps/app-navbar';
+
+//new-task-components
+@import './cmps/tasks-page/new-task';
+@import './cmps/tasks-page/new-task-sidebar';
+
+//views
+@import './views/home-page';
+@import './views/project-page';
+
+
+
+// @import './cmps/city-search';
+// @import './cmps/weather-list';
+// @import './cmps/weather-preview';
+// @import './cmps/favorit-list';
+// @import './cmps/favorit-preview';
+// @import './cmps/msg-modal';
+// @import './views/forecast-page.scss';
+// @import './views/favorit-page.scss';

@@ -1,0 +1,90 @@
+.app-navbar {
+    padding: 5px 0 5px 0;
+    background-color: #c0e2ee00;
+    margin-bottom: 10px;
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    // Move to nav scss
+
+    .left-list{
+        display: flex;
+        list-style: none;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-left:0;
+        width: 25vw;
+        margin: auto;
+        font-family: 'Rubik';
+        
+    .events-button-list{
+        
+        border: 2px solid #34018E;
+        font-weight: bold;
+        box-sizing: border-box;
+        background-color: #34018E;
+        cursor: pointer;
+        border-radius: 2px 15px;
+        font-family: Rubik, sans-serif;
+        font-size: 16px;
+        margin-left: 25px;
+        width: 153px;
+        height:40px;
+        margin:auto 10px auto 10px;
+        }
+
+        li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:10px;
+            a{
+                width: fit-content;
+                color: white;
+            }
+            img{
+                width: 40px;
+                height: 40px;
+                //border: 1px black solid;
+            }
+         }
+    }
+    .selected{
+        text-decoration: underline;
+    }
+    .list {
+        
+        gap: 10px;
+        border-radius: 50%;
+        padding-left:0;
+        width: 90vw;
+        display: flex;
+        list-style: none;
+        flex-direction: row-reverse;
+        justify-content: right;
+        font-family: 'Rubik';
+        font-weight: 600;
+
+        
+        li{
+            margin-left: 4%;
+            margin-right: 8%;
+            
+            
+        }
+        
+        :hover {
+            transform: scale(1.08);
+        }
+    }
+
+     .logo {
+         padding-left: 5px;
+     }
+
+     
+     
+    }//navbar
