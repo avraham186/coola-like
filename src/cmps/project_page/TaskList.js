@@ -63,7 +63,7 @@ const TaskList = ({ match }) => {
                       <Paper elevation={3} className="row-item">
 
                         {task.team.map((member) => {
-                          return <span>{member}</span>;
+                          return <span className="flex" style={{gap:'5px'}}>{member.firstName}&nbsp;{member.lastName}</span>;
                         })}
                       </Paper>
                     }
