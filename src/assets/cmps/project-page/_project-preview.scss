@@ -1,0 +1,33 @@
+.projects-data {
+    grid-template-columns: repeat(3, 1fr);
+    direction: rtl;
+
+    .link-project {
+        grid-template-columns: repeat(3, 1fr);
+
+        &:nth-child(even) {
+            background-color: #F2F2F2;
+            margin-inline-start: 10px;
+        }
+    }
+
+    .project-name {
+        width: 279px;
+    }
+
+    .project-status {
+        width: 150px;
+    }
+
+    .project-data {
+        width: 298px;
+    }
+
+    .finished-tasks {
+        width: 191px;
+    }
+
+    .finished-tasks-precent {
+        width: 275px;
+    }
+}

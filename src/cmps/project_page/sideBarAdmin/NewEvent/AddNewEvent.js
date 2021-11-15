@@ -40,11 +40,23 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
     e.preventDefault();
     dispatch(addEvent(formData));
     setOpen(false);
+   
+    // fetch('api/projects', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ formData }),
+    //   headers: { 'Content-Type': 'application/json' },
+    // })
+    //   .then(res => res.json())
+    //   .then(json => setFormData(json.formData))
   };
 
   useEffect(() => {
     toggleLinks && setOpen((p) => !p);
+    setFormData(initialEventData)
   }, [toggleLinks]);
+
+
+
 
   return (
     <Modal

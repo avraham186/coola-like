@@ -14,13 +14,13 @@ const UserPermissions = ({ toggleLinks, setToggleLinks }) => {
   const [open, setOpen] = useState(false);
   const [searchUser, setSearchUser] = useState("")
   const [userClicked, setUserClicked] = useState([]);
-//   const { pplAssigned } = toggleMode;
+  //   const { pplAssigned } = toggleMode;
   const { users } = useSelector(({ entities }) => entities.taskModule)
-//   const { taskContent, setTaskContent } = useContext(TaskContext);
-const dispatch = useDispatch()
+  //   const { taskContent, setTaskContent } = useContext(TaskContext);
+  const dispatch = useDispatch()
 
   useEffect(() => {
-      console.log('hi')
+    console.log('hi')
     dispatch(setUsers())
   }, [])
 
@@ -45,10 +45,10 @@ const dispatch = useDispatch()
       setUserClicked(filterUser);
     } else {
       setUserClicked((p) => [...p, u]);
-    //   setTaskContent(p => {
-    //     const prevUsers = p.pplAssigned;
-    //     return { ...p, pplAssigned: [...prevUsers, u] };
-    //   })
+      //   setTaskContent(p => {
+      //     const prevUsers = p.pplAssigned;
+      //     return { ...p, pplAssigned: [...prevUsers, u] };
+      //   })
     }
   };
 
@@ -66,19 +66,18 @@ const dispatch = useDispatch()
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-
       <Box className="box-modal">
-        <div className="ppl-assigned-headline flex">
-          <span className="btn-close"
+        <div className="ppl-assigned-headline-perm flex justify-center space-between">
+          {/* <span className="btn-close"
             onClick={() => setToggleLinks((p) => ({
               ...p,
               toggleLinks: !p.toggleLinks,
             }))
             }>
             <img src={close_sign} />
-          </span>
+          </span> */}
           <div className="ppl-assigned-title flex align-center">
-           הרשאות משתמשים {" "}
+            הרשאות משתמשים &nbsp;
             <img src={user} alt="ppl-assigned-title" />
           </div>
         </div>
@@ -89,7 +88,7 @@ const dispatch = useDispatch()
           className="addLinkInput"
           onChange={(e) => setSearchUser(e.target.value)}
           placeholder="..חפש משתמש"
-         
+
         />
         <div className="users-assigned">
           {applyUsers().map((user, i) => {
@@ -99,7 +98,7 @@ const dispatch = useDispatch()
               <div
                 key={user.id}
                 // key={name}
-                className="each-user flex align-center"
+                className="each-user-perm flex align-center space-between"
                 onClick={() => userChoosen(user)}
               >
                 <object
@@ -126,17 +125,17 @@ const dispatch = useDispatch()
                   </option>
                 </select>
 
-             
+
                 {isChoosen(user) && (
                   <img src={v_sign} alt="v-sign" style={{ margin: "20px" }} />
-                  
+
                 )}
               </div>
             );
           })}
         </div>
         <button className="save-modal-button"
-          onClick={() => setToggleLinks((p) => ({ ...p, toggleLinks: !p.toggleLinks}))}>
+          onClick={() => setToggleLinks((p) => ({ ...p, toggleLinks: !p.toggleLinks }))}>
           שמור
         </button>
       </Box>

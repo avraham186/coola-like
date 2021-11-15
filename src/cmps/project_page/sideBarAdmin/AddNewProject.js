@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { user, v_sign, close_sign } from "../../../assets/images/icons";
-import { adi, stav, iris, shimon } from "../../../assets/images/founders-imgs";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { adi, iris, shimon, stav } from "../../../assets/images/founders-imgs";
+import { loadProjects } from "../../../store/projects";
+import { addProject } from "../../../store/projects";
+
 
 const imgUsers = [adi, stav, iris, shimon];
 
@@ -11,7 +15,22 @@ const projectData = {
   startDate: "",
   endDate: "",
   adminProject: [],
+  description: "",
+  projectStatus: "",
+  projectPriority: "",
+  tasks:[],
 };
+
+const statusOptions = [
+  "סטטוס",
+  "IN_PROCESS",
+  "DELAY",
+  "COMPLETED",
+  "STARTED",
+  "CANCELED",
+];
+
+const priorityOptions = ["עדיפות", "HIGH", "LOW", "MEDIUM"];
 
 function AddNewProject({ toggleLinks, setToggleLinks }) {
   const [open, setOpen] = React.useState(false);
@@ -20,7 +39,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
   useEffect(() => {
     console.log(newProjData);
   }, [newProjData]);
-
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -32,8 +51,11 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit =  () => {
+    //
+
+    dispatch(addProject(newProjData));
+    setToggleLinks((p) => !p);
     console.log(newProjData);
     // ... submit to API or something
   };
@@ -59,22 +81,22 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
           <input
             placeholder="שם הפרויקט"
             type="text"
-            name="title"
+            name="projectName"
             value={newProjData.projectName}
             onChange={handleChange}
           />{" "}
           {/* <h2> {newProjData.projectName} </h2> */}
           <div>
             <h4>תאריך התחלה וסיום</h4>
-            <label>
+            {/* <label>
               <input type="checkbox" />
               הגדרת פרוייקט שנתי
             </label>
-            <br />
+            <br /> */}
 
             <div className="input-date">
               <label>
-                <input type="checkbox" />
+                {/* <input type="checkbox" /> */}
                 תאריך התחלה
                 <br />
                 <input
@@ -87,7 +109,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
               <br />
 
               <label>
-                <input type="checkbox" />
+                {/* <input type="checkbox" /> */}
                 תאריך סיום
                 <br />
                 <input
@@ -97,6 +119,49 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                   onChange={handleChange}
                 />
               </label>
+            </div>
+
+            <label>
+              {/* <input type="checkbox" /> */}
+              תיאור
+              <br />
+              <input
+                type="text"
+                name="description"
+                value={newProjData.description}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
+
+            <div className="status-and-priority flex">
+              <select
+                name="projectStatus"
+                onChange={handleChange}
+                className="select-option"
+              >
+                {statusOptions.map((option, index) => {
+                  return (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  );
+                })}
+              </select>
+
+              <select
+                name="projectPriority"
+                onChange={handleChange}
+                className="select-option"
+              >
+                {priorityOptions.map((option, index) => {
+                  return (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
           </div>
           <div className="assigned-task">
