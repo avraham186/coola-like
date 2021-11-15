@@ -1,0 +1,12 @@
+.projects-table {
+    width: 800px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 20px 1fr);
+
+    .projects-title {
+        direction: rtl;
+        grid-template-columns: repeat(5, 1fr);
+
+    }
+
+}

@@ -8,11 +8,11 @@ import { TaskContext } from "../../Context/TaskContext";
 
 
 export const ContentTask = ({ setToggleMode }) => {
-  const { taskContent: { title, priority, Status, label, pplAssigned, date, description, chats },
+
+  const { taskContent: { title, taskPriority, taskStatus, label, pplAssigned, date, description, chats },
     saveTask, setTaskContent } = useContext(TaskContext);
-  const [isClicked, setIsClicked] = useState({ priority: false, Status: false, title: false })
+  const [isClicked, setIsClicked] = useState({ taskPriority: false, taskStatus: false, title: false })
   const { projectId } = useParams()
-  // console.log('project id', projectId);
 
   const handleChangeStatus = (e) => {
     const nameClicked = e.target.getAttribute('name')
@@ -40,23 +40,23 @@ export const ContentTask = ({ setToggleMode }) => {
             }
           </div>
           <div className="task-mode flex column" >
-            {!isClicked.Status
+            {!isClicked.taskStatus
               ? <span
-                onClick={() => setIsClicked(p => ({ ...p, Status: !p.Status }))}
-                id={`task-mode${modes.indexOf(Status) + 1}`}
+                onClick={() => setIsClicked(p => ({ ...p, taskStatus: !p.taskStatus }))}
+                id={`task-mode${modes.indexOf(taskStatus) + 1}`}
               >
-                {Status}
+                {taskStatus}
               </span>
               : <ModeChoosen handleChangeStatus={handleChangeStatus} />
             }
           </div>
           <div className="priority-task flex column">
-            {!isClicked.priority
+            {!isClicked.taskPriority
               ? <span
-                onClick={() => setIsClicked(p => ({ ...p, priority: !p.priority }))}
+                onClick={() => setIsClicked(p => ({ ...p, taskPriority: !p.taskPriority }))}
                 id="priority-task"
               >
-                {priority}
+                {taskPriority}
               </span>
               : <PriorityChoosen handleChangeStatus={handleChangeStatus} />
             }

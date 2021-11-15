@@ -24,6 +24,10 @@
     }
 }
 
+.grid {
+    display: grid;
+}
+
 // Media helpers
 
 .square-ratio {
@@ -36,4 +40,23 @@
 
 .portrait-ratio {
     @include aspect-ratio(9, 16);
+}
+
+.completed{
+    background-color: #69EB7D;
+}
+
+.started{
+    background-color:#7EB3FF;
+}
+.in_process{
+    background-color:#FFC474;
+}
+
+.canceled{
+    background-color:#D4D4D4;
+}
+
+.delay{
+    background-color:#FFA39C;
 }
