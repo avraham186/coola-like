@@ -11,51 +11,32 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 
 const ExpandedEventCard = (props) => {
-
-    const [expanded, setExpanded] = useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+    
+    const [open, setOpen] = useState(false);
+    const [toggleMode, setToggleMode] = useState({
+        label: false,
+        pplAssigned: false,
+        dueDate: false,
+        file: false
+    })
+ 
 
     return (
-        <div className="event-card">
-
-            <Card className="card">
-                <CardMedia
-                    className="card-img"
-                    component="img"
-                    height="200"
-                    alt="founderImg"
-                    image={'../../assets/images/founders-imgs/adi.png'}//source +''+ props.event.img
-                />
-
-                <IconButton className="inButton" >
-                    <LinkedInIcon className="inIcon" fontSize="small" />
-                </IconButton>
-
-                <CardActions className="card-footer">
-
-                    <h3 className="date_HL">{props.event.date + ' ' + props.event.day}</h3>
-                    <span className="time_HL">בשעה {props.event.hour}</span>
-
-                    <h3 className="subject_HL"> {props.event.subject} </h3>
-
-                    <hr />
-                    <h5 className="lecture_HL">מציג: {props.event.lecturer} </h5>
-
-
-                    <span className="video">
-                        <span className="videoIcon"></span>
-                        קישור יישלח בסמוך לשעה
-                    </span>
-
-                    <input type="button" value="הירשם עכשיו" className="events-button" />
-                </CardActions>
-
-
-
-            </Card>
+        <div>
+            <Modal
+                className="modals"
+                open={open}
+                onClose={() => setToggleMode(p => ({ ...p, file: !p.file }))}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box className="box-modal">
+                    <button className="save-modal-button"
+                        onClick={() => setToggleMode(p => ({ ...p, file: !p.file }))}>
+                        שמור
+                    </button>
+                </Box>
+            </Modal>
         </div>
     )
 

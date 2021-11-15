@@ -20,6 +20,7 @@ function NewSideBar({addProjToggle, setAddProjToggle}) {
   ];
   const [tab, setTab] = useState("");
 
+  const [toggleUserPermissions, setToggleUserPermissions] = useState(false);
   const [toggleLinks, setToggleLinks] = useState(false)
 
   useEffect(() => {
