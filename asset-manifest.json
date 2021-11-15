@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/coola-like/static/css/main.911a3179.chunk.css",
-    "main.js": "/coola-like/static/js/main.b8831361.chunk.js",
-    "main.js.map": "/coola-like/static/js/main.b8831361.chunk.js.map",
+    "main.js": "/coola-like/static/js/main.d2efe162.chunk.js",
+    "main.js.map": "/coola-like/static/js/main.d2efe162.chunk.js.map",
     "runtime-main.js": "/coola-like/static/js/runtime-main.729a6390.js",
     "runtime-main.js.map": "/coola-like/static/js/runtime-main.729a6390.js.map",
     "static/js/2.1c0b40f1.chunk.js": "/coola-like/static/js/2.1c0b40f1.chunk.js",
@@ -29,6 +29,6 @@
     "static/js/runtime-main.729a6390.js",
     "static/js/2.1c0b40f1.chunk.js",
     "static/css/main.911a3179.chunk.css",
-    "static/js/main.b8831361.chunk.js"
+    "static/js/main.d2efe162.chunk.js"
   ]
 }
