@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 // import "./project_page.css";
 import { Paper } from "@material-ui/core";
-import { width } from "@mui/system";
+import { textAlign, width } from "@mui/system";
 import TaskList from "./TaskList";
 import { useDispatch, useSelector } from "react-redux";
 import projectsDAL from "../../adapters/TMS/projectsDAL";
@@ -97,7 +97,7 @@ export const ProjectPreview = ({ project }) => {
 
   if (!projectStatus) return
   return (
-    <tr style={{ direction: "rtl" }} className="projects-row">
+    <tr style={{ direction: "rtl" }} className="projects-row" >
       <td>
         {" "}
         <img onClick={() => setOpen((p) => !p)} src={edit}></img>
@@ -108,20 +108,27 @@ export const ProjectPreview = ({ project }) => {
           {projectName}
         </Link>
       </td>
-      <td className={statusClass}>
+      <td className={statusClass} style={{ borderRadius: '5px', textAlign: "center", width: '100px' }}>
         <Link className={statusClass} style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
-          {projectStatus}
+          <p >{projectStatus}</p>
+
         </Link>
       </td>
-      <td>
-        {convertDate(new Date(startDate))}-{convertDate(new Date(endDate))}
+      <td style={{ textAlign: 'center' }}>
+        {convertDate(new Date(startDate))}
+        <br />
+        |
+        <br />
+        {convertDate(new Date(endDate))}
       </td>
       <td>
         <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
           {project.tasks.length} / {finisehdTasks}
         </Link>
       </td>
-      <td> <p className="precent completed" style={{ width: precenTasks  }}>% {precenTasks} </p></td>
+      <td >
+        <p className="precent completed" style={{ width: `${precenTasks}%`, borderRadius: '10px' }}>{precenTasks}% </p>
+      </td>
 
       <td style={{ textAlign: "left" }}>
         <img
@@ -137,6 +144,6 @@ export const ProjectPreview = ({ project }) => {
         stateModal={stateModal}
         setStateModal={setStateModal}
       />
-    </tr>
+    </tr >
   );
 };

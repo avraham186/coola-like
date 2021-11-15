@@ -54,6 +54,8 @@ const EditProject = ({
     dispatch(loadProjects());
     setOpenModal((p) => !p);
   };
+
+
   return (
     <Dialog open={openModal} onClose={() => setOpenModal((p) => !p)}>
       <DialogTitle>Edit project</DialogTitle>
