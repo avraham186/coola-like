@@ -44,42 +44,55 @@ const TaskList = ({ match }) => {
                     </Paper>
                   </td>
                   <td>
-                    <Paper elevation={3} className="row-item">
+                    {task.taskPriority && <Paper elevation={3} className="row-item">
                       {task.taskPriority}
-                    </Paper>
+                    </Paper>}
+
                   </td>
                   <td>
-                    <Paper elevation={3} className="row-item">
-                      {task.adminTask?.map((admin) => {
-                        return <span>{admin}</span>;
-                      })}
-                    </Paper>
+                    {task.adminTask &&
+                      <Paper elevation={3} className="row-item">
+                        {task.adminTask?.map((admin) => {
+                          return <span>{admin}</span>;
+                        })}
+                      </Paper>
+                    }
                   </td>
                   <td>
-                    <Paper elevation={3} className="row-item">
-                      {task.team.map((member) => {
-                        return <span>{member}</span>;
-                      })}
-                    </Paper>
+                    {task.team.length &&
+                      <Paper elevation={3} className="row-item">
+
+                        {task.team.map((member) => {
+                          return <span className="flex" style={{gap:'5px'}}>{member.firstName}&nbsp;{member.lastName}</span>;
+                        })}
+                      </Paper>
+                    }
                   </td>
                   <td>
-                    <Paper elevation={3} className="row-item">
-                      {task.startDate}
-                    </Paper>
-                    -
-                    <Paper elevation={3} className="row-item">
-                      {task.endDate}
-                    </Paper>
+                    {task.startDate &&
+                      <Paper elevation={3} className="row-item">
+                        {task.startDate}
+                      </Paper>
+                    }
+                    {task.endDate &&
+                      <Paper elevation={3} className="row-item">
+                        {task.endDate}
+                      </Paper>
+                    }
                   </td>
                   <td>
-                    <Paper elevation={3} className="row-item">
-                      {task.description}
-                    </Paper>
+                    {task.description &&
+                      <Paper elevation={3} className="row-item">
+                        {task.description}
+                      </Paper>
+                    }
                   </td>
                   <td>
-                    <Paper elevation={3} className="row-item">
-                      {task.taskStatus}
-                    </Paper>
+                    {task.taskStatus &&
+                      <Paper elevation={3} className="row-item">
+                        {task.taskStatus}
+                      </Paper>
+                    }
                   </td>
                   <td></td>
                 </tr>
