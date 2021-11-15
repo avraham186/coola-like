@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
 // import "./AddNewEvent.scss";
+import { useDispatch } from "react-redux";
+import {addEvent} from "../../../../store/events";
 import Categories from "../NewPosition/Categories";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
 const initialEventData = {
-  title: "",
+  
   eventDate: "",
+  description: "",
+  title: "",
   time: "",
   Categories: [],
-  description: "",
-  file: "",
+  presentor:"",
+  image: "",
   link: "",
 };
 
 function AddNewEvent({toggleLinks, setToggleLinks}) {
+  const dispatch = useDispatch();
+
+
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState(initialEventData);
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -35,8 +38,8 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    // ... submit to API or something
+    dispatch(addEvent(formData));
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -84,7 +87,7 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                 <input
                   type="time"
                   name="time"
-                  value={formData.Time}
+                  value={formData.time}
                   placeholder="00:00"
                   onChange={handleChange}
                 />
@@ -113,6 +116,14 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
             </label>
             <br />
 
+            <label className="insert_presentor"> מציג
+              <input 
+              type="text"
+              name="presentor"
+              onChange={handleChange}
+              />
+            </label>
+
             <div id="dropZone" className="add-file">
               גרור לכאן קובץ
               <label className="chooseFromPC">
@@ -120,7 +131,7 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                 <input
                   type="file"
                   name="file"
-                  value={formData.file}
+                  value={formData.image}
                   onChange={handleChange}
                   style={{ display: "none" }}
                 />

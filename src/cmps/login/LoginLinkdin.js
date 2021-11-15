@@ -23,6 +23,7 @@ function LinkedInPage() {
     const [errorMessage, setErrorMessage] = React.useState("");
 
     return (
+        <div className="linkedin">
         <Wrapper>
             <img
                 onClick={linkedInLogin}
@@ -63,6 +64,7 @@ function LinkedInPage() {
             )}
             {errorMessage && <div>{errorMessage}</div>}
         </Wrapper>
+        </div>
     );
 }
 

@@ -35,6 +35,8 @@
 //views
 @import "./views/home-page";
 @import "./views/project-page";
+@import "./cmps/login-page/login-page";
+@import "./cmps/jobs-page/jobs-page";
 
 //events-page components
 @import "./cmps/events-page/events-page"; // @import './cmps/city-search';

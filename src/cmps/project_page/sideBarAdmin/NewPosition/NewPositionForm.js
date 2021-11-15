@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState,  useEffect, useRef } from "react";
+import {useDispatch} from 'react-redux';
+import {addJob} from '../../../../store/jobs';
 import AreaSerch from "./AreaSearch";
 import Categories from "./Categories";
 import TypeOfJob from "./TypeOfJob";
@@ -23,12 +24,10 @@ export default function NewPositionForm({
 }) {
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState(initialNewPositionFormData);
-  
+  const dispatch = useDispatch();
   // const handleOpen = () => setOpen(true);
   // const handleClose = () => setOpen(false);
-  useEffect(()=>{
-    console.log(formData)
-  },[formData])
+  
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -42,9 +41,9 @@ export default function NewPositionForm({
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    // ... submit to API or something
-  };
+    dispatch(addJob(formData));
+    setOpen(false);
+    };
 
   useEffect(() => {
     toggleLinks && setOpen((p) => !p);

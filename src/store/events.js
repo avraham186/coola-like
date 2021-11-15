@@ -34,7 +34,7 @@ const slice = createSlice({
                 return prod.id === action.payload.event.id ? action.payload.event : prod
             })
         },
-        delateEvent: (events, action) => {
+        deleteEvent: (events, action) => {
             events.list.filter(prod => prod.id !== action.id)
         }
 
@@ -48,12 +48,12 @@ export const {
     eventsRequested,
     eventsRequestFailed,
     updateEvents,
-    delateEvent
+    deleteEvent
 } = slice.actions;
 export default slice.reducer;
 
 // Action Creators
-const url = process.env.REACT_APP_PROJECT;
+const url = process.env.REACT_APP_EVENT;
 
 export const loadEvents = () => apiCallBegan({
     url,
@@ -69,9 +69,9 @@ export const addEvent = event => apiCallBegan({
     data: event,
     onSuccess: eventAdded.type
 });
-export const getProjById = async (projId) => {
+export const getEventById = async (eventId) => {
     try {
-        const response = await axios.get(`https://cula-like-master.herokuapp.com/api/events/${projId}`)
+        const response = await axios.get(`https://cula-like-master.herokuapp.com/api/events/${eventId}`)
         console.log('response', response);
 
     } catch (err) {
@@ -80,11 +80,11 @@ export const getProjById = async (projId) => {
     }
 
 }
-export const delateEventById = eventId => apiCallBegan({
+export const deleteEventById = eventId => apiCallBegan({
     url,
     method: "delete",
     data: eventId,
-    onSuccess: delateEvent.type
+    onSuccess: deleteEvent.type
 })
 export const updateEvents1 = event => apiCallBegan({
     url,

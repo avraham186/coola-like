@@ -24,7 +24,7 @@ export function AppNav() {
    
                 <ul className="list clean-list flex">
                     <li className="selected"><Link to="/"><span>בית</span></Link></li>
-                    <li><Link to="/"><span>לוח משרות</span></Link></li>
+                    <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
                     <li><Link to="/events"><span>אירועים</span></Link></li>
                     <li><Link to="/"><span>טיפים ומידע</span></Link></li>
                     <li><Link to="/projects"><span>projects (test)</span></Link></li>
