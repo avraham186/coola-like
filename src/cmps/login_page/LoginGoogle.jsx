@@ -1,18 +1,12 @@
 import React from 'react';
 
 import { GoogleLogin } from 'react-google-login';
-<<<<<<< Updated upstream:src/cmps/login_page/LoginGoogle.jsx
-import { refreshTokenSetup } from '../../utils/refreshToken';
-
-const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-=======
 // refresh token
-import { refreshTokenSetup } from '../utils/refreshToken';
+import { refreshTokenSetup } from '../../utils/refreshToken';
 import { useDispatch } from 'react-redux';
 import { loadPersons } from '../../store/actions/communityHartAction'
 const clientId =
     '707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com';
->>>>>>> Stashed changes:src/cmps/login/LoginGoogle.js
 
 function LoginGoogle() {
     const dispatch = useDispatch()
