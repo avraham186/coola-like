@@ -8,7 +8,8 @@ Events
   flex-direction: column;
   margin-top: 10px;
   padding: 30px;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%), url('../images/home-page-imgs/background.jpg');
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url("../images/home-page-imgs/background.jpg");
   background-size: cover;
   //border: dashed #ce2e6c;
 
@@ -20,7 +21,6 @@ Events
     line-height: 47px;
     direction: rtl;
     margin-bottom: 10px;
-
   }
 
   .events-sub-title-container {
@@ -47,7 +47,7 @@ Events
     .sub-title-icon {
       margin-right: 4px;
       position: relative;
-      top: 6px
+      top: 6px;
     }
   }
 
@@ -77,7 +77,7 @@ Events
       justify-content: space-evenly;
 
       .events-button {
-        border: 3px solid #34018E;
+        border: 3px solid #34018e;
         padding: 4px 32px;
         font-weight: bold;
         background-color: transparent;
@@ -85,7 +85,7 @@ Events
         border-radius: 2px 15px;
         font-family: Rubik, sans-serif;
         font-size: 16px;
-        color: #34018E;
+        color: #34018e;
         margin-top: 10px;
         //margin-bottom: 15px;
       }
@@ -110,9 +110,9 @@ Events
         margin-top: 10px;
         margin-left: 16px;
         margin-right: 16px;
-        transform: scale(.9);
+        transform: scale(0.9);
         color: #ffffff;
-        opacity: .75;
+        opacity: 0.75;
         background: rgb(52, 1, 142);
         background: linear-gradient(90deg, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
       }
@@ -134,7 +134,8 @@ Jobs
   flex-direction: column;
   margin-bottom: 10px;
   padding: 30px;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%), url(../images/home-page-imgs/background.jpg);
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%),
+    url(../images/home-page-imgs/background.jpg);
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -148,7 +149,6 @@ Jobs
     line-height: 47px;
     direction: rtl;
     margin-bottom: 10px;
-
   }
 
   .jobs-sub-title-container {
@@ -175,7 +175,7 @@ Jobs
     .sub-title-icon {
       margin-right: 4px;
       position: relative;
-      top: 6px
+      top: 6px;
     }
   }
 
@@ -188,7 +188,7 @@ Jobs
     .card {
       width: 280px;
       border-radius: 10px;
-      border-color: #34018E;
+      border-color: #34018e;
       //background-color: transparent;
 
       .card-content {
@@ -201,19 +201,19 @@ Jobs
       }
 
       .card-content-info {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: flex-end;
         margin-top: 30px;
-        font-size: 14px;
+        // font-size: 14px;
 
         .job-icon {
           font-size: 18px;
-          color: #34018E;
+          color: #34018e;
           margin-right: 5px;
           margin-left: 5px;
           position: relative;
-          top: -4px
+          top: -4px;
         }
       }
 
@@ -228,7 +228,6 @@ Jobs
         margin-bottom: -8px;
       }
     }
-
   }
 }
 
@@ -240,40 +239,43 @@ Footer
 .footer {
   margin-top: 10px;
   //border: dashed #ce2e6c;
-
   .footer__bg {
-    background-color: #34018E;
+    background-color: #34018e;
     padding: 2rem 2rem 1rem;
 
     .footer__container {
-      row-gap: 3.5rem;
+      // row-gap: 3.5rem;
+      gap: 3.5rem;
 
       .footer__social {
         font-size: 1.9rem;
         margin-right: 1.5rem;
+        color: #6ce5e7;
+        &:hover {
+          color: #ffffff;
+        }
       }
 
-      .footer__social:hover {
-        color: #FFFFFF;
-      }
+      // .footer__social:hover {
+      //   color: #FFFFFF;
+      // }
 
-      .footer__social {
-        color: #6CE5E7;
-      }
+      // .footer__social {
+      //   color: #6CE5E7;
+      // }
     }
 
     .logo {
       display: flex;
       align-items: center;
-      justify-content: center
+      justify-content: center;
     }
 
     .footer__copy {
-      font-size: .75rem;
+      font-size: 0.75rem;
       text-align: center;
-      color: #FFF;
+      color: #fff;
     }
-
   }
 }
 
