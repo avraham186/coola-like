@@ -9,19 +9,16 @@
         grid-column: 2;
         &.full {
             grid-column: 1 / -1;
-        
         }
-        .app-navbar-wrapper{
+        .app-navbar-wrapper {
             grid-column: 1 / -1;
         }
-        .app-navbar{
+        .app-navbar {
             grid-column: 2;
-        
         }
         .footer__bg{
             grid-column: 2;
         }
-    
     }
 
     @include for-narrow-layout {
