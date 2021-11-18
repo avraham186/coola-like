@@ -11,17 +11,17 @@ export function AppNav() {
                 <div className="left-list clean-list">
 
                     <span>
-                        <IconButton aria-label="Person" className="user_logo">
+                        <IconButton aria-label="Person" className="user_logo" >
                             <PersonIcon />
                         </IconButton>
                     </span>
 
                     <div className="mngr-login-button">
-                        <input type="button" value="כניסת מנהלים" className="mngBtn"/>
+                        <input type="button" value="כניסת מנהלים" className="mngBtn" />
                     </div>
 
-            </div>
-   
+                </div>
+
                 <ul className="list clean-list flex">
                     <li className="selected"><Link to="/"><span>בית</span></Link></li>
                     <li><Link to="/"><span>לוח משרות</span></Link></li>
@@ -31,8 +31,8 @@ export function AppNav() {
                 </ul>
 
                 <Link to="/">
-                        <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"></object>
-                 </Link>
+                    <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"></object>
+                </Link>
 
             </div>
         </div>
