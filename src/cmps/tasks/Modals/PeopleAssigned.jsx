@@ -103,14 +103,16 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
                         );
                     })}
                 </div>
+                <div className='submit-btn-task'>
                 <button
-                    className="save-modal-button"
+                    className="btn-save-task"
                     onClick={() =>
                         setToggleMode((p) => ({...p, pplAssigned: !p.pplAssigned}))
                     }
                 >
                     שמור
                 </button>
+                </div>
             </Box>
         </Modal>
     );

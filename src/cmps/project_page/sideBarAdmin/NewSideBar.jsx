@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from "react-icons/ai";
 // import "./newSidebar.scss";
 import NewPositionForm from "./NewPosition/NewPositionForm.jsx";
-import AddNewEvent from "./NewEvent/AddNewEvent.jsx";
+import AddNewEvent from "./AddNewEvent.jsx";
 import AddNewProject from "./AddNewProject.jsx";
 import UserPermissions from "./UserPermissions.jsx";
 

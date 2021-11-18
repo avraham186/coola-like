@@ -121,7 +121,7 @@ export const DueDate = ({toggleMode, setToggleMode, setTaskToSave}) => {
                         </select>
                     </div>
                     <div className="due-date-set-reminder-save-btn">
-                        <button className="save-btn"
+                        <button className="btn-save-task"
                                 onClick={() => setToggleMode(p => ({
                                     ...p,
                                     dueDate: !p.dueDate

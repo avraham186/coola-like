@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 // import "./AddNewEvent.scss";
-import Categories from "../NewPosition/Categories.jsx";
+import Categories from "./NewPosition/Categories"
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
@@ -150,7 +150,7 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                         </label>
                         <br/>
                         <div className="submit-btn">
-                            <button className="save-btn" onClick={handleSubmit}>
+                            <button className="btn-save" onClick={handleSubmit}>
                                 שמור וסגור
                             </button>
                         </div>

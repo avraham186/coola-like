@@ -11,11 +11,11 @@ const Header = () => {
                     <h4 className="header-content-title">.הבית של אלו שנקלעו לפרדוקס הג'וניור</h4>
                     <p className="header-content-content">
                         אנחנו כאן כדי לעזור לכל מי שבתחילת דרכו התעסוקתית, בחינם, ללא תמורה, רק מתוך רצון אמיתי
-                        לעזור</p>
+                         לעזור אחד לשנייה</p>
                 </div>
 
                 <div className="header-buttons">
-                    <Link to="/login"> <span>כניסה</span></Link>
+                    {/* <Link to="/login"> <span>כניסה</span></Link> */}
                     <Link to="/login"> <span> התחברות</span></Link>
                 </div>
             </div>

@@ -99,7 +99,7 @@ export const AddLabel = ({toggleMode, setToggleMode}) => {
                     </button>
                 </div>
                 <button
-                    className="save-modal-button"
+                    className="btn-save-task"
                     onClick={() => setToggleMode((p) => ({...p, label: !p.label}))}
                 >
                     שמור
