@@ -7,7 +7,7 @@ const CreateNewProject = () => {
             <h1>לוח ניהול כללי</h1>
             <div className="create-new-project flex align-center justify-center">
                 <p>יצירת פרויקט חדש</p>
-                <img src={create_new_project} />
+                <img src={create_new_project}/>
             </div>
         </div>
     )

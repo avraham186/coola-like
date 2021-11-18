@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import EventCard from "./sub_cmps/EventCard";
+import {Link} from 'react-router-dom'
+import EventCard from "./sub_cmps/EventCard.jsx";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Events = () => {
@@ -12,16 +12,16 @@ const Events = () => {
                 <span className="events-sub-title-link">
                     <Link to="/">
                         לכל האירועים
-                        <ArrowBackIcon className="sub-title-icon" />
+                        <ArrowBackIcon className="sub-title-icon"/>
                     </Link>
                 </span>
             </div>
             <div className="events-cards">
 
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
+                <EventCard/>
+                <EventCard/>
+                <EventCard/>
+                <EventCard/>
 
             </div>
         </div>

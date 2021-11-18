@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { ContentTask } from './ContentTask';
-import { SideBar } from './SideBar';
-import { AddLabel, AddFile, DueDate, PeopleAssigned } from './Modals';
-import { TaskProvider } from '../../Context/TaskContext';
+import React, {useState} from 'react';
+import {ContentTask} from './ContentTask';
+import {SideBar} from './SideBar';
+import {AddFile, AddLabel, DueDate, PeopleAssigned} from './Modals';
+import {TaskProvider} from '../../context/TaskContext';
 
 
 const NewTask = () => {
@@ -44,10 +44,10 @@ const NewTask = () => {
     return (
         <TaskProvider>
             <div className="main-task flex justify-center">
-                <ContentTask setToggleMode={setToggleMode} />
-                <SideBar setToggleMode={setToggleMode} />
-                <IsClicked />
-            </div >
+                <ContentTask setToggleMode={setToggleMode}/>
+                <SideBar setToggleMode={setToggleMode}/>
+                <IsClicked/>
+            </div>
         </TaskProvider>
 
     )

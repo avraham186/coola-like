@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import JobCard from "./sub_cmps/JobCard";
+import JobCard from "./sub_cmps/JobCard.jsx";
 
 const Jobs = () => {
     return (

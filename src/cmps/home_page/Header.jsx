@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Herosvg from "../../assets/images/home-page-imgs/Header_logo.svg";
 
 const Header = () => {
@@ -10,7 +10,8 @@ const Header = () => {
                     <h1 className="header-title">כולא_לייק#</h1>
                     <h4 className="header-content-title">.הבית של אלו שנקלעו לפרדוקס הג'וניור</h4>
                     <p className="header-content-content">
-                        אנחנו כאן כדי לעזור לכל מי שבתחילת דרכו התעסוקתית, בחינם, ללא תמורה, רק מתוך רצון אמיתי לעזור</p>
+                        אנחנו כאן כדי לעזור לכל מי שבתחילת דרכו התעסוקתית, בחינם, ללא תמורה, רק מתוך רצון אמיתי
+                        לעזור</p>
                 </div>
 
                 <div className="header-buttons">
@@ -20,7 +21,7 @@ const Header = () => {
             </div>
 
             <div className="header-logo">
-                <object data={Herosvg} type="image/svg+xml" />
+                <object data={Herosvg} type="image/svg+xml"/>
             </div>
 
         </div>
