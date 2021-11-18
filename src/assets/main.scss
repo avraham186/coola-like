@@ -17,6 +17,7 @@
 @import "./cmps/home-page/_subscribe";
 @import "./cmps/home-page/_founders";
 @import "./cmps/home-page/app-navbar";
+@import "./cmps/home-page/admin-navbar";
 
 //new-task-components
 @import "./cmps/tasks-page/new-task";
@@ -24,13 +25,14 @@
 @import "./cmps/tasks-page/new-task-modals";
 
 //project page
-@import './cmps/Project-page/AddNewEvent';
-@import './cmps/Project-page/Categories';
-@import './cmps/Project-page/NewPositionForm';
-@import './cmps/Project-page/newSidebar';
-@import './cmps/Project-page/AddNewProject';
-@import './cmps/Project-page/UserPermissions';
-@import './cmps/Project-page/project-list';
+@import './cmps/project-page/AddNewEvent';
+@import './cmps/project-page/Categories';
+@import './cmps/project-page/NewPositionForm';
+@import './cmps/project-page/newSidebar';
+@import './cmps/project-page/AddNewProject';
+@import './cmps/project-page/UserPermissions';
+@import './cmps/project-page/project-list';
+@import './cmps/project-page/project-preview';
 
 //views
 @import "./views/home-page";

@@ -1,12 +1,29 @@
-.projects-table {
-    width: 800px;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 20px 1fr);
+.task-list {
+    direction: rtl;
+    width: 100%;
 
-    .projects-title {
-        direction: rtl;
-        grid-template-columns: repeat(5, 1fr);
+    .projects-row {
+        text-align: center;
 
+        .row-item {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 
+    .projects-table {
+        width: 100%;
+
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 20px);
+        direction: rtl;
+
+        .projects-title {
+            // direction: rtl;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+    }
 }

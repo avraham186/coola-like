@@ -31,7 +31,7 @@ const slice = createSlice({
           : prod;
       });
     },
-    delateProject: (projects, action) => {
+    deleteProject: (projects, action) => {
       projects.list.filter((prod) => prod.id !== action.id);
     },
   },
@@ -43,7 +43,7 @@ export const {
   projectsRequested,
   projectsRequestFailed,
   updateProjects,
-  delateProject,
+  deleteProject,
 } = slice.actions;
 export default slice.reducer;
 
@@ -65,6 +65,7 @@ export const addProject = (project) =>
     data: project,
     onSuccess: projectAdded.type,
   });
+
 export const getProjById = async (projId) => {
   try {
     const response = await axios.get(
@@ -75,13 +76,15 @@ export const getProjById = async (projId) => {
     console.log("err", err);
   }
 };
-export const delateProjectById = (projectId) =>
+
+export const deleteProjectById = (projectId) =>
   apiCallBegan({
     url,
     method: "delete",
     data: projectId,
-    onSuccess: delateProject.type,
+    onSuccess: deleteProject.type,
   });
+
 export const updateProjects1 = (project) =>
   apiCallBegan({
     url,
