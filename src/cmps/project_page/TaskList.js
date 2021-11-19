@@ -1,107 +1,94 @@
-import React, { useEffect } from "react";
-import taskDAL from "../../adapters/TMS/tasksDAL";
+import React, { useEffect, useState } from "react";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
-import { Paper } from "@material-ui/core";
-import { getProjById } from "../../store/projects";
+import { add_new_content } from '../../assets/images/icons'
+import user_icon from '../../assets/images/home-page-imgs/user_icon.png'
 import { Link } from "react-router-dom";
 
+const rg = ['#FFC474', '#FFA39C', '#69EB7D']
+const status = { STARTED: 'חדש', DELAY: 'באיחור', COMPLETED: 'הושלם', IN_PROCESS: 'בתהליך' }
 const TaskList = ({ match }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
   const { projectId } = match.params;
-  const projectIdx = (project) => project.id === +projectId;
+  const isMatchTask = id => id === parseInt(projectId);
 
   useEffect(() => {
     dispatch(loadProjects());
   }, [match.params.projectId]);
 
+  const allTasks = () => projects.list.reduce((p, { id, tasks }) => isMatchTask(id) ? [...p, ...tasks] : p, [])
+
   return (
     <div className="task-list">
-      <Link to={`/projects/task/new-task/${projectId}`}>Add New Task</Link>
-      {/* <Link to="/projects/task/new-task">Add New Task</Link> */}
+      <div id="add-new-task">
+        <img src={add_new_content} alt="add-new-content" />
+        <Link to={`/projects/task/new-task/${projectId}`}>
+          הוספת משימה חדשה
+        </Link>
+      </div>
       <table className="projects-table">
         <thead>
           <tr className="projects-row ">
+            <th className="row-item"></th>
             <th className="row-item">שם המשימה</th>
             <th className="row-item">עדיפות</th>
             <th className="row-item">מנהל</th>
             <th className="row-item">מוקצים למשימה</th>
             <th className="row-item">תאריך יעד</th>
             <th className="row-item">תקציר</th>
-            <th className="row-item">סטאטוס</th>
-            <th className="row-item">+</th>
+            <th className="row-item">סטטוס</th>
           </tr>
         </thead>
         <tbody>
-          {projects.list[projects.list.findIndex(projectIdx)].tasks.map(
-            (task) => {
-              return (
-                <tr className="projects-row" key={task.id}>
-                  <td>
-                    <Paper elevation={3} className="row-item">
-                      {task.title}
-                    </Paper>
-                  </td>
-                  <td>
-                    {task.taskPriority && <Paper elevation={3} className="row-item">
-                      {task.taskPriority}
-                    </Paper>}
-
-                  </td>
-                  <td>
-                    {task.adminTask &&
-                      <Paper elevation={3} className="row-item">
-                        {task.adminTask?.map((admin) => {
-                          return <span>{admin}</span>;
-                        })}
-                      </Paper>
+          {allTasks().map(task => {
+            const color = rg[Math.floor(Math.random() * (2 - 0 + 1))]
+            const priority = task.taskPriority === 'HIGH';
+            return (
+              <tr className="projects-row" key={task.id}>
+                <td id='label-task' style={{ background: color }}></td>
+                <td>
+                  <p>{task.title}</p>
+                </td>
+                <td style={priority ? { background: '#6D49AC', color: 'white' } : {}} >
+                  <p>{task.taskPriority}</p>
+                </td>
+                <td>
+                  {task.adminsTask?.map(admin => <span>{admin}</span>)}
+                </td>
+                <td >
+                  <div className='ppl-assigned'>
+                    {
+                      task.team?.map(
+                        ({ firstName, lastName }) => {
+                          const name = `${firstName} ${lastName}`;
+                          return <>
+                            <img
+                              src={user_icon} alt={name}
+                              data-content={name}
+                            />
+                          </>
+                        })
                     }
-                  </td>
-                  <td>
-                    {task.team.length &&
-                      <Paper elevation={3} className="row-item">
-
-                        {task.team.map((member) => {
-                          return <span className="flex" style={{gap:'5px'}}>{member.firstName}&nbsp;{member.lastName}</span>;
-                        })}
-                      </Paper>
-                    }
-                  </td>
-                  <td>
-                    {task.startDate &&
-                      <Paper elevation={3} className="row-item">
-                        {task.startDate}
-                      </Paper>
-                    }
-                    {task.endDate &&
-                      <Paper elevation={3} className="row-item">
-                        {task.endDate}
-                      </Paper>
-                    }
-                  </td>
-                  <td>
-                    {task.description &&
-                      <Paper elevation={3} className="row-item">
-                        {task.description}
-                      </Paper>
-                    }
-                  </td>
-                  <td>
-                    {task.taskStatus &&
-                      <Paper elevation={3} className="row-item">
-                        {task.taskStatus}
-                      </Paper>
-                    }
-                  </td>
-                  <td></td>
-                </tr>
-              );
-            }
+                  </div>
+                </td>
+                <td>
+                  <p>{task.startDate}</p>
+                  <p>{task.endDate}</p>
+                </td>
+                <td>
+                  <p>{task.description?.slice(0, 30)}</p>
+                </td>
+                <td style={{ background: color, width: '15%' }}>
+                  <p >{status[task.taskStatus]}</p>
+                </td>
+              </tr>
+            );
+          }
           )}
         </tbody>
       </table>
-    </div>
+    </div >
   );
 };
 
