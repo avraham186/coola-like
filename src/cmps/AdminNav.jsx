@@ -9,8 +9,13 @@ import {shimon} from '../assets/images/founders-imgs'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountMenu from './sub_cmps/AccountMenu.jsx'
+import {useSelector} from "react-redux";
+import Avatar from "@mui/material/Avatar";
 
 export function AdminNav() {
+
+    const userFromStore= useSelector(state => state.entities.user)
+
 
     const user = {name: "Shimon Moyal"}
     const [searchValue, setSearchValue] = useState('')
@@ -35,12 +40,22 @@ export function AdminNav() {
                 <div className="left-list clean-list">
 
                     <div>
-                        <object className="user_img" type="image/svg+xml" data={shimon} alt="user"/>
+                        { userFromStore?
+
+                            <Avatar
+                                alt="Remy Sharp"
+                                src={userFromStore.imageUrl}
+                                sx={{ width: 56, height: 56 }}
+                            />
+
+                            :
+                            <object className="user_img" type="image/svg+xml" data={shimon} alt="user"/>}
+
                         {isAccountMenuOpen ? <AccountMenu/> : null}
                     </div>
                     <div className="user_private_nav">
 
-                        <h4>{user.name}</h4>
+                        <h4>{ userFromStore? userFromStore.name : user.name}</h4>
 
                         <Link to="./"><span>התנתקות</span></Link>
 
