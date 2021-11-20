@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import EmptyProjects from "../cmps/project_page/EmptyProjects.jsx";
 import ProjectsList from "../cmps/project_page/ProjectsList.jsx";
 import AddNewProject from "../cmps/project_page/sideBarAdmin/AddNewProject.jsx";
 import NewSideBar from "../cmps/project_page/sideBarAdmin/NewSideBar.jsx";
-import {MdOutlineAddToPhotos} from "react-icons/md";
+import { MdOutlineAddToPhotos } from "react-icons/md";
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
@@ -21,32 +21,34 @@ const ProjectPage = () => {
     }, []);
 
     return (
-        <div className="flex justify-center " style={{gap: "30px"}}>
+        <div className="flex justify-center " style={{ gap: "30px" }}>
             <div>
                 {/* <div className="flex" style={{ direction: "rtl", gap: "15px" }}>
           <h1 className="page-title">לוח ניהול כללי</h1> */}
-                <button
-                    className="addProject-btn"
-                    style={{
-                        border: "none",
-                        padding: "10px",
-                        borderRadius: "5px",
-                        fontFamily: "Rubik",
-                        margin: "0 10px",
-                    }}
-                    onClick={() => {
-                        setOpen(true);
-                        setAddProjToggle();
-                        setToggleLinks(!toggleLinks);
-                    }}
-                >
-                    הוספת פרוייקט חדש
-                    <MdOutlineAddToPhotos style={{margin: "0 5px"}}/>
-                </button>
+                <div className="btn">
+                    <button
+                        className="addProject-btn"
+                        style={{
+                            border: "none",
+                            padding: "10px",
+                            borderRadius: "5px",
+                            fontFamily: "Rubik",
+                            margin: "0 10px",
+                        }}
+                        onClick={() => {
+                            setOpen(true);
+                            setAddProjToggle();
+                            setToggleLinks(!toggleLinks);
+                        }}
+                    >
+                        הוספת פרוייקט חדש
+                        <MdOutlineAddToPhotos style={{ margin: "0 5px" }} />
+                    </button>
+                </div>
                 {/* </div> */}
-                <br/>
-                <br/>
-                {!projects ? <EmptyProjects/> : <ProjectsList rows={projects}/>}
+                <br />
+                <br />
+                {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
                 {open ? (
                     <AddNewProject
                         toggleLinks={toggleLinks}
