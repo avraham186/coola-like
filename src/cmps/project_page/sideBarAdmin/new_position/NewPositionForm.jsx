@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
-
-import AreaSearch from "./AreaSearch.jsx";
-import Categories from "./Categories.jsx";
-import TypeOfJob from "./TypeOfJob.jsx";
+import {useDispatch} from 'react-redux';
+import {addJob} from '../../../../store/jobs';
+import AreaSearch from "./AreaSearch";
+import Categories from "./Categories";
+import TypeOfJob from "./TypeOfJob";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
@@ -17,17 +18,16 @@ const initialNewPositionFormData = {
     link: "",
 }
 
+
 export default function NewPositionForm({
                                             toggleLinks, setToggleLinks
                                         }) {
     const [open, setOpen] = React.useState(false);
     const [formData, setFormData] = useState(initialNewPositionFormData);
-
+    const dispatch = useDispatch();
     // const handleOpen = () => setOpen(true);
     // const handleClose = () => setOpen(false);
-    useEffect(() => {
-        console.log(formData)
-    }, [formData])
+
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -41,8 +41,8 @@ export default function NewPositionForm({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        // ... submit to API or something
+        dispatch(addJob(formData));
+        setOpen(false);
     };
 
     useEffect(() => {

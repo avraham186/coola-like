@@ -4,6 +4,7 @@ import ProjectPage from "./pages/ProjectPage.jsx";
 import EventsPage from './pages/EventsPage.jsx';
 import NewTask from './cmps/tasks/NewTask.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import JobsPage from './pages/JobsPage.jsx'
 
 export const routes = [
 
@@ -30,6 +31,10 @@ export const routes = [
     {
         path: "/projects/task/:projectId",
         component: TaskList,
+    },
+    {
+        path: "/jobs",
+        component: JobsPage,
     }
 
 ]

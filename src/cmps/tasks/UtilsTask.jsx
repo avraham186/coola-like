@@ -1,7 +1,7 @@
 import React, {useCallback, useContext, useState} from 'react';
 import {attachment_image, plus_sign} from '../../assets/images/icons';
 import user_icon from '../../assets/images/home-page-imgs/user_icon.png';
-import {TaskContext} from "../../context/TaskContext";
+import {TaskContext} from "../../context/TaskContext.jsx";
 
 export const modes = ['STARTED', 'IN_PROCESS', 'DELAY', 'COMPLETED', 'CANCELED']
 // export const modes = ['חדש', 'בתהליך', 'באיחור', 'הושלם']

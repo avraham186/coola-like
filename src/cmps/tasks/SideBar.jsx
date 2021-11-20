@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {TaskContext} from "../../context/TaskContext";
+import {TaskContext} from "../../context/TaskContext.jsx";
 import {erase, files, label, user, watch} from "../../assets/images/icons";
 
 export const SideBar = ({setToggleMode}) => {

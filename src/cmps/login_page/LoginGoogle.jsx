@@ -22,7 +22,7 @@ function LoginGoogle() {
     };
 
     return (
-        <div>
+        <div className="google">
             <GoogleLogin
                 clientId={clientId}
                 buttonText=" Google המשך עם"

@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 
 import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from "react-icons/ai";
 // import "./newSidebar.scss";
-import NewPositionForm from "./NewPosition/NewPositionForm.jsx";
-import AddNewEvent from "./AddNewEvent.jsx";
+import NewPositionForm from "./new_position/NewPositionForm.jsx";
+import AddNewEvent from "./new_event/AddNewEvent.jsx";
 import AddNewProject from "./AddNewProject.jsx";
 import UserPermissions from "./UserPermissions.jsx";
 

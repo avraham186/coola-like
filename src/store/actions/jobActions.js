@@ -35,7 +35,6 @@ export function removeJob(toyId) {
 export function saveJob(job) { // Action Creator
   const type = job._id ? 'UPDATE_JOB' : 'ADD_JOB'
 
-
   return (dispatch) => {
     try {
       const savedJob = jobService.save(job)
@@ -50,6 +49,4 @@ export function saveJob(job) { // Action Creator
   }
 }
 
-export const taskAssigned = (peoples) => {
 
-}
