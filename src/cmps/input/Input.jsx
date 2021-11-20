@@ -11,7 +11,7 @@ export function Input({required,id,label,type,handleChange,icon}) {
             fullWidth
             id={id}
             color="primary"
-            label={label}
+            placeholder={label}
             name={id}
             autoComplete={id}
             type={type}

@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const textFieldArr = [
-    {id: "Email", label: "Email", icon: <Email color="primary"/>, type: 'Email', required: true},
-    {id: "password", label: "Password", icon: <LockRounded color="primary"/>, type: 'password', required: true}
+    {id: "Email", label: "אימייל", icon: <Email color="primary"/>, type: 'Email', required: true},
+    {id: "password", label: "סיסמה", icon: <LockRounded color="primary"/>, type: 'password', required: true}
 ];
 
 function LoginPage(props) {
@@ -58,7 +58,7 @@ function LoginPage(props) {
         if (validateForm()) {
             setError('');
             setIsLoading(true);
-            handleLogin();
+            // handleLogin();
         } else {
             setError('Error: Invalid Form');
         }

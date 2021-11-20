@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1px;
   place-self: center;
+  background-color: #ffffff;
 
   a {
     border-bottom: 1px solid;
@@ -62,6 +63,7 @@
     input[type="password"], input[type="email"], textarea {
       background-color : #ffffff;
       border-radius: 15px;
+      text-align:right;
     }
 
     .forgot--password {

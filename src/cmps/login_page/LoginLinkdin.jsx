@@ -5,7 +5,7 @@ import linkedin from "react-linkedin-login-oauth2/assets/linkedin.png";
 
 function LinkedInPage() {
     const { linkedInLogin } = useLinkedIn({
-        clientId: "86vhj2q7ukf83q",
+        clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
         redirectUri: `${window.location.origin}/linkedin`,
         onSuccess: (code) => {
             console.log(code);
@@ -29,7 +29,7 @@ function LinkedInPage() {
                 onClick={linkedInLogin}
                 src={linkedin}
                 alt="Log in with Linked In"
-                style={{ maxWidth: "180px", cursor: "pointer" }}
+                style={{ maxWidth: "230px", cursor: "pointer" }}
             />
             {/* <button
                 onClick={linkedInLogin}
