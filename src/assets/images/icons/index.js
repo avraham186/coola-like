@@ -14,3 +14,6 @@ export { default as closeIcon } from './closeIcon.png';
 export { default as plus_sign } from './plus_sign.png';
 export { default as v_sign } from './v_sign.png';
 export { default as close_sign } from './close_sign.png';
+export { default as add_new_content } from './add_new_content.png';
+export { default as arrow_down } from './arrow_down.png';
+export { default as group } from './group.png';

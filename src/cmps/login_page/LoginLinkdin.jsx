@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { useLinkedIn } from "react-linkedin-login-oauth2";
 import linkedin from "react-linkedin-login-oauth2/assets/linkedin.png";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {Button} from "@material-ui/core";
 
 function LinkedInPage() {
     const { linkedInLogin } = useLinkedIn({
-        clientId: "86vhj2q7ukf83q",
+        clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
         redirectUri: `${window.location.origin}/linkedin`,
         onSuccess: (code) => {
             console.log(code);
@@ -25,27 +27,21 @@ function LinkedInPage() {
     return (
         <div className="linkedin">
         <Wrapper>
-            <img
+            <Button
                 onClick={linkedInLogin}
-                src={linkedin}
-                alt="Log in with Linked In"
-                style={{ maxWidth: "180px", cursor: "pointer" }}
-            />
-            {/* <button
-                onClick={linkedInLogin}
-                style={{ maxWidth: "180px", cursor: "pointer" }}
-            > <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" class="global-nav__logo">
-                    <title>
-                        LinkedIn
-                    </title>
-
-                    <g>
-                        <path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z" fill="currentColor"></path>
-                    </g>
-                </svg> LinkedIn המשך עם
-
-            </button> */}
-            {/* {!code && <div>No code</div>} */}
+                style={{
+                    borderRadius: 35,
+                    backgroundColor: "#FFF",
+                    padding: "10px 36px",
+                    fontSize: "15px",
+                    color: "#34018E",
+                    textTransform: 'none',
+                    boxShadow: '3px 5px'
+                }}
+                endIcon={<LinkedInIcon />}
+            >
+                LinkedIn
+            </Button>
             {code && (
                 <div>
                     <div>Authorization Code: {code}</div>
@@ -62,7 +58,7 @@ function LinkedInPage() {
                     </div>
                 </div>
             )}
-            {errorMessage && <div>{errorMessage}</div>}
+            {/*{errorMessage && <div>{errorMessage}</div>}*/}
         </Wrapper>
         </div>
     );
