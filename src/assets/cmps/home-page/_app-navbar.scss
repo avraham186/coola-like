@@ -1,40 +1,77 @@
+.app-navbar-wrapper{
+    background-color: white;
+    
 .app-navbar {
     padding: 5px 0 5px 0;
-    background-color: #c0e2ee00;
+    background-color: #ffffff;
     margin-bottom: 10px;
-
-    a {
+    font-family: 'Rubik';
+    display: flex;
+    width: 100%;
+    
+    
+    a{
         text-decoration: none;
         color: black;
     }
 
-    // Move to nav scss
+    .user_logo{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 
     .left-list {
         display: flex;
         list-style: none;
         flex-direction: row;
-        justify-content: space-around;
-        padding-left: 0;
-        // width: 25vw;
+        justify-content: space-between;
+        padding-left:0;
+        width: 25vw;
         margin: auto;
+
+    .mngr-login-button{
+               
+        background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
+        opacity: .5;
+        cursor: pointer;
         font-family: 'Rubik';
-        width: 100%;
+        border-radius: 2px 15px;
+        width: 153px;
+        height:40px;
+        margin:auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .events-button-list {
+        }
+        .mngr-login-button:hover {
+        opacity: .75;
 
-            border: 2px solid #34018E;
+        }
+
+        .mngBtn{
+            background-color: transparent;
+            border: 0;
+            font-size: medium;
+            color: white;
+            font-family: 'Rubik';
             font-weight: bold;
-            box-sizing: border-box;
-            background-color: #34018E;
             cursor: pointer;
-            border-radius: 2px 15px;
-            font-family: Rubik, sans-serif;
-            font-size: 16px;
-            margin-left: 25px;
-            width: 153px;
-            height: 40px;
-            margin: auto 10px auto 10px;
+            text-align: center;
+        }
+
+        .user_logo{
+            //position: relative;
+            transform: scale(.9);
+            color: #ffffff;
+            opacity: .5;
+            background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);        
+        }
+    
+        .user_logo:hover{
+    
+            opacity: .75;
         }
 
         li {
@@ -46,17 +83,13 @@
             a {
                 width: fit-content;
                 color: white;
+               
             }
-
-            img {
-                width: 40px;
-                height: 40px;
-                //border: 1px black solid;
-            }
-        }
+            
+         }
     }
 
-    .selected {
+    .selected{
         text-decoration: underline;
     }
 
@@ -64,21 +97,22 @@
 
         gap: 10px;
         border-radius: 50%;
-        padding-left: 0;
-        width: 90vw;
+        padding-left:0;
+        width: 100%;
         display: flex;
         list-style: none;
         flex-direction: row-reverse;
-        justify-content: right;
+        justify-content: space-around;
+        align-items: center;
         font-family: 'Rubik';
         font-weight: 600;
 
 
         li {
             margin-left: 4%;
-            margin-right: 8%;
-
-
+            margin-right: 2%;
+            
+            
         }
 
         :hover {
@@ -86,12 +120,12 @@
         }
     }
 
-    .logo {
-        padding-left: 5px;
-    }
+     .coola_like_logo {
+         padding-left: 5px;
+         cursor: pointer;
+     }
 
-
-
+     
+     
+    }//navbar
 }
-
-//navbar

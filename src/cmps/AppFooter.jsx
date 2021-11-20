@@ -6,9 +6,10 @@ import logo from "../assets/images/home-page-imgs/coola_like_logo.png";
 
 export function AppFooter() {
   return (
-    <footer className="footer">
-      <div className="footer__bg">
-        <div className="footer__container container grid">
+    <footer className="footer full">
+      <div className="footer__bg main-layout ull">
+        <div className="footer__container full">
+        {/* <div className="footer__container container grid"> */}
           <div className="footer__socials">
             <a
               href="https://www.linkedin.com/"

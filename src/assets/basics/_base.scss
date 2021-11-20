@@ -1,4 +1,16 @@
-html, body {
+html,
+body {
     font-family: Rubik, sans-serif;
     margin: 0;
+    background: url("../images/home-page-imgs/background.png");
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        cursor: pointer;
+    }
 }

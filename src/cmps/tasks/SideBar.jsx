@@ -1,64 +1,61 @@
-import React from "react";
-import { user, watch, label, files, erase } from "../../assets/images/icons";
+import React, { useContext } from "react";
+import { TaskContext } from "../../Context/TaskContext";
+import { erase, files, label, user, watch } from "../../assets/images/icons";
 
 export const SideBar = ({ setToggleMode }) => {
-  const assignToMission = () => {
-    setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }));
-    console.log("assigned");
-  };
+    const { removeTask } = useContext(TaskContext);
+    const assignToMission = () => {
+        setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }));
+    };
 
-  const chooseEndDate = () => {
-    setToggleMode((p) => ({ ...p, dueDate: !p.dueDate }));
-    console.log("date choosed");
-  };
+    const chooseEndDate = () => {
+        setToggleMode((p) => ({ ...p, dueDate: !p.dueDate }));
+    };
 
-  const chooseLables = () => {
-    setToggleMode((p) => ({ ...p, label: !p.label }));
-    console.log("lable choosed");
-  };
+    const chooseLables = () => {
+        setToggleMode((p) => ({ ...p, label: !p.label }));
+    };
 
-  const uploadFiles = () => {
-    setToggleMode((p) => ({ ...p, file: !p.file }));
-    console.log("file upload");
-  };
+    const uploadFiles = () => {
+        setToggleMode((p) => ({ ...p, file: !p.file }));
+    };
 
-  const remove = () => {
-    // props.onRemove()
-    console.log("mission erased");
-  };
-  return (
-    <nav className="new-task-sidebar">
-      <div className="sidebar-container flex column space-between">
-        <div className="content flex column space-between">
-          <div className="flex" onClick={assignToMission}>
-            <img src={user} alt="מוקצים למשימה" />
-            &nbsp;
-            <span> מוקצים למשימה</span>
-          </div>
-          <div className="flex" onClick={chooseEndDate}>
-            <img src={watch} alt="תאריך יעד" />
-            &nbsp;
-            <span>תאריך יעד</span>
-          </div>
-          <div className="flex" onClick={chooseLables}>
-            <img src={label} alt="תוויות" />
-            &nbsp;
-            <span>תוויות</span>
-          </div>
-          <div className="flex" onClick={uploadFiles}>
-            <img src={files} alt="קבצים" />
-            &nbsp;
-            <span>קבצים</span>
-          </div>
-        </div>
-        <div className="erase flex">
-          <div className="flex" onClick={remove}>
-            <img src={erase} alt="מחיקה" />
-            &nbsp;
-            <span>מחיקה</span>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+    const remove = () => {
+        console.log("mission erased");
+    };
+    return (
+        <nav className="new-task-sidebar">
+            <div className="sidebar-container flex column space-between">
+                <div className="content flex column space-between">
+                    <div className="flex" onClick={assignToMission}>
+                        <img src={user} alt="מוקצים למשימה" />
+                        &nbsp;
+                        <span> מוקצים למשימה</span>
+                    </div>
+                    <div className="flex" onClick={chooseEndDate}>
+                        <img src={watch} alt="תאריך יעד" />
+                        &nbsp;
+                        <span>תאריך יעד</span>
+                    </div>
+                    <div className="flex" onClick={chooseLables}>
+                        <img src={label} alt="תוויות" />
+                        &nbsp;
+                        <span>תוויות</span>
+                    </div>
+                    <div className="flex" onClick={uploadFiles}>
+                        <img src={files} alt="קבצים" />
+                        &nbsp;
+                        <span>קבצים</span>
+                    </div>
+                </div>
+                <div className="erase flex">
+                    <div className="flex" onClick={removeTask}>
+                        <img src={erase} alt="מחיקה" />
+                        &nbsp;
+                        <span>מחיקה</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
 };

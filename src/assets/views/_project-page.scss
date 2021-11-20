@@ -89,19 +89,7 @@
 
 }
 
-.projects-table {
+.project-wrapper {
   display: flex;
-  flex-direction: column;
-
-  .projects-row {
-    display: flex;
-    flex-direction: row-reverse;
-
-    .row-item {
-      margin: 10px;
-      padding: 10px;
-    }
-  }
-
-
+  flex-direction: row-reverse;
 }
