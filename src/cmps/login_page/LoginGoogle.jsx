@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { GoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../../utils/refreshToken';
 import {Button} from "@material-ui/core";
 import GoogleIcon from '@mui/icons-material/Google';
+import {useDispatch, useSelector} from "react-redux";
+import {addUser} from "../../store/user";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function LoginGoogle() {
+
+    const dispatch = useDispatch();
+
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
+        dispatch(addUser(res.profileObj));
         // alert(
         //     `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
         // );
@@ -32,16 +38,17 @@ function LoginGoogle() {
                     <Button
                         style={{
                             borderRadius: 35,
-                            backgroundColor: "#34018E",
+                            backgroundColor: "#FFF",
                             padding: "10px 36px",
                             fontSize: "15px",
-                            color: "#FFF",
-                            textTransform: 'none'
+                            color: "#34018E",
+                            textTransform: 'none',
+                            boxShadow: '3px 5px'
                         }}
                         onClick={renderProps.onClick} disabled={renderProps.disabled}
-                        startIcon={<GoogleIcon />}
+                        endIcon={<GoogleIcon />}
                     >
-                        Sign in with Google
+                        Google
                     </Button>
                 )}
                 onSuccess={onSuccess}
