@@ -11,6 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountMenu from './sub_cmps/AccountMenu.jsx'
 import {useSelector} from "react-redux";
 import Avatar from "@mui/material/Avatar";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 export function AdminNav() {
 
@@ -21,6 +23,7 @@ export function AdminNav() {
     const [searchValue, setSearchValue] = useState('')
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false)
     const [isNotifications, setIsNotifications] = useState(false);
+
     const doSomethingWith = (input) => {
         console.log(input);
     }
@@ -43,13 +46,14 @@ export function AdminNav() {
                         { userFromStore?
 
                             <Avatar
-                                alt={userFromStore.name}
+                                alt={userFromStore.name || "Shimon Moyal"}
                                 src={userFromStore.imageUrl}
                                 sx={{ width: 56, height: 56 }}
                             />
 
                             :
-                            <object className="user_img" type="image/svg+xml" data={shimon} alt="user"/>}
+                            <object className="user_img" type="image/svg+xml" data={shimon} alt="user"/>
+                        }
 
                         {isAccountMenuOpen ? <AccountMenu/> : null}
                     </div>

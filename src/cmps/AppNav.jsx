@@ -17,7 +17,7 @@ export function AppNav() {
                     </span>
 
                     <div className="mngr-login-button">
-                        <input type="button" value="כניסת מנהלים" className="mngBtn"/>
+                        <input type="button" value="מערכת ניהול" className="mngBtn"/>
                     </div>
 
             </div>

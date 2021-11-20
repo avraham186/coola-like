@@ -37,12 +37,7 @@ const EventsPage = () => {
             <div className="main-layout wrapper">
 
                 <div>
-                    {/* {
-            <button onClick={setOpen((p)=> !p)}>
-                press for card
-            </button>
-        } */}
-                    <Modal
+                   <Modal
                         className="modals"
                         open={open}
                         onClose={() => setToggleMode(p => ({...p, file: !p.file}))}
@@ -60,6 +55,7 @@ const EventsPage = () => {
 
                 <div className="headlines">
                     <Link to='/'><span>לתצוגת לוח שנה</span></Link>
+                    
                     <h2>לוח_אירועים#</h2>
                 </div>
 
