@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 export const Subscribe = () => {
     const [mail, setmail] = useState('')
@@ -13,10 +13,10 @@ export const Subscribe = () => {
         <div className="subscribe flex column">
             <h1 className="stay-update">#הישארו_מעודכנים</h1>
             <span className="stay-update-sub">הירשמו לקבלת עדכונים לגבי אירועים, סדנאות ומשרות חמות בקהילה</span>
-            <br />
+            <br/>
             <div className="input-and-btn">
                 <input type="email" className="subscribe-input" name="mail"
-                    value={mail} onChange={handlChange} placeholder="כתובת אי-מייל" />
+                       value={mail} onChange={handlChange} placeholder="כתובת אי-מייל"/>
                 <button className="btn-send-subscribe" onClick={sendMail}>שלחו אלי!</button>
             </div>
         </div>

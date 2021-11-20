@@ -1,5 +1,6 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import taskDAL from "../adapters/TMS/tasksDAL";
+
 const data = {
     // title: 'משימה חדשה', priority: 'HIGH', Status: 'IN_PROCESS', label: '',
     title: 'משימה חדשה', taskPriority: 'HIGH', taskStatus: 'IN_PROCESS', label: '',
@@ -14,8 +15,8 @@ export const TaskProvider = ({ children }) => {
     const removeTask = () => {
         setTaskContent(data)
     }
+
     const saveTask = (projectId) => {
-        console.log(taskContent)
         const taskToSend = {
             projectId,
             task: {
@@ -32,6 +33,7 @@ export const TaskProvider = ({ children }) => {
         }
         taskDAL.createTask(taskToSend)
     }
+
     return (
         <TaskContext.Provider value={{ taskContent, setTaskContent, removeTask, saveTask }}>
             {children}

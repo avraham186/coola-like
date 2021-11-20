@@ -17,6 +17,7 @@
 @import "./cmps/home-page/_subscribe";
 @import "./cmps/home-page/_founders";
 @import "./cmps/home-page/app-navbar";
+@import "./cmps/home-page/admin-navbar";
 
 //new-task-components
 @import "./cmps/tasks-page/new-task";
@@ -36,6 +37,8 @@
 //views
 @import "./views/home-page";
 @import "./views/project-page";
+@import "./cmps/login-page/login-page";
+@import "./cmps/jobs-page/jobs-page";
 
 //events-page components
 @import "./cmps/events-page/events-page"; // @import './cmps/city-search';

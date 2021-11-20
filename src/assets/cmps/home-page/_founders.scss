@@ -2,15 +2,13 @@
     padding: 30px;
     font-family: Rubik-regular;
     direction: rtl;
-    background-image: url(../../images/home-page-imgs/background.jpg);
+    background: inherit;
 
     .box-person-head {
         padding: 40px 0px;
-        background-color: #ffffff6e;
     }
 
     .box-person-headline {
-        // font-family: Rubik-regular;
         font-size: rem(40px);
     }
 
@@ -19,8 +17,6 @@
     }
 
     .box-person-content {
-        background-color: #ffffff6e;
-
         .founders {
             .founder-content {
                 width: 200px;

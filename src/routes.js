@@ -1,32 +1,40 @@
-import TaskList from "./cmps/project_page/TaskList";
-import HomePage from "./pages/HomePage";
-import ProjectPage from "./pages/ProjectPage";
-import EventsPage from "./pages/EventsPage";
-import NewTask from "./cmps/tasks/NewTask";
-import Login from "./cmps/login/login";
+import TaskList from './cmps/project_page/TaskList.jsx';
+import HomePage from './pages/HomePage.jsx'
+import ProjectPage from "./pages/ProjectPage.jsx";
+import EventsPage from './pages/EventsPage.jsx';
+import NewTask from './cmps/tasks/NewTask.jsx'
+import LoginPage from './pages/LoginPage.jsx'
+import JobsPage from './pages/JobsPage.jsx'
+
 export const routes = [
-  {
-    path: "/",
-    component: HomePage,
-  },
-  {
-    path: "/login",
-    component: Login,
-  },
-  {
-    path: "/projects",
-    component: ProjectPage,
-  },
-  {
-    path: "/projects/task/new-task/:projectId",
-    component: NewTask,
-  },
-  {
-    path: "/events",
-    component: EventsPage,
-  },
-  {
-    path: "/projects/task/:projectId",
-    component: TaskList,
-  },
-];
+
+    {
+        path: '/',
+        component: HomePage
+    },
+    {
+        path: '/login',
+        component: LoginPage
+    },
+    {
+        path: '/projects',
+        component: ProjectPage
+    },
+    {
+        path: "/projects/task/new-task/:projectId",
+        component: NewTask,
+    },
+    {
+        path: '/events',
+        component: EventsPage
+    },
+    {
+        path: "/projects/task/:projectId",
+        component: TaskList,
+    },
+    {
+        path: "/jobs",
+        component: JobsPage,
+    }
+
+]

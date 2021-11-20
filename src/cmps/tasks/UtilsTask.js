@@ -1,22 +1,24 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { attachment_image, label, plus_sign } from '../../assets/images/icons';
+import { attachment_image, plus_sign } from '../../assets/images/icons';
 import user_icon from '../../assets/images/home-page-imgs/user_icon.png';
 import { TaskContext } from "../../Context/TaskContext";
 
-export const modes = ['STARTED', 'IN_PROCESS', 'DELAY', 'COMPLETED','CANCELED']
+export const modes = ['STARTED', 'IN_PROCESS', 'DELAY', 'COMPLETED', 'CANCELED']
 // export const modes = ['חדש', 'בתהליך', 'באיחור', 'הושלם']
 export const priorities = ['HIGH', 'MEDIUM', 'LOW']
 // export const priorities = ['עדיפות גבוהה', 'עדיפות בינונית', 'עדיפות נמוכה']
 
 export const ModeChoosen = ({ handleChangeStatus }) => {
     return modes.map((mode, i) => {
-        return <span onClick={handleChangeStatus} key={i} name='taskStatus' value={mode} id={`task-mode${i + 1}`}>{mode}</span>
+        return <span onClick={handleChangeStatus} key={i} name='taskStatus' value={mode}
+            id={`task-mode${i + 1}`}>{mode}</span>
 
     })
 }
 export const PriorityChoosen = ({ handleChangeStatus }) => {
     return priorities.map((priority, i) => {
-        return <span onClick={handleChangeStatus} key={i} name='taskPriority' value={priority} id='priority-task'>{priority}</span>
+        return <span onClick={handleChangeStatus} key={i} name='taskPriority' value={priority}
+            id='priority-task'>{priority}</span>
     })
 }
 
@@ -67,7 +69,8 @@ export const AttachmentsTask = ({ files }) => {
                     <span>מחק</span>
                 </div>
             })}
-            <span><img onClick={() => alert('מצטערים, אין קישור לשרת לכן ירד בשלב זה...')} src={plus_sign} alt="square plus" /></span>
+            <span><img onClick={() => alert('מצטערים, אין קישור לשרת לכן ירד בשלב זה...')} src={plus_sign}
+                alt="square plus" /></span>
         </div>
     )
 }
