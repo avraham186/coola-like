@@ -1,20 +1,20 @@
-import React, {useContext, useEffect, useState} from "react";
-import {close_sign, user, v_sign} from "../../../assets/images/icons";
+import React, { useContext, useEffect, useState } from "react";
+import { close_sign, user, v_sign } from "../../../assets/images/icons";
 // import { adi, stav, iris, shimon } from "../../../assets/images/founders-imgs";
 import user_icon from '../../../assets/images/home-page-imgs/user_icon.png';
-import {setUsers} from "../../../store/actions/taskAction";
-import {TaskContext} from "../../../context/TaskContext";
-import {Box, Modal} from "@mui/material";
-import {useDispatch, useSelector} from "react-redux";
+import { setUsers } from "../../../store/actions/taskAction";
+import { TaskContext } from "../../../Context/TaskContext";
+import { Box, Modal } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 // const imgUsers = [adi, stav, iris, shimon];
 
-export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
-    const {taskContent, setTaskContent} = useContext(TaskContext);
+export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
+    const { taskContent, setTaskContent } = useContext(TaskContext);
     const [open, setOpen] = useState(false);
     const [searchUser, setSearchUser] = useState("");
     const [userClicked, setUserClicked] = useState([...taskContent.pplAssigned]);
-    const {pplAssigned} = toggleMode;
-    const {users} = useSelector(({entities}) => entities.taskModule)
+    const { pplAssigned } = toggleMode;
+    const { users } = useSelector(({ entities }) => entities.taskModule)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -41,10 +41,10 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
         if (isChoosen(u)) {
             const filterUser = userClicked.filter((user) => user.id !== u.id);
             setUserClicked(filterUser);
-            setTaskContent(p => ({...p, pplAssigned: p.pplAssigned.filter((user) => user.id !== u.id)}))
+            setTaskContent(p => ({ ...p, pplAssigned: p.pplAssigned.filter((user) => user.id !== u.id) }))
         } else {
             setUserClicked((p) => [...p, u]);
-            setTaskContent((p) => ({...p, pplAssigned: [...p.pplAssigned, u]}))
+            setTaskContent((p) => ({ ...p, pplAssigned: [...p.pplAssigned, u] }))
         }
     };
 
@@ -57,7 +57,7 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
             className="modals"
             open={open}
             onClose={() =>
-                setToggleMode((p) => ({...p, pplAssigned: !p.pplAssigned}))
+                setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }))
             }
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
@@ -65,13 +65,13 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
             <Box className="box-modal">
                 <div className="ppl-assigned-headline flex">
                     <img src={close_sign} alt="closesign" className="btn-close"
-                         onClick={() => setToggleMode((p) => ({...p, pplAssigned: !p.pplAssigned,}))
-                         }/>
+                        onClick={() => setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned, }))
+                        } />
                     <div className="ppl-assigned-title ">
-                        מוקצים למשימה <img src={user} alt="ppl-assigned-title"/>
+                        מוקצים למשימה <img src={user} alt="ppl-assigned-title" />
                     </div>
                 </div>
-                <hr style={{width: "300px"}}/>
+                <hr style={{ width: "300px" }} />
                 <input
                     type="text"
                     value={searchUser}
@@ -81,7 +81,7 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
                 />
                 <div className="users-assigned">
                     {applyUsers().map((user, i) => {
-                        const {firstName, lastName} = user;
+                        const { firstName, lastName } = user;
                         return (
                             <div
                                 key={user.id}
@@ -89,15 +89,15 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
                                 onClick={() => userChoosen(user)}
                             >
                                 {user.img ?
-                                    <object data={user.img} type="image/svg+xml"/>
-                                    : <img src={user_icon} alt="userimg"/>
+                                    <object data={user.img} type="image/svg+xml" />
+                                    : <img src={user_icon} alt="userimg" />
                                 }
-                                <p style={{textTransform: "capitalize"}}>
+                                <p style={{ textTransform: "capitalize" }}>
                                     {firstName}&nbsp;{lastName}
                                 </p>
                                 {/* <p>{name}</p> */}
                                 {isChoosen(user) && (
-                                    <img src={v_sign} alt="v-sign" style={{margin: "20px"}}/>
+                                    <img src={v_sign} alt="v-sign" style={{ margin: "20px" }} />
                                 )}
                             </div>
                         );
@@ -107,7 +107,7 @@ export const PeopleAssigned = ({toggleMode, setToggleMode}) => {
                 <button
                     className="btn-save-task"
                     onClick={() =>
-                        setToggleMode((p) => ({...p, pplAssigned: !p.pplAssigned}))
+                        setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }))
                     }
                 >
                     שמור
