@@ -41,9 +41,6 @@ const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
       setCheckboxSelected(p => ({ ...p, [tag]: !p[tag] }))
       setCheckBoxes(p => ({ ...p, [tag]: !p[tag] }))
    }
-   useEffect(() => {
-      console.log(checkboxSelected)
-   }, [checkboxSelected])
 
 
    return (

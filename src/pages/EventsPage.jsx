@@ -64,7 +64,7 @@ const EventsPage = () => {
                 </div>
 
                 <div className="selectors">
-                    <div className="searchBar">
+                    <div className="eventsSearchBar">
 
                         <IconButton aria-type="search" className="search_logo">
                             <SearchIcon/>

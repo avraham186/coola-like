@@ -1,0 +1,13 @@
+.job-list{
+    border: 2px solid black;
+    width: 40%;
+    height: 869px;
+    margin-top: 250px;
+    margin-right: 97px;
+    overflow-y: auto;
+    direction: ltr;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
