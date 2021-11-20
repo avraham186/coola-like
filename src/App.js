@@ -1,22 +1,25 @@
 import './assets/main.scss';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {routes} from './routes';
 import {AppNav} from './cmps/AppNav'
 import {AdminNav} from './cmps/AdminNav'
 import {AppFooter} from './cmps/AppFooter'
 
-export function App() {
+export function App(location) {
 
     const [isAdmin, setIsAdmin] = useState(false)
 
+
     return (
+
+
         <div className="main-layout">
             <Router>
-                {!isAdmin? <AdminNav /> : <AppNav/>}
+                {!isAdmin ? <AdminNav/> : <AppNav/>}
                 <Switch>
                     {
-                        routes.map((route,index) => {
+                        routes.map((route, index) => {
                             return (
                                 <Route
                                     key={index}

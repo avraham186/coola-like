@@ -32,16 +32,17 @@ function LoginGoogle() {
                     <Button
                         style={{
                             borderRadius: 35,
-                            backgroundColor: "#34018E",
+                            backgroundColor: "#FFF",
                             padding: "10px 36px",
                             fontSize: "15px",
-                            color: "#FFF",
-                            textTransform: 'none'
+                            color: "#34018E",
+                            textTransform: 'none',
+                            boxShadow: '3px 5px'
                         }}
                         onClick={renderProps.onClick} disabled={renderProps.disabled}
-                        startIcon={<GoogleIcon />}
+                        endIcon={<GoogleIcon />}
                     >
-                        Sign in with Google
+                        Google
                     </Button>
                 )}
                 onSuccess={onSuccess}
