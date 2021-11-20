@@ -34,8 +34,8 @@ export const JobCard = ({ job }) => {
                     <span>{job.title}</span>
                 </div>
                 <div className="card-content-info flex align-center justify-center space-between">
-                    <span>{job.email}<LocationOnIcon className="job-icon" /></span>
-                    <span>{job.experience}<WorkIcon className="job-icon" /></span>
+                    <span>{job.location}<LocationOnIcon className="job-icon" /></span>
+                    <span>{job.type}<WorkIcon className="job-icon" /></span>
                     {/* <span>{job.location}<LocationOnIcon className="job-icon" /></span>
                     <span>{job.misra}<WorkIcon className="job-icon" /></span> */}
                 </div>

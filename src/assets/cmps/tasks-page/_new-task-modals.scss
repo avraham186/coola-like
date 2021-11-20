@@ -316,35 +316,37 @@
         }
       }
 
-      .save-btn {
-        width: rem(153px);
-        height: rem(40px);
-        background-color: $clr7;
-        color: white;
-        margin: 30px 0px 30px 0px;
-        border-radius: 5px 15px;
-        cursor: pointer;
-      }
+      // .save-btn {
+      //   width: rem(153px);
+      //   height: rem(40px);
+      //   background-color: $clr7;
+      //   color: white;
+      //   margin: 30px 0px 30px 0px;
+      //   border-radius: 5px 15px;
+      //   cursor: pointer;
+      // }
 
       .save-btn:hover {
         background-color: rgba($clr7, 0.9);
 
       }
     }
-
-    .save-modal-button {
-      width: 150px;
-      border: 0;
-      border-radius: 2px;
-      font-size: 15px;
-      border-radius: 5px 15px;
-      background-color: $clr1;
-      color: white;
-      text-align: center;
-      padding: 8px;
-      margin: 10px;
-      cursor: pointer;
-    }
+.submit-btn-task{
+  width: 100%;
+}
+    // .save-modal-button {
+    //   width: 150px;
+    //   border: 0;
+    //   border-radius: 2px;
+    //   font-size: 15px;
+    //   border-radius: 5px 15px;
+    //   background-color: $clr1;
+    //   color: white;
+    //   text-align: center;
+    //   padding: 8px;
+    //   margin: 10px;
+    //   cursor: pointer;
+    // }
 
     .save-modal-button:hover {
       background-color: rgba($clr1, 0.9);
