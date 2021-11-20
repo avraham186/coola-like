@@ -51,12 +51,12 @@ export default slice.reducer;
 const url = process.env.REACT_APP_JOB;
 
 export const addJob = job => apiCallBegan({
-
-    url: "https://cula-like-master.herokuapp.com/api/jobs/",
+    url,
     method: "post",
     data: job,
     onSuccess: jobAdded.type
 });
+
 export const getJobById = async (jobId) => {
     try {
         const response = await axios.get(`https://cula-like-master.herokuapp.com/api/jobs/${jobId}`)
@@ -64,10 +64,10 @@ export const getJobById = async (jobId) => {
 
     } catch (err) {
         console.log('err', err);
-
     }
 
 }
+
 export const deleteJobById = jobId => apiCallBegan({
     url,
     method: "delete",

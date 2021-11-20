@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { apiCallBegan } from "./api";
+import {createSlice} from "@reduxjs/toolkit";
+import {apiCallBegan} from "./api";
 
 
 const slice = createSlice({
@@ -51,18 +51,3 @@ export const addProject = project => apiCallBegan({
     data: project,
     onSuccess: projectAdded.type
 });
-
-// Selector
-
-// Memoization
-// export const getUnresolvedBugs = createSelector(
-//     state => state.entities.bugs,
-//     state => state.entities.projects,
-//     (bugs, projects) => bugs.filter(bug => !bug.resolved)
-// );
-//
-// export const getBugsByUser = userId =>
-//     createSelector(
-//         state => state.entities.bugs,
-//         bugs => bugs.filter(bug => bug.userId === userId)
-//     );6+
