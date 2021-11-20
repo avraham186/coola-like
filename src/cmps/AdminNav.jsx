@@ -6,10 +6,10 @@ import IconButton from "@mui/material/IconButton";
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchBar from "material-ui-search-bar";
 import NotificationImportantIcon from '@mui/icons-material/NotificationImportant';
-import { shimon } from '../assets/images/founders-imgs'
+import { shimon } from '../assets/images/founders-imgs';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import AccountMenu from './sub_cmps/AccountMenu.jsx'
+import AccountMenu from './sub_cmps/AccountMenu.jsx';
 
 export function AdminNav() {
 
