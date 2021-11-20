@@ -43,7 +43,7 @@ export function AdminNav() {
                         { userFromStore?
 
                             <Avatar
-                                alt="Remy Sharp"
+                                alt={userFromStore.name}
                                 src={userFromStore.imageUrl}
                                 sx={{ width: 56, height: 56 }}
                             />
