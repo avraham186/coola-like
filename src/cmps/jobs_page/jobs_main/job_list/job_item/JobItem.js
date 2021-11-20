@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import "./JobItem.css";
+// import "./job_item.css";
 import { Card } from "@mui/material";
-import DESCRIPTION from "../../JobsData/JobsData";
+import DESCRIPTION from "../../jobs_data/JobsData";
 
 function JobItem({ jobData: { title, jobType }, isJobClick }) {
   console.log(jobType);

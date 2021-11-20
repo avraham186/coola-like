@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import "./JobDescription.css";
+// import "./job_description.css";
 import { Card } from "@mui/material";
-import DESCRIPTION from "../JobsData/JobsData";
+import DESCRIPTION from "../jobs_data/JobsData";
 import { CardHeader } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import RoomIcon from "@mui/icons-material/Room";

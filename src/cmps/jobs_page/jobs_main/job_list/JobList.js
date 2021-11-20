@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import "./JobList.css";
+// import "./job_list.css";
 
-import JobItem from "./JobItem/JobItem";
+import JobItem from "./job_item/JobItem";
 
 
 function JobList({ setCurrentJob, currentJob, dataJobs }) {

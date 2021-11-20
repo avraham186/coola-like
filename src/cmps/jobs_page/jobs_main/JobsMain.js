@@ -1,5 +1,5 @@
 import React from "react";
-import JobDescription from "./JobDescription/JobDescription";
+import JobDescription from "./job_description/JobDescription";
 
 
 function JobsMain() {

@@ -31,7 +31,7 @@ export function AppNav() {
                 </ul>
 
                 <Link to="/">
-                        <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"></object>
+                        <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"/>
                  </Link>
 
             </div>

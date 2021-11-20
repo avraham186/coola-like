@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ContentTask} from './ContentTask';
 import {SideBar} from './SideBar';
-import {AddFile, AddLabel, DueDate, PeopleAssigned} from './modals';
+import {AddFile, AddLabel, DueDate, PeopleAssigned} from './modals/index';
 import {TaskProvider} from '../../context/TaskContext.jsx';
 
 

@@ -1,14 +1,14 @@
 import React from 'react';
-// import './HeaderBottom.css';
-import JobField from '../JobField/JobField';
+// import './header_bottom.css';
+import JobField from '../job_field/JobField.jsx';
 
 function HeaderBottom() {
     return (
 
         <div className="fields">
             <h1>#לוח משרות</h1>
-            <JobField />
-         </div>
+            <JobField/>
+        </div>
     )
 }
 
