@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
-import { add_new_content } from '../../assets/images/icons'
+import { add_new_content, arrow_down, group } from '../../assets/images/icons'
 import user_icon from '../../assets/images/home-page-imgs/user_icon.png'
 import { Link } from "react-router-dom";
 
 const rg = ['#FFC474', '#FFA39C', '#69EB7D']
 const status = { STARTED: 'חדש', DELAY: 'באיחור', COMPLETED: 'הושלם', IN_PROCESS: 'בתהליך' }
+const namePriority = { HIGH: 'גבוהה', MEDIUM: 'בינונית', LOW: 'נמוכה' }
 const TaskList = ({ match }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
@@ -21,23 +22,22 @@ const TaskList = ({ match }) => {
 
   return (
     <div className="task-list">
-      <div id="add-new-task">
-        <img src={add_new_content} alt="add-new-content" />
-        <Link to={`/projects/task/new-task/${projectId}`}>
-          הוספת משימה חדשה
+      <div className="actions-task">
+        <Link id="add-new-task" to={`/projects/task/new-task/${projectId}`}>
+          <img src={add_new_content} alt="add-new-content" />
+          <p>הוספת משימה חדשה</p>
+        </Link>
+        <Link id="change-view" to="">
+          <img src={group} alt="change-view" />
+          <p>שינוי תצוגה</p>
+          <img src={arrow_down} alt="arrow-down" />
         </Link>
       </div>
       <table className="projects-table">
         <thead>
           <tr className="projects-row ">
-            <th className="row-item"></th>
-            <th className="row-item">שם המשימה</th>
-            <th className="row-item">עדיפות</th>
-            <th className="row-item">מנהל</th>
-            <th className="row-item">מוקצים למשימה</th>
-            <th className="row-item">תאריך יעד</th>
-            <th className="row-item">תקציר</th>
-            <th className="row-item">סטטוס</th>
+            {['', 'שם המשימה', 'עדיפות', 'מנהל', 'מוקצים למשימה', 'תאריך יעד', 'תקציר', 'סטטוס']
+              .map(header => <th className="row-item">{header}</th>)}
           </tr>
         </thead>
         <tbody>
@@ -48,28 +48,24 @@ const TaskList = ({ match }) => {
               <tr className="projects-row" key={task.id}>
                 <td id='label-task' style={{ background: color }}></td>
                 <td>
-                  <p>{task.title}</p>
+                  <p >{task.title}</p>
                 </td>
-                <td style={priority ? { background: '#6D49AC', color: 'white' } : {}} >
-                  <p>{task.taskPriority}</p>
+                <td style={priority ? { background: '#6D49AC', color: 'white', width: '100px' } : { width: '100px' }} >
+                  <p>{namePriority[task.taskPriority]}</p>
                 </td>
                 <td>
-                  {task.adminsTask?.map(admin => <span>{admin}</span>)}
+                  <img src={user_icon} alt={task.admin} style={{ width: '2.5em' }} />
                 </td>
                 <td >
                   <div className='ppl-assigned'>
-                    {
-                      task.team?.map(
-                        ({ firstName, lastName }) => {
-                          const name = `${firstName} ${lastName}`;
-                          return <>
-                            <img
-                              src={user_icon} alt={name}
-                              data-content={name}
-                            />
-                          </>
-                        })
-                    }
+                    {task.team?.map(
+                      ({ firstName, lastName }, key) => {
+                        const name = `${firstName} ${lastName}`;
+                        return <img
+                          key={key}
+                          src={user_icon} alt={name}
+                        />
+                      })}
                   </div>
                 </td>
                 <td>
@@ -77,15 +73,14 @@ const TaskList = ({ match }) => {
                   <p>{task.endDate}</p>
                 </td>
                 <td>
-                  <p>{task.description?.slice(0, 30)}</p>
+                  <p>{task.description?.slice(0, 30)}...</p>
                 </td>
                 <td style={{ background: color, width: '15%' }}>
                   <p >{status[task.taskStatus]}</p>
                 </td>
               </tr>
             );
-          }
-          )}
+          })}
         </tbody>
       </table>
     </div >

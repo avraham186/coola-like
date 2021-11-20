@@ -15,6 +15,7 @@ export const TaskProvider = ({ children }) => {
         setTaskContent(data)
     }
     const saveTask = (projectId) => {
+        console.log(taskContent)
         const taskToSend = {
             projectId,
             task: {
