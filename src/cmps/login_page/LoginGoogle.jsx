@@ -2,6 +2,8 @@ import React from 'react';
 
 import { GoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../../utils/refreshToken';
+import {Button} from "@material-ui/core";
+import GoogleIcon from '@mui/icons-material/Google';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
@@ -26,11 +28,25 @@ function LoginGoogle() {
             <GoogleLogin
                 clientId={clientId}
                 buttonText=" Google המשך עם"
+                render={renderProps => (
+                    <Button
+                        style={{
+                            borderRadius: 35,
+                            backgroundColor: "#34018E",
+                            padding: "10px 36px",
+                            fontSize: "15px",
+                            color: "#FFF",
+                            textTransform: 'none'
+                        }}
+                        onClick={renderProps.onClick} disabled={renderProps.disabled}
+                        startIcon={<GoogleIcon />}
+                    >
+                        Sign in with Google
+                    </Button>
+                )}
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
-                style={{ marginTop: '20px' }}
-                isSignedIn={true}
             />
         </div>
     );

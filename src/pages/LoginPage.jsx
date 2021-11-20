@@ -10,13 +10,15 @@ import Progress from "../cmps/progress/Progress";
 const useStyles = makeStyles((theme) => ({
     form: {
         width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(1),
+        margin: theme.spacing(2, 0),
     },
     submit: {
-        margin: theme.spacing(1, 0),
+        margin: theme.spacing(4, 0),
+        color: '#FFF',
+        background: '#34018E'
     },
     button: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(0.2),
     },
     root: {
         margin: 0
@@ -105,13 +107,13 @@ function LoginPage(props) {
                     <LoginLinkedIn/>
                 </div>
 
-                <div className="login--form--line">
-                    <span className="login--from--line"/>
+                <div className="login--form--line--wrapper">
+                    <span className="login--form--line"/>
                     <h4>או</h4>
-                    <span className="login--from--line"/>
+                    <span className="login--form--line"/>
                 </div>
 
-                <div>
+                <div className="login-form-inputs">
                     <form className={classes.form}>
                         <Inputs inputs={textFieldArr} handleChange={handleChange}/>
                         <a href="" className="forgot--password"> שכחתי סיסמה</a>
@@ -122,8 +124,6 @@ function LoginPage(props) {
                         </Button>
                         <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
                     </form>
-
-
                 </div>
                 <a href=""> !עדיין לא נרשמת? הירשם עכשיו</a>
 
