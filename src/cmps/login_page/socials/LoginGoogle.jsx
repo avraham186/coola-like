@@ -1,32 +1,29 @@
-import React, {useEffect} from 'react';
-
-import { GoogleLogin } from 'react-google-login';
-import { refreshTokenSetup } from '../../utils/refreshToken';
+import React from 'react';
+import {GoogleLogin} from 'react-google-login';
+import {refreshTokenSetup} from '../../../utils/refreshToken';
 import {Button} from "@material-ui/core";
-import GoogleIcon from '@mui/icons-material/Google';
-import {useDispatch, useSelector} from "react-redux";
-import {addUser} from "../../store/user";
+import {useDispatch} from "react-redux";
+import {addUser} from "../../../store/user";
+import GoogleLogo from '../../../assets/images/login--page/socials/google--logo.png';
+import Avatar from "@mui/material/Avatar";
+import { useHistory } from "react-router-dom";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function LoginGoogle() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
         dispatch(addUser(res.profileObj));
-        // alert(
-        //     `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-        // );
+        history.push("/");
         refreshTokenSetup(res);
     };
 
     const onFailure = (res) => {
         console.log('Login failed: res:', res);
-        // alert(
-        //     `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
-        // );
     };
 
     return (
@@ -37,16 +34,22 @@ function LoginGoogle() {
                 render={renderProps => (
                     <Button
                         style={{
-                            borderRadius: 35,
-                            backgroundColor: "#FFF",
+                            borderRadius: 10,
                             padding: "10px 36px",
-                            fontSize: "15px",
-                            color: "#34018E",
+                            fontSize: "14px",
+                            color: "#000",
+                            backgroundColor: "#FFF",
+                            border: 'none',
+                            fontFamily: 'RubiK',
                             textTransform: 'none',
-                            boxShadow: '3px 5px'
+                            boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
+                            transition: 'all 0.3s ease 0s',
+                            cursor: 'pointer',
+                            outline: 'none',
+
                         }}
                         onClick={renderProps.onClick} disabled={renderProps.disabled}
-                        endIcon={<GoogleIcon />}
+                        endIcon={<Avatar src={GoogleLogo} sx={{ width: 20, height: 20 }} />}
                     >
                         Google
                     </Button>
