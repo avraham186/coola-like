@@ -1,20 +1,25 @@
 import { Link } from 'react-router-dom'
 import coola_like_logo from '../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
-import PersonIcon from "@mui/icons-material/Person"
-
+// import PersonIcon from "@mui/icons-material/Person"
+import { useSelector } from 'react-redux';
 export function AppNav() {
-
+    const user = useSelector(state => state.entities.user)
+    console.log("user!!!!!!!!!!!!!11", user)
     return (
         <div className="app-navbar-wrapper">
             <div className="app-navbar">
                 <div className="left-list clean-list">
 
                     <span>
-                        <IconButton aria-label="Person" className="user_logo" >
-                            <PersonIcon />
+                        <IconButton  >
+                            <img className="gb_Ca" src={user.user.imageUrl} >
+
+                            </img>
                         </IconButton>
+
                     </span>
+
 
                     <div className="mngr-login-button">
                         <input type="button" value="כניסת מנהלים" className="mngBtn" />

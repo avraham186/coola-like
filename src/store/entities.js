@@ -4,8 +4,10 @@ import { jobReducer } from "./reducers/jobReducer";
 import { communityHeartReducer } from "./reducers/communityHeartReducer";
 import { taskReducer } from "./reducers/taskReducer";
 import { eventReducer } from "./reducers/eventReducer";
+import userReducer from "./user";
 
 export default combineReducers({
+    user: userReducer,
     projects: projectsReducer,
     jobsModule: jobReducer,
     communityHeartModule: communityHeartReducer,

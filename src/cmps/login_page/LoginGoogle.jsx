@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
 import { refreshTokenSetup } from '../../utils/refreshToken';
 import { useDispatch } from 'react-redux';
-import { loadPersons } from '../../store/actions/communityHartAction'
+import { userAdded } from '../../store/user'
+import { Link } from 'react-router-dom'
+
 const clientId =
     '707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com';
 
-function LoginGoogle() {
+function LoginGoogle({ closeDialog, setCloseDialog }) {
     const dispatch = useDispatch()
+    const [toHome, setToHome] = useState(false)
     const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.accessToken);
+        console.log('Login Success: currentUser:', res);
         // document.cookie = `authToken=${res.accessToken}`
 
         // window.Cookies.set("token", res.accessToken)
@@ -19,7 +22,9 @@ function LoginGoogle() {
         //     `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
         // );
         refreshTokenSetup(res);
-        dispatch(loadPersons(res.profileObj))
+        setCloseDialog((p) => !p)
+        dispatch(userAdded(res.profileObj))
+        setToHome(true)
     };
 
     const onFailure = (res) => {
@@ -39,7 +44,9 @@ function LoginGoogle() {
                 cookiePolicy={'single_host_origin'}
                 style={{ marginTop: '100px' }}
                 isSignedIn={true}
+
             />
+
         </div>
     );
 }
