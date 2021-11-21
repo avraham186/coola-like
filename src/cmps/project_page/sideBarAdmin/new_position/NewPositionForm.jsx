@@ -148,7 +148,7 @@ export default function NewPositionForm({
                         </label>
                         <br/>
                         <div className="submit-btn">
-                            <button className="save-btn" onClick={handleSubmit}>
+                            <button className="btn-save" onClick={handleSubmit}>
                                 העלה משרה
                             </button>
                         </div>

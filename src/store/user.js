@@ -1,23 +1,42 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { apiCallBegan } from "./api";
+
 
 const slice = createSlice({
-    name: "user",
+    name: 'user',
     initialState: {
-        imageUrl: '',
-        email: '',
-        name: ''
+        user: {},
+        loading: false,
+        lastFetch: null
     },
     reducers: {
-        addUser: (user, action) => {
-            user.imageUrl = action.payload.imageUrl;
-            user.email = action.payload.email;
-            user.name = action.payload.name;
+        userRequested: (user, action) => {
+            user.loading = true;
         },
-    },
+        userReceived: (user, action) => {
+            user.user = action.payload;
+            user.loading = false;
+            user.lastFetch = Date.now();
+        },
+        userAdded: (user, action) => {
+            debugger
+            user.user = action.payload;
+        },
+        userRequestFailed: (user, action) => {
+            user.loading = false;
+        },
+        getUser: (user, action) => {
+            return user.user
+        }
+    }
 });
 
 export const {
-    addUser
+    userRequested,
+    userReceived,
+    userAdded,
+    userRequestFailed
 } = slice.actions;
 
 export default slice.reducer;
+

@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import LoginGoogle from '../cmps/login_page/LoginGoogle.jsx';
 import LoginLinkedIn from '../cmps/login_page/LoginLinkdin.jsx';
 import logo from '../assets/images/login--page/login--logo.png';
-import {Email, LockRounded} from '@material-ui/icons';
+import { Email, LockRounded } from '@material-ui/icons';
 import Inputs from "../cmps/inputs/Inputs.jsx";
-import {Button, FormHelperText, makeStyles} from "@material-ui/core";
+import { Button, FormHelperText, makeStyles } from "@material-ui/core";
 import Progress from "../cmps/progress/Progress";
+import Dialog from '@mui/material/Dialog';
+
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -26,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const textFieldArr = [
-    {id: "Email", label: "אימייל", icon: <Email color="primary"/>, type: 'Email', required: true},
-    {id: "password", label: "סיסמה", icon: <LockRounded color="primary"/>, type: 'password', required: true}
+    { id: "Email", label: "אימייל", icon: <Email color="primary" />, type: 'Email', required: true },
+    { id: "password", label: "סיסמה", icon: <LockRounded color="primary" />, type: 'password', required: true }
 ];
 
 function LoginPage(props) {
@@ -40,15 +42,22 @@ function LoginPage(props) {
     });
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [open, setOpen] = useState(false);
 
+    const handleClickOpen = () => {
+    setOpen(true);
+    };
+    const handleClose = () => {
+    setOpen(false);
+    };
     const handleChange = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         switch (name) {
             case 'Email':
-                setFormData({...formData, Email: value});
+                setFormData({ ...formData, Email: value });
                 break;
             case 'password':
-                setFormData({...formData, password: value});
+                setFormData({ ...formData, password: value });
                 break;
             default:
                 break;
@@ -89,47 +98,50 @@ function LoginPage(props) {
 
 
     return (
-        <div className="login--container">
-            <div className="login--logo">
+        <Dialog onClick={handleClickOpen} onClose={handleClose} >
 
-                <img src={logo} alt=""/>
+            <div className="login--container">
+                <div className="login--logo">
 
-                <div className="login--logo--text">
-                    !ברוכים הבאים לקהילה שלנו
+                    <img src={logo} alt="" />
+
+                    <div className="login--logo--text">
+                        !ברוכים הבאים לקהילה שלנו
+                    </div>
+
                 </div>
+                <div className="login--form">
+                    <h1>התחברות</h1>
+                    <h3>היכנס באמצעות חשבונות קיימים</h3>
+                    <div className="login--form--socials">
+                        <LoginGoogle />
+                        <LoginLinkedIn />
+                    </div>
 
-            </div>
-            <div className="login--form">
-                <h1>התחברות</h1>
-                <h3>היכנס באמצעות חשבונות קיימים</h3>
-                <div className="login--form--socials">
-                    <LoginGoogle/>
-                    <LoginLinkedIn/>
-                </div>
+                    <div className="login--form--line--wrapper">
+                        <span className="login--form--line" />
+                        <h4>או</h4>
+                        <span className="login--form--line" />
+                    </div>
 
-                <div className="login--form--line--wrapper">
-                    <span className="login--form--line"/>
-                    <h4>או</h4>
-                    <span className="login--form--line"/>
-                </div>
-
-                <div className="login-form-inputs">
-                    <form className={classes.form}>
-                        <Inputs inputs={textFieldArr} handleChange={handleChange}/>
-                        <a href="" className="forgot--password"> שכחתי סיסמה</a>
-                        <FormHelperText error={error !== ''}><h2><center>{error}</center></h2></FormHelperText>
-                        <Button disabled={isLoading} type="submit" fullWidth variant="contained" color="primary"
+                    <div className="login-form-inputs">
+                        <form className={classes.form}>
+                            <Inputs inputs={textFieldArr} handleChange={handleChange} />
+                            <a href="" className="forgot--password"> שכחתי סיסמה</a>
+                            <FormHelperText error={error !== ''}><h2><center>{error}</center></h2></FormHelperText>
+                            <Button disabled={isLoading} type="submit" fullWidth variant="contained" color="primary"
                                 className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
-                            התחברות
-                        </Button>
-                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
-                    </form>
+                                התחברות
+                            </Button>
+                            <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'} />
+                        </form>
+                    </div>
+                    <a href=""> !עדיין לא נרשמת?הירשם עכשיו</a>
+
                 </div>
-                <a href=""> !עדיין לא נרשמת? הירשם עכשיו</a>
+            </div >
 
-            </div>
-
-        </div>
+        </Dialog>
     );
 }
 

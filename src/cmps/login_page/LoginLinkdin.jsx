@@ -13,12 +13,14 @@ function LinkedInPage() {
             console.log(code);
             setCode(code);
             setErrorMessage("");
+            alert(code)
         },
         scope: "r_emailaddress r_liteprofile",
         onError: (error) => {
             console.log(error);
             setCode("");
             setErrorMessage(error.errorMessage);
+            alert("error:", error)
         },
     });
     const [code, setCode] = React.useState("");

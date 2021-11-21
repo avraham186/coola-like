@@ -1,27 +1,32 @@
 import { Link } from 'react-router-dom'
 import coola_like_logo from '../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
-import PersonIcon from "@mui/icons-material/Person"
-
+// import PersonIcon from "@mui/icons-material/Person"
+import { useSelector } from 'react-redux';
 export function AppNav() {
-
+    const user = useSelector(state => state.entities.user)
+    console.log("user!!!!!!!!!!!!!11", user)
     return (
         <div className="app-navbar-wrapper">
             <div className="app-navbar">
                 <div className="left-list clean-list">
 
                     <span>
-                        <IconButton aria-label="Person" className="user_logo">
-                            <PersonIcon />
+                        <IconButton  >
+                            <img className="gb_Ca" src={user.user.imageUrl} >
+
+                            </img>
                         </IconButton>
+
                     </span>
+
 
                     <div className="mngr-login-button">
                         <input type="button" value="מערכת ניהול" className="mngBtn"/>
                     </div>
 
-            </div>
-   
+                </div>
+
                 <ul className="list clean-list flex">
                     <li className="selected"><Link to="/"><span>בית</span></Link></li>
                     <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
@@ -31,8 +36,8 @@ export function AppNav() {
                 </ul>
 
                 <Link to="/">
-                        <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"/>
-                 </Link>
+                    <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo" />
+                </Link>
 
             </div>
         </div>

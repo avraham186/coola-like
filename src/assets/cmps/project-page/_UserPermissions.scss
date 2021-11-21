@@ -1,4 +1,4 @@
-.box-modal {
+.box-modal{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -14,20 +14,7 @@
     padding: 4px;
     justify-content: center;
     align-items: center;
-    .save-modal-button {
-        width: 200px;
-        height: 46px;
-        background-color: #34018e;
-        font-size: 18px;
-        color: white;
-        border-radius: 2px 15px;
-        border: none;
-        font-family: Rubik, sans-serif;
-        align-content: center;
-        align-items: center;
-        align-self: center;
-        justify-content: center;
-    }
+    
     .addLinkInput {
         display: flex;
         flex-direction: column;
@@ -65,3 +52,4 @@
         width: 120px;
     }
 }
+
