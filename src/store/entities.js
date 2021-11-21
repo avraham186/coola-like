@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import projectsReducer from './projects';
-import { jobReducer } from "./reducers";
+import jobReducer from "./jobs";
 import { communityHeartReducer } from "./reducers";
 import { taskReducer } from "./reducers/taskReducer";
 import { eventReducer } from "./reducers";
