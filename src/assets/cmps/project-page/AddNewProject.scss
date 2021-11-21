@@ -1,0 +1,64 @@
+.boxStyle {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // width: 30%;
+    // height: 70%;
+    background-color: white;
+    text-align: right;
+    color: #4A4A4A;
+    box-shadow: 24px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    .newProj-container {
+        padding: 30px;
+        font-family: Rubik-regular;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        // border: 1px solid;
+        justify-content: flex-start;
+        background-color: white;
+        // overflow-y: auto;
+        width: 400px;
+        height: 400px;
+    }
+
+    .input-date {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+        input[type="date"] {
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px solid #b8b8b8;
+
+        }
+        
+
+    }
+    .status-and-priority{
+        // display: flex;
+        gap: 30px;
+        
+        .select-option {
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px solid #b8b8b8;
+
+        }
+
+    }
+    .submit-task{
+        display: flex;
+        justify-content: center;
+        
+    }
+}

@@ -5,27 +5,28 @@ const initialState = {
         {
             name: 'Shimon Moyal',
             img: `${shimon}`,
-            roleText: `director of traninng & volenteers`
+            roleText: `Director Of Training & Volenteers`
         },
         {
             name: 'Adi Porath',
             img: `${adi}`,
-            roleText: 'founder & navigator'
+            roleText: 'Founder & Navigator'
         },
         {
             name: 'Stav Brener',
             img: `${stav}`,
-            roleText: 'community manager'
+            roleText: 'Community Manager'
         },
         {
             name: 'Iris Nironi',
             img: `${iris}`,
-            roleText: 'community manager'
+            roleText: 'Community Manager'
         }
     ]
 }
 
 export function communityHeartReducer(state = initialState, action) {
+    debugger
     switch (action.type) {
         case 'SET_PERSONS':
             return { ...state, persons: action.persons }

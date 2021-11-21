@@ -1,47 +1,45 @@
-import { Link } from "react-router-dom";
-import coola_like_logo from "../assets/images/home-page-imgs/coola_like_logo.png";
-import user_icon from "../assets/images/home-page-imgs/user_icon.svg";
-
+import { Link } from 'react-router-dom'
+import coola_like_logo from '../assets/images/coola_like_logo.svg'
+import IconButton from "@mui/material/IconButton";
+// import PersonIcon from "@mui/icons-material/Person"
+import { useSelector } from 'react-redux';
 export function AppNav() {
-  return (
-    <div className="app-navbar">
-      <div className="flex space-between justify-center align-center">
-        <ul className="left-list clean-list">
-          <li>
-            <object data={user_icon} type="image/svg+xml"></object>
-            {/* //<Link to="/"> */}
-            {/* //</Link> */}
-          </li>
+    const user = useSelector(state => state.entities.user)
+    console.log("user!!!!!!!!!!!!!11", user)
+    return (
+        <div className="app-navbar-wrapper">
+            <div className="app-navbar">
+                <div className="left-list clean-list">
 
-          <li className="events-button-list">
-            <Link to="/">כניסת מנהלים</Link>
-          </li>
-        </ul>
+                    <span>
+                        <IconButton  >
+                            <img className="gb_Ca" src={user.user.imageUrl} >
 
-        <ul className="list clean-list flex">
-          <li className="selected">
-            <Link to="/">בית</Link>
-          </li>
-          <li>
-            <Link to="/">לוח משרות</Link>
-          </li>
-          <li>
-            <Link to="/">אירועים</Link>
-          </li>
-          <li>
-            <Link to="/">טיפים ומידע</Link>
-          </li>
-          <li>
-            <Link to="/projects">projects (test)</Link>
-          </li>
-        </ul>
+                            </img>
+                        </IconButton>
 
-        <Link to="/">
-          <span className="logo">
-            <img src={coola_like_logo} alt="coola_like_logo" />
-          </span>
-        </Link>
-      </div>
-    </div>
-  );
+                    </span>
+
+
+                    <div className="mngr-login-button">
+                        <input type="button" value="כניסת מנהלים" className="mngBtn" />
+                    </div>
+
+                </div>
+
+                <ul className="list clean-list flex">
+                    <li className="selected"><Link to="/"><span>בית</span></Link></li>
+                    <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
+                    <li><Link to="/events"><span>אירועים</span></Link></li>
+                    <li><Link to="/"><span>טיפים ומידע</span></Link></li>
+                    <li><Link to="/projects"><span>פרויקטים</span></Link></li>
+                </ul>
+
+                <Link to="/">
+                    <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo" />
+                </Link>
+
+            </div>
+        </div>
+    )
 }

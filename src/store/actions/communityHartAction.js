@@ -1,6 +1,7 @@
 // import { toyService } from "../../services/toy-service";
 
-export function loadPersons() {
+export function loadPersons(persons) {
+  debugger
   // console.log('toys in action', filterBy);
   return (dispatch) => {
     try {
@@ -16,50 +17,50 @@ export function loadPersons() {
   };
 }
 
-export function removePerson(personName) {
-  return (dispatch) => {
-    try {
-      personsService.remove(personName);
-      const action = {
-        type: "REMOVE_PERSON",
-        personName,
-      };
-      dispatch(action);
-    } catch (err) {
-      console.log("error from catch remove toy", err);
-    }
-  };
-}
+// export function removePerson(personName) {
+//   return (dispatch) => {
+//     try {
+//       personsService.remove(personName);
+//       const action = {
+//         type: "REMOVE_PERSON",
+//         personName,
+//       };
+//       dispatch(action);
+//     } catch (err) {
+//       console.log("error from catch remove toy", err);
+//     }
+//   };
+// }
 
-export function addPerson(person) {
-  // Action Creator
-  const type = "ADD_PERSON";
-  return (dispatch) => {
-    try {
-      const savedPerson = personsService.save(person);
-      const action = {
-        type,
-        person: savedPerson,
-      };
-      dispatch(action);
-    } catch (err) {
-      console.log("error from catch save toy", err);
-    }
-  };
-}
-export function updatePerson(person) {
-  // Action Creator
-  const type = "UPDATE_PERSON";
-  return (dispatch) => {
-    try {
-      const savedPerson = personsService.save(person);
-      const action = {
-        type,
-        person: savedPerson,
-      };
-      dispatch(action);
-    } catch (err) {
-      console.log("error from catch save toy", err);
-    }
-  };
-}
+// export function addPerson(person) {
+//   // Action Creator
+//   const type = "ADD_PERSON";
+//   return (dispatch) => {
+//     try {
+//       const savedPerson = personsService.save(person);
+//       const action = {
+//         type,
+//         person: savedPerson,
+//       };
+//       dispatch(action);
+//     } catch (err) {
+//       console.log("error from catch save toy", err);
+//     }
+//   };
+// }
+// export function updatePerson(person) {
+//   // Action Creator
+//   const type = "UPDATE_PERSON";
+//   return (dispatch) => {
+//     try {
+//       const savedPerson = personsService.save(person);
+//       const action = {
+//         type,
+//         person: savedPerson,
+//       };
+//       dispatch(action);
+//     } catch (err) {
+//       console.log("error from catch save toy", err);
+//     }
+//   };
+// }

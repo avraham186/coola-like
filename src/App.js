@@ -1,30 +1,40 @@
 import './assets/main.scss';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { routes } from './routes';
-import { AppNav } from './cmps/AppNav'
-import { AppFooter } from './cmps/AppFooter'
+import {Route, Switch} from 'react-router-dom'
+import {useState} from 'react'
+import {routes} from './routes';
+import {AdminNav} from './cmps/AdminNav'
+import {AppFooter} from './cmps/AppFooter'
+
 
 export function App() {
+
+
+    const [isAdmin, setIsAdmin] = useState(false)
+    const currentURL = window.location.href
+    const baseURL = process.env.REACT_APP_BASE_URL
+
     return (
         <div className="main-layout">
-            <Router>
-                <AppNav />
-                <Switch>
-                    {
-                        routes.map(route => {
-                            return (
-                                <Route
-                                    key={route.path}
-                                    exact
-                                    component={route.component}
-                                    path={route.path}
-                                />
-                            )
-                        })
-                    }
-                </Switch>
-                <AppFooter />
-            </Router>
+            {
+                currentURL !== baseURL + '/#/login' && <AdminNav/>
+            }
+            <Switch>
+                {
+                    routes.map((route, index) => {
+                        return (
+                            <Route
+                                key={index}
+                                exact
+                                component={route.component}
+                                path={route.path}
+                            />
+                        )
+                    })
+                }
+            </Switch>
+            {
+                currentURL !== baseURL + '/#/login' && <AppFooter/>
+            }
         </div>
     );
 }

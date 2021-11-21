@@ -2,8 +2,8 @@ import axios from "axios";
 
 const URI = process.env.REACT_APP_URI;
 
-const getAllTasks = () => axios.get(URI + '/api/projects/tasks/');
+const getAllTasks = async (projectId) => { await axios.get(URI + '/api/projects/tasks/', projectId); }
 
-const createTask = (projectId, task) => axios.post(URI + '/api/projects/tasks/' + projectId, task);
+const createTask = async (task) => await axios.post(URI + '/api/projects/tasks/', task);
 
-export default {getAll: getAllTasks, createTask}
+export default { getAllTasks, createTask }
