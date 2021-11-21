@@ -4,14 +4,16 @@ import {Provider} from 'react-redux';
 import {App} from './App';
 import configureStore from "./store/configureStore";
 import CircularProgress from '@mui/material/CircularProgress';
-
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 
 const mainStore = configureStore();
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={mainStore}>
-            {!mainStore?<CircularProgress color="secondary" /> : <App/>}
+            <Router>
+                <App/>
+            </Router>
         </Provider>
     </React.StrictMode>
     ,
