@@ -1,5 +1,6 @@
-// .app-footer{
-//     height: 50px;
+// .footer{
+//     position: sticky;
+//     bottom: 0;
 // }
 
 .footer__container {
@@ -14,6 +15,7 @@
 
     .footer-title {
         color: #6CE5E7;
+        margin-top: 0;
     }
 
     // grid-column:2/3;
