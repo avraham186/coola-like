@@ -1,14 +1,14 @@
 import edit from "../../assets/images/icons/edit_pen.png";
 import erase from "../../assets/images/icons/erase.png";
-import {Link} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 // import "./project_page.css";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import projectsDAL from "../../adapters/TMS/projectsDAL";
 import EditProject from "./EditProject.jsx";
-import {loadProjects} from "../../store/projects";
+import { loadProjects } from "../../store/projects";
 
-export const ProjectPreview = ({project}) => {
+export const ProjectPreview = ({ project }) => {
     const {
         projectName,
         startDate,
@@ -93,41 +93,41 @@ export const ProjectPreview = ({project}) => {
 
     if (!projectStatus) return
     return (
-        <tr style={{direction: "rtl"}} className="projects-row">
+        <tr style={{ direction: "rtl" }} className="projects-row">
             <td>
                 {" "}
                 <img onClick={() => setOpen((p) => !p)} src={edit}></img>
             </td>
             {/* <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}> */}
             <td>
-                <Link style={{direction: "rtl"}} to={`/projects/task/${project.id}`}>
+                <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
                     {projectName}
                 </Link>
             </td>
-            <td className={statusClass} style={{borderRadius: '5px', textAlign: "center", width: '100px'}}>
-                <Link className={statusClass} style={{direction: "rtl"}} to={`/projects/task/${project.id}`}>
+            <td className={statusClass} style={{ borderRadius: '5px', textAlign: "center", width: '100px' }}>
+                <Link className={statusClass} style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
                     <p>{projectStatus}</p>
 
                 </Link>
             </td>
-            <td style={{textAlign: 'center'}}>
+            <td style={{ textAlign: 'center' }}>
                 {convertDate(new Date(startDate))}
-                <br/>
-                |
-                <br/>
+                <br />
+                -
+                <br />
                 {convertDate(new Date(endDate))}
             </td>
             <td>
-                <Link style={{direction: "rtl"}} to={`/projects/task/${project.id}`}>
+                <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
                     {project.tasks.length} / {finisehdTasks}
                 </Link>
             </td>
             <td>
                 <p className="precent completed"
-                   style={{width: `${precenTasks}%`, borderRadius: '10px'}}>{precenTasks}% </p>
+                    style={{ width: `${precenTasks}%`, borderRadius: '10px' }}>{precenTasks}% </p>
             </td>
 
-            <td style={{textAlign: "left"}}>
+            <td style={{ textAlign: "left" }}>
                 <img
                     onClick={() => {
                         handelDelate(project.id);
