@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
 import { refreshTokenSetup } from '../../utils/refreshToken';
-import { useDispatch } from 'react-redux';
-import { userAdded } from '../../store/user'
-import { Link } from 'react-router-dom'
+import { Button } from "@material-ui/core";
+import GoogleIcon from '@mui/icons-material/Google';
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../../store/user";
 
 const clientId =
     '707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com';
@@ -35,10 +36,27 @@ function LoginGoogle({ closeDialog, setCloseDialog }) {
     };
 
     return (
-        <div>
+        <div className="google">
             <GoogleLogin
                 clientId={clientId}
                 buttonText=" Google המשך עם"
+                render={renderProps => (
+                    <Button
+                        style={{
+                            borderRadius: 35,
+                            backgroundColor: "#FFF",
+                            padding: "10px 36px",
+                            fontSize: "15px",
+                            color: "#34018E",
+                            textTransform: 'none',
+                            boxShadow: '3px 5px'
+                        }}
+                        onClick={renderProps.onClick} disabled={renderProps.disabled}
+                        endIcon={<GoogleIcon />}
+                    >
+                        Google
+                    </Button>
+                )}
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}

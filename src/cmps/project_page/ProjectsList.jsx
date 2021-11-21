@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
-import {loadProjects} from "../../store/projects";
-import {useDispatch, useSelector} from "react-redux";
-import {ProjectPreview} from "./ProjectPreview.jsx";
+import React, { useEffect } from "react";
+import { loadProjects } from "../../store/projects";
+import { useDispatch, useSelector } from "react-redux";
+import { ProjectPreview } from "./ProjectPreview.jsx";
 
 const ProjectsList = () => {
     const dispatch = useDispatch();
@@ -13,23 +13,23 @@ const ProjectsList = () => {
 
     if (!projects) return <div>Loading...</div>;
     return (
-        <div style={{direction: "rtl"}}>
+        <div style={{ direction: "rtl" }}>
             <table className="projects-table">
                 <thead>
-                <tr className="projects-row ">
-                    <th></th>
-                    <th className="row-item">שם הפרויקט</th>
-                    <th className="row-item">סטטוס</th>
-                    <th className="row-item">תאריך התחלה וסיום</th>
-                    <th className="row-item">השלמת המשימה</th>
-                    <th className="row-item">משימות שהושלמו</th>
-                    <th></th>
-                </tr>
+                    <tr className="projects-row ">
+                        <th></th>
+                        <th className="row-item">שם הפרויקט</th>
+                        <th className="row-item">סטטוס</th>
+                        <th className="row-item">תאריך התחלה וסיום</th>
+                        <th className="row-item">השלמת המשימה</th>
+                        <th className="row-item">משימות שהושלמו</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
-                {projects.list.map((project) => (
-                    <ProjectPreview project={project} key={project.id}/>
-                ))}
+                    {projects.list.map((project) => (
+                        <ProjectPreview project={project} key={project.id} />
+                    ))}
                 </tbody>
             </table>
         </div>

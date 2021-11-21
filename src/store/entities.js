@@ -7,9 +7,9 @@ import { eventReducer } from "./reducers/eventReducer";
 import userReducer from "./user";
 
 export default combineReducers({
-    user: userReducer,
     projects: projectsReducer,
-    jobsModule: jobReducer,
+    jobs: jobsReducer,
+    user: userReducer,
     communityHeartModule: communityHeartReducer,
     taskModule: taskReducer,
     eventsModule: eventReducer

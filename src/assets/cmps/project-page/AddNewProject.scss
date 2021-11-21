@@ -31,26 +31,6 @@
         height: 400px;
     }
 
-    .save-btn {
-        width: 200px;
-        height: 46px;
-        background-color: #34018E;
-        font-size: 18px;
-        color: white;
-        border-radius: 2px 15px;
-        border: none;
-        font-family: Rubik, sans-serif;
-        align-content: center;
-        align-items: center;
-        align-self: center;
-        justify-content: center;
-    }
-    // input[type="date"]::-webkit-inner-spin-button,
-    // input[type="date"]::-webkit-calendar-picker-indicator {
-    //     display: none;
-    //     text-align: center;
-    //     -webkit-appearance: none;
-    // }
     .input-date {
         display: flex;
         gap: 20px;

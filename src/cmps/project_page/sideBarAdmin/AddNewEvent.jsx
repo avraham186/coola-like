@@ -1,26 +1,29 @@
 import React, {useEffect, useState} from "react";
 // import "./AddNewEvent.scss";
-import Categories from "../NewPosition/Categories.jsx";
+import {useDispatch} from "react-redux";
+import {addEvent} from "../../../../store/events";
+import Categories from "../new_position/Categories";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
 const initialEventData = {
-    title: "",
+
     eventDate: "",
+    description: "",
+    title: "",
     time: "",
     Categories: [],
-    description: "",
-    file: "",
+    presentor: "",
+    image: "",
     link: "",
 };
 
 function AddNewEvent({toggleLinks, setToggleLinks}) {
+    const dispatch = useDispatch();
+
+
     const [open, setOpen] = React.useState(false);
     const [formData, setFormData] = useState(initialEventData);
-
-    useEffect(() => {
-        console.log(formData);
-    }, [formData]);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -35,15 +38,16 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        // ... submit to API or something
-        fetch('api/projects', {
-            method: 'POST',
-            body: JSON.stringify({formData}),
-            headers: {'Content-Type': 'application/json'},
-        })
-            .then(res => res.json())
-            .then(json => setFormData(json.formData))
+        dispatch(addEvent(formData));
+        setOpen(false);
+
+        // fetch('api/projects', {
+        //   method: 'POST',
+        //   body: JSON.stringify({ formData }),
+        //   headers: { 'Content-Type': 'application/json' },
+        // })
+        //   .then(res => res.json())
+        //   .then(json => setFormData(json.formData))
     };
 
     useEffect(() => {
@@ -93,7 +97,7 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                                 <input
                                     type="time"
                                     name="time"
-                                    value={formData.Time}
+                                    value={formData.time}
                                     placeholder="00:00"
                                     onChange={handleChange}
                                 />
@@ -122,6 +126,14 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                         </label>
                         <br/>
 
+                        <label className="insert_presentor"> מציג
+                            <input
+                                type="text"
+                                name="presentor"
+                                onChange={handleChange}
+                            />
+                        </label>
+
                         <div id="dropZone" className="add-file">
                             גרור לכאן קובץ
                             <label className="chooseFromPC">
@@ -129,7 +141,7 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                                 <input
                                     type="file"
                                     name="file"
-                                    value={formData.file}
+                                    value={formData.image}
                                     onChange={handleChange}
                                     style={{display: "none"}}
                                 />
@@ -150,7 +162,7 @@ function AddNewEvent({toggleLinks, setToggleLinks}) {
                         </label>
                         <br/>
                         <div className="submit-btn">
-                            <button className="save-btn" onClick={handleSubmit}>
+                            <button className="btn-save" onClick={handleSubmit}>
                                 שמור וסגור
                             </button>
                         </div>
