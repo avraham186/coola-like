@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { closeIcon, watch } from "../../../assets/images/icons";
 import { Box, Modal } from '@mui/material'
-import TaskContext from "../../../context/TaskContext.jsx";
+import {TaskContext} from "../../../context/TaskContext.jsx";
 
 export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
 
