@@ -4,6 +4,8 @@ import { useLinkedIn } from "react-linkedin-login-oauth2";
 import linkedin from "react-linkedin-login-oauth2/assets/linkedin.png";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import {Button} from "@material-ui/core";
+import Avatar from "@mui/material/Avatar";
+import LinkedInLogo from '../../../assets/images/login--page/socials/linkedIn--logo.png';
 
 function LinkedInPage() {
     const { linkedInLogin } = useLinkedIn({
@@ -32,15 +34,20 @@ function LinkedInPage() {
             <Button
                 onClick={linkedInLogin}
                 style={{
-                    borderRadius: 35,
-                    backgroundColor: "#FFF",
+                    borderRadius: 10,
                     padding: "10px 36px",
-                    fontSize: "15px",
-                    color: "#34018E",
+                    fontSize: "14px",
+                    color: "#000",
+                    backgroundColor: "#FFF",
+                    border: 'none',
+                    fontFamily: 'RubiK',
                     textTransform: 'none',
-                    boxShadow: '3px 5px'
+                    boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
+                    transition: 'all 0.3s ease 0s',
+                    cursor: 'pointer',
+                    outline: 'none'
                 }}
-                endIcon={<LinkedInIcon />}
+                endIcon={<img src={LinkedInLogo} alt='LinkedIn'/>}
             >
                 LinkedIn
             </Button>
