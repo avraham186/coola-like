@@ -1,3 +1,39 @@
 // .app-footer{
 //     height: 50px;
 // }
+
+.footer__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    .logo img{
+        width: 200px;
+        height: 200px;
+
+    }
+
+    .footer-title {
+        color: #6CE5E7;
+    }
+
+    // grid-column:2/3;
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        color: white;
+        gap: 15px;
+        font-size: 14px;
+    }
+    .footer__socials {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .socials-icons {
+            width: 7.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

@@ -19,6 +19,9 @@
         .footer__bg{
             grid-column: 2;
         }
+        .footer__container{
+            grid-column: 2/3;
+        }
     }
 
     @include for-narrow-layout {
