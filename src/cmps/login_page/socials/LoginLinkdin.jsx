@@ -1,14 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { useLinkedIn } from "react-linkedin-login-oauth2";
-import linkedin from "react-linkedin-login-oauth2/assets/linkedin.png";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {useLinkedIn} from "react-linkedin-login-oauth2";
 import {Button} from "@material-ui/core";
-import Avatar from "@mui/material/Avatar";
 import LinkedInLogo from '../../../assets/images/login--page/socials/linkedIn--logo.png';
 
+const Wrapper = styled.div`
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const Link = styled.a`
+  font-size: 20px;
+  font-weight: bold;
+`;
+
 function LinkedInPage() {
-    const { linkedInLogin } = useLinkedIn({
+    const {linkedInLogin} = useLinkedIn({
         clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
         redirectUri: `${window.location.origin}/linkedin`,
         onSuccess: (code) => {
@@ -22,7 +31,6 @@ function LinkedInPage() {
             console.log(error);
             setCode("");
             setErrorMessage(error.errorMessage);
-            alert("error:", error)
         },
     });
     const [code, setCode] = React.useState("");
@@ -30,59 +38,48 @@ function LinkedInPage() {
 
     return (
         <div className="linkedin">
-        <Wrapper>
-            <Button
-                onClick={linkedInLogin}
-                style={{
-                    borderRadius: 10,
-                    padding: "10px 36px",
-                    fontSize: "14px",
-                    color: "#000",
-                    backgroundColor: "#FFF",
-                    border: 'none',
-                    fontFamily: 'RubiK',
-                    textTransform: 'none',
-                    boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
-                    transition: 'all 0.3s ease 0s',
-                    cursor: 'pointer',
-                    outline: 'none'
-                }}
-                endIcon={<img src={LinkedInLogo} alt='LinkedIn'/>}
-            >
-                LinkedIn
-            </Button>
-            {code && (
-                <div>
-                    <div>Authorization Code: {code}</div>
+            <Wrapper>
+                <Button
+                    onClick={linkedInLogin}
+                    style={{
+                        borderRadius: 10,
+                        padding: "10px 36px",
+                        fontSize: "14px",
+                        color: "#000",
+                        backgroundColor: "#FFF",
+                        border: 'none',
+                        fontFamily: 'RubiK',
+                        textTransform: 'none',
+                        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
+                        transition: 'all 0.3s ease 0s',
+                        cursor: 'pointer',
+                        outline: 'none'
+                    }}
+                    endIcon={<img src={LinkedInLogo} alt='LinkedIn'/>}
+                >
+                    LinkedIn
+                </Button>
+                {code && (
                     <div>
-                        Follow{" "}
-                        <Link
-                            target="_blank"
-                            href="https://docs.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow?context=linkedin%2Fconsumer%2Fcontext&tabs=HTTPS#step-3-exchange-authorization-code-for-an-access-token"
-                            rel="noreferrer"
-                        >
-                            this
-                        </Link>{" "}
-                        to continue
+                        <div>Authorization Code: {code}</div>
+                        <div>
+                            Follow{" "}
+                            <Link
+                                target="_blank"
+                                href="https://docs.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow?context=linkedin%2Fconsumer%2Fcontext&tabs=HTTPS#step-3-exchange-authorization-code-for-an-access-token"
+                                rel="noreferrer"
+                            >
+                                this
+                            </Link>{" "}
+                            to continue
+                        </div>
                     </div>
-                </div>
-            )}
-            {/*{errorMessage && <div>{errorMessage}</div>}*/}
-        </Wrapper>
+                )}
+                {/*{errorMessage && <div>{errorMessage}</div>}*/}
+            </Wrapper>
         </div>
     );
 }
 
-const Wrapper = styled.div`
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
-const Link = styled.a`
-  font-size: 20px;
-  font-weight: bold;
-`;
 
 export default LinkedInPage;

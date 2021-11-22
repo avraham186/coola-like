@@ -26,7 +26,6 @@ const initialState = {
 }
 
 export function communityHeartReducer(state = initialState, action) {
-    debugger
     switch (action.type) {
         case 'SET_PERSONS':
             return { ...state, persons: action.persons }

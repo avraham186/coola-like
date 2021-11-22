@@ -6,7 +6,11 @@ import LoginLinkedIn from "../socials/LoginLinkdin";
 import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
+const responseFacebook = (response) => {
+    console.log(response);
+}
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -108,6 +112,14 @@ const LoginForm = (props) => {
                 <div className="login--form--socials">
                     <LoginGoogle/>
                     <LoginLinkedIn/>
+                    {/*<FacebookLogin*/}
+                    {/*    appId="1088597931155576"*/}
+                    {/*    autoLoad*/}
+                    {/*    callback={responseFacebook}*/}
+                    {/*    render={renderProps => (*/}
+                    {/*        <button onClick={renderProps.onClick}>This is my custom FB button</button>*/}
+                    {/*    )}*/}
+                    {/*/>*/}
                 </div>
 
                 <div className="login--form--line--wrapper">

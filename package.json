@@ -67,6 +67,7 @@
     ]
   },
   "devDependencies": {
-    "@mui/lab": "^5.0.0-alpha.53"
+    "@mui/lab": "^5.0.0-alpha.53",
+    "react-facebook-login": "^4.1.1"
   }
 }
