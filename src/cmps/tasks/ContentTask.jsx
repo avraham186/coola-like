@@ -12,7 +12,7 @@ import {
     PriorityChoosen,
     TextArea
 } from "./UtilsTask.js";
-import { TaskContext } from "../../context/TaskContext";
+import { TaskContext } from "../../context/TaskContext.jsx";
 
 
 const ContentTask = ({ setToggleMode }) => {
