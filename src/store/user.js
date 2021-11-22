@@ -5,7 +5,8 @@ const slice = createSlice({
     initialState: {
         imageUrl: '',
         email: '',
-        name: ''
+        name: '',
+        view: ''
     },
     reducers: {
         addUser: (user, action) => {
@@ -13,11 +14,15 @@ const slice = createSlice({
             user.email = action.payload.email;
             user.name = action.payload.name;
         },
+        setLogin: (user, action) => {
+            user.view = action.payload.view;
+        },
     },
 });
 
 export const {
-    addUser
+    addUser,
+    setLogin
 } = slice.actions;
 
 export default slice.reducer;
