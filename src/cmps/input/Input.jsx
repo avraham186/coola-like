@@ -19,11 +19,11 @@ export function Input({required, id, label, type, handleChange, icon}) {
     };
 
     return (
+
         <TextField
             dir="rtl"
             margin="normal"
             required={required ? required : false}
-
             id={id}
             placeholder={label}
             name={id}

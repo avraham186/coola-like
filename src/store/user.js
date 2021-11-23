@@ -5,7 +5,8 @@ const slice = createSlice({
     initialState: {
         imageUrl: '',
         email: '',
-        name: ''
+        name: '',
+        view: ''
     },
     reducers: {
         addUser: (user, action) => {
@@ -13,11 +14,35 @@ const slice = createSlice({
             user.email = action.payload.email;
             user.name = action.payload.name;
         },
+        facebookProfile: (user, action) => {
+            const graphQL = `https://graph.facebook.com/${action.payload.userID}?fields=id,name,email,picture&access_token=${action.payload.accessToken}`
+
+            fetch(graphQL)
+                .then(response => response.json())
+                .then((jsonData) => {
+                    // jsonData is parsed json object received from url
+                    console.log(jsonData)
+                    user.imageUrl = jsonData.picture.data.url;
+                    user.email = jsonData.email;
+                    user.name = jsonData.name;
+                })
+                .catch((error) => {
+                    // handle your errors here
+                    console.error(error)
+                })
+
+
+        },
+        setLogin: (user, action) => {
+            user.view = action.payload.view;
+        },
     },
 });
 
 export const {
-    addUser
+    addUser,
+    setLogin,
+    facebookProfile
 } = slice.actions;
 
 export default slice.reducer;

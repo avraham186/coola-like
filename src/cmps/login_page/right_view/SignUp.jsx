@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
-import {Button, FormHelperText, makeStyles} from "@material-ui/core";
-import LoginGoogle from "../socials/LoginGoogle";
-import LoginLinkedIn from "../socials/LoginLinkdin";
+import {Button, FormHelperText, makeStyles, MenuItem, Select} from "@material-ui/core";
 import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
 import {setLogin} from "../../../store/user";
 import {useDispatch} from "react-redux";
-import LoginFacebook from "../socials/LoginFacebook";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,27 +22,78 @@ const useStyles = makeStyles((theme) => ({
             color: '#3c52b2',
         },
     },
-    button: {
-        margin: theme.spacing(0.2),
+    inputs: {
+        marginTop: 18,
+        borderRadius: 10,
+        padding: '4px 20px 4px 20px',
+        fontSize: "14px",
+        width: '98%',
+        color: "#000",
+        backgroundColor: "#FFF",
+        border: 'none',
+        fontFamily: 'RubiK',
+        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
     },
-    root: {
-        margin: 0
+    placeholder: {
+        color: "#aaa",
+        textAlign: 'right',
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+    icon: {
+        left: 10
     },
 }));
 
 const textFieldArr = [
+    {id: "username", label: "שם משתמש", type: 'text', required: true},
     {id: "Email", label: "אימייל", type: 'email', required: true},
     {id: "password", label: "סיסמה", type: 'password', required: true}
 ];
 
-const LoginForm = (props) => {
+// Move this to utils folder
+const interestsArr = [
+    'FULLSTACK',
+    'FRONTEND',
+    'BACKEND',
+    'QA',
+    'UX',
+    'UI',
+    'AUTOMATION',
+    'SECURITY',
+    'INFRASTRUCTURE',
+    'CLOUD_SECURITY_ENGINEER',
+    'QUALITY_ASSURANCE_ENGINEER',
+    'WEB_DEVELOPER',
+    'ANDROID_DEVELOPER',
+    'SOLUTIONS_ENGINEER',
+    'DEVOPS_ENGINEER',
+    'FRAMEWORK_DEVELOPER',
+    'BIGDATA',
+    'MOBILE_DEVELOPER',
+    'CYBER',
+    'FIRMWARE_VALIDATION',
+    'DESIGN_SYSTEM',
+    'SUPPORT_ENGINEER',
+    'MARKETING_WEB_DEVELOPER'
+];
 
+
+const Placeholder = ({children}) => {
+    const classes = useStyles();
+    return <div className={classes.placeholder}>{children}</div>;
+};
+
+const SignUp = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
+        username: '',
         Email: '',
         password: '',
+        interests: ''
     });
 
     const [error, setError] = useState('');
@@ -54,11 +102,17 @@ const LoginForm = (props) => {
     const handleChange = (event) => {
         const {name, value} = event.target;
         switch (name) {
+            case 'username':
+                setFormData({...formData, username: value});
+                break;
             case 'Email':
                 setFormData({...formData, Email: value});
                 break;
             case 'password':
                 setFormData({...formData, password: value});
+                break;
+            case 'interests':
+                setFormData({...formData, interests: value});
                 break;
             default:
                 break;
@@ -70,31 +124,15 @@ const LoginForm = (props) => {
         if (validateForm()) {
             setError('');
             setIsLoading(true);
-            // handleLogin();
+            console.log(formData)
+            // handleRegistration();
         } else {
             setError('Error: Invalid Form');
         }
     }
 
     const validateForm = () => {
-        return formData.Email !== '' && formData.password !== '';
-    }
-
-    const handleLogin = async () => {
-        const dataObj = {
-            action: 'login',
-            Email: formData.Email,
-            password: formData.password,
-        };
-        try {
-            // let response = await loginUser(dispatch, dataObj);
-            setIsLoading(false);
-            // if (!response.token) return;
-            props.history.push('/');
-        } catch (error) {
-            setIsLoading(false);
-            setError(error);
-        }
+        return formData.username !== '' && formData.Email !== '' && formData.password !== '';
     }
 
     return (
@@ -104,27 +142,33 @@ const LoginForm = (props) => {
             </div>
             <div className="login--form--body">
                 <h1>התחברות</h1>
-                <h3>היכנס באמצעות חשבונות קיימים</h3>
-                <div className="login--form--socials">
-                    <LoginGoogle/>
-                    <LoginLinkedIn/>
-                    <LoginFacebook/>
-                </div>
-
-                <div className="login--form--line--wrapper">
-                    <span className="login--form--line"/>
-                    <h3>או</h3>
-                    <span className="login--form--line"/>
-                </div>
+                <h3>יצירת חשבון חדש</h3>
 
                 <div className="login-form-inputs">
                     <form>
 
                         <Inputs inputs={textFieldArr} handleChange={handleChange}/>
 
-                        <div className="forgot--password">
-                            <a href=""> שכחתי סיסמה</a>
-                        </div>
+                        <Select
+                            disableUnderline
+                            key="interests"
+                            id="interests"
+                            name="interests"
+                            value={formData.interests}
+                            displayEmpty
+                            onChange={handleChange}
+                            renderValue={
+                                formData.interests !== "" ? undefined : () => <Placeholder>בחירת תחומי עניין</Placeholder>
+                            }
+                            className={classes.inputs}
+                            classes={{icon: classes.icon}}
+                        >
+                            {
+                                interestsArr.map((v, i) => {
+                                    return <MenuItem key={i} value={v}>{v}</MenuItem>
+                                })
+                            }
+                        </Select>
 
                         <FormHelperText error={error !== ''}>
                             <h2>
@@ -141,13 +185,15 @@ const LoginForm = (props) => {
 
                     </form>
                 </div>
+
                 <a href="#" onClick={(e) => {
                     e.preventDefault();
-                    dispatch(setLogin({view: 'signup'}))
-                }}> !עדיין לא נרשמת? הירשם עכשיו</a>
+                    dispatch(setLogin({view: 'signin'}))
+                }}>בחזרה לדף התחברות</a>
+
             </div>
         </div>
     );
 };
 
-export default LoginForm;
+export default SignUp;
