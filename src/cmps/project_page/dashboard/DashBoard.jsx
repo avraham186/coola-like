@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects } from "../../../store/projects";
 import { MissionLineChart } from './MissionLineChart';
+import taskDAL from '../../../adapters/TMS/tasksDAL'
 export const DashBoard = () => {
     const dispatch = useDispatch();
     const projects = useSelector(state => state.entities.projects)
+    const [tasks, setTasks] = useState()
 
-    useEffect(() => {
+    useEffect(async () => {
         dispatch(loadProjects());
+        const taskstoState = await taskDAL.getAllTasks()
+        setTasks(taskstoState)
     }, [])
 
     const total = projects.list.length;
@@ -25,7 +29,7 @@ export const DashBoard = () => {
             </div>
             <div className="missions-chart">
                 {/* im mission charts */}
-                <MissionLineChart projects={projects} />
+                <MissionLineChart projects={projects} tasks={tasks} />
             </div>
             <div className="project-chart">
                 im projects-chart
