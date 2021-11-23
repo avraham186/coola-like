@@ -1,5 +1,5 @@
 import React, { PureComponent, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 export const MissionLineChart = ({ projects, tasks }) => {
   useEffect(() => {
@@ -30,7 +30,14 @@ export const MissionLineChart = ({ projects, tasks }) => {
   // })
   return (
     <ResponsiveContainer width="100%" aspect={3}>
-      <LineChart
+      <AreaChart data={data}>
+      <Area dataKey="pv" />
+      <XAxis dataKey="uv" />
+      <YAxis dataKey="pv" />
+      <Tooltip />
+      <CartesianGrid />
+      </AreaChart>
+      {/* <LineChart
         width={500}
         height={300}
         data={data}
@@ -51,8 +58,8 @@ export const MissionLineChart = ({ projects, tasks }) => {
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-        {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-      </LineChart>
+        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+      </LineChart> */}
     </ResponsiveContainer>
   );
 }
