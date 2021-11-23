@@ -3,8 +3,9 @@ import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
 import { ProjectPreview } from "./ProjectPreview.jsx";
 
+const ProjectsList = () => {
 
-const ProjectsList = ({rows}) => {
+//fgerhegherhr//
     const dispatch = useDispatch();
     const projects = useSelector(state => state.entities.projects)
 

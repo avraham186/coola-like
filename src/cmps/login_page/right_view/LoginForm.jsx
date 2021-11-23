@@ -1,20 +1,17 @@
 import React, {useState} from 'react';
 import {Button, FormHelperText, makeStyles} from "@material-ui/core";
-import Visibility from "@material-ui/icons/Visibility";
 import LoginGoogle from "../socials/LoginGoogle";
 import LoginLinkedIn from "../socials/LoginLinkdin";
 import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import LinearProgress from '@mui/material/LinearProgress';
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+import {setLogin} from "../../../store/user";
+import {useDispatch} from "react-redux";
+import LoginFacebook from "../socials/LoginFacebook";
 
 
 const useStyles = makeStyles((theme) => ({
-    form: {
-        // margin: theme.spacing(2, 0),
-    },
     submit: {
         margin: theme.spacing(0, 3, 3),
         color: '#34018E',
@@ -38,13 +35,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const textFieldArr = [
-    {id: "Email", label: "אימייל", type: 'Email', required: true},
+    {id: "Email", label: "אימייל", type: 'email', required: true},
     {id: "password", label: "סיסמה", type: 'password', required: true}
 ];
 
 const LoginForm = (props) => {
 
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
         Email: '',
@@ -117,6 +115,7 @@ const LoginForm = (props) => {
                 <div className="login--form--socials">
                     <LoginGoogle/>
                     <LoginLinkedIn/>
+                    <LoginFacebook/>
                 </div>
 
                 <div className="login--form--line--wrapper">
@@ -126,7 +125,7 @@ const LoginForm = (props) => {
                 </div>
 
                 <div className="login-form-inputs">
-                    <form className={classes.form}>
+                    <form>
 
                         <Inputs inputs={textFieldArr} handleChange={handleChange}/>
 
@@ -156,7 +155,10 @@ const LoginForm = (props) => {
                         </Modal>
                     </form>
                 </div>
-                <a href=""> !עדיין לא נרשמת? הירשם עכשיו</a>
+                <a href="#" onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(setLogin({view: 'signup'}))
+                }}> !עדיין לא נרשמת? הירשם עכשיו</a>
             </div>
         </div>
     );

@@ -5,21 +5,21 @@ import {routes} from './routes';
 import {AdminNav} from './cmps/AdminNav'
 import {AppNav} from './cmps/AppNav'
 import {AppFooter} from './cmps/AppFooter'
+import { useLocation } from 'react-router-dom'
+import HomePage from './pages/HomePage.jsx'
 
 
 
 export function App() {
 
-
     const [isAdmin, setIsAdmin] = useState(false)
-    const currentURL = window.location.href
-    const baseURL = process.env.REACT_APP_BASE_URL
+    const location = useLocation();
 
     return (
         <div className="main-layout">
             
             {
-                currentURL !== baseURL + '/#/login' && <AdminNav />
+                location.pathname !== '/login' && <AdminNav/>
             }
             <Switch>
                 {
@@ -36,7 +36,7 @@ export function App() {
                 }
             </Switch>
             {
-                currentURL !== baseURL + '/#/login' && <AppFooter/>
+                location.pathname !== '/login' && <AppFooter/>
             }
             
         </div>
