@@ -29,7 +29,7 @@ function LoginGoogle() {
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
-                style={{ marginTop: '100px' }}
+                style={{ marginTop: '20px' }}
                 isSignedIn={true}
             />
         </div>
