@@ -3,22 +3,27 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 import Avatar from "@mui/material/Avatar";
 import FacebookLogo from "../../../assets/images/login--page/socials/facebook--logo.png";
 import {Button} from "@material-ui/core";
+import {facebookProfile} from "../../../store/user";
+import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 const clientId = process.env.REACT_APP_FACEBOOK_CLIENT_ID;
 
-const responseFacebook = (response) => {
-    console.log(response);
-}
-
 function LoginFacebook() {
+    const dispatch = useDispatch();
+    const history = useHistory()
+
+    const responseFacebook = (response) => {
+        // console.log(response);
+        dispatch(facebookProfile(response));
+        history.push("/");
+    }
 
     return (
         <FacebookLogin
-            appId="1088597931155576"
-            // autoLoad
+            appId={clientId}
             callback={responseFacebook}
             render={renderProps => (
-
                 <Button
                     onClick={renderProps.onClick}
                     style={{
