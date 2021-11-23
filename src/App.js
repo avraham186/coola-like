@@ -3,8 +3,8 @@ import {Route, Switch} from 'react-router-dom'
 import {useState} from 'react'
 import {routes} from './routes';
 import {AdminNav} from './cmps/AdminNav'
+import {AppNav} from './cmps/AppNav'
 import {AppFooter} from './cmps/AppFooter'
-import LinearProgress from '@mui/material/LinearProgress';
 
 
 
@@ -19,7 +19,7 @@ export function App() {
         <div className="main-layout">
             
             {
-                currentURL !== baseURL + '/#/login' && <AdminNav/>
+                currentURL !== baseURL + '/#/login' && <AdminNav />
             }
             <Switch>
                 {

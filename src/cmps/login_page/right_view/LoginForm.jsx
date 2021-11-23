@@ -5,7 +5,10 @@ import LoginGoogle from "../socials/LoginGoogle";
 import LoginLinkedIn from "../socials/LoginLinkdin";
 import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
+import LinearProgress from '@mui/material/LinearProgress';
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -97,6 +100,12 @@ const LoginForm = (props) => {
         }
     }
 
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
     return (
         <div className="login--form">
             <div className="login--form--header">
@@ -132,12 +141,19 @@ const LoginForm = (props) => {
                         </FormHelperText>
 
                         <Button disabled={isLoading} type="submit" variant="contained" color="primary"
-                                className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
+                                className={classes.submit} size='large' onClick={handleSubmit,(e)=>{e.preventDefault();setOpen(true)}} key="submitBtn">
                             התחברות
                         </Button>
-
-                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
-
+                        <Modal
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            >
+                                {/* <Box className="box_preloader"> */}
+                        <LinearProgress color="secondary" handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
+                                {/* </Box> */}
+                        </Modal>
                     </form>
                 </div>
                 <a href=""> !עדיין לא נרשמת? הירשם עכשיו</a>

@@ -20,11 +20,13 @@ const ProjectPage = () => {
         }
     }, []);
 
+    useEffect(()=>{
+        console.log("ProjectPage projects: ",projects);
+    },[projects]);
+
     return (
         <div className="flex justify-center " style={{ gap: "30px" }}>
             <div>
-                {/* <div className="flex" style={{ direction: "rtl", gap: "15px" }}>
-          <h1 className="page-title">לוח ניהול כללי</h1> */}
                 <div className="btn">
                     <button
                         className="addProject-btn"

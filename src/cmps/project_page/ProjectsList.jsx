@@ -1,20 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { loadProjects } from "../../store/projects";
 import { useDispatch, useSelector } from "react-redux";
 import { ProjectPreview } from "./ProjectPreview.jsx";
 
-const ProjectsList = () => {
+
+const ProjectsList = ({rows}) => {
     const dispatch = useDispatch();
     const projects = useSelector(state => state.entities.projects)
 
     useEffect(() => {
         dispatch(loadProjects());
+        
     }, []);
 
-    if (!projects) return <div>Loading...</div>;
+    useEffect(()=>{
+        console.log("ProjectList projects: ",rows);
+    },[projects]);
+
     return (
+
+
         <div style={{ direction: "rtl" }}>
+
             <table className="projects-table">
+
                 <thead>
                     <tr className="projects-row ">
                         <th></th>
@@ -27,9 +36,12 @@ const ProjectsList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {projects.list.map((project) => (
-                        <ProjectPreview project={project} key={project.id} />
-                    ))}
+
+
+                    {
+                        projects.list.map((project) => (
+                            <ProjectPreview project={project} key={project.id} />
+                        ))}
                 </tbody>
             </table>
         </div>

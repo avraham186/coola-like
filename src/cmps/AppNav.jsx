@@ -3,6 +3,7 @@ import coola_like_logo from '../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
 // import PersonIcon from "@mui/icons-material/Person"
 import { useSelector } from 'react-redux';
+
 export function AppNav() {
     const user = useSelector(state => state.entities.user)
     console.log("user!!!!!!!!!!!!!11", user)
@@ -13,7 +14,7 @@ export function AppNav() {
 
                     <span>
                         <IconButton  >
-                            <img className="gb_Ca" src={user.user.imageUrl} >
+                            <img className="gb_Ca" src={user.imageUrl} >
 
                             </img>
                         </IconButton>
