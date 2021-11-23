@@ -33,7 +33,7 @@ export const TaskProvider = ({ children }) => {
         }
         taskDAL.createTask(taskToSend)
     }
-
+    console.log(taskContent)
     return (
         <TaskContext.Provider value={{ taskContent, setTaskContent, removeTask, saveTask }}>
             {children}

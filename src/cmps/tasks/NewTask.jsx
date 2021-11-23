@@ -3,15 +3,17 @@ import ContentTask from './ContentTask';
 import { SideBar } from './SideBar';
 import { AddFile, AddLabel, DueDate, PeopleAssigned } from './Modals';
 import { TaskProvider } from '../../Context/TaskContext';
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 
-const NewTask = () => {
+const NewTask = ({ match }) => {
     const [toggleMode, setToggleMode] = useState({
         label: false,
         pplAssigned: false,
         dueDate: false,
         file: false
     })
+    const { projectId } = match.params
     const IsClicked = () => {
         const isClicked = Object.keys(toggleMode).filter(k => toggleMode[k])
         switch (isClicked[0]) {
@@ -44,7 +46,7 @@ const NewTask = () => {
     return (
         <TaskProvider>
             <div className="main-task flex justify-center">
-                <ContentTask setToggleMode={setToggleMode} />
+                <ContentTask setToggleMode={setToggleMode} projectId={projectId} />
                 <SideBar setToggleMode={setToggleMode} />
                 <IsClicked />
             </div>

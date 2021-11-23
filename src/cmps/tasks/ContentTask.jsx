@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { useParams } from 'react-router';
 import { attachment_icon, chat_logo, description_mission, plus_sign } from "../../assets/images/icons";
 import {
     AssignedTask,
@@ -15,14 +14,13 @@ import {
 import { TaskContext } from "../../Context/TaskContext";
 
 
-const ContentTask = ({ setToggleMode }) => {
+const ContentTask = ({ setToggleMode, projectId }) => {
 
     const {
         taskContent: { title, taskPriority, taskStatus, label, pplAssigned, date, description, chats },
         saveTask, setTaskContent
     } = useContext(TaskContext);
     const [isClicked, setIsClicked] = useState({ taskPriority: false, taskStatus: false, title: false })
-    const { projectId } = useParams()
 
     const handleChangeStatus = (e) => {
         const nameClicked = e.target.getAttribute('name')

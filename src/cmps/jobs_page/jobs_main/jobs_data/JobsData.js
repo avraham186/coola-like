@@ -1,5 +1,5 @@
 // export const DESCRIPTION = [
-    
+
 //         {id: `(משרה 32391)`},
 //         {title: 'בוגר תואר ראשון בהנדסה? יריית הפתיחה של הקריירה לפניך!  (משרה 32391)'},
 //         {location : 'באר-שבע, ישראל'},
@@ -18,28 +18,45 @@
 //                 SymF0stVKr=2mjBvYm&fbc
 //                 lid=IwAR2gn3ZswlHDdYRt8Nkxq
 //                 fGxG1DoH0DGuMmQiCoyz7_7RPQC12_ZQzjhnk`},
-    
+
 // ]
 
 // export default DESCRIPTION;
 
 export const data = [
-        {title:'software jobs',jobType:'software',
-        description:' הצוות שלנו מפתח ב-JAVA מערכות מורכבות בעולם השבבים והמוליכים למחצה'
-        ,email:'omri@gmail.com'},
-        {title:'Qa jobs',jobType:'QA',
-        description:' במקום הכי חם בדרום - באר-שבע, נמצא מרכז הפיתוח שלנו ב- Ness מקום '
-        ,email:'guy@gmail.com'},
-        {title:'tech support',jobType:'tech',
-        description:' הצוות שלנו מפתח ב-JAVA מערכות מורכבות בעולם השבבים והמוליכים למחצה'
-        ,email:'alex@gmail.com'},
-        {title:'check softwerae',jobType:'software',
-        description:'אנגלית ברמה גבוהה - חובה. בוגר/ת בעולם השבבים והמוליכים למחצה'
-        ,email:'avraham_123@gmail.com'},
-        {title:'check softwerae',jobType:'software',
-        description:'אנגלית ברמה גבוהה - חובה. בוגר/ת בעולם השבבים והמוליכים למחצה'
-        ,email:'avrah123am_123@gmail.com'},
-        {title:'check softwerae',jobType:'software',
-        description:'אנגלית ברמה גבוהה - חובה. בוגר/ת בעולם השבבים והמוליכים למחצה'
-        ,email:'avrah123111am_123@gmail.com'},
+        {
+                title: 'בוגר\ת תואר ראשון בהנדס? יריית הפתיחה של הקריירה שלך לפנייך!', jobType: 'software', numJob: 'משרה 32391',
+                description: ' הצוות שלנו מפתח ב-JAVA מערכות מורכבות בעולם השבבים והמוליכים למחצה'
+                , email: 'omri@gmail.com'
+        },
+        {
+                title: 'software jobs', jobType: 'software',
+                description: ' הצוות שלנו מפתח ב-JAVA מערכות מורכבות בעולם השבבים והמוליכים למחצה'
+                , email: 'omri@gmail.com'
+        },
+        {
+                title: 'Qa jobs', jobType: 'QA',
+                description: ' במקום הכי חם בדרום - באר-שבע, נמצא מרכז הפיתוח שלנו ב- Ness מקום '
+                , email: 'guy@gmail.com'
+        },
+        {
+                title: 'tech support', jobType: 'tech',
+                description: ' הצוות שלנו מפתח ב-JAVA מערכות מורכבות בעולם השבבים והמוליכים למחצה'
+                , email: 'alex@gmail.com'
+        },
+        {
+                title: 'check softwerae', jobType: 'software',
+                description: 'אנגלית ברמה גבוהה - חובה. בוגר/ת בעולם השבבים והמוליכים למחצה'
+                , email: 'avraham_123@gmail.com'
+        },
+        {
+                title: 'check softwerae', jobType: 'software',
+                description: 'אנגלית ברמה גבוהה - חובה. בוגר/ת בעולם השבבים והמוליכים למחצה'
+                , email: 'avrah123am_123@gmail.com'
+        },
+        {
+                title: 'check softwerae', jobType: 'software',
+                description: 'אנגלית ברמה גבוהה - חובה. בוגר/ת בעולם השבבים והמוליכים למחצה'
+                , email: 'avrah123111am_123@gmail.com'
+        },
 ]

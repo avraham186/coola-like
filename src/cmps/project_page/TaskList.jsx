@@ -38,7 +38,7 @@ const TaskList = ({ match }) => {
                 <thead>
                     <tr className="projects-row ">
                         {['', 'שם המשימה', 'עדיפות', 'מנהל', 'מוקצים למשימה', 'תאריך יעד', 'תקציר', 'סטטוס']
-                            .map(header => <th className="row-item">{header}</th>)}
+                            .map((header, key) => <th className="row-item" key={key}>{header}</th>)}
                     </tr>
                 </thead>
                 <tbody>

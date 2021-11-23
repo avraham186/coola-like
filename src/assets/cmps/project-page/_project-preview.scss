@@ -1,6 +1,7 @@
 .projects-data {
     grid-template-columns: repeat(3, 1fr);
     direction: rtl;
+    width: 100%;
 
     .link-project {
         grid-template-columns: repeat(3, 1fr);

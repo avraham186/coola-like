@@ -7,14 +7,11 @@ const slice = createSlice({
 
     name: 'events',
     initialState: {
-        list: [
-
-        ],
+        list: [],
         loading: false,
         lastFetch: null
     },
     reducers: {
-
         eventsRequested: (events, action) => {
             events.loading = true;
         },

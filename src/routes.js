@@ -21,12 +21,12 @@ export const routes = [
         component: ProjectPage
     },
     {
-        path: "/projects/task/new-task/:projectId",
-        component: NewTask,
-    },
-    {
         path: '/events',
         component: EventsPage
+    },
+    {
+        path: "/projects/task/new-task/:projectId",
+        component: NewTask,
     },
     {
         path: "/projects/task/:projectId",
