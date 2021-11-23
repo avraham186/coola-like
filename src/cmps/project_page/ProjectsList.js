@@ -51,7 +51,7 @@ const ProjectsList = () => {
                                 {v.endDate}
                             </Paper></td>description
                             <td><Paper elevation={3} className="row-item" >
-                                {v.}
+                                {v.description}
                             </Paper></td>
                             <td><Paper elevation={3} className="row-item" >
                                 {v.projectStatus}
