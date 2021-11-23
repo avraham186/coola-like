@@ -14,9 +14,20 @@ function LoginFacebook() {
     const history = useHistory()
 
     const responseFacebook = (response) => {
-        // console.log(response);
-        dispatch(facebookProfile(response));
-        history.push("/");
+        const graphQL = `https://graph.facebook.com/${response.userID}?fields=id,name,email,picture&access_token=${response.accessToken}`;
+        fetch(graphQL)
+            .then(response => response.json())
+            .then((jsonData) => {
+                // jsonData is parsed json object received from url
+                console.log(jsonData)
+                dispatch(facebookProfile(jsonData));
+                history.push("/");
+            })
+            .catch((error) => {
+                // handle your errors here
+                console.error(error)
+            })
+
     }
 
     return (
@@ -25,7 +36,6 @@ function LoginFacebook() {
             callback={responseFacebook}
             render={renderProps => (
                 <Button
-                    onClick={renderProps.onClick}
                     style={{
                         borderRadius: 10,
                         padding: "10px 36px",
@@ -41,6 +51,7 @@ function LoginFacebook() {
                         outline: 'none',
 
                     }}
+                    onClick={renderProps.onClick}
                     endIcon={<Avatar src={FacebookLogo} sx={{width: 24, height: 24}}/>}
                 >
                     Facebook
