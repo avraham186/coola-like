@@ -41,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
-    icon:{
-        left:10
+    icon: {
+        left: 10
     },
 }));
 
@@ -52,6 +52,33 @@ const textFieldArr = [
     {id: "password", label: "סיסמה", type: 'password', required: true}
 ];
 
+// Move this to utils folder
+const interestsArr = [
+    'FULLSTACK',
+    'FRONTEND',
+    'BACKEND',
+    'QA',
+    'UX',
+    'UI',
+    'AUTOMATION',
+    'SECURITY',
+    'INFRASTRUCTURE',
+    'CLOUD_SECURITY_ENGINEER',
+    'QUALITY_ASSURANCE_ENGINEER',
+    'WEB_DEVELOPER',
+    'ANDROID_DEVELOPER',
+    'SOLUTIONS_ENGINEER',
+    'DEVOPS_ENGINEER',
+    'FRAMEWORK_DEVELOPER',
+    'BIGDATA',
+    'MOBILE_DEVELOPER',
+    'CYBER',
+    'FIRMWARE_VALIDATION',
+    'DESIGN_SYSTEM',
+    'SUPPORT_ENGINEER',
+    'MARKETING_WEB_DEVELOPER'
+];
+
 
 const Placeholder = ({children}) => {
     const classes = useStyles();
@@ -59,17 +86,15 @@ const Placeholder = ({children}) => {
 };
 
 const SignUp = () => {
-
     const classes = useStyles();
     const dispatch = useDispatch();
-
 
     const [formData, setFormData] = useState({
         username: '',
         Email: '',
         password: '',
+        interests: ''
     });
-    const [answer, setAnswer] = React.useState("");
 
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -77,11 +102,17 @@ const SignUp = () => {
     const handleChange = (event) => {
         const {name, value} = event.target;
         switch (name) {
+            case 'username':
+                setFormData({...formData, username: value});
+                break;
             case 'Email':
                 setFormData({...formData, Email: value});
                 break;
             case 'password':
                 setFormData({...formData, password: value});
+                break;
+            case 'interests':
+                setFormData({...formData, interests: value});
                 break;
             default:
                 break;
@@ -93,14 +124,15 @@ const SignUp = () => {
         if (validateForm()) {
             setError('');
             setIsLoading(true);
-            // handleLogin();
+            console.log(formData)
+            // handleRegistration();
         } else {
             setError('Error: Invalid Form');
         }
     }
 
     const validateForm = () => {
-        return formData.Email !== '' && formData.password !== '';
+        return formData.username !== '' && formData.Email !== '' && formData.password !== '';
     }
 
     return (
@@ -119,18 +151,23 @@ const SignUp = () => {
 
                         <Select
                             disableUnderline
-                            value={answer}
+                            key="interests"
+                            id="interests"
+                            name="interests"
+                            value={formData.interests}
                             displayEmpty
-                            onChange={event => setAnswer(event.target.value)}
+                            onChange={handleChange}
                             renderValue={
-                                answer !== "" ? undefined : () => <Placeholder>בחירת תחומי עניין</Placeholder>
+                                formData.interests !== "" ? undefined : () => <Placeholder>בחירת תחומי עניין</Placeholder>
                             }
                             className={classes.inputs}
-                            classes={{icon:classes.icon}}
+                            classes={{icon: classes.icon}}
                         >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            {
+                                interestsArr.map((v, i) => {
+                                    return <MenuItem key={i} value={v}>{v}</MenuItem>
+                                })
+                            }
                         </Select>
 
                         <FormHelperText error={error !== ''}>
