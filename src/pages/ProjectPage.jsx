@@ -31,6 +31,7 @@ const ProjectPage = () => {
                         borderRadius: "5px",
                         fontFamily: "Rubik",
                         margin: "0 10px",
+                        direction: 'rtl'
                     }}
                     onClick={() => {
                         setOpen(true);
