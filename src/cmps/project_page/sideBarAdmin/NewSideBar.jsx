@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-
 import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from "react-icons/ai";
 // import "./newSidebar.scss";
 import NewPositionForm from "./new_position/NewPositionForm.jsx";
@@ -51,12 +50,12 @@ function NewSideBar({addProjToggle, setAddProjToggle}) {
                             <AiOutlineDoubleLeft onClick={handelsideBar}/>
                         </div>
                     ) : (
-                        <div className="sidebar-admin-right-arrow">
+                        <div className='sidebar-admin-right-arrow' >
                             <div className='menu-toggle'>
                                 <AiOutlineDoubleRight onClick={handelsideBar}/>
                                 <label className="arrow-icon">תפריט ניהול</label>
                             </div>
-                            <ul className="sidebarList">
+                            <ul className='sidebarList'>
                                 {linkes.map((link, index) => {
                                     return (
                                         <li

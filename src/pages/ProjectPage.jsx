@@ -22,7 +22,7 @@ const ProjectPage = () => {
   }, []);
 
   return (
-    <div className="flex justify-center" style={{flexDirection: "row-reverse", gap:'30px'}}>
+    <div className="projectPage flex justify-center" style={{flexDirection: "row-reverse", gap:'30px'}}>
       
       {/* <div className="flex"> */}
       <NewSideBar

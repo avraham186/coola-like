@@ -3,12 +3,12 @@ import {Button, FormHelperText, makeStyles} from "@material-ui/core";
 import LoginGoogle from "../socials/LoginGoogle";
 import LoginLinkedIn from "../socials/LoginLinkdin";
 import Inputs from "../../inputs/Inputs";
-import Progress from "../../progress/Progress";
 import LinearProgress from '@mui/material/LinearProgress';
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
 import {setLogin} from "../../../store/user";
 import {useDispatch} from "react-redux";
 import LoginFacebook from "../socials/LoginFacebook";
+import Modal from '@mui/material/Modal';
 
 
 const useStyles = makeStyles((theme) => ({

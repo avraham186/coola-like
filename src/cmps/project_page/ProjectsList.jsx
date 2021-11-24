@@ -14,10 +14,6 @@ const ProjectsList = () => {
         
     }, []);
 
-    useEffect(()=>{
-        console.log("ProjectList projects: ",rows);
-    },[projects]);
-
     return (
 
 
