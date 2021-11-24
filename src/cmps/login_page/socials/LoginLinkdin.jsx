@@ -20,7 +20,7 @@ function LinkedInPage() {
 
     const {linkedInLogin} = useLinkedIn({
         clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
-        redirectUri: process.env.REACT_APP_BASE_URL + '/linkedin',
+        redirectUri: `${window.location.origin}/linkedin`,
         onSuccess: (code) => {
             const graphQL = `https://www.linkedin.com/oauth/v2/${code}`;
             console.log(code)

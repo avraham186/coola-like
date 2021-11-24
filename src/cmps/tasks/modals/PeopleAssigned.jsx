@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { close_sign, user, v_sign } from "../../../assets/images/icons";
 import user_icon from '../../../assets/images/home-page-imgs/user_icon.png';
 import { setUsers } from "../../../store/actions/taskAction";
-import { TaskContext } from "../../../Context/TaskContext";
+import { TaskContext } from "../../../context/TaskContext";
 import { Box, Modal } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
