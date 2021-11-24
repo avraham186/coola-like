@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {routes} from './routes';
 import {AdminNav} from './cmps/AdminNav'
 import {AppFooter} from './cmps/AppFooter'
+import HomePage from "./pages/HomePage";
 
 
 export function App() {

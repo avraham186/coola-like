@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {App} from './App';
 import configureStore from "./store/configureStore";
-import {BrowserRouter, HashRouter as Router} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import {PersistGate} from "redux-persist/integration/react";
 import persistStore from "redux-persist/es/persistStore";
 
@@ -15,13 +15,8 @@ ReactDOM.render(
         <Provider store={mainStore}>
             <PersistGate loading={null} persistor={persist}>
                 <BrowserRouter>
-
-                {/*<Router>*/}
                     <App/>
-                {/*</Router>*/}
-
-                    </BrowserRouter>
-
+                </BrowserRouter>
             </PersistGate>
         </Provider>
     </React.StrictMode>
