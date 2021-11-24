@@ -5,12 +5,17 @@ import EventsPage from './pages/EventsPage.jsx';
 import NewTask from './cmps/tasks/NewTask.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import JobsPage from './pages/JobsPage.jsx'
+import {LinkedInCallback} from "react-linkedin-login-oauth2";
 
 export const routes = [
 
     {
         path: '/',
         component: HomePage
+    },
+    {
+        path: '/linkedin',
+        component: LinkedInCallback
     },
     {
         path: '/login',
@@ -21,12 +26,12 @@ export const routes = [
         component: ProjectPage
     },
     {
-        path: "/projects/task/new-task/:projectId",
-        component: NewTask,
-    },
-    {
         path: '/events',
         component: EventsPage
+    },
+    {
+        path: "/projects/task/new-task/:projectId",
+        component: NewTask,
     },
     {
         path: "/projects/task/:projectId",

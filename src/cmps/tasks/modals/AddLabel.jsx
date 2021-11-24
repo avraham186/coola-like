@@ -3,7 +3,7 @@ import tagsIcon from "../../../assets/images/icons/pepicons_label.png";
 import editIcon from "../../../assets/images/icons/clarity_edit-line.png";
 import { closeIcon } from "../../../assets/images/icons";
 import { Box, Modal } from "@mui/material";
-import {TaskContext} from "../../../context/TaskContext.jsx";
+import { TaskContext } from "../../../context/TaskContext";
 
 export const AddLabel = ({ toggleMode, setToggleMode }) => {
     const [open, setOpen] = useState(false);

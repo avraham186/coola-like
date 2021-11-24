@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loadProjects } from "../../../store/projects";
 import { MissionLineChart } from './MissionLineChart';
+import { MissionPieChart } from './MissionPieChart';
 import taskDAL from '../../../adapters/TMS/tasksDAL'
 export const DashBoard = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export const DashBoard = () => {
             <div className="missions-chart">
                 {/* im mission charts */}
                 <MissionLineChart projects={projects} tasks={tasks} />
+                <MissionPieChart projects={projects}/>
             </div>
             <div className="project-chart">
                 im projects-chart

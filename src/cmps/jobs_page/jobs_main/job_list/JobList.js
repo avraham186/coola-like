@@ -10,6 +10,7 @@ function JobList({ setCurrentJob, currentJob, dataJobs }) {
   const isJobClicked = (job) => {
     return currentJob.email === job.email ? true : false;
   };
+  
   useEffect(() => {
     console.log(dataJobs[1]);
     setAllJobs(dataJobs);

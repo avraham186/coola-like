@@ -6,7 +6,7 @@ import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
 import {setLogin} from "../../../store/user";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import LoginFacebook from "../socials/LoginFacebook";
 
 
@@ -42,6 +42,8 @@ const LoginForm = (props) => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.entities.user);
+
 
     const [formData, setFormData] = useState({
         Email: '',
@@ -110,7 +112,9 @@ const LoginForm = (props) => {
                     <LoginLinkedIn/>
                     <LoginFacebook/>
                 </div>
-
+                {
+                    user.error
+                }
                 <div className="login--form--line--wrapper">
                     <span className="login--form--line"/>
                     <h3>או</h3>
