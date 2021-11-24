@@ -145,7 +145,7 @@ const ContentTask = ({ setToggleMode, projectId }) => {
             </div>
 
             <div className="submit-task">
-                <span onClick={() => saveTask(+projectId)}>שמור וסגור</span>
+                <button onClick={() => saveTask(+projectId)}>שמור וסגור</button>
             </div>
         </div>
     );

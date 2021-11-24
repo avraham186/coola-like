@@ -57,6 +57,7 @@ const ProjectPage = () => {
                 setAddProjToggle={setAddProjToggle}
             />
         </div>
+
     );
 };
 

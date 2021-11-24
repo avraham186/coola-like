@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import ContentTask from './ContentTask';
 import { SideBar } from './SideBar';
 import { AddFile, AddLabel, DueDate, PeopleAssigned } from './Modals';

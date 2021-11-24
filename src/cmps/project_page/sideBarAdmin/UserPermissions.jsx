@@ -66,6 +66,7 @@ const UserPermissions = ({toggleLinks, setToggleLinks}) => {
             aria-describedby="modal-modal-description"
         >
             <Box className="box-modal">
+               
                 <div className="ppl-assigned-headline-perm flex justify-center space-between">
                     {/* <span className="btn-close"
             onClick={() => setToggleLinks((p) => ({
@@ -125,18 +126,21 @@ const UserPermissions = ({toggleLinks, setToggleLinks}) => {
                                 </select>
 
 
-                                {isChoosen(user) && (
+                                {/* {isChoosen(user) && (
                                     <img src={v_sign} alt="v-sign" style={{margin: "20px"}}/>
 
-                                )}
+                                )} */}
                             </div>
                         );
                     })}
                 </div>
-                <button className="save-modal-button"
+                <div className='submit-btn'>
+                <button className="btn-save"
                         onClick={() => setToggleLinks((p) => ({...p, toggleLinks: !p.toggleLinks}))}>
                     שמור
                 </button>
+                </div>
+              
             </Box>
         </Modal>
     );

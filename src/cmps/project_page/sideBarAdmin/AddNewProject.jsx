@@ -168,7 +168,7 @@ function AddNewProject({toggleLinks, setToggleLinks}) {
                         {/* <AssignedTask areAssigned={pplAssigned} /> */}
                     </div>
                     <div className="submit-task">
-                        <button className="save-btn" onClick={handleSubmit}>
+                        <button className="btn-save" onClick={handleSubmit}>
                             שמור וסגור
                         </button>
                     </div>
