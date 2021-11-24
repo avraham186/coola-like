@@ -1,11 +1,10 @@
 import './assets/main.scss';
-import {Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, useLocation} from 'react-router-dom'
 import {useState} from 'react'
 import {routes} from './routes';
 import {AdminNav} from './cmps/AdminNav'
 import {AppFooter} from './cmps/AppFooter'
-import { useLocation } from 'react-router-dom'
-import HomePage from './pages/HomePage.jsx'
+import HomePage from "./pages/HomePage";
 
 
 export function App() {
@@ -19,19 +18,20 @@ export function App() {
                 location.pathname !== '/login' && <AdminNav/>
             }
             <Switch>
-                {
-                    routes.map((route, index) => {
-                        return (
-                            <Route
-                                key={index}
-                                exact
-                                component={route.component}
-                                path={route.path}
-                            />
-                        )
-                    })
-                }
+                    {
+                        routes.map((route, index) => {
+                            return (
+                                <Route
+                                    key={index}
+                                    exact
+                                    component={route.component}
+                                    path={route.path}
+                                />
+                            )
+                        })
+                    }
             </Switch>
+
             {
                 location.pathname !== '/login' && <AppFooter/>
             }
