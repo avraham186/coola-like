@@ -3,12 +3,15 @@
 .flex {
     display: flex;
 
-    >*.full {
+    > *.full {
         flex: 1;
     }
 
     &.column {
         flex-direction: column;
+    }
+    &.column-reverse {
+        flex-direction: column-reverse;
     }
 
     &.justify-center {
@@ -42,21 +45,21 @@
     @include aspect-ratio(9, 16);
 }
 
-.completed{
-    background-color: #69EB7D;
+.completed {
+    background-color: #69eb7d;
 }
 
-.started{
-    background-color:#7EB3FF;
+.started {
+    background-color: #7eb3ff;
 }
-.in_process{
-    background-color:#FFC474;
-}
-
-.canceled{
-    background-color:#D4D4D4;
+.in_process {
+    background-color: #ffc474;
 }
 
-.delay{
-    background-color:#FFA39C;
+.canceled {
+    background-color: #d4d4d4;
+}
+
+.delay {
+    background-color: #ffa39c;
 }
