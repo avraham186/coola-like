@@ -33,7 +33,6 @@ export const MissionPieChart = ({ projects }) => {
     return (
         // <ResponsiveContainer>
         <PieChart width={800} height={400}>
-            {console.log('data', data())}
             <Pie
                 data={data()}
                 cx={120}

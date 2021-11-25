@@ -29,7 +29,6 @@ export const DashBoard = () => {
                 <span>canceled</span>
             </div>
             <div className="missions-chart">
-                {/* im mission charts */}
                 <MissionLineChart projects={projects} tasks={tasks} />
                 <MissionPieChart projects={projects}/>
             </div>

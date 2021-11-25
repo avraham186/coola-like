@@ -2,9 +2,7 @@ import React, { PureComponent, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 export const MissionLineChart = ({ projects, tasks }) => {
-  useEffect(() => {
-    console.log('tasks in the chart', tasks);
-  }, [tasks])
+
   const data = () => {
     const arr = []
     projects.list.map((project) => {
@@ -20,7 +18,6 @@ export const MissionLineChart = ({ projects, tasks }) => {
     })
     return arr
   }
-  console.log('data', data())
   return (
     <ResponsiveContainer width="100%" aspect={3}>
       <AreaChart data={data()}>

@@ -6,10 +6,11 @@ import logo from "../assets/images/home-page-imgs/coola_like_logo.png";
 import { Link } from "react-router-dom";
 
 export function AppFooter() {
+
   return (
     <footer className="footer full">
-      <div className="footer__bg main-layout ull">
-        <div className="footer__container full">
+      <div className="footer__bg">
+        <div className="footer__container">
           {/* <div className="footer__container container grid"> */}
           <div className="logo">
             <img src={logo} alt="logo" />
@@ -32,27 +33,27 @@ export function AppFooter() {
           <div className="footer__socials">
             <h3 className="footer-title"> עקבו אחרינו</h3>
             <div className="socials-icons">
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              className="footer__social"
-            >
-              <LinkedInIcon className="uil uil-facebook-f" />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              className="footer__social"
-            >
-              <YouTubeIcon className="uil uil-instagram" />
-            </a>
-            <a
-              href="https://whatsapp.com/"
-              target="_blank"
-              className="footer__social"
-            >
-              <WhatsAppIcon className="uil uil-twitter-alt" />
-            </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                className="footer__social"
+              >
+                <LinkedInIcon className="uil uil-facebook-f" />
+              </a>
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                className="footer__social"
+              >
+                <YouTubeIcon className="uil uil-instagram" />
+              </a>
+              <a
+                href="https://whatsapp.com/"
+                target="_blank"
+                className="footer__social"
+              >
+                <WhatsAppIcon className="uil uil-twitter-alt" />
+              </a>
             </div>
           </div>
         </div>
