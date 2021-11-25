@@ -8,35 +8,21 @@ import projectsDAL from "../../adapters/TMS/projectsDAL";
 import EditProject from "./EditProject.jsx";
 import { loadProjects } from "../../store/projects";
 
+const colorStatus = { STARTED: '#7EB3FF', DELAY: '#FFA39C', COMPLETED: '#69EB7D', IN_PROCESS: '#FFC474' }
+const status = { STARTED: 'חדש', DELAY: 'באיחור', COMPLETED: 'הושלם', IN_PROCESS: 'בתהליך' }
 export const ProjectPreview = ({ project }) => {
-    const {
-        projectName,
-        startDate,
-        description,
-        endDate,
-        projectStatus,
-        id,
-        tasks,
-        adminProject,
-        projectPriority,
-    } = project;
+    const { projectName, startDate, description, endDate, projectStatus, id
+        , tasks, adminProject, projectPriority } = project;
 
     const [stateModal, setStateModal] = useState({
-        description,
-        projectName,
-        endDate,
-        startDate,
-        projectStatus,
-        id,
-        tasks,
-        adminProject,
-        projectPriority,
+        description, projectName, endDate, startDate, projectStatus,
+        id, tasks, adminProject, projectPriority,
     });
     const [open, setOpen] = useState(false);
     const [statusClass, setstatusClass] = useState();
     const [finisehdTasks, setTasks] = useState();
     const [precenTasks, setPrecenTasks] = useState();
-
+    const color = colorStatus[projectStatus]
     const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
     useEffect(() => {
@@ -61,7 +47,7 @@ export const ProjectPreview = ({ project }) => {
 
     function getPrecent() {
         const precent = project.tasks.length ? (finisehdTasks / project.tasks.length) * 100 : 0;
-        setPrecenTasks(precent.toFixed(2));
+        setPrecenTasks(precent.toFixed(0));
     }
 
 
@@ -73,13 +59,7 @@ export const ProjectPreview = ({ project }) => {
         var mmChars = mm.split("");
         var ddChars = dd.split("");
 
-        return (
-            yyyy +
-            "." +
-            (mmChars[1] ? mm : "0" + mmChars[0]) +
-            "." +
-            (ddChars[1] ? dd : "0" + ddChars[0])
-        );
+        return `${ddChars[1] ? dd : "0" + ddChars[0]}.${mmChars[1] ? mm : "0" + mmChars[0]}.${yyyy}`
     }
 
     const setStatusClass = () => {
@@ -91,7 +71,7 @@ export const ProjectPreview = ({ project }) => {
         dispatch(loadProjects());
     };
 
-    if (!projectStatus) return
+    // if (!projectStatus) return
     return (
         <tr style={{ direction: "rtl" }} className="projects-row">
             <td>
@@ -104,30 +84,27 @@ export const ProjectPreview = ({ project }) => {
                     {projectName}
                 </Link>
             </td>
-            <td className={statusClass} style={{ borderRadius: '5px', textAlign: "center", width: '100px' }}>
+            <td className={statusClass} style={{ background: color, width: '15%' }}>
                 <Link className={statusClass} style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
-                    <p>{projectStatus}</p>
+                    <p>{status[projectStatus]}</p>
 
                 </Link>
             </td>
             <td style={{ textAlign: 'center' }}>
-                {convertDate(new Date(startDate))}
-                <br />
-                -
-                <br />
-                {convertDate(new Date(endDate))}
+                <span>{convertDate(new Date(startDate))}</span> - <span>{convertDate(new Date(endDate))}</span>
             </td>
             <td>
                 <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
                     {project.tasks.length} / {finisehdTasks}
                 </Link>
             </td>
-            <td>
-                <p className="precent completed"
-                    style={{ width: `${precenTasks}%`, borderRadius: '10px' }}>{precenTasks}% </p>
+            <td id="precentTd">
+                <span className={parseInt(precenTasks) ? 'precent completed' : 'precent'}
+                    style={precenTasks === 0 ? {} : { width: `${precenTasks}%` }}>{precenTasks}%
+                </span>
             </td>
 
-            <td style={{ textAlign: "left" }}>
+            <td>
                 <img
                     onClick={() => {
                         handelDelate(project.id);
@@ -141,6 +118,6 @@ export const ProjectPreview = ({ project }) => {
                 stateModal={stateModal}
                 setStateModal={setStateModal}
             />
-        </tr>
+        </tr >
     );
 };

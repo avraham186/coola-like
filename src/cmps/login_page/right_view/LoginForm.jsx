@@ -6,7 +6,7 @@ import Inputs from "../../inputs/Inputs";
 import LinearProgress from '@mui/material/LinearProgress';
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
 import {setLogin} from "../../../store/user";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import LoginFacebook from "../socials/LoginFacebook";
 import Modal from '@mui/material/Modal';
 
@@ -43,6 +43,8 @@ const LoginForm = (props) => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.entities.user);
+
 
     const [formData, setFormData] = useState({
         Email: '',
@@ -113,11 +115,13 @@ const LoginForm = (props) => {
                 <h1>התחברות</h1>
                 <h3>היכנס באמצעות חשבונות קיימים</h3>
                 <div className="login--form--socials">
-                    <LoginGoogle/>
-                    <LoginLinkedIn/>
-                    <LoginFacebook/>
+                    <LoginGoogle handleOpen={handleOpen} handleClose={handleClose}/>
+                    <LoginLinkedIn handleOpen={handleOpen} handleClose={handleClose}/>
+                    <LoginFacebook handleOpen={handleOpen} handleClose={handleClose}/>
                 </div>
-
+                {
+                    user.error
+                }
                 <div className="login--form--line--wrapper">
                     <span className="login--form--line"/>
                     <h3>או</h3>

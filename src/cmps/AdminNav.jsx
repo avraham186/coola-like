@@ -39,7 +39,8 @@ export function AdminNav() {
     };
 
     return (
-        <section className="admin-navbar-wrapper">
+        <header className="admin-navbar-wrapper full">
+            <div className="admin-navbar-bg main-layout">
             <div className="admin-navbar">
 
                 <div className="left-list clean-list">
@@ -110,7 +111,8 @@ export function AdminNav() {
                 </Link>
 
 
+                </div>
             </div>
-        </section>
+        </header>
     )
 }

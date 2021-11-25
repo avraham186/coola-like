@@ -3,21 +3,21 @@ import {GoogleLogin} from 'react-google-login';
 import {refreshTokenSetup} from '../../../utils/refreshToken';
 import {Button} from "@material-ui/core";
 import {useDispatch} from "react-redux";
-import {addUser} from "../../../store/user";
+import {googleProfile} from "../../../store/user";
 import GoogleLogo from '../../../assets/images/login--page/socials/google--logo.png';
 import Avatar from "@mui/material/Avatar";
 import { useHistory } from "react-router-dom";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-function LoginGoogle() {
+function LoginGoogle({handleOpen,handleClose}) {
 
     const dispatch = useDispatch();
     const history = useHistory();
 
     const onSuccess = (res) => {
         console.log('Login Success: currentUser:', res.profileObj);
-        dispatch(addUser(res.profileObj));
+        dispatch(googleProfile(res.profileObj));
         history.push("/");
         refreshTokenSetup(res);
     };
@@ -27,7 +27,7 @@ function LoginGoogle() {
     };
 
     return (
-        <div className="google">
+        <div className="google" onClick={()=>handleOpen()}>
             <GoogleLogin
                 clientId={clientId}
                 buttonText=" Google המשך עם"
@@ -48,14 +48,15 @@ function LoginGoogle() {
                             outline: 'none',
 
                         }}
-                        onClick={renderProps.onClick} disabled={renderProps.disabled}
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
                         endIcon={<Avatar src={GoogleLogo} sx={{ width: 20, height: 20 }} />}
                     >
                         Google
                     </Button>
                 )}
-                onSuccess={onSuccess}
-                onFailure={onFailure}
+                onSuccess={onSuccess,handleClose}
+                onFailure={onFailure,handleClose}
                 cookiePolicy={'single_host_origin'}
             />
         </div>

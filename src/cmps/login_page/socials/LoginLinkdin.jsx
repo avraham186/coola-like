@@ -3,6 +3,9 @@ import styled from "styled-components";
 import {useLinkedIn} from "react-linkedin-login-oauth2";
 import {Button} from "@material-ui/core";
 import LinkedInLogo from '../../../assets/images/login--page/socials/linkedIn--logo.png';
+import {linkedInProfile} from "../../../store/user";
+import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -11,20 +14,28 @@ const Wrapper = styled.div`
   gap: 8px;
 `;
 
-const Link = styled.a`
-  font-size: 20px;
-  font-weight: bold;
-`;
+function LinkedInPage({handleOpen,handleClose}) {
+    const dispatch = useDispatch();
+    const history = useHistory()
 
-function LinkedInPage() {
     const {linkedInLogin} = useLinkedIn({
         clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
         redirectUri: `${window.location.origin}/linkedin`,
         onSuccess: (code) => {
-            console.log(code);
-            setCode(code);
-            setErrorMessage("");
-            alert(code)
+            const graphQL = `https://www.linkedin.com/oauth/v2/${code}`;
+            console.log(code)
+            // fetch(graphQL)
+            //     .then(response => response.json())
+            //     .then((jsonData) => {
+            //         // jsonData is parsed json object received from url
+            //         console.log(jsonData)
+            //         dispatch(linkedInProfile(jsonData));
+            //         history.push("/");
+            //     })
+            //     .catch((error) => {
+            //         // handle your errors here
+            //         console.error(error)
+            //     })
         },
         scope: "r_emailaddress r_liteprofile",
         onError: (error) => {
@@ -37,8 +48,8 @@ function LinkedInPage() {
     const [errorMessage, setErrorMessage] = React.useState("");
 
     return (
-        <div className="linkedin">
-            <Wrapper>
+        <div className="linkedin" >
+            <Wrapper >
                 <Button
                     onClick={linkedInLogin}
                     style={{
@@ -59,23 +70,6 @@ function LinkedInPage() {
                 >
                     LinkedIn
                 </Button>
-                {code && (
-                    <div>
-                        <div>Authorization Code: {code}</div>
-                        <div>
-                            Follow{" "}
-                            <Link
-                                target="_blank"
-                                href="https://docs.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow?context=linkedin%2Fconsumer%2Fcontext&tabs=HTTPS#step-3-exchange-authorization-code-for-an-access-token"
-                                rel="noreferrer"
-                            >
-                                this
-                            </Link>{" "}
-                            to continue
-                        </div>
-                    </div>
-                )}
-                {/*{errorMessage && <div>{errorMessage}</div>}*/}
             </Wrapper>
         </div>
     );

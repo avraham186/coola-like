@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux';
 
 export function AppNav() {
     const user = useSelector(state => state.entities.user)
-    console.log("user!!!!!!!!!!!!!11", user)
+    
     return (
-        <div className="app-navbar-wrapper">
+        <header className="app-navbar-wrapper full">
+            <div className="app-navbar-bg main-layout">
             <div className="app-navbar">
                 <div className="left-list clean-list">
 
@@ -42,5 +43,6 @@ export function AppNav() {
 
             </div>
         </div>
+    </header>
     )
 }

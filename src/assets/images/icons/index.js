@@ -17,3 +17,8 @@ export { default as close_sign } from './close_sign.png';
 export { default as add_new_content } from './add_new_content.png';
 export { default as arrow_down } from './arrow_down.png';
 export { default as group } from './group.png';
+export { default as jobs_icon } from './jobs.png';
+export { default as Facebook } from './Facebook.png';
+export { default as Linkedin } from './Linkedin.png';
+export { default as Copy_link } from './Copy_link.png';
+export { default as Whatsapp } from './Whatsapp.png';
