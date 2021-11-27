@@ -14,8 +14,9 @@
 @import "./cmps/home-page/app-footer";
 
 //home components
-@import "./cmps/home-page/_subscribe";
-@import "./cmps/home-page/_founders";
+@import "./cmps/home-page/subscribe";
+@import "./cmps/home-page/founders";
+@import "./cmps/home-page/events";
 @import "./cmps/home-page/app-navbar";
 @import "./cmps/home-page/admin-navbar";
 
