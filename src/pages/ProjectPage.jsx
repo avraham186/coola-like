@@ -3,8 +3,8 @@ import EmptyProjects from "../cmps/project_page/EmptyProjects.jsx";
 import ProjectsList from "../cmps/project_page/ProjectsList.jsx";
 import AddNewProject from "../cmps/project_page/sideBarAdmin/AddNewProject.jsx";
 import NewSideBar from "../cmps/project_page/sideBarAdmin/NewSideBar.jsx";
-import { DashBoard } from "../cmps/project_page/dashboard/DashBoard"
-import { add_new_content } from '../assets/images/icons'
+import { DashBoard } from "../cmps/project_page/dashboard/DashBoard";
+import { add_new_content } from "../assets/images/icons";
 import { MdOutlineAddToPhotos } from "react-icons/md";
 
 const ProjectPage = () => {
@@ -23,8 +23,11 @@ const ProjectPage = () => {
   }, []);
 
   return (
-    <div className="project-page-main flex" style={{ gap: '30px', width: '100%' }}>
-      <div style={{ width: '100%' }}>
+    <div
+      className="project-page-main flex"
+      style={{ gap: "30px", width: "100%" }}
+    >
+      <div style={{ width: "100%" }}>
         <button
           className="addProject-btn"
           style={{
@@ -33,7 +36,7 @@ const ProjectPage = () => {
             borderRadius: "5px",
             fontFamily: "Rubik",
             margin: "0 10px",
-            direction: 'rtl'
+            direction: "rtl",
           }}
           onClick={() => {
             setOpen(true);
@@ -46,7 +49,7 @@ const ProjectPage = () => {
         </button>
         <br />
         <br />
-        <DashBoard />
+        {/* <DashBoard /> */}
         {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
         {open ? (
           <AddNewProject
@@ -60,7 +63,6 @@ const ProjectPage = () => {
         setAddProjToggle={setAddProjToggle}
       />
     </div>
-
   );
 };
 

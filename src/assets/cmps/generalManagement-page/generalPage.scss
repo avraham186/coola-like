@@ -1,0 +1,69 @@
+.generalManagementPage {
+  // position: absolute;
+  width: 1440px;
+  height: 1697px;
+  left: 0px;
+  top: 290px;
+  background-color: white;
+}
+.generalTitle {
+  // position: absolute;
+  // width: 100%;
+  // height: 10%;
+  // left: 900px;
+  // top: 197px;
+
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 47px;
+  text-align: right;
+
+  color: #000000;
+  background-color: white;
+}
+.addProject-btn {
+  // position: absolute;
+  //   width: 24px;
+  height: 24px;
+  left: 1155px;
+  top: 115px;
+  background-color: white;
+  border: none;
+  font-family: Rubik;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 21px;
+  text-align: right;
+  color: #000000;
+}
+.dash-board {
+  position: absolute;
+  width: 100%;
+  height: 1404px;
+  // left: 50px;
+  // top: 290px;
+  background: #f4f4f4;
+}
+.line-chart {
+  position: absolute;
+  width: 657px;
+  height: 450px;
+  left: 684px;
+  top: 164px;
+
+  background: #ffffff;
+  border-radius: 20px;
+}
+.pie-Tasks-chart {
+  position: absolute;
+  width: 657px;
+  height: 450px;
+  left: 684px;
+  top: 464px;
+
+  // background: #ffffff;
+  border-radius: 20px;
+}
