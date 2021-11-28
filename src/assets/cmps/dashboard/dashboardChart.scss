@@ -68,16 +68,17 @@
   cursor: default;
   width: 100%;
   height: 100%;
-  top: 19%;
+  top: 14%;
   left: 30%;
 }
 .TasksTitle {
   position: absolute;
   width: 100%;
-  height: 14px;
+  // height: 14px;
+  left: 27%;
   // left: 1100px;
   // top: 1042px;
-
+  direction: rtl;
   font-family: Rubik;
   font-style: normal;
   font-weight: normal;
@@ -131,4 +132,11 @@
 
   background: #ffffff;
   border-radius: 20px;
+}
+.lineTasksChart {
+  position: absolute;
+  width: 657px;
+  height: 450px;
+  /* left: 701px; */
+  top: 127px;
 }

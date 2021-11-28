@@ -6,7 +6,7 @@ import {
   Cell,
   ResponsiveContainer,
   Label,
-  Tooltip,
+  Legend,
 } from "recharts";
 import dashboard from "../../../assets/cmps/dashboard/dashboardChart.scss";
 
@@ -27,9 +27,9 @@ export const AllTasksPieChart = ({ projects }) => {
       });
     });
     return [
-      { name: "hadash", value: hadash },
-      { name: "inProcess", value: inProcess },
-      { name: "complete", value: complete },
+      { name: "hadash", title: "חדש", value: hadash },
+      { name: "inProcess", title: "בתהליך", value: inProcess },
+      { name: "complete", title: "הושלם", value: complete },
     ];
   };
 
@@ -38,20 +38,27 @@ export const AllTasksPieChart = ({ projects }) => {
     <div className="allTaskPie">
       <h3>משימות</h3>
       <p className="TasksTitle">
-        <p className="hadash">חדש ({data()[0].value}) </p>
-        <p className="inProccess">בתהליך ({data()[1].value}) </p>
-        <p className="complete">הושלם ({data()[2].value}) </p>
+        <Legend
+          payload={data().map((item, index) => ({
+            id: item.name,
+            type: "circle",
+            value: `${item.title} (${item.value})`,
+            color: COLORS[index % COLORS.length],
+          }))}
+        />
       </p>
 
       <PieChart width={400} height={400} className="TasksPie">
         <Pie
           data={data()}
           cx={120}
-          cy={100}
+          cy={120}
           innerRadius={65}
           outerRadius={80}
+          paddingAngle={3}
           dataKey="value"
           fill="#8884d8"
+          label
         >
           {data().map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

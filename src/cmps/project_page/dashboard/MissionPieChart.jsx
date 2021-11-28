@@ -47,9 +47,8 @@ export const MissionPieChart = ({ projects }) => {
       {
         name: "allOtherProjects",
         value: allOtherpercentages,
-        color: "#EAEFF6",
       },
-      { name: "complete", value: percentages, color: "#6D49AC" },
+      { name: "complete", value: percentages },
     ];
   };
 
@@ -74,12 +73,10 @@ export const MissionPieChart = ({ projects }) => {
       {
         name: "allTasks",
         value: allTasks,
-        color: "#EAEFF6",
       },
       {
         name: "completedTasks",
         value: AllcompletedTasks,
-        color: "#6D49AC",
       },
     ];
   };
@@ -108,10 +105,15 @@ export const MissionPieChart = ({ projects }) => {
             dataKey="value"
             fill="#8884d8"
           >
-            {completedProjects().map((entry, index) => (
+            {/* {completedProjects().map((entry, index) => (
               <Cell fill={entry.color} />
-            ))}
-
+            ))} */}
+            {completedProjects().map((entry, index) => {
+              if (index === 1) {
+                return <Cell key={`cell-${index}`} fill="#6D49AC" />;
+              }
+              return <Cell key={`cell-${index}`} fill="#EAEFF6" />;
+            })}
             <Label
               value={completedProjects()[1].value + "%"}
               position="center"
@@ -140,10 +142,15 @@ export const MissionPieChart = ({ projects }) => {
             dataKey="value"
             fill="#8884d8"
           >
-            {completedTasks().map((entry, index) => (
+            {/* {completedTasks().map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-
+            ))} */}
+            {completedTasks().map((entry, index) => {
+              if (index === 1) {
+                return <Cell key={`cell-${index}`} fill="#EAEFF6" />;
+              }
+              return <Cell key={`cell-${index}`} fill="#6D49AC" />;
+            })}
             <Label
               value={
                 Math.round(
