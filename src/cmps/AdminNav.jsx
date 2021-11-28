@@ -83,10 +83,11 @@ export function AdminNav() {
                 </div>
 
                 <ul className="list clean-list flex">
-                    <li className="selected"><Link to="/"><span>לאתר הקהילה</span></Link></li>
+                    <li className="selected"><Link to="/"><span>בית</span></Link></li>
+                    <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
+                    <li><Link to="/events"><span>אירועים</span></Link></li>
+                    <li><Link to="/" className='disabled-link'><span>טיפים ומידע</span></Link></li>
                     <li><Link to="/projects"><span>פרויקטים</span></Link></li>
-                    <li><Link to="/"><span>לוח ניהול כללי</span></Link></li>
-
                     <li className="adminSearchBar">
                         <SearchBar
                             value={searchValue}
