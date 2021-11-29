@@ -1,35 +1,38 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/images/coola_like_logo.svg'
 import AccountMenu from './AccountMenu'
 
 export function AdminNav() {
 
     return (
-        <section className="admin-navbar-wrapper">
-            <div className="admin-navbar">
+        <section className="admin-navbar-wrapper full">
+            <div className="main-layout">
 
-                <div className="left-list clean-list">
+                <div className="admin-navbar">
 
-                    <AccountMenu/>
+                    <div className="left-list clean-list">
+
+                        <AccountMenu />
+
+                    </div>
+
+                    <ul className="list clean-list flex">
+                        <li className="selected"><Link to="/"><span>בית</span></Link></li>
+                        <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
+                        <li><Link to="/events"><span>אירועים</span></Link></li>
+                        <li><Link to="/" className='disabled-link'><span>טיפים ומידע</span></Link></li>
+                        <li><Link to="/projects"><span>פרויקטים</span></Link></li>
+
+                    </ul>
+
+
+                    <Link to="/">
+                        <object data={logo} type="image/svg+xml" className="logo" />
+                    </Link>
+
 
                 </div>
-
-                <ul className="list clean-list flex">
-                    <li className="selected"><Link to="/"><span>בית</span></Link></li>
-                    <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
-                    <li><Link to="/events"><span>אירועים</span></Link></li>
-                    <li><Link to="/" className='disabled-link'><span>טיפים ומידע</span></Link></li>
-                    <li><Link to="/projects"><span>פרויקטים</span></Link></li>
-
-                </ul>
-
-
-                <Link to="/">
-                    <object data={logo} type="image/svg+xml" className="logo"/>
-                </Link>
-
-
             </div>
         </section>
     )
