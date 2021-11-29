@@ -2,7 +2,7 @@ import axios from "axios";
 
 const URI = process.env.REACT_APP_URI;
 
-const getAllJobs = async () => await axios.get(URI + '/api/jobs/');
+const getAllJobs = async () => { await axios.get(URI + '/api/jobs'); }
 
 const createJob = async (job) => { await axios.post(URI + '/api/jobs/', job) };
 

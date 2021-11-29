@@ -16,7 +16,7 @@ export function AdminNav() {
     const user = { name: "Shimon Moyal" }
     const [searchValue, setSearchValue] = useState('')
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false)
-    const [ isNotifications, setIsNotifications] = useState(false);
+    const [isNotifications, setIsNotifications] = useState(false);
     const doSomethingWith = (input) => { console.log(input); }
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -32,17 +32,13 @@ export function AdminNav() {
             <div className="admin-navbar">
 
                 <div className="left-list clean-list">
-
                     <div>
                         <object className="user_img" type="image/svg+xml" data={shimon} alt="user" />
-                        {isAccountMenuOpen? <AccountMenu /> : null}
+                        {isAccountMenuOpen ? <AccountMenu /> : null}
                     </div>
                     <div className="user_private_nav">
-
                         <h4>{user.name}</h4>
-
                         <Link to="./"><span>התנתקות</span></Link>
-
                     </div>
 
                     <IconButton className="notification_icon" onClick={handleClick}>
@@ -61,14 +57,11 @@ export function AdminNav() {
                         <MenuItem onClick={handleClose}>My account</MenuItem>
                         <MenuItem onClick={handleClose}>Logout</MenuItem>
                     </Menu>
-
                 </div>
-
                 <ul className="list clean-list flex">
                     <li className="selected"><Link to="/"><span>לאתר הקהילה</span></Link></li>
                     <li><Link to="/projects"><span>פרויקטים</span></Link></li>
                     <li><Link to="/"><span>לוח ניהול כללי</span></Link></li>
-
                     <li className="adminSearchBar">
                         <SearchBar
                             value={searchValue}
@@ -77,17 +70,12 @@ export function AdminNav() {
                             placeholder="חפש לדוגמא: סדנה בלינקדאין"
                             style={{ height: "2rem", textIndent: ".5em" }}
                             disabled={false}
-
                         />
                     </li>
                 </ul>
-
-
                 <Link to="/">
                     <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo"></object>
                 </Link>
-
-
             </div>
         </section>
     )

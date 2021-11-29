@@ -19,7 +19,7 @@ const Jobs = () => {
             <div className="jobs-sub-title-container">
                 <span className="jobs-sub-title">המשרות החמות של השבוע</span>
                 <span className="jobs-sub-title-link">
-                    <Link to="/">
+                    <Link to="/jobs">
                         <span className="jobs-link">לכל הפרטים</span>
                         <ArrowBackIcon className="sub-title-icon" />
                     </Link>
