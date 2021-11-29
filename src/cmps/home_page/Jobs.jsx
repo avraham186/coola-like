@@ -19,14 +19,14 @@ const Jobs = () => {
             <div className="jobs-sub-title-container">
                 <span className="jobs-sub-title">המשרות החמות של השבוע</span>
                 <span className="jobs-sub-title-link">
-                    <Link to="/">
+                    <Link to="/jobs">
                         <span className="jobs-link">לכל הפרטים</span>
                         <ArrowBackIcon className="sub-title-icon" />
                     </Link>
                 </span>
             </div>
             <div className="jobs-cards">
-                {jobs.list.slice(0, 3).map((job) => {
+                {jobs.list.slice(-3).map((job) => {
                     return <div key={job.id}>
                         <JobCard job={job} />
                     </div>

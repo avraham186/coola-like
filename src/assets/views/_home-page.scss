@@ -1,13 +1,24 @@
-.home-page{
+.home-page {
   background: url("../images/home-page-imgs/background.png");
-  .events-comp{
-    background-color:#f2f2f299 ;
+  .header-comp{
+    box-shadow: 6px 13px 10px -10px #808080b8;
   }
-  .founders-comp{
-    background-color:#ffffff57 ;
+  .events-comp {
+    background-color: #f2f2f299;
+    box-shadow: 6px 8px 20px -10px #808080b8;
+  }
+  .jobs-comp {
+    box-shadow: inset -3px -10px 6px -10px #808080b8;
+    // margin-bottom: 20px;
+  }
+  .founders-comp {
+    background-color: white;
+    box-shadow: 6px 8px 20px -10px #808080b8;
+  }
+  .sunscribe-comp{
+    padding: rem(60px) 0px;
   }
 }
-
 
 /*
 Section 4
@@ -19,13 +30,6 @@ Jobs
   flex-direction: column;
   margin-bottom: 10px;
   padding: 30px;
-  // background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%),
-  //   url(../images/home-page-imgs/background.jpg);
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-  //border: dashed #ce2e6c;
-
   .jobs-title {
     font-family: Rubik, sans-serif;
     font-style: normal;
@@ -35,7 +39,6 @@ Jobs
     direction: rtl;
     margin-bottom: 10px;
   }
-
   .jobs-sub-title-container {
     display: flex;
     justify-content: space-between;
@@ -55,6 +58,9 @@ Jobs
       font-weight: bold;
       font-size: 20px;
       line-height: 24px;
+      a:hover {
+        text-decoration: underline;
+      }
     }
 
     .sub-title-icon {
@@ -66,16 +72,12 @@ Jobs
 
   .jobs-cards {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
     justify-content: space-between;
 
     .card {
-      width: 280px;
+      width: rem(280px);
       border-radius: 10px;
-      border-color: #34018e;
-      //background-color: transparent;
-
+      border: 2px solid $clr1;
       .card-content {
         font-family: Rubik, sans-serif;
         font-style: normal;
@@ -115,61 +117,3 @@ Jobs
     }
   }
 }
-
-/*
-Section 7
-Footer
- */
-
-.footer {
-  margin-top: 10px;
-  //border: dashed #ce2e6c;
-  .footer__bg {
-    background-color: #34018e;
-    padding: 2rem 2rem 1rem;
-
-    .footer__container {
-      // row-gap: 3.5rem;
-      gap: 3.5rem;
-
-      .footer__social {
-        font-size: 1.9rem;
-        margin-right: 1.5rem;
-        color: #6ce5e7;
-        &:hover {
-          color: #ffffff;
-        }
-      }
-
-      // .footer__social:hover {
-      //   color: #FFFFFF;
-      // }
-
-      // .footer__social {
-      //   color: #6CE5E7;
-      // }
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer__copy {
-      font-size: 0.75rem;
-      text-align: center;
-      color: #fff;
-    }
-  }
-}
-
-/* .projects {
-  //border: dashed #ce2e6c;
-
-  .new--project {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-} */
