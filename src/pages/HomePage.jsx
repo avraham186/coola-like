@@ -12,12 +12,22 @@ export default function HomePage() {
     );
 
     return (
-        <div>
-            <Header />
-            <Events />
-            <Jobs />
-            <Founders persons={persons} />
-            <Subscribe />
+        <div className="home-page full">
+            <div className="header-comp main-layout">
+                <Header />
+            </div>
+            <div className="events-comp main-layout">
+                <Events />
+            </div>
+            <div className="jobs-comp main-layout">
+                <Jobs />
+            </div>
+            <div className="founders-comp main-layout">
+                <Founders persons={persons} />
+            </div>
+            <div className="sunscribe-comp main-layout">
+                <Subscribe />
+            </div>
         </div>
     );
 }

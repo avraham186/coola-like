@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ContentTask from './ContentTask';
 import { SideBar } from './SideBar';
-import { AddFile, AddLabel, DueDate, PeopleAssigned } from './Modals';
-import { TaskProvider } from '../../Context/TaskContext';
+import { AddFile, AddLabel, DueDate, PeopleAssigned } from './modals';
+import { TaskProvider } from '../../context/TaskContext';
 import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 

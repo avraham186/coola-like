@@ -13,16 +13,17 @@ import LoginFacebook from "../socials/LoginFacebook";
 const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(0, 3, 3),
-        color: '#34018E',
-        backgroundColor: "transparent",
+        color: '#FFF',
+        backgroundColor: "#34018E",
         border: "2px solid #34018E",
         borderRadius: "2px 15px",
         fontSize: "18px",
         width: "200px",
         marginTop: "50px",
         '&:hover': {
-            backgroundColor: '#fff',
-            color: '#3c52b2',
+            backgroundColor: "#34018E",
+            /* offset-x | offset-y | blur-radius | spread-radius | color */
+            boxShadow: '0px 0px 6px 1px #34018E'
         },
     },
     button: {

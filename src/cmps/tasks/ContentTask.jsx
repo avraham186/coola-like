@@ -3,7 +3,7 @@ import { attachment_icon, chat_logo, description_mission, plus_sign } from "../.
 import {
     AssignedTask, AttachmentsTask, ChatsTask, HeadlinesTask, Labels, ModeChoosen, modes, PriorityChoosen, TextArea
 } from "./UtilsTask.js";
-import { TaskContext } from "../../Context/TaskContext";
+import { TaskContext } from "../../context/TaskContext";
 
 
 const ContentTask = ({ setToggleMode, projectId }) => {

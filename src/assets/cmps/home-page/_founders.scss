@@ -2,8 +2,6 @@
     padding: 30px;
     font-family: Rubik-regular;
     direction: rtl;
-    background: inherit;
-
     .box-person-head {
         padding: 40px 0px;
     }
@@ -14,23 +12,19 @@
 
     .box-person-sub-headline {
         font-size: rem(25px);
+        color: #4a4a4a;
     }
 
     .box-person-content {
         .founders {
+            gap: rem(20px);
             .founder-content {
-                width: 200px;
+                width: rem(200px);
                 direction: ltr;
 
                 .person-name {
-                    display: block;
                     font-family: Rubik-medium;
                     font-size: rem(25px);
-                }
-
-                .role-text {
-                    display: block;
-                    width: 100%;
                 }
             }
         }

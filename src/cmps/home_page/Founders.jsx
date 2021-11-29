@@ -2,7 +2,6 @@ import React from "react";
 import LinkIcon from "../../assets/images/home-page-imgs/linkedin.svg";
 
 export const Founders = ({ persons }) => {
-    console.log('persons - ', persons)
     return (
         <div className="box-person flex column space-between">
             <div className="box-person-head flex column">
@@ -16,13 +15,13 @@ export const Founders = ({ persons }) => {
                     return (
                         <div className="founders flex column align-center" key={i}>
                             <object
-                                className="person-img"
                                 data={person.img}
+                                className="person-img"
                                 width="140"
                                 height="138"
                                 type="image/svg+xml"
                             />
-                            <div className="founder-content justify-center align-center">
+                            <div className="founder-content flex column justify-center align-center">
                                 <span className="person-name">
                                     <object
                                         data={LinkIcon}
@@ -34,7 +33,7 @@ export const Founders = ({ persons }) => {
                                     {""}
                                     {person.name}
                                 </span>
-                                <span className="role-text">{person.roleText}</span>
+                                <span className="role-text flex justify-center">{person.roleText}</span>
                             </div>
                         </div>
                     );

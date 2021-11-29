@@ -1,0 +1,106 @@
+.events {
+    // display: flex;
+    // flex-direction: column;
+    margin-top: 10px;
+    padding: 30px;
+    .events-title {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: rem(40px);
+        line-height: rem(47px);
+        direction: rtl;
+        margin-bottom: 10px;
+    }
+
+    .events-sub-title-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        direction: rtl;
+
+        .events-sub-title {
+            font-family: Rubik, sans-serif;
+            font-style: normal;
+            font-size: 25px;
+            line-height: 30px;
+        }
+
+        .events-sub-title-link {
+            font-family: Rubik, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        .sub-title-icon {
+            margin-right: 4px;
+            position: relative;
+            top: 6px;
+        }
+    }
+    .btn-card {
+        position: relative;
+        // justify-content: space-evenly;
+        bottom: rem(20px);
+        gap: rem(20px);
+        .events-icon {
+            width: rem(40px);
+            height: rem(40px);
+            transform: scale(0.9);
+            &:hover {
+                background-color: rgb(224, 224, 224);
+            }
+        }
+    }
+    .events-link {
+        .events-sub-title-link {
+            font-family: Rubik-bold, sans-serif;
+            font-size: rem(18px);
+            line-height: rem(21px);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .events-cards {
+        flex-wrap: wrap;
+        .card {
+            width: rem(250px);
+            height: rem(350px);
+            border-radius: 10px;
+        }
+        .card-img {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .card-footer {
+            // display: flex;
+            position: relative;
+            // flex-direction: column;
+            // justify-content: space-evenly;
+            // gap: rem(20px);
+            margin-bottom: rem(30px);
+
+            .events-button {
+                border: 3px solid #34018e;
+                padding: 4px 32px;
+                font-weight: bold;
+                background-color: transparent;
+                cursor: pointer;
+                border-radius: 2px 15px;
+                font-family: Rubik, sans-serif;
+                font-size: 16px;
+                color: #34018e;
+                margin-top: 10px;
+                // margin-bottom: 15px;
+                &:hover {
+                    background-color: $clr7;
+                    color: $clr6;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}

@@ -26,7 +26,7 @@ const Jobs = () => {
                 </span>
             </div>
             <div className="jobs-cards">
-                {jobs.list.slice(0, 3).map((job) => {
+                {jobs.list.slice(-3).map((job) => {
                     return <div key={job.id}>
                         <JobCard job={job} />
                     </div>

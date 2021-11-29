@@ -1,124 +1,30 @@
-/*
-Section 3
-Events
- */
-
-.events {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  padding: 30px;
-
-  .events-title {
-    font-family: Rubik, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 47px;
-    direction: rtl;
-    margin-bottom: 10px;
+.home-page {
+  background: url("../images/home-page-imgs/background.png");
+  .header-comp{
+    box-shadow: 6px 13px 10px -10px #808080b8;
+    background-color: #ffffff94;
   }
-
-  .events-sub-title-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    direction: rtl;
-
-    .events-sub-title {
-      font-family: Rubik, sans-serif;
-      font-style: normal;
-      font-size: 25px;
-      line-height: 30px;
-    }
-
-    .events-sub-title-link {
-      font-family: Rubik, sans-serif;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 24px;
-    }
-
-    .sub-title-icon {
-      margin-right: 4px;
-      position: relative;
-      top: 6px;
-    }
+  .events-comp {
+    background-color: #f2f2f299;
+    box-shadow: 6px 8px 20px -10px #808080b8;
   }
-
-  .events-cards {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-
-    .card {
-      width: 200px;
-      border-radius: 15px;
-      position: relative;
-      //z-index: 0;
-      //background-color: transparent;
-    }
-
-    .card-img {
-      border-radius: 15px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    .card-footer {
-      display: flex;
-      position: relative;
-      flex-direction: column;
-      justify-content: space-evenly;
-
-      .events-button {
-        border: 3px solid #34018e;
-        padding: 4px 32px;
-        font-weight: bold;
-        background-color: transparent;
-        cursor: pointer;
-        border-radius: 2px 15px;
-        font-family: Rubik, sans-serif;
-        font-size: 16px;
-        color: #34018e;
-        margin-top: 10px;
-        //margin-bottom: 15px;
-      }
-
-      .events-button:hover {
-        background-color: $clr7;
-        color: $clr6;
-        transition: 0.5s;
-      }
-
-      .events-link {
-        font-family: Rubik, sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 21px;
-        text-decoration-line: underline;
-      }
-
-      .events-icon {
-        //position: relative;
-        margin-top: 10px;
-        margin-left: 16px;
-        margin-right: 16px;
-        transform: scale(0.9);
-        color: #ffffff;
-        opacity: 0.75;
-        background: rgb(52, 1, 142);
-        background: linear-gradient(90deg, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
-      }
-
-      .events-icon:hover {
-        opacity: 1;
-      }
-    }
+  .jobs-comp {
+    box-shadow: inset -3px -10px 6px -10px #808080b8;
+    // margin-bottom: 20px;
+  }
+  .founders-comp {
+    background-color: white;
+    box-shadow: 6px 8px 20px -10px #808080b8;
+  }
+  .sunscribe-comp{
+    padding: rem(60px) 0px;
   }
 }
+
+.disabled-link {
+  pointer-events: none;
+}
+
 
 /*
 Section 4
@@ -130,13 +36,6 @@ Jobs
   flex-direction: column;
   margin-bottom: 10px;
   padding: 30px;
-  // background-image: linear-gradient(to top, rgba(255, 255, 255, 0.6) 25%, rgba(0, 0, 0, 0.1) 100%),
-  //   url(../images/home-page-imgs/background.jpg);
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-  //border: dashed #ce2e6c;
-
   .jobs-title {
     font-family: Rubik, sans-serif;
     font-style: normal;
@@ -146,7 +45,6 @@ Jobs
     direction: rtl;
     margin-bottom: 10px;
   }
-
   .jobs-sub-title-container {
     display: flex;
     justify-content: space-between;
@@ -166,6 +64,9 @@ Jobs
       font-weight: bold;
       font-size: 20px;
       line-height: 24px;
+      a:hover {
+        text-decoration: underline;
+      }
     }
 
     .sub-title-icon {
@@ -177,16 +78,12 @@ Jobs
 
   .jobs-cards {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
     justify-content: space-between;
 
     .card {
-      width: 280px;
+      width: rem(280px);
       border-radius: 10px;
-      border-color: #34018e;
-      //background-color: transparent;
-
+      border: 2px solid $clr1;
       .card-content {
         font-family: Rubik, sans-serif;
         font-style: normal;
@@ -226,61 +123,3 @@ Jobs
     }
   }
 }
-
-/*
-Section 7
-Footer
- */
-
-.footer {
-  margin-top: 10px;
-  //border: dashed #ce2e6c;
-  .footer__bg {
-    background-color: #34018e;
-    padding: 2rem 2rem 1rem;
-
-    .footer__container {
-      // row-gap: 3.5rem;
-      gap: 3.5rem;
-
-      .footer__social {
-        font-size: 1.9rem;
-        margin-right: 1.5rem;
-        color: #6ce5e7;
-        &:hover {
-          color: #ffffff;
-        }
-      }
-
-      // .footer__social:hover {
-      //   color: #FFFFFF;
-      // }
-
-      // .footer__social {
-      //   color: #6CE5E7;
-      // }
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer__copy {
-      font-size: 0.75rem;
-      text-align: center;
-      color: #fff;
-    }
-  }
-}
-
-/* .projects {
-  //border: dashed #ce2e6c;
-
-  .new--project {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-} */
