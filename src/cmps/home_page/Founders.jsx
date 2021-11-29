@@ -14,7 +14,6 @@ export const Founders = ({ persons }) => {
                 {persons.map((person, i) => {
                     return (
                         <div className="founders flex column align-center" key={i}>
-                            {/* {console.log(person.img)} */}
                             <object
                                 data={person.img}
                                 className="person-img"
