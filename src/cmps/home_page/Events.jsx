@@ -2,10 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import EventCard from "./sub_cmps/EventCard.jsx";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import event_img from '../../assets/images/lectures/lecture2.png';
 import IconButton from "@mui/material/IconButton";
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-// import ShareIcon from '@mui/icons-material/Share';
 import heart from '../../assets/images/lectures/heart-btn.png'
 import share from '../../assets/images/lectures/share-btn.png'
 import { useDispatch, useSelector } from 'react-redux';
