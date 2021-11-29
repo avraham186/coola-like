@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import taskDAL from "../adapters/TMS/tasksDAL";
 
 const data = {
-    // title: 'משימה חדשה', priority: 'HIGH', Status: 'IN_PROCESS', label: '',
     title: 'משימה חדשה', taskPriority: 'HIGH', taskStatus: 'IN_PROCESS', label: '',
     pplAssigned: [], files: [], date: {}, description: '', chats: []
 }

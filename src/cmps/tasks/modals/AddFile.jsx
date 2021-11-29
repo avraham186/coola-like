@@ -45,7 +45,7 @@ export const AddFile = ({toggleMode, setToggleMode}) => {
                     className="add-link-input"
                     placeholder="הדבק קישור"
                 ></input>
-                <button className="save-modal-button"
+                <button className="btn-save-task"
                         onClick={() => setToggleMode(p => ({...p, file: !p.file}))}>
                     שמור
                 </button>

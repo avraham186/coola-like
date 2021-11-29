@@ -40,9 +40,10 @@ function NewSideBar({addProjToggle, setAddProjToggle}) {
 
 
     return (
-        <div className='main-sidebar'>
-            <div className="sideBar">
-                <div className="sideBar-container">
+    <>
+        {/* <div className='main-sidebar'>*/}
+            <div className="sideBar"> 
+                {/* <div className="sideBar-container"> */}
                     {/* <div >  */}
 
                     {open ? (
@@ -86,8 +87,9 @@ function NewSideBar({addProjToggle, setAddProjToggle}) {
                         {tab === "שינוי הרשאות משתמשים" &&
                         <UserPermissions toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
                 </div>
-            </div>
-        </div>
+           {/* </div> */}
+        {/*  </div> */}
+    </>
     );
 }
 

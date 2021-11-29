@@ -14,3 +14,42 @@ a {
         cursor: pointer;
     }
 }
+
+
+.btn-save{
+    width: 200px;
+    height: 40px;
+    background-color: #34018e;
+    font-size: 18px;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    font-family: Rubik, sans-serif;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    margin: 10px;
+}
+.btn-save-task{
+    width: 90%;
+    height: 40px;
+    background-color: #34018e;
+    font-size: 18px;
+    color: white;
+    border-radius: 2px;
+    border: none;
+    font-family: Rubik, sans-serif;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    margin: 10px;
+
+    &:hover {
+        background-color: rgba($clr7, 0.9);
+
+      }
+}
+
+

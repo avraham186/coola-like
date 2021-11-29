@@ -1,9 +1,11 @@
 .main-layout {
+    
     display: grid;
     grid-template-columns:
         minmax(2rem, 1fr)
         minmax(auto, $normal-breakpoint)
         minmax(2rem, 1fr);
+        
 
     > * {
         grid-column: 2;
@@ -18,6 +20,14 @@
         }
         .footer__bg{
             grid-column: 2;
+            grid-row:3/4 ;
+            // position: absolute;
+            // bottom: 0;
+            // position: sticky;
+            
+        }
+        .footer__container{
+            grid-column: 2/3;
         }
     }
 

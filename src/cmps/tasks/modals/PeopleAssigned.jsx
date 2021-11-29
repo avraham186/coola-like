@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { close_sign, user, v_sign } from "../../../assets/images/icons";
-// import { adi, stav, iris, shimon } from "../../../assets/images/founders-imgs";
 import user_icon from '../../../assets/images/home-page-imgs/user_icon.png';
 import { setUsers } from "../../../store/actions/taskAction";
 import { TaskContext } from "../../../Context/TaskContext";
 import { Box, Modal } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-// const imgUsers = [adi, stav, iris, shimon];
 
 export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
     const { taskContent, setTaskContent } = useContext(TaskContext);
@@ -103,14 +101,16 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
                         );
                     })}
                 </div>
-                <button
-                    className="save-modal-button"
-                    onClick={() =>
-                        setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }))
-                    }
-                >
-                    שמור
-                </button>
+                <div className='submit-btn-task'>
+                    <button
+                        className="btn-save-task"
+                        onClick={() =>
+                            setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }))
+                        }
+                    >
+                        שמור
+                    </button>
+                </div>
             </Box>
         </Modal>
     );
