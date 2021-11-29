@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/coola-like/static/css/main.42f6236f.chunk.css",
+    "main.css": "/coola-like/static/css/main.d02e2bf9.chunk.css",
     "main.js": "/coola-like/static/js/main.0daad5b5.chunk.js",
     "main.js.map": "/coola-like/static/js/main.0daad5b5.chunk.js.map",
     "runtime-main.js": "/coola-like/static/js/runtime-main.aa6da623.js",
@@ -8,7 +8,7 @@
     "static/js/2.03eb3b69.chunk.js": "/coola-like/static/js/2.03eb3b69.chunk.js",
     "static/js/2.03eb3b69.chunk.js.map": "/coola-like/static/js/2.03eb3b69.chunk.js.map",
     "index.html": "/coola-like/index.html",
-    "static/css/main.42f6236f.chunk.css.map": "/coola-like/static/css/main.42f6236f.chunk.css.map",
+    "static/css/main.d02e2bf9.chunk.css.map": "/coola-like/static/css/main.d02e2bf9.chunk.css.map",
     "static/js/2.03eb3b69.chunk.js.LICENSE.txt": "/coola-like/static/js/2.03eb3b69.chunk.js.LICENSE.txt",
     "static/media/Header_logo.c2b85ae2.svg": "/coola-like/static/media/Header_logo.c2b85ae2.svg",
     "static/media/main.scss": "/coola-like/static/media/eventsBG.f8b59458.jpg",
@@ -32,7 +32,7 @@
   "entrypoints": [
     "static/js/runtime-main.aa6da623.js",
     "static/js/2.03eb3b69.chunk.js",
-    "static/css/main.42f6236f.chunk.css",
+    "static/css/main.d02e2bf9.chunk.css",
     "static/js/main.0daad5b5.chunk.js"
   ]
 }
