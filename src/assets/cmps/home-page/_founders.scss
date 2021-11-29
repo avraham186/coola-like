@@ -14,6 +14,7 @@
 
     .box-person-sub-headline {
         font-size: rem(25px);
+        color: #4A4A4A;
     }
 
     .box-person-content {
@@ -30,7 +31,7 @@
 
                 .role-text {
                     display: block;
-                    width: 100%;
+                    width: max-content;
                 }
             }
         }
