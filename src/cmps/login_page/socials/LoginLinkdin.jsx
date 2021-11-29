@@ -18,24 +18,37 @@ function LinkedInPage({handleOpen,handleClose}) {
     const dispatch = useDispatch();
     const history = useHistory()
 
+
+
     const {linkedInLogin} = useLinkedIn({
         clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
-        redirectUri: `${window.location.origin}/linkedin`,
+        redirectUri: process.env.REACT_APP_BASE_URL + '/linkedin',
         onSuccess: (code) => {
-            const graphQL = `https://www.linkedin.com/oauth/v2/${code}`;
             console.log(code)
-            // fetch(graphQL)
-            //     .then(response => response.json())
-            //     .then((jsonData) => {
-            //         // jsonData is parsed json object received from url
-            //         console.log(jsonData)
-            //         dispatch(linkedInProfile(jsonData));
-            //         history.push("/");
-            //     })
-            //     .catch((error) => {
-            //         // handle your errors here
-            //         console.error(error)
-            //     })
+
+            const params = new URLSearchParams({
+                grant_type: 'authorization_code',
+                code: code,
+                client_id: '78dxlku6u6p2tn',
+                client_secret: 'zhPrl6yIAd6LRaVG'
+            }).toString()
+
+            console.log('https://www.linkedin.com/oauth/v2/accessToken?' + params + '&redirect_uri=http://localhost:3000/linkedin')
+
+            fetch('https://www.linkedin.com/oauth/v2/accessToken?' + params + '&redirect_uri=http://localhost:3000/linkedin',
+                {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+            })
+                .then(response => response.json())
+                .then(responseData => {
+                    console.log(JSON.stringify(responseData))
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         },
         scope: "r_emailaddress r_liteprofile",
         onError: (error) => {

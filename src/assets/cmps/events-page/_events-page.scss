@@ -6,7 +6,7 @@
     min-height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 .wrapper{
     //grid-column: 2 / 3;
 
@@ -100,7 +100,7 @@
         display: flex;
         flex-direction: row;
         height: 35px;
-        border: 1px solid rgba(43, 43, 43, 0.493);
+        border: 0.5px solid rgba(43, 43, 43, 0.5);
         background-color: white;
         border-radius: 12px;
         width: 25%;
@@ -147,6 +147,7 @@
         justify-content: space-between;
         align-items: center;
         margin: auto;
+        margin-bottom: 50px;
     }
 
     .event-card {
@@ -275,9 +276,55 @@
             color: $clr6;
             transition: 0.5s;
           }
+          .adminEditEvent{
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Rubik;
+            margin: 0px 10px;
+            direction: rtl;
+            
+          }.editEvent-btn{
+              cursor: pointer;
+                display: flex;
+                align-items: center;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-family: "Rubik";
+                margin: 0 10px;
+                direction: rtl;
+            }
           
 
         }
+        .addEvent-btn{
+            cursor: pointer;
+              display: flex;
+              align-items: center;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 5px;
+              font-family: "Rubik";
+              margin: 0 10px;
+              direction: rtl;
+          }
     }
+}
+//admin page edit
+.admin{
+    .headlines{
+        justify-content: right;
+    }
+    
+    .selectors{
+        justify-content: right;
+        // .eventsSearchBar{
+        //     border: 0.5px solid rgba(43, 43, 43, 0.493);
+
+        //     }
+        
+    }
+       
 }
 }
