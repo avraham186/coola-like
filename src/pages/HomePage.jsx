@@ -13,7 +13,7 @@ export default function HomePage() {
 
     return (
         <div className="home-page full">
-            <div className="header-comp">
+            <div className="header-comp main-layout">
                 <Header />
             </div>
             <div className="events-comp main-layout">
