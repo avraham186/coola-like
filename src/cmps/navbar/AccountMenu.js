@@ -6,12 +6,10 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 export default function AccountMenu() {
@@ -23,23 +21,27 @@ export default function AccountMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const userFromStore= useSelector(state => state.entities.user)
+    const userFromStore = useSelector(state => state.entities.user)
     return (
         <React.Fragment>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Tooltip title="Account settings">
-                    <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-                        <Avatar
-                            sx={{ width: 42, height: 42 }}
-                            src={userFromStore.imageUrl}
-                            alt={userFromStore.name}
-                        >
-                            M
-                        </Avatar>
-                    </IconButton>
-                </Tooltip>
+            <Box sx={{display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+                {
+                    userFromStore.name ?
+                        <Tooltip title="Account settings">
+                            <IconButton onClick={handleClick} size="small" sx={{ml: 2}}>
+                                <Avatar
+                                    sx={{width: 50, height: 50}}
+                                    src={userFromStore.imageUrl}
+                                    alt={userFromStore.name}
+                                />
+                            </IconButton>
+                        </Tooltip>
+                        :
+                        <></>
+                }
+
                 <div className="user_private_nav">
-                    <h4>{ userFromStore? userFromStore.name : "Shimon Moyal"}</h4>
+                    <h4>{userFromStore.name }</h4>
                 </div>
             </Box>
             <Menu
@@ -73,31 +75,31 @@ export default function AccountMenu() {
                         },
                     },
                 }}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                transformOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
                 <MenuItem>
-                    <Avatar /> Profile
+                    <Avatar/> Profile
                 </MenuItem>
                 <MenuItem>
-                    <Avatar /> My account
+                    <Avatar/> My account
                 </MenuItem>
-                <Divider />
+                <Divider/>
                 <MenuItem>
                     <ListItemIcon>
-                        <PersonAdd fontSize="small" />
+                        <PersonAdd fontSize="small"/>
                     </ListItemIcon>
                     Add another account
                 </MenuItem>
                 <MenuItem>
                     <ListItemIcon>
-                        <Settings fontSize="small" />
+                        <Settings fontSize="small"/>
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={() => console.log("Hello world!")}>
                     <ListItemIcon>
-                        <Logout fontSize="small" />
+                        <Logout fontSize="small"/>
                     </ListItemIcon>
                     Logout
                 </MenuItem>
