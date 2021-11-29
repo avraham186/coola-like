@@ -2,7 +2,7 @@ import './assets/main.scss';
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { routes } from './routes';
-import { AdminNav } from './cmps/AdminNav'
+import { AdminNav } from './cmps/navbar/AdminNav'
 import { AppFooter } from './cmps/AppFooter'
 
 

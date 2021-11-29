@@ -2,13 +2,13 @@ import React from "react";
 import Header from "../cmps/home_page/Header.jsx";
 import Events from "../cmps/home_page/Events.jsx";
 import Jobs from "../cmps/home_page/Jobs.jsx";
-import { Founders } from "../cmps/home_page/Founders.jsx";
-import { Subscribe } from "../cmps/home_page/Subscribe.jsx";
-import { useSelector } from "react-redux";
-import JobsPage from "../cmps/jobs/JobsPage";
+import {Founders} from "../cmps/home_page/Founders.jsx";
+import {Subscribe} from "../cmps/home_page/Subscribe.jsx";
+import {useSelector} from "react-redux";
+
 export default function HomePage() {
-    const { persons } = useSelector(
-        ({ entities }) => entities.communityHeartModule
+    const {persons} = useSelector(
+        ({entities}) => entities.communityHeartModule
     );
 
     return (
@@ -17,16 +17,16 @@ export default function HomePage() {
                 <Header />
             </div>
             <div className="events-comp main-layout">
-                <Events />
+                <Events/>
             </div>
             <div className="jobs-comp main-layout">
-                <Jobs />
+                <Jobs/>
             </div>
             <div className="founders-comp main-layout">
-                <Founders persons={persons} />
+                <Founders persons={persons}/>
             </div>
             <div className="sunscribe-comp main-layout">
-                <Subscribe />
+                <Subscribe/>
             </div>
         </div>
     );

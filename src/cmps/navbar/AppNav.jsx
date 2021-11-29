@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import coola_like_logo from '../assets/images/coola_like_logo.svg'
+import logo from '../../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
 import { useSelector } from 'react-redux';
 export function AppNav() {
@@ -34,7 +34,7 @@ export function AppNav() {
                 </ul>
 
                 <Link to="/">
-                    <object data={coola_like_logo} type="image/svg+xml" className="coola_like_logo" />
+                    <object data={logo} type="image/svg+xml" className="coola_like_logo" />
                 </Link>
 
             </div>
