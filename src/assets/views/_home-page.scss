@@ -5,10 +5,13 @@
     background-color: #ffffff94;
   }
   .events-comp {
-    background-color: #f2f2f299;
-    box-shadow: 6px 8px 20px -10px #808080b8;
+    // background-color: #f2f2f299;
+    background-color: rgba(242, 242, 242, 1);
+    box-shadow: 6px 8px 10px -10px #808080b8;
   }
   .jobs-comp {
+    align-content: center;
+    height: rem(500px);
     box-shadow: inset -3px -10px 6px -10px #808080b8;
     // margin-bottom: 20px;
   }
