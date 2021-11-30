@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
-import {Button, FormHelperText, makeStyles, MenuItem, Select} from "@material-ui/core";
+import React, { useState } from 'react';
+import { Button, FormHelperText, makeStyles, MenuItem, Select } from "@material-ui/core";
 import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
-import {setLogin} from "../../../store/user";
-import {useDispatch} from "react-redux";
-import {MultiSelect} from "react-multi-select-component";
+import { setLogin } from "../../../store/user";
+import { useDispatch } from "react-redux";
+// import {MultiSelect} from "react-multi-select-component";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const textFieldArr = [
-    {id: "Email", label: "אימייל", type: 'email', required: true},
-    {id: "password", label: "סיסמה", type: 'password', required: true},
-    {id: "password2", label: "אימות סיסמה", type: 'password', required: true}
+    { id: "Email", label: "אימייל", type: 'email', required: true },
+    { id: "password", label: "סיסמה", type: 'password', required: true },
+    { id: "password2", label: "אימות סיסמה", type: 'password', required: true }
 ];
 
 // Move this to utils folder
@@ -82,7 +82,7 @@ const interestsArr = [
 ];
 
 
-const Placeholder = ({children}) => {
+const Placeholder = ({ children }) => {
     const classes = useStyles();
     return <div className={classes.placeholder}>{children}</div>;
 };
@@ -101,19 +101,19 @@ const SignUp = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleChange = ({name, value}) => {
+    const handleChange = ({ name, value }) => {
         switch (name) {
             case 'Email':
-                setFormData({...formData, Email: value});
+                setFormData({ ...formData, Email: value });
                 break;
             case 'password':
-                setFormData({...formData, password: value});
+                setFormData({ ...formData, password: value });
                 break;
             case 'password2':
-                setFormData({...formData, password2: value});
+                setFormData({ ...formData, password2: value });
                 break;
             case 'interests':
-                setFormData({...formData, interests: value});
+                setFormData({ ...formData, interests: value });
                 break;
             default:
                 break;
@@ -128,9 +128,9 @@ const SignUp = () => {
             console.log(formData)
             // handleRegistration();
         } else {
-            if(!validateForm())
+            if (!validateForm())
                 setError('Error: Invalid form');
-            if(!validatePassword())
+            if (!validatePassword())
                 setError('Error: Passwords doesn\'t match');
         }
     }
@@ -149,7 +149,7 @@ const SignUp = () => {
     return (
         <div className="login--form">
             <div className="login--form--header">
-                <a href="/"> חזר לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow"/></a>
+                <a href="/"> חזר לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
             </div>
             <div className="login--form--body">
                 <h1>התחברות</h1>
@@ -158,7 +158,7 @@ const SignUp = () => {
                 <div className="login-form-inputs">
                     <form>
 
-                        <Inputs inputs={textFieldArr} handleChange={handleChange}/>
+                        <Inputs inputs={textFieldArr} handleChange={handleChange} />
 
 
                         {/*<MultiSelect*/}
@@ -181,7 +181,7 @@ const SignUp = () => {
                                 formData.interests !== "" ? undefined : () => <Placeholder>בחירת תחומי עניין</Placeholder>
                             }
                             className={classes.inputs}
-                            classes={{icon: classes.icon}}
+                            classes={{ icon: classes.icon }}
                         >
                             {
                                 interestsArr.map((v, i) => {
@@ -197,18 +197,18 @@ const SignUp = () => {
                         </FormHelperText>
 
                         <Button disabled={isLoading} type="submit" variant="contained" color="primary"
-                                className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
+                            className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
                             התחברות
                         </Button>
 
-                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
+                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'} />
 
                     </form>
                 </div>
 
                 <a href="#" onClick={(e) => {
                     e.preventDefault();
-                    dispatch(setLogin({view: 'signin'}))
+                    dispatch(setLogin({ view: 'signin' }))
                 }}>בחזרה לדף התחברות</a>
 
             </div>
