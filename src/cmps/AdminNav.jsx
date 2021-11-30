@@ -18,7 +18,6 @@ export function AdminNav() {
 
     const userFromStore = useSelector(state => state.entities.user)
 
-
     const user = { name: "Shimon Moyal" }
     const [searchValue, setSearchValue] = useState('')
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false)
