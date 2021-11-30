@@ -16,7 +16,7 @@ function LoginGoogle() {
     const history = useHistory();
 
     const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj);
+        // console.log('Login Success: currentUser:', res.profileObj);
         dispatch(googleProfile(res.profileObj));
         history.push("/");
         refreshTokenSetup(res);
