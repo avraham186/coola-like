@@ -27,7 +27,7 @@ const Events = () => {
                 </span>
             </div>
             <div className="events-cards flex space-between">
-                {events.slice(- 3).map((event, idx) => {
+                {events.slice(- 4).map((event, idx) => {
                     return <div key={idx}>
                         <EventCard event={event} />
                         <div className="btn-card flex justify-center">

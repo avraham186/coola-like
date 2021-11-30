@@ -6,7 +6,7 @@ import linkedin from "../assets/images/icons/footer-icons/linkedin-btn.png";
 import youtube from "../assets/images/icons/footer-icons/youtube-btn.png";
 import whatsapp from "../assets/images/icons/footer-icons/whatsapp-btn.png";
 
-import logo from "../assets/images/home-page-imgs/coola_like_logo.png";
+import logo from "../assets/images/icons/footer-icons/logo.svg";
 import { Link } from "react-router-dom";
 
 export function AppFooter() {
@@ -17,6 +17,13 @@ export function AppFooter() {
         <div className="flex space-between">
           <div className="footer-logo" >
             <img src={logo} alt="logo" />
+            {/* <object
+              data={logo}
+              // className="person-img"
+              // width="140"
+              // height="138"
+              type="image/svg+xml"
+            /> */}
           </div>
           <div className="main-pages flex column">
             <h3 className="footer-title">עמודים מרכזיים</h3>
