@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {App} from './App';
+import { Provider } from 'react-redux';
+import { App } from './App';
 import configureStore from "./store/configureStore";
-import {BrowserRouter} from 'react-router-dom'
-import {PersistGate} from "redux-persist/integration/react";
+import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { PersistGate } from "redux-persist/integration/react";
 import persistStore from "redux-persist/es/persistStore";
 
 const mainStore = configureStore();
@@ -14,9 +14,11 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={mainStore}>
             <PersistGate loading={null} persistor={persist}>
-                <BrowserRouter>
-                    <App/>
-                </BrowserRouter>
+                <HashRouter>
+                    {/* <BrowserRouter> */}
+                    <App />
+                    {/* </BrowserRouter> */}
+                </HashRouter>
             </PersistGate>
         </Provider>
     </React.StrictMode>

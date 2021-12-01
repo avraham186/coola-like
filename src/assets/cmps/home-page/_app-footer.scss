@@ -2,29 +2,32 @@
     direction: rtl;
     background-color: $clr1;
     .footer-content {
-        margin: 30px 0px 0px;
+        margin: 62px 0px;
         .footer-logo {
             img {
-                width: 200px;
-                height: 200px;
+                width: rem(200px);
+                height: rem(200px);
             }
         }
         .footer-title {
             color: #6ce5e7;
+            font-size: rem(20px);
+            line-height: rem(23px);
         }
         .main-pages {
             color: white;
-            gap: 10px;
-            font-size: 14px;
+            gap: rem(19px);
+            font-size: rem(16px);
         }
         .community-management {
             color: white;
-            gap: 10px;
-            font-size: 14px;
+            gap: rem(19px);
+            font-size: rem(16px);
+            line-height: rem(18px);
         }
         .footer-socials {
             .socials-icons {
-                gap: rem(10px);
+                gap: rem(15px);
                 .footer-social {
                     &:hover {
                         // color: #ffffff;

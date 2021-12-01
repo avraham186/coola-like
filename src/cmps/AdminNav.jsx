@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import SearchBar from "material-ui-search-bar";
+// import SearchBar from "material-ui-search-bar";
 import NotificationImportantIcon from '@mui/icons-material/NotificationImportant';
 
 import { shimon } from '../assets/images/founders-imgs'
@@ -80,14 +80,14 @@ export function AdminNav() {
                         <li><Link to="/projects"><span>פרויקטים</span></Link></li>
                         <li><Link to="/"><span>לוח ניהול כללי</span></Link></li>
                         <li className="adminSearchBar">
-                            <SearchBar
+                            {/* <SearchBar
                                 value={searchValue}
                                 onChange={(newValue) => setSearchValue(newValue)}
                                 onRequestSearch={() => doSomethingWith(searchValue)}
                                 placeholder="חפש לדוגמא: סדנה בלינקדאין"
                                 style={{ height: "2rem", textIndent: ".5em" }}
                                 disabled={false}
-                            />
+                            /> */}
                         </li>
                     </ul>
                     <Link to="/">

@@ -1,0 +1,31 @@
+.profile--layout {
+  display: grid;
+  grid-template-columns: 2.3fr 0.7fr;
+
+  .profile--section {
+    display: flex;
+    height: 80vh;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .profile {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+
+    background-color: #6D49AC;
+
+    .sub_sec {
+      width: 50%;
+    }
+  }
+  .menu {
+    flex-direction: column;
+
+    background-color: #90f1f3;
+  }
+}

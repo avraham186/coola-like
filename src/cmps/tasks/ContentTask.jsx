@@ -1,15 +1,7 @@
 import React, { useContext, useState } from "react";
 import { attachment_icon, chat_logo, description_mission, plus_sign } from "../../assets/images/icons";
 import {
-    AssignedTask,
-    AttachmentsTask,
-    ChatsTask,
-    HeadlinesTask,
-    Labels,
-    ModeChoosen,
-    modes,
-    PriorityChoosen,
-    TextArea
+    AssignedTask, AttachmentsTask, ChatsTask, HeadlinesTask, Labels, ModeChoosen, modes, PriorityChoosen, TextArea
 } from "./UtilsTask.js";
 import { TaskContext } from "../../context/TaskContext";
 
