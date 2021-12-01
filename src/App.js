@@ -3,7 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { routes } from './routes';
 import { AdminNav } from './cmps/AdminNav'
-import { AppNav } from './cmps/AppNav'
+import { AppNav } from './cmps/navbar/AppNav'
 import { AppFooter } from './cmps/AppFooter'
 
 

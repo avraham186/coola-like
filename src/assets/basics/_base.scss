@@ -2,21 +2,18 @@ html,
 body {
     font-family: Rubik, sans-serif;
     margin: 0;
-    
     background-size: cover;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-
     &:hover {
         cursor: pointer;
     }
 }
 
-
-.btn-save{
+.btn-save {
     width: 200px;
     height: 40px;
     background-color: #34018e;
@@ -31,7 +28,7 @@ a {
     justify-content: center;
     margin: 10px;
 }
-.btn-save-task{
+.btn-save-task {
     width: 90%;
     height: 40px;
     background-color: #34018e;
@@ -48,8 +45,5 @@ a {
 
     &:hover {
         background-color: rgba($clr7, 0.9);
-
-      }
+    }
 }
-
-

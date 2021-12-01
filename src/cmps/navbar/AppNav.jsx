@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import logo from '../assets/images/coola_like_logo.svg'
+import logo from '../../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
-// import PersonIcon from "@mui/icons-material/Person"
 import { useSelector } from 'react-redux';
 
 export function AppNav() {

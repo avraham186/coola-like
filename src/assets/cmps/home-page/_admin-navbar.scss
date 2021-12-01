@@ -15,85 +15,87 @@
 
     .left-list {
         display: flex;
-        list-style: none;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding-left:0;
-        width: 25vw;
-        margin: auto;
-        
-        .user_private_nav{
-            display: flex;
-            flex-direction: column;
-            h4{
-                margin: 0;
-            }
-        }
-
-        .user_img{
-            //position: relative;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            
-            // color: #ffffff;
-            // opacity: .5;
-            // background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);     
-        }
-
-        li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px;
-
-            a {
-                width: fit-content;
-               
-               
-            }
-            
-         }
-    }
-
-    .selected{
-        text-decoration: underline;
-    }
-
-    .list {
-
-        gap: 10px;
-        border-radius: 50%;
-        padding-left:0;
         width: 100%;
-        display: flex;
-        list-style: none;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        font-family: 'Rubik';
-        font-weight: 600;
+        justify-content: center;
 
-
-        // li {
-        //     margin-left: 4%;
-        //     margin-right: 2%;
-            
-            
-        // }
-
-        li:not(.adminSearchBar):hover {
-            transform: scale(1.08);
+        a {
+            text-decoration: none;
+            color: black;
         }
-    }
 
-     .coola_like_logo {
-         padding-left: 5px;
-         cursor: pointer;
-     }
+        .left-list {
+            display: flex;
+            list-style: none;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 0;
+            width: 25vw;
+            margin: auto;
 
-     
-     
-    }//navbar
+            .user_private_nav {
+                display: flex;
+                flex-direction: column;
+                h4 {
+                    margin: 0;
+                }
+            }
+
+            .user_img {
+                //position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+
+                // color: #ffffff;
+                // opacity: .5;
+                // background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
+            }
+
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+
+                a {
+                    width: fit-content;
+                }
+            }
+        }
+
+        .selected {
+            text-decoration: underline;
+        }
+
+        .list {
+            gap: 10px;
+            border-radius: 50%;
+            padding-left: 0;
+            width: 100%;
+            display: flex;
+            list-style: none;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            align-items: center;
+            font-family: "Rubik";
+            font-weight: 600;
+
+            // li {
+            //     margin-left: 4%;
+            //     margin-right: 2%;
+
+            // }
+
+            li:not(.adminSearchBar):hover {
+                transform: scale(1.08);
+            }
+        }
+
+        .coola_like_logo {
+            padding-left: 5px;
+            cursor: pointer;
+        }
+    } //navbar
+}
 }

@@ -10,12 +10,8 @@ const Header = () => {
                     <h1 className="header-title">כולא_לייק#</h1>
                     <h4 className="header-content-title">.הבית של אלו שנקלעו לפרדוקס הג'וניור</h4>
                     <p className="header-content-content flex column">
-                        <span>
-                            ,אנחנו כאן לעזור לכל מי שבתחילת דרכו התעסוקתית
-                        </span>
-                        <span>
-                            .בחינם, ללא תמורה, רק מתוך רצון אמיתי לעזור אחד לשניה
-                        </span>
+                        אנחנו כאן לעזור לכל מי שבתחילת דרכו התעסוקתית,
+                        בחינם, ללא תמורה, רק מתוך רצון אמיתי לעזור אחד לשניה.
                     </p>
                 </div>
 
@@ -26,7 +22,10 @@ const Header = () => {
             </div>
 
             <div className="header-logo">
-                <object data={Herosvg} type="image/svg+xml" />
+                <object data={Herosvg}
+                    width="494px"
+                    height="381px"
+                    type="image/svg+xml" />
             </div>
 
         </div>
