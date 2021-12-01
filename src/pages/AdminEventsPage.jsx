@@ -60,7 +60,7 @@ const AdminEventsPage = () => {
                 </div>
 
                 <div className="selectors">
-                    <button className="addEvent-btn"
+                    <button className="editEvent-btn"
                     onClick={() => {
                       // setOpen(true);
                       // setAddProjToggle();
@@ -90,7 +90,7 @@ const AdminEventsPage = () => {
                 </div>
 
                 <div className="eventsCards">
-                    {applyCards().map(event => <EventCard event={event} userIndicator={true} />)}
+                    {applyCards().map(event => <EventCard event={event} adminIndicator={true} />)}
                 </div>
 
             </div>

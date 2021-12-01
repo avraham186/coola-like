@@ -313,17 +313,30 @@
 }
 //admin page edit
 .admin{
+    background-image: url('../../images/events/eventsBG.jpg') ;
+
     .headlines{
         justify-content: right;
     }
     
     .selectors{
-        justify-content: right;
+        gap: 50px;
         // .eventsSearchBar{
         //     border: 0.5px solid rgba(43, 43, 43, 0.493);
 
         //     }
         
+    }
+    .editEvent-btn{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "Rubik";
+        margin: 0 10px;
+        direction: rtl;
     }
        
 }

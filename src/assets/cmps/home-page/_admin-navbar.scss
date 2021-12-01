@@ -1,19 +1,13 @@
-.admin-navbar-bg{
+.admin-navbar-wrapper {
     background-color: white;
-    
-.admin-navbar {
-    padding: 5px 0 5px 0;
-    margin-bottom: 10px;
-    font-family: 'Rubik';
-    display: flex;
-    justify-content: center;
-    
-    a{
-        text-decoration: none;
-        color: black;
-    }
-
-    .left-list {
+    box-shadow: 6px 13px 20px -10px #e9e7e7;
+    margin-bottom: rem(10px);
+    .admin-navbar {
+        padding: 5px 0 5px 0;
+        background-color: #ffffff;
+        margin: 0;
+        margin-bottom: rem(10px);
+        font-family: "Rubik";
         display: flex;
         width: 100%;
         justify-content: center;
@@ -97,5 +91,4 @@
             cursor: pointer;
         }
     } //navbar
-}
 }

@@ -79,6 +79,7 @@ export function AdminNav() {
                         <li className="selected"><Link to="/"><span>לאתר הקהילה</span></Link></li>
                         <li><Link to="/projects"><span>פרויקטים</span></Link></li>
                         <li><Link to="/"><span>לוח ניהול כללי</span></Link></li>
+                        <li><Link to="/eventsAdmin"><span>עריכת אירועים</span></Link></li>
                         <li className="adminSearchBar">
                             {/* <SearchBar
                                 value={searchValue}

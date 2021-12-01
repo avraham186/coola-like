@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { BiEdit } from "react-icons/bi";
 
-const EventCard = ({ event, userIndicator }) => {
+const EventCard = ({ event, adminIndicator }) => {
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
@@ -43,7 +43,7 @@ const EventCard = ({ event, userIndicator }) => {
                     <hr />
 
                     <h4 className="lecture_HL">מציג: {event.lecturer} </h4>
-                    {!userIndicator ?
+                    {!adminIndicator ?
                         <>
                             <span className="video">
                                 <span className="videoIcon"></span>
