@@ -1,3 +1,4 @@
+import { off } from "node-notifier";
 import React from "react";
 import { PieChart, Pie, Cell, Label } from "recharts";
 
@@ -28,13 +29,17 @@ export const MissionPieChart = ({ projects }) => {
     let month = d.getMonth() + 1;
 
     let AllcompletedTasks = 0;
-    let allTasks = 0;
+    let allOtherTasks = 0;
 
     projects.list.forEach((project) => {
       if (project.tasks.length > 0) {
         project.tasks.forEach((task) => {
-          allTasks++;
-          if (task.taskStatus === "COMPLETED") {
+          console.log(task);
+          let taskMonth = new Date(task.endDate).getMonth() + 1;
+          if (task.taskStatus !== "COMPLETED" && taskMonth === month) {
+            allOtherTasks++;
+          }
+          if (task.taskStatus === "COMPLETED" && taskMonth === month) {
             AllcompletedTasks++;
           }
         });
@@ -42,8 +47,8 @@ export const MissionPieChart = ({ projects }) => {
     });
     return [
       {
-        name: "allTasks",
-        value: allTasks,
+        name: "allOtherTasks",
+        value: allOtherTasks,
       },
       {
         name: "completedTasks",
@@ -52,7 +57,26 @@ export const MissionPieChart = ({ projects }) => {
     ];
   };
 
-  const COLORS = ["#7EB3FF", "#FFC474", "#69EB7D"];
+  const allTasksThisMonth = () => {
+    const d = new Date();
+    let month = d.getMonth() + 1;
+
+    let allTasks = 0;
+
+    projects.list.forEach((project) => {
+      if (project.tasks.length > 0) {
+        project.tasks.forEach((task) => {
+          let taskMonth = new Date(task.endDate).getMonth() + 1;
+          if (taskMonth === month) {
+            allTasks++;
+          }
+        });
+      }
+    });
+    return allTasks;
+  };
+
+  const COLORS = ["#EAEFF6", "#6D49AC", "#69EB7D"];
   return (
     <div>
       <div className="completedProject">
@@ -89,10 +113,23 @@ export const MissionPieChart = ({ projects }) => {
 
       <div className="completedTasks">
         <div className="ChartTitle">
-          {completedTasks()[1].value + "/" + completedTasks()[0].value}
-          <p>
-            משימות שהושלמו <br /> החודש
+          {completedTasks()[1].value}{" "}
+          <p
+            style={{
+              position: "absolute",
+              width: "88px",
+              height: "24px",
+              left: "46%",
+              top: "12px",
+              fontSize: "17px",
+              color: "rgb(210, 178, 250)",
+              marginTop: "0px",
+            }}
+          >
+            {" "}
+            / {allTasksThisMonth()}
           </p>
+          <p>משימות שהושלמו החודש</p>
         </div>
 
         <PieChart className="Pie" width={800} height={400}>
@@ -104,17 +141,18 @@ export const MissionPieChart = ({ projects }) => {
             outerRadius={80}
             dataKey="value"
             fill="#8884d8"
+            max={completedTasks()[0].value}
           >
-            {completedTasks().map((entry, index) => {
-              if (index === 1) {
-                return <Cell key={`cell-${index}`} fill="#EAEFF6" />;
-              }
-              return <Cell key={`cell-${index}`} fill="#6D49AC" />;
-            })}
+            {completedTasks().map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
             <Label
               value={
                 Math.round(
-                  (completedTasks()[1].value / completedTasks()[0].value) * 100
+                  (completedTasks()[1].value / allTasksThisMonth()) * 100
                 ) + "%"
               }
               position="center"

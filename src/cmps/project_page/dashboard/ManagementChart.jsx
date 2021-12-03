@@ -108,6 +108,7 @@ export const ManagementChart = ({ projects }) => {
       <div style={Parentdiv}>
         {data().map((entry, index) => (
           <div
+            key={index}
             style={{
               height: "100%",
               width: `${entry.percentage}%`,
