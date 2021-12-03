@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Checkboxs from '../cmps/events_page/Checkboxs.jsx'
 import EventCard from '../cmps/events_page/EventCard.jsx'
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Modal } from "@mui/material";
+import { BiEdit } from "react-icons/bi";
 
-const EventsPage = () => {
+const AdminEventsPage = () => {
     const { events } = useSelector((state) => state.entities.eventsModule);
     const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
@@ -34,10 +34,10 @@ const EventsPage = () => {
 
     return (
         <section className="eventsPage full">
-            <div className="main-layout wrapper">
+            <div className="admin main-layout wrapper">
 
                 <div>
-                   <Modal
+                    <Modal
                         className="modals"
                         open={open}
                         onClose={() => setToggleMode(p => ({ ...p, file: !p.file }))}
@@ -54,14 +54,24 @@ const EventsPage = () => {
                 </div>
 
                 <div className="headlines">
-                    <Link to='/'><span>לתצוגת לוח שנה</span></Link>
-                    
+                    {/* <Link to='/'><span>לתצוגת לוח שנה</span></Link> */}
+
                     <h2>לוח_אירועים#</h2>
                 </div>
 
                 <div className="selectors">
+                    <button className="editEvent-btn"
+                    onClick={() => {
+                      // setOpen(true);
+                      // setAddProjToggle();
+                      // setToggleLinks(!toggleLinks);
+                    }}
+                    >
+                    עריכה
+                    <BiEdit style={{ margin: "0 5px" }} />
+                    </button>
                     <div className="eventsSearchBar">
-
+                    
                         <IconButton aria-type="search" className="search_logo">
                             <SearchIcon />
                         </IconButton>
@@ -75,13 +85,12 @@ const EventsPage = () => {
                         />
                     </div>
 
-                    <Checkboxs setCheckBoxes={setCheckBoxes} setSearchValue={setSearchValue} />
+                    {/* <Checkboxs setCheckBoxes={setCheckBoxes} setSearchValue={setSearchValue} /> */}
 
                 </div>
 
                 <div className="eventsCards">
-                    {applyCards().map(event => <EventCard event={event} />)}
-
+                    {applyCards().map(event => <EventCard event={event} adminIndicator={true} />)}
                 </div>
 
             </div>
@@ -89,4 +98,4 @@ const EventsPage = () => {
     )
 }
 
-export default EventsPage;
+export default AdminEventsPage;

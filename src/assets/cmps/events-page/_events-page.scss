@@ -6,7 +6,7 @@
     min-height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 .wrapper{
     //grid-column: 2 / 3;
 
@@ -30,9 +30,8 @@
     
     .choose_HL{
             margin-top: 0;
-            padding-left: 1%;
-            width: 15%;
-            text-align: top;
+            width: 11%;
+            text-align: right;
         }
 
     .checkboxs{
@@ -101,7 +100,7 @@
         display: flex;
         flex-direction: row;
         height: 35px;
-        border: 1px solid rgba(43, 43, 43, 0.493);
+        border: 0.5px solid rgba(43, 43, 43, 0.5);
         background-color: white;
         border-radius: 12px;
         width: 25%;
@@ -148,6 +147,7 @@
         justify-content: space-between;
         align-items: center;
         margin: auto;
+        margin-bottom: 50px;
     }
 
     .event-card {
@@ -178,7 +178,8 @@
           height: 170px;
           margin: auto;
           margin-top: 5%;
-          //position: relative;
+          filter: grayscale(100%);
+          
         }
 
         .inButton{
@@ -275,9 +276,68 @@
             color: $clr6;
             transition: 0.5s;
           }
+          .adminEditEvent{
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Rubik;
+            margin: 0px 10px;
+            direction: rtl;
+            
+          }.editEvent-btn{
+              cursor: pointer;
+                display: flex;
+                align-items: center;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-family: "Rubik";
+                margin: 0 10px;
+                direction: rtl;
+            }
           
 
         }
+        .addEvent-btn{
+            cursor: pointer;
+              display: flex;
+              align-items: center;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 5px;
+              font-family: "Rubik";
+              margin: 0 10px;
+              direction: rtl;
+          }
     }
+}
+//admin page edit
+.admin{
+    background-image: url('../../images/events/eventsBG.jpg') ;
+
+    .headlines{
+        justify-content: right;
+    }
+    
+    .selectors{
+        gap: 50px;
+        // .eventsSearchBar{
+        //     border: 0.5px solid rgba(43, 43, 43, 0.493);
+
+        //     }
+        
+    }
+    .editEvent-btn{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "Rubik";
+        margin: 0 10px;
+        direction: rtl;
+    }
+       
 }
 }

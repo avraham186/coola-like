@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
-import "../../../assets/cmps/project-page/_newSidebar.scss";
+// import "./newSidebar.scss";
 import NewPositionForm from "./new_position/NewPositionForm.jsx";
 import AddNewEvent from "./new_event/AddNewEvent.jsx";
 import AddNewProject from "./AddNewProject.jsx";
@@ -45,12 +44,8 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
         {/* <div >  */}
 
         {open ? (
-          //   <div className="sidbar-left-arrow">
-          <div>
-            <AiOutlineDoubleLeft
-              onClick={handelsideBar}
-              className="leftBarIcon"
-            />
+          <div className="sidbar-left-arrow">
+            <AiOutlineDoubleLeft onClick={handelsideBar} />
           </div>
         ) : (
           <div className="sidebar-admin-right-arrow">

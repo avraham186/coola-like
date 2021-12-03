@@ -1,8 +1,9 @@
 import './assets/main.scss';
 import {Route, Switch, useLocation} from 'react-router-dom'
 import {routes} from './routes';
-import {AdminNav} from './cmps/navbar/AdminNav'
+import {AdminNav} from './cmps/AdminNav'
 import {AppFooter} from './cmps/AppFooter'
+import { AppNav } from './cmps/navbar/AppNav'
 
 export function App() {
 
@@ -12,6 +13,7 @@ export function App() {
     }
     return (
         <div className="main-layout">
+            
             {
                 location.pathname !== '/login' && <AdminNav/>
             }
@@ -33,6 +35,7 @@ export function App() {
             {
                 isFooter() && <AppFooter/>
             }
+            
         </div>
     );
 }

@@ -59,7 +59,9 @@ const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
             </div>
          </div>
 
-         <h4 className="choose_HL">:בחר תחומי עניין</h4>
+         
+            <h4 className="choose_HL">:בחר תחומי עניין</h4>
+      
 
       </>
 

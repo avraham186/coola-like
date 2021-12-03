@@ -3,11 +3,12 @@ import {Button, FormHelperText, makeStyles} from "@material-ui/core";
 import LoginGoogle from "../socials/LoginGoogle";
 import LoginLinkedIn from "../socials/LoginLinkdin";
 import Inputs from "../../inputs/Inputs";
-import Progress from "../../progress/Progress";
+import LinearProgress from '@mui/material/LinearProgress';
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
 import {setLogin} from "../../../store/user";
 import {useDispatch, useSelector} from "react-redux";
 import LoginFacebook from "../socials/LoginFacebook";
+import Modal from '@mui/material/Modal';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -100,6 +101,12 @@ const LoginForm = (props) => {
         }
     }
 
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
     return (
         <div className="login--form">
             <div className="login--form--header">
@@ -109,9 +116,9 @@ const LoginForm = (props) => {
                 <h1>התחברות</h1>
                 <h3>היכנס באמצעות חשבונות קיימים</h3>
                 <div className="login--form--socials">
-                    <LoginGoogle/>
-                    <LoginLinkedIn/>
-                    <LoginFacebook/>
+                    <LoginGoogle handleOpen={handleOpen} handleClose={handleClose}/>
+                    <LoginLinkedIn handleOpen={handleOpen} handleClose={handleClose}/>
+                    <LoginFacebook handleOpen={handleOpen} handleClose={handleClose}/>
                 </div>
                 {
                     user.error
@@ -138,12 +145,19 @@ const LoginForm = (props) => {
                         </FormHelperText>
 
                         <Button disabled={isLoading} type="submit" variant="contained" color="primary"
-                                className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
+                                className={classes.submit} size='large' onClick={handleSubmit,(e)=>{e.preventDefault();setOpen(true)}} key="submitBtn">
                             התחברות
                         </Button>
-
-                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
-
+                        <Modal
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            >
+                                {/* <Box className="box_preloader"> */}
+                        <LinearProgress color="secondary" handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
+                                {/* </Box> */}
+                        </Modal>
                     </form>
                 </div>
                 <a href="#" onClick={(e) => {
