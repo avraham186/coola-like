@@ -2,16 +2,18 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
 import { useSelector } from 'react-redux';
+
 export function AppNav() {
     const user = useSelector(state => state.entities.user)
     return (
-        <div className="app-navbar-wrapper">
+        <header className="app-navbar-wrapper full">
+            <div className="app-navbar-bg main-layout">
             <div className="app-navbar">
                 <div className="left-list clean-list">
 
                     <span>
                         <IconButton  >
-                            <img className="gb_Ca" src={user.user.imageUrl} >
+                            <img className="gb_Ca" src={user.imageUrl} >
 
                             </img>
                         </IconButton>
@@ -20,7 +22,7 @@ export function AppNav() {
 
 
                     <div className="mngr-login-button">
-                        <input type="button" value="כניסת מנהלים" className="mngBtn" />
+                        <input type="button" value="מערכת ניהול" className="mngBtn"/>
                     </div>
 
                 </div>
@@ -39,5 +41,6 @@ export function AppNav() {
 
             </div>
         </div>
+    </header>
     )
 }

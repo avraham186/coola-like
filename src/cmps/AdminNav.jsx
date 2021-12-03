@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/images/coola_like_logo.svg'
 import IconButton from "@mui/material/IconButton";
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import SearchBar from "material-ui-search-bar";
+// import SearchBar from "material-ui-search-bar";
 import NotificationImportantIcon from '@mui/icons-material/NotificationImportant';
 
 import { shimon } from '../assets/images/founders-imgs'
@@ -12,16 +12,20 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountMenu from './sub_cmps/AccountMenu.jsx'
 import { useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 export function AdminNav() {
 
     const userFromStore = useSelector(state => state.entities.user)
 
+
     const user = { name: "Shimon Moyal" }
     const [searchValue, setSearchValue] = useState('')
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false)
     const [isNotifications, setIsNotifications] = useState(false);
+
     const doSomethingWith = (input) => {
         console.log(input);
     }
@@ -75,15 +79,16 @@ export function AdminNav() {
                         <li className="selected"><Link to="/"><span>לאתר הקהילה</span></Link></li>
                         <li><Link to="/projects"><span>פרויקטים</span></Link></li>
                         <li><Link to="/"><span>לוח ניהול כללי</span></Link></li>
+                        <li><Link to="/eventsAdmin"><span>עריכת אירועים</span></Link></li>
                         <li className="adminSearchBar">
-                            <SearchBar
+                            {/* <SearchBar
                                 value={searchValue}
                                 onChange={(newValue) => setSearchValue(newValue)}
                                 onRequestSearch={() => doSomethingWith(searchValue)}
                                 placeholder="חפש לדוגמא: סדנה בלינקדאין"
                                 style={{ height: "2rem", textIndent: ".5em" }}
                                 disabled={false}
-                            />
+                            /> */}
                         </li>
                     </ul>
                     <Link to="/">

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   gap: 8px;
 `;
 
-function LinkedInPage() {
+function LinkedInPage({handleOpen,handleClose}) {
     const dispatch = useDispatch();
     const history = useHistory()
 
@@ -61,8 +61,8 @@ function LinkedInPage() {
     const [errorMessage, setErrorMessage] = React.useState("");
 
     return (
-        <div className="linkedin">
-            <Wrapper>
+        <div className="linkedin" >
+            <Wrapper >
                 <Button
                     onClick={linkedInLogin}
                     style={{

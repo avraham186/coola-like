@@ -11,6 +11,7 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import {useSelector} from "react-redux";
+import Link from "react-router-dom/es/Link";
 
 export default function AccountMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -78,7 +79,9 @@ export default function AccountMenu() {
                 transformOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
-                <MenuItem>
+                <MenuItem
+                    component={Link} to='/profile'
+                >
                     <Avatar/> Profile
                 </MenuItem>
                 <MenuItem>
@@ -97,7 +100,7 @@ export default function AccountMenu() {
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem onClick={() => console.log("Hello world!")}>
+                <MenuItem>
                     <ListItemIcon>
                         <Logout fontSize="small"/>
                     </ListItemIcon>

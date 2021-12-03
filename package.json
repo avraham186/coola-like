@@ -1,5 +1,4 @@
 {
-  "homepage": "https://avraham186.github.io/coola-like/",
   "name": "just-like",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +19,6 @@
     "dotenv": "^10.0.0",
     "gh-pages": "^3.2.3",
     "install": "^0.13.0",
-    "material-ui-search-bar": "^1.0.0",
     "node-sass": "^4.14.1",
     "npm": "^8.1.2",
     "react": "^17.0.2",

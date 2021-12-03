@@ -14,6 +14,7 @@ const ProjectsList = () => {
     const [sortHeaders, setSortHeaders] = useState({ status: false, date: false })
     useEffect(() => {
         dispatch(loadProjects());
+        
     }, []);
 
     const applyProjects = () => {
@@ -31,8 +32,12 @@ const ProjectsList = () => {
 
     if (!projects) return <div>Loading...</div>;
     return (
+
+
         <div style={{ direction: "rtl" }}>
+
             <table className="projects-table">
+
                 <thead>
                     <tr className="projects-row ">
                         <th></th>
