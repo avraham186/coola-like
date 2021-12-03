@@ -2,11 +2,9 @@
     height: 700px;
     background-color: white;
 
-
-
     .description-job {
         border: 1px solid #34018E;
-        width: 45%;
+        width: 50%;
         border-radius: 10px;
         direction: rtl;
         padding: 2% 4%;
@@ -70,7 +68,7 @@
         border-top: 1px solid #34018E;
         border-bottom: 1px solid #34018E;
         border-radius: 10px;
-        width: 30%;
+        width: 35%;
         overflow-y: auto;
 
         .job-card {
@@ -81,11 +79,18 @@
             border: 1px solid #34018E;
             padding: 5px;
             box-sizing: border-box;
-
+            cursor: pointer;
         }
 
         #job-card-clicked {
             background-color: #6CE5E7;
         }
     }
+}
+
+.sorting-jobs {
+    // width: 100%;
+    direction: rtl;
+    justify-content: space-around;
+    gap: 40%;
 }

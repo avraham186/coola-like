@@ -1,10 +1,8 @@
 .app-header {
     padding: 50px;
-    background-color: #c0e2ee00;
-    margin-bottom: 10px;
-    //border: dashed #ce2e6c;
     font-family: Rubik, sans-serif;
     font-style: normal;
+    z-index: 10;
 
     .header-container {
         display: flex;
@@ -15,47 +13,52 @@
     .header-content {
         margin-bottom: rem(20px);
         h1 {
-            font-size: 45px;
-            line-height: 47px;
+            font-size: rem(60px);
+            // line-height: 47px;
             color: #000;
             margin-bottom: 10px;
         }
 
         h4 {
-            font-size: 20px;
-            line-height: 20px;
+            font-size: rem(25px);
+            // line-height: 20px;
+            font-family: Rubik-bold;
             color: #000;
             margin: 0;
         }
 
         p {
+            direction: rtl;
             margin-top: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 25px;
+            font-size: rem(20px);
+            // line-height: rem(14px);
+            // font-weight: 500;
         }
     }
 
     .header-buttons {
-
         span {
             border: 2px solid $clr2;
-            font-weight: bold;
-            box-sizing: border-box;
+            background-color: $clr7;
+            color: $clr6;
+            // font-weight: bold;
+            width: rem(199px);
+            height: rem(40px);
+            // box-sizing: border-box;
             cursor: pointer;
             border-radius: 2px 15px;
             font-family: Rubik, sans-serif;
-            font-size: 1em;
+            font-size: rem(18px);
             margin-left: 5%;
             padding: 1% 7% 1% 8%;
             text-decoration: none;
         }
 
-        span:hover {
-            background-color: $clr7;
-            color: $clr6;
-            transition: 0.5s;
-        }
+        // span:hover {
+        //     background-color: $clr7;
+        //     color: $clr6;
+        //     transition: 0.5s;
+        // }
 
         a {
             text-decoration: none;
@@ -64,7 +67,5 @@
 
     .header-logo {
         margin-left: 15%;
-
     }
-
 }

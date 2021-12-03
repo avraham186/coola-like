@@ -1,133 +1,121 @@
-.app-navbar-wrapper{
+.app-navbar-wrapper {
     background-color: white;
-    
-.app-navbar {
-    padding: 5px 0 5px 0;
-    background-color: #ffffff;
-    margin-bottom: 10px;
-    font-family: 'Rubik';
-    display: flex;
-    width: 100%;
-    
-    
-    a{
-        text-decoration: none;
-        color: black;
-    }
-
-    .user_logo{
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-
-    .left-list {
+    box-shadow: 6px 13px 20px -10px #e9e7e7;
+    margin-bottom: rem(10px);
+    .app-navbar {
+        padding: 5px 0 5px 0;
+        background-color: #ffffff;
+        margin-bottom: 10px;
+        font-family: "Rubik";
         display: flex;
-        list-style: none;
-        flex-direction: row;
-        justify-content: space-between;
-        padding-left:0;
-        width: 25vw;
-        margin: auto;
-
-    .mngr-login-button{
-               
-        background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
-        opacity: .5;
-        cursor: pointer;
-        font-family: 'Rubik';
-        border-radius: 2px 15px;
-        width: 153px;
-        height:40px;
-        margin:auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        }
-        .mngr-login-button:hover {
-        opacity: .75;
-
-        }
-
-        .mngBtn{
-            background-color: transparent;
-            border: 0;
-            font-size: medium;
-            color: white;
-            font-family: 'Rubik';
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .user_logo{
-            //position: relative;
-            transform: scale(.9);
-            color: #ffffff;
-            opacity: .5;
-            background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);        
-        }
-    
-        .user_logo:hover{
-    
-            opacity: .75;
-        }
-
-        li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px;
-
-            a {
-                width: fit-content;
-                color: white;
-               
-            }
-            
-         }
-    }
-
-    .selected{
-        text-decoration: underline;
-    }
-
-    .list {
-
-        gap: 10px;
-        border-radius: 50%;
-        padding-left:0;
         width: 100%;
-        display: flex;
-        list-style: none;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        font-family: 'Rubik';
-        font-weight: 600;
+        z-index: 100;
 
-
-        li {
-            margin-left: 4%;
-            margin-right: 2%;
-            
-            
+        a {
+            text-decoration: none;
+            color: black;
         }
 
-        :hover {
-            transform: scale(1.08);
+        .user_logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
-    }
 
-     .coola_like_logo {
-         padding-left: 5px;
-         cursor: pointer;
-     }
+        .left-list {
+            display: flex;
+            list-style: none;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-left: 0;
+            width: 25vw;
+            margin: auto;
 
-     
-     
-    }//navbar
+            .mngr-login-button {
+                background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
+                opacity: 0.5;
+                cursor: pointer;
+                font-family: "Rubik";
+                border-radius: 2px 15px;
+                width: 153px;
+                height: 40px;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .mngr-login-button:hover {
+                opacity: 0.75;
+            }
+
+            .mngBtn {
+                background-color: transparent;
+                border: 0;
+                font-size: medium;
+                color: white;
+                font-family: "Rubik";
+                font-weight: bold;
+                cursor: pointer;
+                text-align: center;
+            }
+
+            .user_logo {
+                //position: relative;
+                transform: scale(0.9);
+                color: #ffffff;
+                opacity: 0.5;
+                background: linear-gradient(to bottom, rgba(52, 1, 142, 1) 0%, rgba(108, 229, 231, 1) 100%);
+            }
+
+            .user_logo:hover {
+                opacity: 0.75;
+            }
+
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+
+                a {
+                    width: fit-content;
+                    color: white;
+                }
+            }
+        }
+
+        .selected {
+            text-decoration: underline;
+        }
+
+        .list {
+            gap: 10px;
+            border-radius: 50%;
+            padding-left: 0;
+            width: 100%;
+            display: flex;
+            list-style: none;
+            flex-direction: row-reverse;
+            justify-content: space-around;
+            align-items: center;
+            font-family: "Rubik";
+            font-weight: 600;
+
+            li {
+                margin-left: 4%;
+                margin-right: 2%;
+            }
+
+            :hover {
+                transform: scale(1.08);
+            }
+        }
+
+        .coola_like_logo {
+            padding-left: 5px;
+            cursor: pointer;
+        }
+    } //navbar
 }
 .gb_Ca {
     -webkit-background-size: 32px 32px;

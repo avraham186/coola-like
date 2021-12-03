@@ -7,7 +7,6 @@ import { arrow_down } from "../../assets/images/icons";
 const statusSort = { DELAY: 1, STARTED: 2, IN_PROCESS: 3, COMPLETED: 4 };
 
 const ProjectsList = () => {
-  //fgerhegherhr//
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
   const [sortHeaders, setSortHeaders] = useState({

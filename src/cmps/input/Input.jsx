@@ -1,7 +1,7 @@
 import {InputAdornment, TextField} from '@material-ui/core/';
 import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { Visibility } from '@mui/icons-material';
+import { VisibilityOff } from '@mui/icons-material';
 import {useState} from "react";
 
 export function Input({required, id, label, type, handleChange, icon}) {

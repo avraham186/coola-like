@@ -5,11 +5,14 @@ import { MissionLineChart } from "./MissionLineChart";
 import { MissionPieChart } from "./MissionPieChart";
 import { AllTasksPieChart } from "./AllTasksPieChart";
 import taskDAL from "../../../adapters/TMS/tasksDAL";
+import "../../../assets/cmps/project-page/dashboard.scss";
+import { BsChevronDoubleDown, BsChevronDoubleUp } from "react-icons/bs";
 
-export const DashBoard = () => {
+export const DashBoard = (props) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
   const [tasks, setTasks] = useState();
+  const [showAllDashboard, setShowAllDashboard] = useState(false);
 
   const data = () => {
     let allProjects = {};
@@ -45,14 +48,18 @@ export const DashBoard = () => {
   ];
 
   return (
-    <div>
+    <div
+    // className={
+    //   showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
+    // }
+    >
       <div
         className="dash-board-headline flex justify-center align-center space-between"
         style={{
           position: "absolute",
-          width: "1240px",
+          width: "88%",
           height: "128px",
-          left: "87px",
+          left: "70px",
           top: "18px",
           background: "#FFFFFF",
           borderRadius: "20px",
@@ -93,15 +100,36 @@ export const DashBoard = () => {
           פרויקטים סה"כ
         </span>
       </div>
-      <div className="line-chart">
-        <MissionLineChart projects={projects} tasks={tasks} />
-      </div>
-      <div className="pie-Tasks-chart">
-        <AllTasksPieChart projects={projects} tasks={tasks} />
-      </div>
-      <div className="pie-chart">
-        <MissionPieChart projects={projects} />
-      </div>
+      {props.showDashboard && (
+        <div>
+          <div className="line-chart">
+            <MissionLineChart projects={projects} tasks={tasks} />
+          </div>
+          <div className="allTasks">
+            <AllTasksPieChart projects={projects} tasks={tasks} />
+          </div>
+          <div className="pie-chart">
+            <MissionPieChart projects={projects} />
+          </div>
+        </div>
+      )}
+
+      {/* <div className="plan">
+        {showAllDashboard ? (
+          <BsChevronDoubleUp
+            onClick={() => {
+              setShowAllDashboard(!showAllDashboard);
+            }}
+          />
+        ) : (
+          <BsChevronDoubleDown
+            onClick={() => {
+              setShowAllDashboard(!showAllDashboard);
+            }}
+          />
+        )}
+        {showAllDashboard ? <p>צמצם חלונית</p> : <p>הרחב חלונית</p>}
+      </div> */}
     </div>
   );
 };

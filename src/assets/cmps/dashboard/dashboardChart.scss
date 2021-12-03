@@ -12,9 +12,9 @@
 }
 .completedProject {
   position: absolute;
-  width: 565px;
+  width: 38%;
   height: 216px;
-  left: 101px;
+  left: 71px;
   top: 164px;
 
   background: #ffffff;
@@ -24,7 +24,7 @@
   position: absolute;
   width: 88px;
   height: 14px;
-  left: 443px;
+  left: 236px;
   // top: 540px;
 
   font-family: Rubik;
@@ -50,15 +50,15 @@
   position: absolute;
   width: 163px;
   height: 163px;
-  left: 100px;
+  // left: 100px;
   border-radius: 15px;
 }
 .completedTasks {
   position: absolute;
-  width: 565px;
+  width: 38%;
   height: 216px;
-  left: 102px;
-  top: 400px;
+  left: 71px;
+  top: 390px;
 
   background: #ffffff;
   border-radius: 20px;
@@ -66,14 +66,14 @@
 .TasksPie {
   position: absolute;
   cursor: default;
-  width: 100%;
+  // width: 100%;
   height: 100%;
   top: 14%;
   left: 30%;
 }
 .TasksTitle {
   position: absolute;
-  width: 100%;
+  width: 74%;
   // height: 14px;
   left: 27%;
   // left: 1100px;
@@ -88,55 +88,24 @@
 
   color: #000000;
 }
-.hadash {
-  position: absolute;
-  width: 72px;
-  height: 14px;
-  right: 136px;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: right;
-  color: #000000;
-}
-.complete {
-  position: absolute;
-  width: 102px;
-  height: 14px;
-  left: 98px;
-  top: 0px;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: right;
 
-  color: #000000;
-}
-.graph {
+.lineTasksChart {
   position: absolute;
-  width: 566px;
-  height: 302px;
-  // left: 200px;
+  width: 46%;
+  height: 37%;
+  left: 47%;
   top: 164px;
-}
-.allTaskPie {
-  position: absolute;
-  width: 655px;
-  height: 443px;
-  // left: 684px;
-  top: 173px;
 
   background: #ffffff;
   border-radius: 20px;
 }
-.lineTasksChart {
+.pie-Tasks-chart {
   position: absolute;
-  width: 657px;
-  height: 450px;
-  /* left: 701px; */
-  top: 127px;
+  width: 46%;
+  height: 37%;
+  left: 47%;
+  top: 634px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 20px;
 }

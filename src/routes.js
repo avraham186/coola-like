@@ -5,8 +5,8 @@ import EventsPage from "./pages/EventsPage.jsx";
 import NewTask from "./cmps/tasks/NewTask.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import JobsPage from "./pages/JobsPage.jsx";
-import GeneralManagement from "./pages/GeneralManagement.jsx";
 import { LinkedInCallback } from "react-linkedin-login-oauth2";
+import ProfilePage from "./pages/ProfilePage";
 
 export const routes = [
   {
@@ -22,12 +22,12 @@ export const routes = [
     component: LoginPage,
   },
   {
-    path: "/projects",
-    component: ProjectPage,
+    path: "/profile",
+    component: ProfilePage,
   },
   {
-    path: "/generalManagment",
-    component: GeneralManagement,
+    path: "/projects",
+    component: ProjectPage,
   },
   {
     path: "/events",
@@ -45,4 +45,8 @@ export const routes = [
     path: "/jobs",
     component: JobsPage,
   },
+  // {
+  //   path: "/generalManagment",
+  //   component: GeneralManagement,
+  // },
 ];

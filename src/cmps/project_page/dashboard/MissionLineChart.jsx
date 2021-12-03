@@ -69,9 +69,14 @@ export const MissionLineChart = ({ projects, tasks }) => {
   };
 
   return (
-    <div>
-      <ResponsiveContainer width="100%" aspect={3} className="lineTasksChart">
-        <LineChart width={500} height={300} data={data()}>
+    <div className="lineTasksChart">
+      <ResponsiveContainer aspect={3}>
+        <LineChart
+          width={300}
+          height={300}
+          data={data()}
+          style={{ width: "48%", height: "37%", top: "30%", right: "4%" }}
+        >
           <XAxis dataKey="day" />
           <YAxis dataKey="numOfTasks" />
           <CartesianGrid stroke="#eee" strokeDasharray="5 5" />

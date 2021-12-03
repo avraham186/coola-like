@@ -1,41 +1,40 @@
-// .footer{
-//     position: sticky;
-//     bottom: 0;
-// }
-
-.footer__container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    .logo img{
-        width: 200px;
-        height: 200px;
-
-    }
-
-    .footer-title {
-        color: #6CE5E7;
-        margin-top: 0;
-    }
-
-    // grid-column:2/3;
-    .footer-column {
-        display: flex;
-        flex-direction: column;
-        text-align: right;
-        color: white;
-        gap: 15px;
-        font-size: 14px;
-    }
-    .footer__socials {
-        text-align: right;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        .socials-icons {
-            width: 7.5rem;
-            display: flex;
-            justify-content: space-between;
+.footer {
+    direction: rtl;
+    background-color: $clr1;
+    .footer-content {
+        margin: 62px 0px;
+        .footer-logo {
+            img {
+                width: rem(200px);
+                height: rem(200px);
+            }
+        }
+        .footer-title {
+            color: #6ce5e7;
+            font-size: rem(20px);
+            line-height: rem(23px);
+        }
+        .main-pages {
+            color: white;
+            gap: rem(19px);
+            font-size: rem(16px);
+        }
+        .community-management {
+            color: white;
+            gap: rem(19px);
+            font-size: rem(16px);
+            line-height: rem(18px);
+        }
+        .footer-socials {
+            .socials-icons {
+                gap: rem(15px);
+                .footer-social {
+                    &:hover {
+                        // color: #ffffff;
+                        transform: scale(1.2);
+                    }
+                }
+            }
         }
     }
 }

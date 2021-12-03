@@ -3,13 +3,12 @@
     // flex-direction: column;
     margin-top: 10px;
     padding: 30px;
-
     .events-title {
         font-family: Rubik, sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 40px;
-        line-height: 47px;
+        font-size: rem(40px);
+        line-height: rem(47px);
         direction: rtl;
         margin-bottom: 10px;
     }
@@ -43,38 +42,38 @@
     }
     .btn-card {
         position: relative;
-        // justify-content: space-evenly;
-        bottom: rem(23px);
+        bottom: rem(20px);
         gap: rem(20px);
         .events-icon {
             width: rem(40px);
             height: rem(40px);
             transform: scale(0.9);
             &:hover {
-                opacity: 1;
+                background-color: rgb(224, 224, 224);
             }
         }
     }
-
-    .events-cards {
-        // display: flex;
-        flex-wrap: wrap;
-        flex-direction: row-reverse;
-        // justify-content: space-between;
-
-        .card {
-            width: 200px;
-            border-radius: 15px;
-            // position: relative;
-            //z-index: 0;
-            //background-color: transparent;
+    .events-link {
+        .events-sub-title-link {
+            font-family: Rubik-bold, sans-serif;
+            font-size: rem(18px);
+            line-height: rem(21px);
+            &:hover {
+                text-decoration: underline;
+            }
         }
-
+    }
+    .events-cards {
+        flex-wrap: wrap;
+        .card {
+            width: rem(230px);
+            height: rem(320px);
+            border-radius: 10px;
+        }
         .card-img {
             border-radius: 15px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
-
         .card-footer {
             // display: flex;
             position: relative;
@@ -84,13 +83,13 @@
             margin-bottom: rem(30px);
 
             .events-button {
-                border: 3px solid #34018e;
+                border: 2px solid #34018e;
                 padding: 4px 32px;
-                font-weight: bold;
+                // font-weight: bold;
                 background-color: transparent;
                 cursor: pointer;
                 border-radius: 2px 15px;
-                font-family: Rubik, sans-serif;
+                font-family: Rubik-bold, sans-serif;
                 font-size: 16px;
                 color: #34018e;
                 margin-top: 10px;
@@ -100,14 +99,6 @@
                     color: $clr6;
                     transition: 0.5s;
                 }
-            }
-            .events-link {
-                font-family: Rubik, sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 18px;
-                line-height: 21px;
-                text-decoration-line: underline;
             }
         }
     }

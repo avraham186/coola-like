@@ -8,7 +8,7 @@ import {
   Label,
   Legend,
 } from "recharts";
-import dashboard from "../../../assets/cmps/dashboard/dashboardChart.scss";
+import "../../../assets/cmps/dashboard/dashboardChart.scss";
 
 export const AllTasksPieChart = ({ projects }) => {
   const data = () => {
@@ -35,7 +35,7 @@ export const AllTasksPieChart = ({ projects }) => {
 
   const COLORS = ["#7EB3FF", "#FFC474", "#69EB7D"];
   return (
-    <div className="allTaskPie">
+    <div className="pie-Tasks-chart">
       <h3>משימות</h3>
       <p className="TasksTitle">
         <Legend
@@ -48,7 +48,7 @@ export const AllTasksPieChart = ({ projects }) => {
         />
       </p>
 
-      <PieChart width={400} height={400} className="TasksPie">
+      <PieChart width={250} height={250} style={{ top: "15%", left: "30%" }}>
         <Pie
           data={data()}
           cx={120}

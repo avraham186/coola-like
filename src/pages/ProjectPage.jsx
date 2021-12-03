@@ -6,12 +6,14 @@ import NewSideBar from "../cmps/project_page/sideBarAdmin/NewSideBar.jsx";
 import { DashBoard } from "../cmps/project_page/dashboard/DashBoard";
 import { add_new_content } from "../assets/images/icons";
 import { MdOutlineAddToPhotos } from "react-icons/md";
+import { BsChevronDoubleDown, BsChevronDoubleUp } from "react-icons/bs";
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState([]);
   const [open, setOpen] = useState(false);
   const [addProjToggle, setAddProjToggle] = useState(false);
   const [toggleLinks, setToggleLinks] = useState(false);
+  const [showAllDashboard, setShowAllDashboard] = useState(false);
 
   useEffect(() => {
     if (addProjToggle) {
@@ -49,14 +51,40 @@ const ProjectPage = () => {
         </button>
         <br />
         <br />
-        {/* <DashBoard /> */}
-        {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
-        {open ? (
-          <AddNewProject
-            toggleLinks={toggleLinks}
-            setToggleLinks={setToggleLinks}
-          />
-        ) : null}
+        <div
+          className={
+            showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
+          }
+        >
+          <DashBoard showDashboard={showAllDashboard} />
+          <div className={showAllDashboard ? "planTop" : "planUp"}>
+            {showAllDashboard ? (
+              <BsChevronDoubleUp
+                onClick={() => {
+                  setShowAllDashboard(!showAllDashboard);
+                }}
+              />
+            ) : (
+              <BsChevronDoubleDown
+                onClick={() => {
+                  setShowAllDashboard(!showAllDashboard);
+                }}
+              />
+            )}
+            <p style={{ marginTop: "auto" }}>
+              {showAllDashboard ? " צמצם חלונית" : "הרחב חלונית"}
+            </p>
+          </div>
+        </div>
+        <div className={showAllDashboard ? "projectDown" : "projectUp"}>
+          {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
+          {open ? (
+            <AddNewProject
+              toggleLinks={toggleLinks}
+              setToggleLinks={setToggleLinks}
+            />
+          ) : null}
+        </div>
       </div>
       <NewSideBar
         addProjToggle={addProjToggle}
