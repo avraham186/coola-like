@@ -1,13 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from "react-icons/ai";
+import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 // import "./newSidebar.scss";
 import NewPositionForm from "./new_position/NewPositionForm.jsx";
 import AddNewEvent from "./new_event/AddNewEvent.jsx";
 import AddNewProject from "./AddNewProject.jsx";
 import UserPermissions from "./UserPermissions.jsx";
-
-function NewSideBar({addProjToggle, setAddProjToggle}) {
+function NewSideBar({ addProjToggle, setAddProjToggle }) {
     const [open, setOpen] = useState(true);
 
     const linkes = [
@@ -40,56 +39,55 @@ function NewSideBar({addProjToggle, setAddProjToggle}) {
 
 
     return (
-    <>
-        {/* <div className='main-sidebar'>*/}
-            <div className="sideBar"> 
+        <>
+            {/* <div className='main-sidebar'>*/}
+            <div className="sideBar">
                 {/* <div className="sideBar-container"> */}
-                    {/* <div >  */}
+                {/* <div >  */}
 
-                    {open ? (
-                        <div className="sidbar-left-arrow">
-                            <AiOutlineDoubleLeft onClick={handelsideBar}/>
+                {open ? (
+                    <div className="sidbar-left-arrow">
+                        <AiOutlineDoubleLeft onClick={handelsideBar} />
+                    </div>
+                ) : (
+                    <div className="sidebar-admin-right-arrow">
+                        <div className='menu-toggle'>
+                            <AiOutlineDoubleRight onClick={handelsideBar} />
+                            <label className="arrow-icon">תפריט ניהול</label>
                         </div>
-                    ) : (
-                        <div className="sidebar-admin-right-arrow">
-                            <div className='menu-toggle'>
-                                <AiOutlineDoubleRight onClick={handelsideBar}/>
-                                <label className="arrow-icon">תפריט ניהול</label>
-                            </div>
-                            <ul className="sidebarList">
-                                {linkes.map((link, index) => {
-                                    return (
-                                        <li
-                                            key={index}
-                                            className="row"
-                                            id={window.location.pathname === link ? 'active' : ""}
-                                            onClick={() => {
-                                                setTab(link);
-                                                setToggleLinks(!toggleLinks)
-                                            }}
-                                        >
-                                            {link}
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    )}
-                    {/* </div> */}
-
-                    <div>{tab === "הוספת משרה" &&
-                    <NewPositionForm toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                    <div>{tab === "הוספת ארוע" &&
-                    <AddNewEvent toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                    <div>{tab === "הוספת פרוייקט" &&
-                    <AddNewProject toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                    <div>
-                        {tab === "שינוי הרשאות משתמשים" &&
-                        <UserPermissions toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                </div>
-           {/* </div> */}
-        {/*  </div> */}
-    </>
+                        <ul className="sidebarList">
+                            {linkes.map((link, index) => {
+                                return (
+                                    <li
+                                        key={index}
+                                        className="row"
+                                        id={window.location.pathname === link ? 'active' : ""}
+                                        onClick={() => {
+                                            setTab(link);
+                                            setToggleLinks(!toggleLinks)
+                                        }}
+                                    >
+                                        {link}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                )}
+                {/* </div> */}
+                <div>{tab === "הוספת משרה" &&
+                    <NewPositionForm toggleLinks={toggleLinks} setToggleLinks={setToggleLinks} />}</div>
+                <div>{tab === "הוספת ארוע" &&
+                    <AddNewEvent toggleLinks={toggleLinks} setToggleLinks={setToggleLinks} />}</div>
+                <div>{tab === "הוספת פרוייקט" &&
+                    <AddNewProject toggleLinks={toggleLinks} setToggleLinks={setToggleLinks} />}</div>
+                <div>
+                    {tab === "שינוי הרשאות משתמשים" &&
+                        <UserPermissions toggleLinks={toggleLinks} setToggleLinks={setToggleLinks} />}</div>
+            </div>
+            {/* </div> */}
+            {/*  </div> */}
+        </>
     );
 }
 
