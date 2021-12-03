@@ -45,8 +45,4 @@ export const routes = [
     path: "/jobs",
     component: JobsPage,
   },
-  // {
-  //   path: "/generalManagment",
-  //   component: GeneralManagement,
-  // },
 ];

@@ -6,11 +6,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
-  AreaChart,
-  Area,
 } from "recharts";
+import axios from "axios";
 
 export const MissionLineChart = ({ projects, tasks }) => {
   const data = () => {
@@ -35,7 +33,7 @@ export const MissionLineChart = ({ projects, tasks }) => {
     let lastday = new Date(curr.setDate(last)).toUTCString();
 
     let thisWeekTasks = arr.filter(
-      (item) => item.pv !== 0 && item.uv < arr[38].uv && item.uv > arr[23].uv
+      (item) => item.pv !== 0 && item.uv > arr[54].uv && item.uv < arr[58].uv
     );
 
     var days = [
@@ -67,6 +65,32 @@ export const MissionLineChart = ({ projects, tasks }) => {
     });
     return allthisweektasks;
   };
+
+  // useEffect(async () => {
+  //   var curr = new Date();
+  //   var firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()));
+  //   var lastday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
+  //   let firstDayFormat =
+  //     firstday.getDate() +
+  //     "/" +
+  //     (firstday.getMonth() + 1) +
+  //     "/" +
+  //     firstday.getFullYear();
+  //   let lastDayFormat =
+  //     lastday.getDate() +
+  //     "/" +
+  //     (lastday.getMonth() + 1) +
+  //     "/" +
+  //     lastday.getFullYear();
+  //   console.log(firstDayFormat, lastDayFormat);
+  //   const response = await axios.get(
+  //     `https://cula-like-master.herokuapp.com/api/projects/tasks/statistics?before=${lastDayFormat}`
+  //   );
+  //   const response2 = await axios.get(
+  //     `https://cula-like-master.herokuapp.com/api/projects/tasks/statistics?after=${firstDayFormat}`
+  //   );
+  //   console.log(response.data, response2.data);
+  // }, []);
 
   return (
     <div className="lineTasksChart">

@@ -6,13 +6,12 @@ import { MissionPieChart } from "./MissionPieChart";
 import { AllTasksPieChart } from "./AllTasksPieChart";
 import taskDAL from "../../../adapters/TMS/tasksDAL";
 import "../../../assets/cmps/project-page/dashboard.scss";
-import { BsChevronDoubleDown, BsChevronDoubleUp } from "react-icons/bs";
+import { ManagementChart } from "./ManagementChart";
 
 export const DashBoard = (props) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
   const [tasks, setTasks] = useState();
-  const [showAllDashboard, setShowAllDashboard] = useState(false);
 
   const data = () => {
     let allProjects = {};
@@ -28,31 +27,22 @@ export const DashBoard = (props) => {
   };
 
   useEffect(async () => {
-    console.log(data());
+    console.log(projects);
     dispatch(loadProjects());
     const taskstoState = await taskDAL.getAllTasks();
     setTasks(taskstoState);
   }, []);
 
-  useEffect(() => {
-    console.log(data());
-  }, []);
-
-  const total = projects.list.length;
   const statusOptions = [
-    "COMPLETED",
-    "STARTED",
-    "IN_PROCESS",
-    "CANCELED",
-    "DELAY",
+    { eng: "DELAY", heb: "באיחור" },
+    { eng: "CANCELED", heb: "בוטלו" },
+    { eng: "IN_PROCESS", heb: "באיחור" },
+    { eng: "STARTED", heb: "בתהליך" },
+    { eng: "COMPLETED", heb: "הושלמו" },
   ];
 
   return (
-    <div
-    // className={
-    //   showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
-    // }
-    >
+    <div>
       <div
         className="dash-board-headline flex justify-center align-center space-between"
         style={{
@@ -65,33 +55,22 @@ export const DashBoard = (props) => {
           borderRadius: "20px",
         }}
       >
-        <span style={{ textAlign: "center", paddingLeft: "30px" }}>
-          <h3 style={{ marginBottom: 0 }}>
-            {data()["CANCELED"] ? data()["CANCELED"] : 0}
-          </h3>
-          בוטל
-        </span>
-        <span style={{ textAlign: "center" }}>
-          <h3 style={{ marginBottom: 0 }}>
-            {" "}
-            {data()["DELAY"] ? data()["DELAY"] : 0}
-          </h3>
-          באיחור
-        </span>
-        <span style={{ textAlign: "center" }}>
-          <h3 style={{ marginBottom: 0 }}>
-            {" "}
-            {data()["IN_PROCESS"] ? data()["IN_PROCESS"] : 0}
-          </h3>{" "}
-          בתהליך
-        </span>
-        <span style={{ textAlign: "center" }}>
-          <h3 style={{ marginBottom: 0 }}>
-            {" "}
-            {data()["COMPLETED"] ? data()["COMPLETED"] : 0}
-          </h3>{" "}
-          הושלמו
-        </span>
+        {statusOptions.map((status, index) => {
+          return (
+            <span
+              key={index}
+              style={{
+                textAlign: "center",
+                paddingLeft: "30px",
+              }}
+            >
+              <h3 style={{ marginBottom: 0 }}>
+                {data()[status.eng] ? data()[status.eng] : 0}
+              </h3>
+              {status.heb}
+            </span>
+          );
+        })}
         <span style={{ textAlign: "center", paddingRight: "30px" }}>
           <h3 style={{ marginBottom: 0 }}>
             {" "}
@@ -111,25 +90,11 @@ export const DashBoard = (props) => {
           <div className="pie-chart">
             <MissionPieChart projects={projects} />
           </div>
+          <div className="management-chart">
+            <ManagementChart projects={projects} />
+          </div>
         </div>
       )}
-
-      {/* <div className="plan">
-        {showAllDashboard ? (
-          <BsChevronDoubleUp
-            onClick={() => {
-              setShowAllDashboard(!showAllDashboard);
-            }}
-          />
-        ) : (
-          <BsChevronDoubleDown
-            onClick={() => {
-              setShowAllDashboard(!showAllDashboard);
-            }}
-          />
-        )}
-        {showAllDashboard ? <p>צמצם חלונית</p> : <p>הרחב חלונית</p>}
-      </div> */}
     </div>
   );
 };
