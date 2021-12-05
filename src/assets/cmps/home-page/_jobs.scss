@@ -1,0 +1,57 @@
+.jobs {
+    padding: 125px 0px 108px 0px;
+    gap: rem(34px);
+    .jobs-title {
+        font-family: Rubik-bold, sans-serif;
+        font-size: rem(40px);
+        direction: rtl;
+    }
+    .jobs-sub-title-container {
+        direction: rtl;
+        .jobs-sub-title {
+            font-family: Rubik-regular, sans-serif;
+            font-size: rem(25px);
+        }
+        .jobs-sub-title-link {
+            font-family: Rubik-bold, sans-serif;
+            font-size: rem(20px);
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .jobs-cards {
+        .card {
+            width: rem(390px);
+            border-radius: rem(10px);
+            border: 2px solid $clr1;
+            .card-content {
+                font-family: Rubik-bold, sans-serif;
+                font-size: rem(18px);
+                direction: rtl;
+            }
+            .card-content-info {
+                margin-top: 30px;
+
+                .job-icon {
+                    font-size: 18px;
+                    color: #34018e;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                    position: relative;
+                    top: -4px;
+                }
+            }
+            .card-footer {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-family: Rubik, sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                margin-bottom: -8px;
+            }
+        }
+    }
+}

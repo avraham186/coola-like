@@ -17,11 +17,12 @@ const Events = () => {
     return (
         <div className="events flex column">
             <span className="events-title">#לא כדאי_לפספס</span>
-            <div className="events-sub-title-container">
+            <div className="events-sub-title-container flex space-between">
                 <span className="events-sub-title">אירועי השבוע</span>
                 <span className="events-link">
-                    <Link className="events-sub-title-link" to="/events">
-                        לכל האירועים
+                    <Link className="events-sub-title-link flex align-center"
+                        to="/events">
+                        <span>לכל האירועים</span>
                         <ArrowBackIcon className="sub-title-icon" />
                     </Link>
                 </span>
@@ -44,12 +45,6 @@ const Events = () => {
                         </div>
                     </div>
                 })}
-
-                {/* <EventCard/>
-                <EventCard/>
-                <EventCard/>
-                <EventCard/> */}
-
             </div>
         </div>
     );
