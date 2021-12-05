@@ -1,9 +1,9 @@
 .box-person {
-    padding: 30px;
     font-family: Rubik-regular;
     direction: rtl;
+    padding: 40px 0px 60px 0px;
     .box-person-head {
-        padding: 40px 0px;
+        margin-bottom: rem(40px);
     }
 
     .box-person-headline {
@@ -21,10 +21,15 @@
             .founder-content {
                 width: rem(200px);
                 direction: ltr;
+                gap: rem(10px);
 
                 .person-name {
                     font-family: Rubik-medium;
                     font-size: rem(25px);
+                    gap: rem(3px);
+                }
+                .role-text{
+                    font-size: rem(18px);
                 }
             }
         }
