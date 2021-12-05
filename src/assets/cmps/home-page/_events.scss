@@ -1,8 +1,6 @@
 .events {
-    // display: flex;
-    // flex-direction: column;
-    margin-top: 10px;
-    padding: 30px;
+    margin-top: 50px;
+    gap: rem(30px);
     .events-title {
         font-family: Rubik, sans-serif;
         font-style: normal;
@@ -10,34 +8,19 @@
         font-size: rem(40px);
         line-height: rem(47px);
         direction: rtl;
-        margin-bottom: 10px;
     }
-
     .events-sub-title-container {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
         direction: rtl;
-
         .events-sub-title {
-            font-family: Rubik, sans-serif;
-            font-style: normal;
-            font-size: 25px;
-            line-height: 30px;
+            font-family: Rubik-regular, sans-serif;
+            // font-style: normal;
+            font-size: rem(25px);
+            line-height: rem(30px);
         }
-
         .events-sub-title-link {
-            font-family: Rubik, sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 24px;
-        }
-
-        .sub-title-icon {
-            margin-right: 4px;
-            position: relative;
-            top: 6px;
+            font-family: Rubik-medium, sans-serif;
+            font-size: rem(20px);
+            line-height: rem(30px);
         }
     }
     .btn-card {
@@ -66,8 +49,8 @@
     .events-cards {
         flex-wrap: wrap;
         .card {
-            width: rem(230px);
-            height: rem(320px);
+            width: rem(289px);
+            height: rem(403px);
             border-radius: 10px;
         }
         .card-img {
@@ -75,25 +58,18 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         .card-footer {
-            // display: flex;
             position: relative;
-            // flex-direction: column;
-            // justify-content: space-evenly;
-            // gap: rem(20px);
             margin-bottom: rem(30px);
-
             .events-button {
-                border: 2px solid #34018e;
+                border: 2px solid $clr1;
                 padding: 4px 32px;
-                // font-weight: bold;
                 background-color: transparent;
                 cursor: pointer;
                 border-radius: 2px 15px;
                 font-family: Rubik-bold, sans-serif;
-                font-size: 16px;
-                color: #34018e;
-                margin-top: 10px;
-                // margin-bottom: 15px;
+                font-size: rem(16px);
+                color: $clr1;
+                margin-top: rem(30px);
                 &:hover {
                     background-color: $clr7;
                     color: $clr6;
