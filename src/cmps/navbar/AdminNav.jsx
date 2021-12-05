@@ -18,7 +18,7 @@ export function AdminNav() {
                     </div>
 
                     <ul className="list clean-list flex">
-                        <li className="selected"><Link to="/"><span>בית</span></Link></li>
+                        <li><Link to="/"><span>בית</span></Link></li>
                         <li><Link to="/" className='disabled-link'><span>הודות</span></Link></li>
                         <li><Link to="/jobs"><span>לוח משרות</span></Link></li>
                         <li><Link to="/events"><span>אירועים</span></Link></li>

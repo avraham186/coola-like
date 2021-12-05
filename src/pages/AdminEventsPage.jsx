@@ -59,7 +59,7 @@ const AdminEventsPage = () => {
 
                 <div className="selectors">
                     
-                    <button className="editEvent-btn"
+                    <button className="addEvent-btn"
                     onClick={() => {
                       setOpen(true);
                       // setAddProjToggle();
