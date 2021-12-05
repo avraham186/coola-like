@@ -25,7 +25,7 @@ export function AdminNav() {
     const [searchValue, setSearchValue] = useState('')
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false)
     const [isNotifications, setIsNotifications] = useState(false);
-
+    const [selected, setSelected] = useState("1")
     const doSomethingWith = (input) => {
         console.log(input);
     }
@@ -76,10 +76,14 @@ export function AdminNav() {
                         </Menu>
                     </div>
                     <ul className="list clean-list flex">
-                        <li className="selected"><Link to="/"><span>לאתר הקהילה</span></Link></li>
-                        <li><Link to="/projects"><span>פרויקטים</span></Link></li>
-                        <li><Link to="/"><span>לוח ניהול כללי</span></Link></li>
-                        <li><Link to="/eventsAdmin"><span>עריכת אירועים</span></Link></li>
+                        <li><Link to="/" className={selected=="1"?"selected": ""}  onClick={()=>setSelected("1")}>
+                            <span>לאתר הקהילה</span></Link></li>
+                        <li><Link to="/projects" className={selected=="2"?"selected": ""} onClick={()=>setSelected("2")}>
+                            <span>פרויקטים</span></Link></li>
+                        <li><Link to="/" className={selected=="3"?"selected": ""} onClick={()=>setSelected("3")}>
+                            <span>לוח ניהול כללי</span></Link></li>
+                        <li><Link to="/eventsAdmin" className={selected=="4"?"selected": ""} onClick={()=>setSelected("4")}>
+                            <span>עריכת אירועים</span></Link></li>
                         <li className="adminSearchBar">
                             {/* <SearchBar
                                 value={searchValue}
