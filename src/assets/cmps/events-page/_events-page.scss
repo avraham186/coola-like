@@ -141,13 +141,17 @@
     }
 
     .eventsCards{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-        margin-bottom: 50px;
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        // justify-content: space-between;
+        // align-items: center;
+        // margin: auto;
+        // margin-bottom: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        
     }
 
     .event-card {
