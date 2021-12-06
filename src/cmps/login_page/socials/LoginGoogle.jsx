@@ -1,7 +1,7 @@
 import React from 'react';
 import {GoogleLogin} from 'react-google-login';
 import {refreshTokenSetup} from '../../../utils/refreshToken';
-import {Button} from "@material-ui/core";
+import Button from '@mui/material/Button';
 import {useDispatch} from "react-redux";
 import {googleProfile} from "../../../store/user";
 import GoogleLogo from '../../../assets/images/login--page/socials/google--logo.png';
@@ -16,7 +16,7 @@ function LoginGoogle() {
     const history = useHistory();
 
     const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj);
+        // console.log('Login Success: currentUser:', res.profileObj);
         dispatch(googleProfile(res.profileObj));
         history.push("/");
         refreshTokenSetup(res);

@@ -1,24 +1,19 @@
 import './assets/main.scss';
-import { Route, Switch, useLocation } from 'react-router-dom'
-import { useState } from 'react'
-import { routes } from './routes';
-import { AdminNav } from './cmps/AdminNav'
-import { AppFooter } from './cmps/AppFooter'
-
+import {Route, Switch, useLocation} from 'react-router-dom'
+import {routes} from './routes';
+import {AdminNav} from './cmps/navbar/AdminNav'
+import {AppFooter} from './cmps/AppFooter'
 
 export function App() {
 
-    const [isAdmin, setIsAdmin] = useState(false)
     const location = useLocation();
     const isFooter = () => {
-        if (location.pathname === '/login' || location.pathname.includes('/projects')) {
-            return false
-        } else return true
+        return !(location.pathname === '/login' || location.pathname === '/profile' || location.pathname.includes('/projects'));
     }
     return (
         <div className="main-layout">
             {
-                location.pathname !== '/login' && <AdminNav />
+                location.pathname !== '/login' && <AdminNav/>
             }
             <Switch>
                 {
@@ -36,7 +31,7 @@ export function App() {
             </Switch>
 
             {
-                isFooter() && <AppFooter />
+                isFooter() && <AppFooter/>
             }
         </div>
     );

@@ -1,25 +1,27 @@
-import React, {useState} from 'react';
-import {Button, FormHelperText, makeStyles, MenuItem, Select} from "@material-ui/core";
+import React, { useState } from 'react';
+import { Button, FormHelperText, makeStyles, MenuItem, Select } from "@material-ui/core";
 import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
-import {setLogin} from "../../../store/user";
-import {useDispatch} from "react-redux";
+import { setLogin } from "../../../store/user";
+import { useDispatch } from "react-redux";
+// import {MultiSelect} from "react-multi-select-component";
 
 
 const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(0, 3, 3),
-        color: '#34018E',
-        backgroundColor: "transparent",
+        color: '#FFF',
+        backgroundColor: "#34018E",
         border: "2px solid #34018E",
         borderRadius: "2px 15px",
         fontSize: "18px",
         width: "200px",
         marginTop: "50px",
         '&:hover': {
-            backgroundColor: '#fff',
-            color: '#3c52b2',
+            backgroundColor: "#34018E",
+            /* offset-x | offset-y | blur-radius | spread-radius | color */
+            boxShadow: '0px 0px 6px 1px #34018E'
         },
     },
     inputs: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
     },
     placeholder: {
-        color: "#aaa",
+        color: "#AAA",
         textAlign: 'right',
     },
     selectEmpty: {
@@ -47,40 +49,40 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const textFieldArr = [
-    {id: "username", label: "שם משתמש", type: 'text', required: true},
-    {id: "Email", label: "אימייל", type: 'email', required: true},
-    {id: "password", label: "סיסמה", type: 'password', required: true}
+    { id: "Email", label: "אימייל", type: 'email', required: true },
+    { id: "password", label: "סיסמה", type: 'password', required: true },
+    { id: "password2", label: "אימות סיסמה", type: 'password', required: true }
 ];
 
 // Move this to utils folder
 const interestsArr = [
-    'FULLSTACK',
-    'FRONTEND',
-    'BACKEND',
-    'QA',
-    'UX',
-    'UI',
-    'AUTOMATION',
-    'SECURITY',
-    'INFRASTRUCTURE',
-    'CLOUD_SECURITY_ENGINEER',
-    'QUALITY_ASSURANCE_ENGINEER',
-    'WEB_DEVELOPER',
-    'ANDROID_DEVELOPER',
-    'SOLUTIONS_ENGINEER',
-    'DEVOPS_ENGINEER',
-    'FRAMEWORK_DEVELOPER',
-    'BIGDATA',
-    'MOBILE_DEVELOPER',
-    'CYBER',
-    'FIRMWARE_VALIDATION',
-    'DESIGN_SYSTEM',
-    'SUPPORT_ENGINEER',
-    'MARKETING_WEB_DEVELOPER'
+    { label: "Fullstack", value: "FULLSTACK" },
+    { label: "Frontend", value: "FRONTEND" },
+    { label: "Backend", value: "BACKEND" },
+    { label: "QA", value: "QA" },
+    { label: "UX", value: "UX" },
+    { label: "UI", value: "UI" },
+    { label: "Automation", value: "AUTOMATION" },
+    { label: "Security", value: "SECURITY" },
+    { label: "Infrastructure", value: "INFRASTRUCTURE" },
+    { label: "Cloud security engineer", value: "CLOUD_SECURITY_ENGINEER" },
+    { label: "Quality assurance engineer", value: "QUALITY_ASSURANCE_ENGINEER" },
+    { label: "Web developer", value: "WEB_DEVELOPER" },
+    { label: "Android developer", value: "ANDROID_DEVELOPER" },
+    { label: "Solution engineer", value: "SOLUTIONS_ENGINEER" },
+    { label: "DevOps engineer", value: "DEVOPS_ENGINEER" },
+    { label: "Framework developer", value: "FRAMEWORK_DEVELOPER" },
+    { label: "BigData", value: "BIGDATA" },
+    { label: "Mobile developer", value: "MOBILE_DEVELOPER" },
+    { label: "Cyber", value: "CYBER" },
+    { label: "Firmware validation", value: "FIRMWARE_VALIDATION" },
+    { label: "Design system", value: "DESIGN_SYSTEM" },
+    { label: "Support engineer", value: "SUPPORT_ENGINEER" },
+    { label: "Marketing web developer", value: "MARKETING_WEB_DEVELOPER" },
 ];
 
 
-const Placeholder = ({children}) => {
+const Placeholder = ({ children }) => {
     const classes = useStyles();
     return <div className={classes.placeholder}>{children}</div>;
 };
@@ -90,29 +92,28 @@ const SignUp = () => {
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
-        username: '',
         Email: '',
         password: '',
+        password2: '',
         interests: ''
     });
 
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleChange = (event) => {
-        const {name, value} = event.target;
+    const handleChange = ({ name, value }) => {
         switch (name) {
-            case 'username':
-                setFormData({...formData, username: value});
-                break;
             case 'Email':
-                setFormData({...formData, Email: value});
+                setFormData({ ...formData, Email: value });
                 break;
             case 'password':
-                setFormData({...formData, password: value});
+                setFormData({ ...formData, password: value });
+                break;
+            case 'password2':
+                setFormData({ ...formData, password2: value });
                 break;
             case 'interests':
-                setFormData({...formData, interests: value});
+                setFormData({ ...formData, interests: value });
                 break;
             default:
                 break;
@@ -121,24 +122,34 @@ const SignUp = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (validateForm()) {
-            setError('');
+        setError('');
+        if (validateForm() && validatePassword()) {
             setIsLoading(true);
             console.log(formData)
             // handleRegistration();
         } else {
-            setError('Error: Invalid Form');
+            if (!validateForm())
+                setError('Error: Invalid form');
+            if (!validatePassword())
+                setError('Error: Passwords doesn\'t match');
         }
     }
 
     const validateForm = () => {
-        return formData.username !== '' && formData.Email !== '' && formData.password !== '';
+        return formData.Email !== '' && formData.password !== '' && formData.password2 !== '';
     }
+
+    const validatePassword = () => {
+        return formData.password === formData.password2;
+    }
+
+
+    const [selected, setSelected] = useState([]);
 
     return (
         <div className="login--form">
             <div className="login--form--header">
-                <a href="/"> חזר לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow"/></a>
+                <a href="/"> חזר לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
             </div>
             <div className="login--form--body">
                 <h1>התחברות</h1>
@@ -147,7 +158,16 @@ const SignUp = () => {
                 <div className="login-form-inputs">
                     <form>
 
-                        <Inputs inputs={textFieldArr} handleChange={handleChange}/>
+                        <Inputs inputs={textFieldArr} handleChange={handleChange} />
+
+
+                        {/*<MultiSelect*/}
+                        {/*    options={interestsArr}*/}
+                        {/*    value={selected}*/}
+                        {/*    onChange={handleChange}*/}
+                        {/*    name="interests"*/}
+                        {/*    className={classes.inputs}*/}
+                        {/*/>*/}
 
                         <Select
                             disableUnderline
@@ -161,11 +181,11 @@ const SignUp = () => {
                                 formData.interests !== "" ? undefined : () => <Placeholder>בחירת תחומי עניין</Placeholder>
                             }
                             className={classes.inputs}
-                            classes={{icon: classes.icon}}
+                            classes={{ icon: classes.icon }}
                         >
                             {
                                 interestsArr.map((v, i) => {
-                                    return <MenuItem key={i} value={v}>{v}</MenuItem>
+                                    return <MenuItem key={i} value={v.value}>{v.label}</MenuItem>
                                 })
                             }
                         </Select>
@@ -177,18 +197,18 @@ const SignUp = () => {
                         </FormHelperText>
 
                         <Button disabled={isLoading} type="submit" variant="contained" color="primary"
-                                className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
+                            className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
                             התחברות
                         </Button>
 
-                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'}/>
+                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'} />
 
                     </form>
                 </div>
 
                 <a href="#" onClick={(e) => {
                     e.preventDefault();
-                    dispatch(setLogin({view: 'signin'}))
+                    dispatch(setLogin({ view: 'signin' }))
                 }}>בחזרה לדף התחברות</a>
 
             </div>

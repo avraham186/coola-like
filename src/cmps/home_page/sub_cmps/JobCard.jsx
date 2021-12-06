@@ -7,8 +7,10 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import WorkIcon from '@mui/icons-material/Work';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import workIcon from '../../../assets/images/jobs/work-icon.png'
+import locationIcon from '../../../assets/images/jobs/location-icon.png'
+// import WorkIcon from '@mui/icons-material/Work';
+// import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -33,11 +35,19 @@ export const JobCard = ({ job }) => {
                 <div className="card-content flex align-center justify-center">
                     <span>{job.title}</span>
                 </div>
-                <div className="card-content-info flex align-center justify-center space-between">
-                    <span>{job.location}<LocationOnIcon className="job-icon" /></span>
-                    <span>{job.type}<WorkIcon className="job-icon" /></span>
-                    {/* <span>{job.location}<LocationOnIcon className="job-icon" /></span>
-                    <span>{job.misra}<WorkIcon className="job-icon" /></span> */}
+                <div className="card-content-info flex align-center 
+                justify-center space-between"
+                >
+                    <span className="flex align-center justify-center">
+                        {job.location}
+                        <img src={locationIcon} alt="location-icon"
+                            className="job-icon" />
+                    </span>
+                    <span className="flex align-center justify-center">
+                        {job.type}
+                        <img src={workIcon} alt="work-icon"
+                            className="job-icon" />
+                    </span>
                 </div>
             </CardContent>
             <CardActions disableSpacing className="card-footer">
