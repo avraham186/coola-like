@@ -29,7 +29,7 @@ const EventCard = ({ event, adminIndicator }) => {
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
-                        <Box className="box-modal">
+                        <Box className="box-modal editEvent-box">
                             <label htmlFor="">
                                 <input type="text" value={event.subject}/>
                                 כותרת האירוע
@@ -65,10 +65,10 @@ const EventCard = ({ event, adminIndicator }) => {
                                 <input type="text" value={event.link}/>
                             </label>
 
-                            <button className="save-modal-button"
-                                onClick={() => setToggleMode(
+                            <button className="save-modal-button btn-save"
+                                onClick={() => {setToggleMode(
                                     //edit the event details
-                                )}>
+                                ); setOpen(false)}}>
                                 שמור וסגור
                             </button>
                         </Box>
