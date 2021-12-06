@@ -17,18 +17,11 @@ export function AppFooter() {
         <div className="flex space-between">
           <div className="footer-logo" >
             <img src={logo} alt="logo" />
-            {/* <object
-              data={logo}
-              // className="person-img"
-              // width="140"
-              // height="138"
-              type="image/svg+xml"
-            /> */}
           </div>
           <div className="main-pages flex column">
             <h3 className="footer-title">עמודים מרכזיים</h3>
             <Link to='/'><span>עמוד הבית</span></Link>
-            <Link to='/'><span>עלינו</span></Link>
+            <Link to='/'><span>אודות</span></Link>
             <Link to='/events'><span>דך ארועים</span></Link>
             <Link to='/projects'><span>דף משרות</span></Link>
             <Link to='/'><span>טיפים ומידע</span></Link>

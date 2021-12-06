@@ -14,18 +14,18 @@ const Jobs = () => {
         dispatch(loadJobs())
     }, [])
     return (
-        <div className="jobs">
+        <div className="jobs flex column">
             <span className="jobs-title">#לוח_משרות לג'וניורים</span>
-            <div className="jobs-sub-title-container">
+            <div className="jobs-sub-title-container flex align-center space-between">
                 <span className="jobs-sub-title">המשרות החמות של השבוע</span>
                 <span className="jobs-sub-title-link">
-                    <Link to="/jobs">
+                    <Link to="/jobs" className="flex align-center">
                         <span className="jobs-link">לכל הפרטים</span>
                         <ArrowBackIcon className="sub-title-icon" />
                     </Link>
                 </span>
             </div>
-            <div className="jobs-cards">
+            <div className="jobs-cards flex space-between">
                 {jobs.list.slice(-3).map((job) => {
                     return <div key={job.id}>
                         <JobCard job={job} />

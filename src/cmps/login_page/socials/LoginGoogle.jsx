@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-function LoginGoogle() {
+function LoginGoogle({handleOpen,handleClose}) {
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -27,7 +27,7 @@ function LoginGoogle() {
     };
 
     return (
-        <div className="google">
+        <div className="google" onClick={()=>handleOpen()}>
             <GoogleLogin
                 clientId={clientId}
                 buttonText=" Google המשך עם"
@@ -55,8 +55,8 @@ function LoginGoogle() {
                         Google
                     </Button>
                 )}
-                onSuccess={onSuccess}
-                onFailure={onFailure}
+                onSuccess={onSuccess,handleClose}
+                onFailure={onFailure,handleClose}
                 cookiePolicy={'single_host_origin'}
             />
         </div>
