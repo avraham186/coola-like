@@ -1,0 +1,78 @@
+.show-all-dash-board {
+  position: absolute;
+  width: 100%;
+  height: 1210px;
+  left: 0px;
+  // top: 290px;
+
+  background: #f4f4f4;
+}
+.not-all-dash-board {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  left: 0px;
+  // top: 331px;
+  background: #f4f4f4;
+}
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+  margin-bottom: 24px;
+  overflow: hidden;
+  background: #f7f7f7;
+  border: 0px;
+  border-radius: 2px;
+}
+// .showDashboardIcon {
+//   position: absolute;
+//   left: 46%;
+//   // right: -71.89%;
+//   top: 75%;
+//   // bottom: -53.14%;
+//   p {
+//     position: absolute;
+//     width: 256px;
+//     // height: 20px;
+//     // left: 576px;
+//     // top: 1674px;
+
+//     /* Button text- Rubik 25px medium */
+
+//     font-family: Rubik;
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 18px;
+//     line-height: 21px;
+//     text-align: center;
+
+//     color: #686868;
+//   }
+//   .BsChevronDoubleDown {
+//     position: absolute;
+//     transform: rotate(-180deg);
+//   }
+// }
+.plan {
+  position: absolute;
+  width: 256px;
+  height: 20px;
+  left: 35%;
+  bottom: 23%;
+  // top: 1674px;
+
+  /* Button text- Rubik 25px medium */
+
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #686868;
+  .BsChevronDoubleUp {
+    position: absolute;
+  }
+  .BsChevronDoubleUp {
+    position: absolute;
+  }
+}

@@ -22,15 +22,13 @@ export const Founders = ({ persons }) => {
                                 type="image/svg+xml"
                             />
                             <div className="founder-content flex column justify-center align-center">
-                                <span className="person-name">
+                                <span className="person-name flex">
                                     <object
                                         data={LinkIcon}
                                         width="24"
                                         height="23.8"
                                         type="image/svg+xml"
                                     />
-                                    {" "}
-                                    {""}
                                     {person.name}
                                 </span>
                                 <span className="role-text flex justify-center">{person.roleText}</span>

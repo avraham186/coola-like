@@ -1,7 +1,7 @@
-import shimon from '../../assets/images/founders-imgs/shimon.png'
-import adi from '../../assets/images/founders-imgs/adi.png'
-import stav from '../../assets/images/founders-imgs/stav.png'
-import iris from '../../assets/images/founders-imgs/iris.png'
+import shimon from '../../assets/images/founders-imgs/shimon.svg'
+import adi from '../../assets/images/founders-imgs/adi.svg'
+import stav from '../../assets/images/founders-imgs/stav.svg'
+import iris from '../../assets/images/founders-imgs/iris.svg'
 
 const initialState = {
     events: [
