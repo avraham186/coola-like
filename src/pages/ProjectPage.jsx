@@ -4,6 +4,7 @@ import ProjectsList from "../cmps/project_page/ProjectsList.jsx";
 import AddNewProject from "../cmps/project_page/sideBarAdmin/AddNewProject.jsx";
 import NewSideBar from "../cmps/project_page/sideBarAdmin/NewSideBar.jsx";
 import { MdOutlineAddToPhotos } from "react-icons/md";
+//import DashBoard from "../cmps/project_page/dashboard/DashBoard.jsx";
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
@@ -43,6 +44,11 @@ const ProjectPage = () => {
                     <MdOutlineAddToPhotos style={{ margin: "0 5px" }} />
                 </button>
                 <br />
+
+                <div className="projects-dashBoard">
+               {/*} <DashBoard />{*/}
+                </div>
+
                 <br />
                 {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
                 {open ? (
@@ -51,6 +57,8 @@ const ProjectPage = () => {
                         setToggleLinks={setToggleLinks}
                     />
                 ) : null}
+
+
             </div>
             <NewSideBar
                 addProjToggle={addProjToggle}
