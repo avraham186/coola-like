@@ -7,8 +7,8 @@ const Header = () => {
         <div className="app-header flex align-center justify-center space-between">
             <div className="header-container flex column">
                 <div className="header-content">
-                    <h1>כולא_לייק#</h1>
-                    <h4>.הבית של אלו שנקלעו לפרדוקס הג'וניור</h4>
+                    <h1>#כולא_לייק</h1>
+                    <h4>הבית של אלו שנקלעו לפרדוקס הג'וניור.</h4>
                     <p className="flex column">
                         אנחנו כאן לעזור לכל מי שבתחילת דרכו התעסוקתית,<br />
                         בחינם, ללא תמורה, רק מתוך רצון אמיתי לעזור אחד לשניה.

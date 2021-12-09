@@ -34,7 +34,6 @@ export const MissionPieChart = ({ projects }) => {
     projects.list.forEach((project) => {
       if (project.tasks.length > 0) {
         project.tasks.forEach((task) => {
-          console.log(task);
           let taskMonth = new Date(task.endDate).getMonth() + 1;
           if (task.taskStatus !== "COMPLETED" && taskMonth === month) {
             allOtherTasks++;
