@@ -7,11 +7,11 @@ const ProfilePage = () => {
     const userFromStore = useSelector(state => state.entities.user)
     return (
         <div className="profile--layout">
-            <div className="profile--section profile">
-                <div className="sub_sec">
+            <div className="profile--section container">
+                <div className="item">
                     <UpdateProfile />
                 </div>
-                <div className="sub_sec">
+                <div className="item">
                     <Avatar
                         sx={{width: 180, height: 180}}
                         src={userFromStore.imageUrl}
