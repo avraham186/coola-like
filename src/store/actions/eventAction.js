@@ -15,7 +15,7 @@ export function loadEvents(filterBy) {
     }
 }
 
-export function removeEvent(toyId) {
+export function removeEvent(eventId) {
     return dispatch => {
         try {
             eventService.remove(eventId)
@@ -33,7 +33,6 @@ export function removeEvent(toyId) {
 
 export function saveEvent(event) { // Action Creator
     const type = event._id ? 'UPDATE_event' : 'ADD_event'
-
 
     return (dispatch) => {
         try {
