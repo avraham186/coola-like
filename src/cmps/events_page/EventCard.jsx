@@ -17,7 +17,7 @@ const EventCard = ({ event, adminIndicator }) => {
         dueDate: false,
         file: false
     })
-
+    
     return (
 
         <div className="event-card">
@@ -29,7 +29,7 @@ const EventCard = ({ event, adminIndicator }) => {
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
-                        <Box className="box-modal editEvent-box">
+                        <Box className="boxStyle editEvent-box">
                             <label htmlFor="">
                                 <input type="text" value={event.subject}/>
                                 כותרת האירוע
@@ -65,12 +65,21 @@ const EventCard = ({ event, adminIndicator }) => {
                                 <input type="text" value={event.link}/>
                             </label>
 
+                            <div className="card-btns">
                             <button className="save-modal-button btn-save"
                                 onClick={() => {setToggleMode(
                                     //edit the event details
                                 ); setOpen(false)}}>
                                 שמור וסגור
                             </button>
+                            <button className="save-modal-button btn-delete"
+                                onClick={() => {setToggleMode(
+                                    //edit the event details
+                                ); setOpen(false)}}>
+                                מחק אירוע
+                            </button>
+                            </div>
+
                         </Box>
                     </Modal>
                     : null}

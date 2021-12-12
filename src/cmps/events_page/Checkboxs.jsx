@@ -24,12 +24,12 @@ const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
 
 
    const checkboxClick = (e) => {
-      let tag = e.target.id;
-      setSearchValue('')
+      let tag = e.target.id;//hold the key
+      setSearchValue('')//init the search bar to avoid conflicts
       if (tag === 'all') {
-         const tmpCheck = checkboxSelected;
-         if ((checkboxSelected[tag])) {
-            setCheckboxSelected({ ...allTags })
+         const tmpCheck = checkboxSelected;// equals to the selected values flag
+         if ((checkboxSelected[tag])) { // if the tag is selected (true)
+            setCheckboxSelected({ ...allTags }) //set ceckboxes
             setCheckBoxes({})
             return;
          }
