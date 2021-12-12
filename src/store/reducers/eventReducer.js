@@ -4,6 +4,7 @@ import stav from '../../assets/images/founders-imgs/stav.svg'
 import iris from '../../assets/images/founders-imgs/iris.svg'
 
 const initialState = {
+    //api call for events
     events: [
         {
             _id: 'a1a1a',
@@ -111,13 +112,13 @@ export function eventReducer(state = initialState, action) {
     
     switch (action.type) {
 
-        case 'SET_events':
+        case 'SET_event':
             return { ...state, events: action.events }
-        case 'REMOVE_events':
+        case 'REMOVE_event':
             return { ...state, events: state.events.filter(event => event._id !== action.eventId) }
-        case 'ADD_events':
+        case 'ADD_event':
             return { ...state, events: [action.event, ...state.events] }
-        case 'UPDATE_events':
+        case 'UPDATE_event':
             return {
                 ...state, events: state.events.map(event => {
                     return event._id === action.event._id ? action.event : event

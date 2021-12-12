@@ -87,7 +87,7 @@ const EventCard = ({ event, adminIndicator }) => {
             <Card className="card">
                 <CardMedia
                     className="card-img"
-                    component="img"
+                    component="picture"
                     height="200px"
                     alt="founderImg"
                     image={event.img}
