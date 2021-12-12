@@ -1,58 +1,62 @@
 .profile-page {
-  .profile-section {
-    height: 80vh;
-    .update-user-details {
-      width: 50%;
-      .update-profile-form {
-        margin-top: rem(30px);
+  height: 85vh;
+  .profile-content {
+    width: calc(100% - 380px);
+    padding-top: rem(90px);
+    gap: rem(50px);
+    .btn-interest {
+      gap: rem(30px);
+      .update {
+        width: rem(200px);
+        height: rem(35px);
+        border: 0.5px solid #c4c4c4;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: Rubik-medium;
+        &:hover {
+          background-color: $clr7;
+          color: white;
+        }
       }
-    }
-    .user-section {
-      width: 50%;
-      .user-pic {
-        margin: 30px 0px 20px 0px;
-      }
-      .profile-btn {
-        width: rem(250px);
-        height: rem(50px);
-        gap: rem(10px);
-        span {
-          width: rem(95px);
-          height: rem(37px);
-          font-family: Rubik-medium;
-          font-size: rem(18px);
-          border: 1px solid #C4C4C4;
-          border-top-right-radius: rem(10px);
-          border-bottom-right-radius: rem(10px);
-          border-top-left-radius: rem(10px);
-          border-bottom-left-radius: rem(10px);
-          &:hover {
-            color: white;
-            background-color: $clr7;
-          }
+      .cancel {
+        width: rem(104px);
+        height: rem(35px);
+        border: 0.5px solid #c4c4c4;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: Rubik-medium;
+        &:hover {
+          background-color: $clr7;
+          color: white;
         }
       }
     }
   }
-  .profile-section-menu {
+  .profile-menu {
     direction: rtl;
+    padding-top: rem(70px);
+    box-shadow: -10px 0px 7px -10px #aaaaaa;
+    width: rem(380px);
+    padding-right: rem(30px);
     h1 {
       font-family: Rubik-medium;
       font-size: rem(40px);
-      margin-top: rem(30px);
-      align-items: flex-end;
     }
-    width: rem(424px);
     .span-menu-container {
       height: rem(68px);
-      width: rem(396px);
-      &:hover {
+      width: 100%;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.03);
+        font-weight: 600;
+      }
+      &.active {
         border-top-right-radius: rem(40px);
         border-bottom-right-radius: rem(40px);
         background-color: $clr8;
       }
       span {
-        padding: 0px 75px 0px 0px;
+        padding: 0px 65px 0px 0px;
         font-family: Rubik-medium;
         font-size: rem(18px);
       }

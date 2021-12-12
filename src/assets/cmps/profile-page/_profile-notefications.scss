@@ -1,0 +1,33 @@
+.profile-notefications{
+    direction: rtl;
+    padding-right: rem(60px);
+    .headline{
+        font-family: Rubik-medium;
+        font-size: rem(25px);
+    }
+    .sub-headline{
+        font-family: Rubik-regular;
+        margin-bottom: rem(50px);
+    }
+    .every-new-event{
+        border-top: 0.5px solid #C4C4C4;
+        border-bottom: 0.5px solid #C4C4C4;
+        font-family: Rubik-regular;
+        height: rem(66px);
+    }
+    .new-event-on-my-interest{
+        border-bottom: 0.5px solid #C4C4C4;
+        font-family: Rubik-regular;
+        height: rem(66px);
+    }
+    .new-jobs-on-my-interest{
+        border-bottom: 0.5px solid #C4C4C4;
+        font-family: Rubik-regular;
+        height: rem(66px);
+    }
+    .news{
+        border-bottom: 0.5px solid #C4C4C4;
+        font-family: Rubik-regular;
+        height: rem(66px);
+    }
+}
