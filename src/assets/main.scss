@@ -14,10 +14,12 @@
 @import "./cmps/home-page/app-footer";
 
 //home components
-@import "./cmps/home-page/_subscribe";
-@import "./cmps/home-page/_founders";
+@import "./cmps/home-page/subscribe";
+@import "./cmps/home-page/founders";
+@import "./cmps/home-page/events";
 @import "./cmps/home-page/app-navbar";
 @import "./cmps/home-page/admin-navbar";
+@import "./cmps/home-page/jobs";
 
 //new-task-components
 @import "./cmps/tasks-page/new-task";
@@ -38,6 +40,7 @@
 @import "./views/home-page";
 @import "./views/project-page";
 @import "./views/login-page";
+@import "./views/profile-page";
 @import "./cmps/login-page/login-page";
 @import "./cmps/jobs-page/jobs-page";
 

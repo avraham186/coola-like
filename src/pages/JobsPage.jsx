@@ -1,47 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import JobDescription from '../cmps/jobs_page/jobs_main/job_description/JobDescription';
-import axios from 'axios';
-import JobList from '../cmps/jobs_page/jobs_main/job_list/JobList';
-// ;
-// }).then((data => {
-//     title = data[1].title;
-//     jobDesc = data[1].description;
-//     console.log(data);
-//     console.log(jobDesc);
-//     setJoDescription(description)
-// }))
-import {data} from '../cmps/jobs_page/jobs_main/jobs_data/JobsData';
-
+import React, { useState } from 'react';
+import { Description } from '../cmps/jobs/DescriptionJob';
+import { JobsList } from '../cmps/jobs/JobsList';
+import { SortingJobs } from '../cmps/jobs/SortingJobs';
 const JobsPage = () => {
-
-    const [currentJob, setCurrentJob] = useState({});
-    const [allJobs, setAllJobs] = useState([]);
-
-    const getJobHandler = () => {
-        axios.get(`https://cula-like-master.herokuapp.com/api/jobs`)
-            .then(res => {
-                console.log(res.data[1]);
-                setAllJobs(res.data)
-            })
-    }
-
-    useEffect(() => {
-        setCurrentJob(data)
-
-    }, [data]);
-
-    useEffect(() => {
-        getJobHandler();
-        setAllJobs(data)
-    }, [])
+    const [currentJob, setCurrentJob] = useState([])
 
     return (
-        <div className="jobs-body">
-
-            <JobList setCurrentJob={setCurrentJob} currentJob={currentJob} dataJobs={allJobs}/>
-            <JobDescription data={currentJob}/>
+        <div className="flex column justify-center">
+            <SortingJobs />
+            < div className='jobs-page flex justify-center' >
+                <Description currentJob={currentJob} />
+                <JobsList setCurrentJob={setCurrentJob} currentJob={currentJob} />
+            </div >
         </div>
     )
 }
-
 export default JobsPage;

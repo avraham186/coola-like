@@ -1,0 +1,81 @@
+.events {
+    margin-top: 50px;
+    gap: rem(30px);
+    .events-title {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: rem(40px);
+        line-height: rem(47px);
+        direction: rtl;
+    }
+    .events-sub-title-container {
+        direction: rtl;
+        .events-sub-title {
+            font-family: Rubik-regular, sans-serif;
+            // font-style: normal;
+            font-size: rem(25px);
+            line-height: rem(30px);
+        }
+        .events-sub-title-link {
+            font-family: Rubik-medium, sans-serif;
+            font-size: rem(20px);
+            line-height: rem(30px);
+        }
+    }
+    .btn-card {
+        position: relative;
+        bottom: rem(20px);
+        gap: rem(20px);
+        .events-icon {
+            width: rem(40px);
+            height: rem(40px);
+            transform: scale(0.9);
+            &:hover {
+                background-color: rgb(224, 224, 224);
+            }
+        }
+    }
+    .events-link {
+        .events-sub-title-link {
+            font-family: Rubik-bold, sans-serif;
+            font-size: rem(18px);
+            line-height: rem(21px);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .events-cards {
+        flex-wrap: wrap;
+        .card {
+            width: rem(289px);
+            height: rem(403px);
+            border-radius: 10px;
+        }
+        .card-img {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .card-footer {
+            position: relative;
+            margin-bottom: rem(30px);
+            .events-button {
+                border: 2px solid $clr1;
+                padding: 4px 32px;
+                background-color: transparent;
+                cursor: pointer;
+                border-radius: 2px 15px;
+                font-family: Rubik-bold, sans-serif;
+                font-size: rem(16px);
+                color: $clr1;
+                margin-top: rem(30px);
+                &:hover {
+                    background-color: $clr7;
+                    color: $clr6;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}

@@ -5,20 +5,29 @@ import Jobs from "../cmps/home_page/Jobs.jsx";
 import { Founders } from "../cmps/home_page/Founders.jsx";
 import { Subscribe } from "../cmps/home_page/Subscribe.jsx";
 import { useSelector } from "react-redux";
-import JobsPage from "../cmps/jobs/JobsPage";
-export default function HomePage() {
-    const { persons } = useSelector(
-        ({ entities }) => entities.communityHeartModule
-    );
 
-    return (
-        <div>
-            {/* <JobsPage /> */}
-            <Header />
-            <Events />
-            <Jobs />
-            <Founders persons={persons} />
-            <Subscribe />
-        </div>
-    );
+export default function HomePage() {
+  const { persons } = useSelector(
+    ({ entities }) => entities.communityHeartModule
+  );
+
+  return (
+    <div className="home-page full">
+      <div className="header-comp main-layout">
+        <Header />
+      </div>
+      <div className="events-comp main-layout">
+        <Events />
+      </div>
+      <div className="jobs-comp main-layout">
+        <Jobs />
+      </div>
+      <div className="founders-comp main-layout">
+        <Founders persons={persons} />
+      </div>
+      <div className="sunscribe-comp main-layout">
+        <Subscribe />
+      </div>
+    </div>
+  );
 }
