@@ -156,23 +156,13 @@
     }
 
     .event-card {
-        // display: flex;
-        // flex-wrap: wrap;
-        // flex-direction: row-reverse;
-        // justify-content: space-around;
-            // flex-basis:30.3%;
-            // display:inline;
-            // margin: auto 15px;
 
         .card {
             
           cursor: pointer;
           margin: auto;
-        //   margin-top: 25px;
-        //   width: 350px;
           height: 500px;
           border-radius: 15px;
-        //  position: absolute;
           
         }
     
@@ -314,6 +304,9 @@
               margin: 0 10px;
               direction: rtl;
           }
+
+
+          
     }
 }
 //admin page edit
@@ -345,6 +338,11 @@
         margin: 0;
         direction: rtl;
     }
+    .modals{
+              .boxStyle{
+              
+              }
+        }
        
 }
 }
