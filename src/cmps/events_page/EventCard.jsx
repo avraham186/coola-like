@@ -17,11 +17,7 @@ const EventCard = ({ event, adminIndicator }) => {
         dueDate: false,
         file: false
     })
-<<<<<<< HEAD
-
-=======
     
->>>>>>> main
     return (
 
         <div className="event-card">
@@ -33,11 +29,7 @@ const EventCard = ({ event, adminIndicator }) => {
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
-<<<<<<< HEAD
-                        <Box className="box-modal">
-=======
                         <Box className="boxStyle editEvent-box">
->>>>>>> main
                             <label htmlFor="">
                                 <input type="text" value={event.subject}/>
                                 כותרת האירוע
@@ -73,14 +65,6 @@ const EventCard = ({ event, adminIndicator }) => {
                                 <input type="text" value={event.link}/>
                             </label>
 
-<<<<<<< HEAD
-                            <button className="save-modal-button"
-                                onClick={() => setToggleMode(
-                                    //edit the event details
-                                )}>
-                                שמור וסגור
-                            </button>
-=======
                             <div className="card-btns">
                             <button className="save-modal-button btn-save"
                                 onClick={() => {setToggleMode(
@@ -96,7 +80,6 @@ const EventCard = ({ event, adminIndicator }) => {
                             </button>
                             </div>
 
->>>>>>> main
                         </Box>
                     </Modal>
                     : null}
@@ -104,11 +87,7 @@ const EventCard = ({ event, adminIndicator }) => {
             <Card className="card">
                 <CardMedia
                     className="card-img"
-<<<<<<< HEAD
-                    component="img"
-=======
                     component="picture"
->>>>>>> main
                     height="200px"
                     alt="founderImg"
                     image={event.img}
