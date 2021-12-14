@@ -30,6 +30,10 @@ const ProjectPage = () => {
       style={{ gap: "30px", width: "100%" }}
     >
       <div style={{ width: "100%" }}>
+      <NewSideBar
+        addProjToggle={addProjToggle}
+        setAddProjToggle={setAddProjToggle}
+      />
         <button
           className="addProject-btn"
           style={{
@@ -56,6 +60,8 @@ const ProjectPage = () => {
             showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
           }
         >
+      
+
           <DashBoard showDashboard={showAllDashboard} />
           <div className={showAllDashboard ? "planTop" : "planUp"}>
             {showAllDashboard ? (
@@ -86,10 +92,10 @@ const ProjectPage = () => {
           ) : null}
         </div>
       </div>
-      <NewSideBar
+      {/* <NewSideBar
         addProjToggle={addProjToggle}
         setAddProjToggle={setAddProjToggle}
-      />
+      /> */}
     </div>
   );
 };
