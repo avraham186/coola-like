@@ -80,7 +80,13 @@ const EventsPage = () => {
                 </div>
 
                 <div className="eventsCards">
-                    {applyCards().map(event => <EventCard event={event} />)}
+                    {applyCards()
+                    .map(event => 
+                        <EventCard 
+                        key={event._id}
+                        event={event}
+                        />
+                        )}
 
                 </div>
 
