@@ -104,16 +104,16 @@ const SignUp = () => {
     const handleChange = ({ name, value }) => {
         switch (name) {
             case 'Email':
-                setFormData({ ...formData, Email: value });
+                setFormData({ ...formData.Email, Email: value });
                 break;
             case 'password':
-                setFormData({ ...formData, password: value });
+                setFormData({ ...formData.password, password: value });
                 break;
             case 'password2':
-                setFormData({ ...formData, password2: value });
+                setFormData({ ...formData.password2, password2: value });
                 break;
             case 'interests':
-                setFormData({ ...formData, interests: value });
+                setFormData({ ...formData.interests, interests: value });
                 break;
             default:
                 break;
@@ -121,6 +121,7 @@ const SignUp = () => {
     }
 
     const handleSubmit = (event) => {
+        console.log(formData);
         event.preventDefault();
         setError('');
         if (validateForm() && validatePassword()) {
@@ -149,7 +150,7 @@ const SignUp = () => {
     return (
         <div className="login--form">
             <div className="login--form--header">
-                <a href="/"> חזר לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
+                <a href="/"> חזרה לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
             </div>
             <div className="login--form--body">
                 <h1>התחברות</h1>
