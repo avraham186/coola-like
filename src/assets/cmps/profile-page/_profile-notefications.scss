@@ -10,25 +10,25 @@
         font-family: Rubik-regular;
         margin-bottom: rem(50px);
     }
-    .every-new-event{
+    .every-new-event,.new-event-on-my-interest,.new-jobs-on-my-interest,.news{
         border-top: 0.5px solid #C4C4C4;
         border-bottom: 0.5px solid #C4C4C4;
         font-family: Rubik-regular;
         height: rem(66px);
     }
-    .new-event-on-my-interest{
-        border-bottom: 0.5px solid #C4C4C4;
-        font-family: Rubik-regular;
-        height: rem(66px);
-    }
-    .new-jobs-on-my-interest{
-        border-bottom: 0.5px solid #C4C4C4;
-        font-family: Rubik-regular;
-        height: rem(66px);
-    }
-    .news{
-        border-bottom: 0.5px solid #C4C4C4;
-        font-family: Rubik-regular;
-        height: rem(66px);
-    }
+    // .new-event-on-my-interest{
+    //     border-bottom: 0.5px solid #C4C4C4;
+    //     font-family: Rubik-regular;
+    //     height: rem(66px);
+    // }
+    // .new-jobs-on-my-interest{
+    //     border-bottom: 0.5px solid #C4C4C4;
+    //     font-family: Rubik-regular;
+    //     height: rem(66px);
+    // }
+    // .news{
+    //     border-bottom: 0.5px solid #C4C4C4;
+    //     font-family: Rubik-regular;
+    //     height: rem(66px);
+    // }
 }
