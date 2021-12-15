@@ -30,7 +30,6 @@ const ProfilePage = () => {
     const isActive = (prop) => {
         return menuTab[prop] ? 'active' : ''
     }
-    console.log('menu tab', menuTab);
     return (
         <div className="profile-layout">
             <div className="profile-page flex">
