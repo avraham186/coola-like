@@ -25,7 +25,7 @@ export default function HomePage() {
       <div className="founders-comp main-layout">
         <Founders persons={persons} />
       </div>
-      <div className="sunscribe-comp main-layout">
+      <div className="subscribe-comp main-layout">
         <Subscribe />
       </div>
     </div>

@@ -1,6 +1,10 @@
 .app-header {
+    display: flex;
+    justify-content: space-between;
     font-family: Rubik-regular, sans-serif;
     .header-container {
+        display: flex;
+        flex-direction: column;
         direction: rtl;
         .header-content {
             margin-bottom: rem(20px);
@@ -12,7 +16,7 @@
             h4 {
                 font-size: rem(25px);
                 // line-height: 20px;
-                font-family: Rubik-bold;
+                font-family: Rubik-bold, sans-serif;
                 color: #000;
                 margin: 0;
             }
@@ -37,5 +41,12 @@
                 color: $clr6;
             }
         }
+    }
+}
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+@media screen and (max-width: 480px){
+    .home-page {
     }
 }
