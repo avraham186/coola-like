@@ -10,5 +10,8 @@
         &.full {
             grid-column: 1 / -1;
         }
+        &.profile-layout {
+            grid-column: 2/-1;
+        }
     }
-    }
+}
