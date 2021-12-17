@@ -41,10 +41,14 @@ const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
          <div className="checkboxs">
             <div className="row_checkbox_events flex">
                {checkBoxProp.map(({ name, tag }) => {
-                  return <label key={tag} htmlFor={tag} className="col"> {name}
-                     <input type="checkbox" id={tag}
-                        name="checkbox" checked={checkboxSelected[tag]}
-                        onClick={checkboxClick}
+                  return <label key={tag} htmlFor={tag} className="col">
+                     {name}
+                     <input 
+                        type="checkbox" 
+                        id={tag}
+                        name="checkbox" 
+                        checked={checkboxSelected[tag]}
+                        onChange={checkboxClick}
                      />
                   </label>
 

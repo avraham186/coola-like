@@ -1,5 +1,8 @@
-import React, { useState,useRef, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Box, Modal } from "@mui/material";
+import {addEvent} from '../../store/events'
+import { useDispatch } from "react-redux";
+
 
 const AddEvent = ({open, setOpen}) => {
 
@@ -20,17 +23,24 @@ const AddEvent = ({open, setOpen}) => {
         link: "",
 
     };
+    const dispatch = useDispatch();
+    const [newEvent, setNewEvent] = useState(initState)
+    
+
+    const onSubmit = () =>{
+        //will be activate when backend's wil be ready
+        dispatch(addEvent(newEvent))
+    }
 
     const onChange = ({target:{name, value}}) =>{
-        
         setNewEvent({
             ...newEvent,
             [name]: value
         })
-        console.log(newEvent);
+        
      }
-
-    const [newEvent, setNewEvent] = useState(initState)
+     useEffect(()=>console.log(newEvent),[newEvent])
+    
     
     return (
 
@@ -114,6 +124,7 @@ const AddEvent = ({open, setOpen}) => {
                         onClick={() => {
                             setToggleMode();
                             setOpen(false)
+                            //onSumbit(); --> unMark this line when backend's is ready
                         }}>
                             הוסף אירוע וסגור
                         </button>

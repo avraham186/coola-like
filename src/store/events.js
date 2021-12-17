@@ -50,7 +50,7 @@ export const {
 export default slice.reducer;
 
 // Action Creators
-const url = process.env.REACT_APP_EVENT;
+const url = process.env.REACT_APP_URI + process.env.REACT_APP_EVENT;
 
 export const loadEvents = () => apiCallBegan({
     url,
@@ -68,7 +68,8 @@ export const addEvent = event => apiCallBegan({
 });
 export const getEventById = async (eventId) => {
     try {
-        const response = await axios.get(`https://cula-like-master.herokuapp.com/api/events/${eventId}`)
+        //REACT_APP_URI,REACT_APP_EVENT/${eventId}
+        const response = await axios.get(url,`/${eventId}`)
         console.log('response', response);
 
     } catch (err) {
