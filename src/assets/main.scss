@@ -26,6 +26,11 @@
 @import "./cmps/tasks-page/new-task-sidebar";
 @import "./cmps/tasks-page/new-task-modals";
 
+//profile components
+@import "./cmps/profile-page/update-user-details";
+@import "./cmps/profile-page/change-password";
+@import "./cmps/profile-page/profile-notefications";
+
 //project page
 @import './cmps/project-page/AddNewEvent';
 @import './cmps/project-page/Categories';
