@@ -80,7 +80,7 @@ export default function AccountMenu() {
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
                 <MenuItem
-                    component={Link} to='/profile'
+                    component={Link} to='/profile/update'
                 >
                     <Avatar/> Profile
                 </MenuItem>
