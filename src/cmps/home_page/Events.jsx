@@ -14,6 +14,9 @@ const Events = () => {
     useEffect(() => {
         dispatch(loadEvents())
     }, [])
+    const addToFavories = () => {
+        console.log('hi');
+    }
     return (
         <div className="events flex column">
             <span className="events-title">#לא כדאי_לפספס</span>
@@ -40,7 +43,8 @@ const Events = () => {
                             <IconButton
                                 aria-label="add to favorites"
                                 className="events-icon">
-                                <img src={heart} alt="heart-btn" />
+                                <img src={heart} alt="heart-btn"
+                                onClick={addToFavories}/>
                             </IconButton>
                         </div>
                     </div>
