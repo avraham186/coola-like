@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { jobs_icon, Facebook, Whatsapp, Copy_link, Linkedin, edit_pen, erase } from '../../assets/images/icons'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 export const Description = ({ currentJob: { title, numJob, description, jobType, email, location, urlJob } }) => {

@@ -1,38 +1,69 @@
-.profile--layout {
-  display: grid;
-  grid-template-columns: 1.55fr 0.45fr;
-
-  .profile--section {
-    height: 80vh;
-    padding: 10px;
-    text-align: center;
-    border: dashed 2px #37ff00;
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    //flex-direction: row;
-    //justify-content: center;
-    //align-items: flex-start;
-
-
-    background-color: #6D49AC;
-
-    .item {
-      align-items: center;
-
-      width: 50%;
-      padding: 10px;
-      border: dashed 2px red;
+.profile-page {
+  height: 85vh;
+  margin-bottom: rem(30px);
+  .profile-content {
+    width: calc(100% - 380px);
+    padding-top: rem(90px);
+    gap: rem(50px);
+    .btn-interest {
+      gap: rem(30px);
+      .update {
+        width: rem(200px);
+        height: rem(35px);
+        border: 0.5px solid #c4c4c4;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: Rubik-medium;
+        &:hover {
+          background-color: $clr7;
+          color: white;
+        }
+      }
+      .cancel {
+        width: rem(104px);
+        height: rem(35px);
+        border: 0.5px solid #c4c4c4;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: Rubik-medium;
+        &:hover {
+          background-color: $clr7;
+          color: white;
+        }
+      }
     }
   }
-
-  .menu {
-    flex-direction: column;
-    padding: 10px;
-    border: dashed 2px rgba(0, 0, 0, 0.93);
-
-    background-color: #90f1f3;
+  .profile-menu {
+    direction: rtl;
+    padding-top: rem(70px);
+    box-shadow: -10px 0px 7px -10px #aaaaaa;
+    width: rem(396px);
+    // padding-right: rem(30px);
+    h1 {
+      font-family: Rubik-medium;
+      font-size: rem(40px);
+    }
+    .menu-link{
+      height: rem(68px);
+      width: 100%;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.03);
+        font-weight: 600;
+      }
+      &.active{
+        .span-menu{
+          font-family: Rubik-medium;
+        }
+        border-top-right-radius: rem(40px);
+        border-bottom-right-radius: rem(40px);
+        background-color: $clr8;
+      }
+      .span-menu{
+        font-family: Rubik-regular;
+        padding: 0px 65px 0px 0px;
+        font-size: rem(18px);
+      }
+    }
   }
 }

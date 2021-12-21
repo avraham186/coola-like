@@ -9,7 +9,7 @@ const JobsPage = () => {
         <div className="flex column justify-center">
             <SortingJobs />
             < div className='jobs-page flex justify-center' >
-                <Description currentJob={currentJob} />
+                <Description currentJob={currentJob}/>
                 <JobsList setCurrentJob={setCurrentJob} currentJob={currentJob} />
             </div >
         </div>
