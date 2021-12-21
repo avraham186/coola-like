@@ -49,12 +49,27 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
     });
   };
 
-  const handleSubmit = () => {
-    //
 
+  const checkSobmit = ( )=> {
+    if (!newProjData.projectName ||
+      !newProjData.startDate ||
+      !newProjData.endDate||
+      !newProjData.projectPriority ||
+      !newProjData.description ||
+      !newProjData.projectStatus)
+    {
+      return false
+     
+    }
+     else return true
+    }
+
+  // }
+  const handleSubmit = () => {
+  
     dispatch(addProject(newProjData));
     setToggleLinks((p) => !p);
-    console.log(newProjData);
+    console.log("newProjData", newProjData);
     // ... submit to API or something
   };
 
@@ -75,8 +90,10 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
       aria-describedby="modal-modal-description"
     >
       <Box className="boxStyle">
-        <div className="newProj-container">
+        <form className="newProj-container">
           <input
+            id="projectName"
+            required
             placeholder="שם הפרויקט"
             type="text"
             name="projectName"
@@ -98,6 +115,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                 תאריך התחלה
                 <br />
                 <input
+                  required
                   type="date"
                   name="startDate"
                   value={newProjData.startDate}
@@ -111,6 +129,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                 תאריך סיום
                 <br />
                 <input
+                  required
                   type="date"
                   name="endDate"
                   value={newProjData.endDate}
@@ -124,6 +143,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
               תיאור
               <br />
               <input
+                required
                 type="text"
                 name="description"
                 value={newProjData.description}
@@ -134,6 +154,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
 
             <div className="status-and-priority flex">
               <select
+                required
                 name="projectStatus"
                 onChange={handleChange}
                 className="select-option"
@@ -148,6 +169,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
               </select>
 
               <select
+                required
                 name="projectPriority"
                 onChange={handleChange}
                 className="select-option"
@@ -167,11 +189,13 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
             {/* <AssignedTask areAssigned={pplAssigned} /> */}
           </div>
           <div className="submit-task">
-            <button className="btn-save" onClick={handleSubmit}>
+            <button className="btn-save"
+             disabled={checkSobmit}
+              onClick={handleSubmit}>
               שמור וסגור
             </button>
           </div>
-        </div>
+        </form>
       </Box>
     </Modal>
   );
