@@ -14,8 +14,8 @@ const projectData = {
   endDate: "",
   adminProject: [],
   description: "",
-  projectStatus: "",
-  projectPriority: "",
+  projectStatus:"",
+  projectPriority:"",
   tasks: [],
 };
 
@@ -35,7 +35,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
   const [newProjData, setNewProjData] = useState(projectData);
 
   useEffect(() => {
-    console.log(newProjData);
+    // console.log(newProjData);
   }, [newProjData]);
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -50,19 +50,26 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
   };
 
 
-  const checkSobmit = ( )=> {
-    if (!newProjData.projectName ||
-      !newProjData.startDate ||
-      !newProjData.endDate||
-      !newProjData.projectPriority ||
-      !newProjData.description ||
-      !newProjData.projectStatus)
+  const checkSubmit = ( )=> {
+    if (newProjData.projectName === "" &&
+      newProjData.startDate === "" &&
+      newProjData.endDate === "" &&
+      newProjData.projectPriority === "" &&
+      newProjData.projectPriority === "עדיפות" &&
+      newProjData.description === "" &&
+      newProjData.projectStatus === "" &&
+      newProjData.projectStatus === "סטטוס"  )
     {
-      return false
+    //  return false
+     return 
+      console.log(false )
      
     }
-     else return true
+    //  else return true
+    else{
+      return console.log(true)
     }
+  }
 
   // }
   const handleSubmit = () => {
@@ -75,6 +82,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
 
   useEffect(() => {
     setOpen((p) => !p);
+    checkSubmit()
   }, [toggleLinks]);
 
   return (
@@ -189,11 +197,12 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
             {/* <AssignedTask areAssigned={pplAssigned} /> */}
           </div>
           <div className="submit-task">
-            <button className="btn-save"
-             disabled={checkSobmit}
+          <button className="btn-save"
+            //  disabled={checkSubmit}
               onClick={handleSubmit}>
               שמור וסגור
             </button>
+            
           </div>
         </form>
       </Box>

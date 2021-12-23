@@ -66,6 +66,7 @@ export default function NewPositionForm({ toggleLinks, setToggleLinks }) {
               כותרת המשרה
               <br />
               <input
+              required
                 type="text"
                 name="title"
                 value={formData.title}
@@ -77,6 +78,7 @@ export default function NewPositionForm({ toggleLinks, setToggleLinks }) {
             <label className="event-title">
               מיקום <br />
               <input
+              required
                 type="text"
                 name="location"
                 value={formData.location}
