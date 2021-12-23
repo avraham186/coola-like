@@ -4,7 +4,7 @@ import { Visibility } from '@mui/icons-material';
 import { VisibilityOff } from '@mui/icons-material';
 import {useState} from "react";
 
-export function Input({required, id, label, type, handleChange, icon}) {
+export function Input({required, id, label, type, handleChange, icon, registerObj}) {
 
     const [values, setValues] = useState({
         showPassword: false,
@@ -58,6 +58,7 @@ export function Input({required, id, label, type, handleChange, icon}) {
                 fontFamily: 'RubiK',
                 boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.2)',
             }}
+            {...registerObj}
         />
     );
 }
