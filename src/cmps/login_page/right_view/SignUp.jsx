@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Button, makeStyles, MenuItem, Select, InputAdornment, TextField , IconButton} from "@material-ui/core";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { FormControl, FormGroup, FormControlLabel , Checkbox } from '@mui/material';
 
 //import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
@@ -49,18 +50,12 @@ const useStyles = makeStyles((theme) => ({
     icon: {
         left: 10
     },
+    //interestsButton:{
+
+    //}
 }));
 
 
-// Move this to models folder
-const  interestsModel = [
-    { label: "בדיקות תוכנה", value: "QA" },
-    { label: "אבטחת מידע וסייבר", value: "CYBER" },
-    { label: "פיתוח תוכנה", value: "DEVELOPMENT" },
-    { label: "חומרה", value: "HARDWARE" },
-    { label: "UX/UI", value: "UX_UI" },
-    { label: "הנדסת מערכות", value: "SYSTEMS_ENGINEERING" },
-];
 
 
 const SignUp = () => {
@@ -72,9 +67,59 @@ const SignUp = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
-    const [passVerify, setPassVerify] = useState();
+    const [passVerify, setPassVerify] = useState("");
+
+
+    const [interests, setInterests] = useState([]);
+
+    const [interestsStatus, setInterestsStatus] = useState({
+        QA: false,
+        CYBER: false,
+        DEVELOPMENT: false,
+        HARDWARE: false,
+        UX_UI: false,
+        SYSTEMS_ENGINEERING: false,
+      });
+
+    const { QA, CYBER, DEVELOPMENT, HARDWARE, UX_UI, SYSTEMS_ENGINEERING } = interestsStatus;
+
+    const  interestsModel = [
+        { label: "בדיקות תוכנה", checked: QA , name: "QA" },
+        { label: "אבטחת מידע וסייבר", checked: CYBER , name: "CYBER" },
+        { label: "פיתוח תוכנה", checked: DEVELOPMENT , name: "DEVELOPMENT" },
+        { label: "חומרה", checked: HARDWARE , name: "HARDWARE" },
+        { label: "UX/UI", checked: UX_UI , name: "UX_UI" },
+        { label: "הנדסת מערכות", checked: SYSTEMS_ENGINEERING , name: "SYSTEMS_ENGINEERING" },
+    ];
+
+    const handleInterestsChange = (event) => {
+        setInterestsStatus({
+          ...interestsStatus,
+          [event.target.name]: event.target.checked,
+        });
+        if (event.target.checked === true){
+            if (!interests.includes(event.target.name)){
+                interests.push(event.target.name);
+            }
+        } else {
+            if (interests.includes(event.target.name)){
+                interests.splice(interests.indexOf(event.target.name),1);
+            }
+        }
+        console.log(interests);
+      };
+
 
     function send(userData) {
+        //console.log(interests);
+        userData.interests=interests;
+        if(passVerify===userData.password){
+            console.log("password check success");
+            console.log(userData);
+        }
+        else {
+            console.log("passwords are not equals. ("+passVerify+")");
+        }
         /*
         jwtAxios.post<string>(myURL,customerData)
         .then(()=>{
@@ -84,12 +129,19 @@ const SignUp = () => {
             notify.error("Sorry, can't add customer.")
         }) 
         */
-       console.log(userData);
-       console.log(passVerify);
     }
 
 
-
+    function interestFormControl({label, checked, name}){
+        return(
+            <FormControlLabel
+                control={
+                <Checkbox checked={checked} onChange={handleInterestsChange} name={name} />
+                }
+                label={label}
+            />
+        );
+    }
 
     return (
         <div className="login--form">
@@ -97,7 +149,7 @@ const SignUp = () => {
                 <a href="/"> חזרה לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
             </div>
             <div className="login--form--body">
-                <h1>התחברות</h1>
+                <h1>הרשמה</h1>
                 <h3>יצירת חשבון חדש</h3>
 
                 <div className="login-form-inputs">
@@ -108,21 +160,25 @@ const SignUp = () => {
                         <Input className={classes.inputs} id="surname" label= "שם משפחה" type= 'text' required={true} registerObj={{...register("lastName")}}/>
                         <Input className={classes.inputs} id="Email" label= "אימייל" type= 'email' required={true}  registerObj={{...register("email")}}/>
                         <Input className={classes.inputs} id="password" label= "סיסמה" type= 'password' required={true} registerObj={{...register("password")}}/>
-                        <Input className={classes.inputs} id="password2" label="אימות סיסמה" type='password' required={true} handleChange={(password2)=>{setPassVerify(password2)}}/>
-                                                {/* fix handleChange of password check */}
-
-                        <Select
-                            className={classes.inputs} classes={{ icon: classes.icon }} {...register("interests")}
-                        >
-                            {
-                                 interestsModel.map((v, i) => {
-                                    return <MenuItem key={i} value={v.value}>{v.label}</MenuItem>
-                                })
+                        <Input className={classes.inputs} id="password2" label="אימות סיסמה" type='password' required={true} handleChange={(pass)=>{setPassVerify(pass.target.value)}}/>
+                        
+                        <div className="login--form--inputs" style={{ marginTop: 30, textAlign:'right'}}  >
+                           בחר תחומי עניין
+                        </div>
+                        <FormControl >
+                            <FormGroup >
+                           {Array.from(interestsModel).map(item=>
+                                <FormControlLabel
+                                    key = {item.key}
+                                    control={
+                                    <Checkbox checked={item.checked} onChange={handleInterestsChange} name={item.name} />
+                                    }
+                                    label={item.label}
+                                />)
                             }
-                        </Select>
-                                                {/* create multiselect */}
-
-
+                            </FormGroup>
+                        </FormControl>
+                        
                         <Button 
                         //disabled={}
                         type="submit" variant="contained" color="primary"
