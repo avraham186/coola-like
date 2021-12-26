@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Inputs from "../inputs/Inputs";
 import { useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
-
+import {Interests} from './Interests'
 const textFieldArr = [
     { name: "userName", label: "שם משתמש", type: 'text', required: false },
     { name: "Email", label: "אימייל", type: 'email', required: false },
@@ -45,7 +45,8 @@ const UpdateUserDetails = () => {
                         )
                     })}
                 </form>
-                <div className="interest flex column">
+                <Interests/>
+                {/* <div className="interest flex column">
                     <div className="interest-headline">
                         תחומי עניין
                     </div>
@@ -57,19 +58,19 @@ const UpdateUserDetails = () => {
                         <span className="flex align-center justify-center">בדיקות-תכנה</span>
                         <span className="flex align-center justify-center">עיצוב ואפיון חווית משתמש</span>
                     </div>
-                </div>
+                </div> */}
             </section>
-            <section className="user-section flex column align-center">
-                <div className="user-pic">
+            <section className="user-section flex column ">
+                <div className="user-pic flex column align-center">
                     <Avatar
                         sx={{ width: 180, height: 180 }}
                         src={userFromStore.imageUrl}
                         alt={userFromStore.name}
                     />
-                </div>
                 <div className="profile-btn flex justify-center align-center">
                     <span className="flex justify-center align-center">מחק</span>
                     <span className="flex justify-center align-center">החלף</span>
+                </div>
                 </div>
             </section>
         </div>
