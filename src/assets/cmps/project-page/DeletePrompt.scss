@@ -1,0 +1,85 @@
+.delete-prompt-title {
+  width: 590px;
+  height: auto;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: right;
+  color: #4a4a4a;
+  margin-bottom: 2.5rem;
+}
+.delete-prompt-warning {
+  width: 575px;
+  height: 79px;
+  background: #efd9db;
+  margin-bottom: 2.5rem;
+  padding: 10px;
+}
+.delete-prompt-warning-text {
+  height: 20px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: right;
+  color: #9d3332;
+}
+.delete-prompt-verify {
+  margin-bottom: 2.5rem;
+  width: 597px;
+  height: 20px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: right;
+  color: #4a4a4a;
+}
+.delete-prompt-input {
+  margin-bottom: 2.5rem;
+  width: 595px;
+  height: 52px;
+  background: #ffffff;
+  border: 3px solid #0067c5;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 28px;
+}
+.invalid {
+  border-color: #9d3332;
+}
+.delete-prompt-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.delete-prompt-button {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #2c2c2c;
+  width: 148px;
+  height: 35px;
+  background-color: #fff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 3px;
+  transition: all ease-in 0.15s;
+  &:hover {
+    background-color: #c4c4c4;
+  }
+}
+.delete-button {
+  border: none;
+  color: #fff;
+  background-color: #d74843;
+  &:hover {
+    background-color: #a33733;
+  }
+}

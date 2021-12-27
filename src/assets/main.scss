@@ -33,14 +33,15 @@
 @import "./cmps/profile-page/interests";
 
 //project page
-@import './cmps/project-page/AddNewEvent';
-@import './cmps/project-page/Categories';
-@import './cmps/project-page/NewPositionForm';
-@import './cmps/project-page/newSidebar';
-@import './cmps/project-page/AddNewProject';
-@import './cmps/project-page/UserPermissions';
-@import './cmps/project-page/project-list';
-@import './cmps/project-page/project-preview';
+@import "./cmps/project-page/AddNewEvent";
+@import "./cmps/project-page/Categories";
+@import "./cmps/project-page/NewPositionForm";
+@import "./cmps/project-page/newSidebar";
+@import "./cmps/project-page/AddNewProject";
+@import "./cmps/project-page/UserPermissions";
+@import "./cmps/project-page/project-list";
+@import "./cmps/project-page/project-preview";
+@import "./cmps/project-page/DeletePrompt";
 
 //views
 @import "./views/home-page";
