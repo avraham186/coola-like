@@ -22,14 +22,14 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
   const [toggleUserPermissions, setToggleUserPermissions] = useState(false);
   const [toggleLinks, setToggleLinks] = useState(false);
 
-  useEffect(() => {
-    if (addProjToggle) {
-      setToggleLinks(true);
-    }
-    if (!toggleLinks) {
-      setAddProjToggle((p) => !p);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (addProjToggle) {
+  //     setToggleLinks(true);
+  //   }
+  //   if (!toggleLinks) {
+  //     setAddProjToggle((p) => !p);
+  //   }
+  // }, []);
 
   const handelsideBar = () => {
     setOpen(!open);

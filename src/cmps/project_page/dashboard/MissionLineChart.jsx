@@ -66,31 +66,43 @@ export const MissionLineChart = ({ projects, tasks }) => {
     return allthisweektasks;
   };
 
-  // useEffect(async () => {
-  //   var curr = new Date();
-  //   var firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()));
-  //   var lastday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
-  //   let firstDayFormat =
-  //     firstday.getDate() +
-  //     "/" +
-  //     (firstday.getMonth() + 1) +
-  //     "/" +
-  //     firstday.getFullYear();
-  //   let lastDayFormat =
-  //     lastday.getDate() +
-  //     "/" +
-  //     (lastday.getMonth() + 1) +
-  //     "/" +
-  //     lastday.getFullYear();
-  //   console.log(firstDayFormat, lastDayFormat);
-  //   const response = await axios.get(
-  //     `https://cula-like-master.herokuapp.com/api/projects/tasks/statistics?before=${lastDayFormat}`
-  //   );
-  //   const response2 = await axios.get(
-  //     `https://cula-like-master.herokuapp.com/api/projects/tasks/statistics?after=${firstDayFormat}`
-  //   );
-  //   console.log(response.data, response2.data);
-  // }, []);
+  useEffect(async () => {
+    let allthisweektasks = [
+      { day: "Sunday", numOfTasks: 0 },
+      { day: "Monday", numOfTasks: 0 },
+      { day: "Tuesday", numOfTasks: 0 },
+      { day: "Wednesday", numOfTasks: 0 },
+      { day: "Thursday", numOfTasks: 0 },
+      { day: "Friday", numOfTasks: 0 },
+      { day: "Saturday", numOfTasks: 0 },
+    ];
+    var curr = new Date();
+    var firstday = new Date(curr.setDate(curr.getDate() - curr.getDay()));
+    var lastday = new Date(curr.setDate(curr.getDate() - curr.getDay() + 6));
+    let firstDayFormat =
+      firstday.getDate() +
+      "/" +
+      (firstday.getMonth() + 1) +
+      "/" +
+      firstday.getFullYear();
+    let lastDayFormat =
+      lastday.getDate() +
+      "/" +
+      (lastday.getMonth() + 1) +
+      "/" +
+      lastday.getFullYear();
+    console.log(firstDayFormat, lastDayFormat);
+    const resp = await axios.get(
+      `https://cula-like-master.herokuapp.com/api/projects/tasks/statistics?daily&before=${lastDayFormat}&after=${firstDayFormat}`
+    );
+    resp.data.forEach((x) => {
+      var date = new Date(x[2]);
+      console.log(typeof x[2]);
+      console.log((allthisweektasks[date.getDay()].numOfTasks += x[1]));
+    });
+
+    console.log(allthisweektasks);
+  }, []);
 
   return (
     <div className="lineTasksChart">

@@ -1,50 +1,22 @@
-// .main-sidebar{
-// display: flex;
-// flex-direction: row-reverse;
-// position: absolute;
-// justify-content: flex-start;
+.sideBar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  position: sticky;
 
-// }
+  // max-height: max-content;
+  height: 100vh;
+  // top:0;
+  z-index: 99;
+  bottom: 0;
+  position: fixed;
+  right: 25px;
+  margin-top: 90px;
 
-/*
-.father of side bar and project list{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-*/
-.projectPage {
-  .sideBar {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    position: sticky;
-    bottom: auto;
-    .sidebar_status_open {
-      position: absolute;
-      transform: translateX(0, 20px);
-      background-color: white;
-    }
-  }
-  // .sideBar-container {
-  //     height: 100vh;
-  //     width: 15%;
-  //     // border-left: 2px solid #34018E;
-  //     // direction: rtl;
-  //     display: flex;
-  //     flex-direction: row-reverse;
-  //     justify-content: flex-start;
-
-  //     z-index: 100;
-  //     // padding: 15px;
-  // }
   .sidebarList {
     height: 100%;
     width: 100%;
     padding: 0;
-    //    padding: 15px;
-    // background-color: blue;
-    // padding: 25px;
     position: sticky;
     bottom: auto;
 
@@ -58,52 +30,53 @@
       font-family: Rubik-regular;
       padding: 2px;
       white-space: nowrap;
-      padding-right: 10px;
     }
   }
-
   .row:hover {
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-radius: 0 35px 35px 0;
     cursor: pointer;
     width: 100%;
-    // padding: 5px;
+    padding-right: 15px;
   }
   #active {
     background-color: #f2f2f2;
   }
 
   .sidebar-admin-right-arrow {
-    position: absolute;
-    width: 303px;
-    height: 2384px;
-    left: 0px;
-    top: 0px;
-
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-left: 2px solid #34018e;
     background: #ffffff;
-    box-shadow: -6px 0px 6px #34018e;
+    box-shadow: -6px 0 6px #34018e;
+    padding-right: 15px;
+    width: 200px;
+    max-height: 100vh;
+    // right: 0;
+    margin-top: 86px;
 
     label {
-      position: absolute;
-      width: 135px;
-      height: 20px;
-      left: 32px;
-      top: 26px;
-
-      font-family: Rubik;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      line-height: 21px;
-      text-align: center;
-
-      color: #2c2c2c;
+      white-space: nowrap;
     }
+  }
+
+  .sidbar-left-arrow {
+    height: 100%;
+    width: 25px;
+    background-color: #35018e3a;
+    position: absolute;
+    // right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 86px;
   }
   .menu-toggle {
     display: flex;
     align-items: center;
     gap: 5px;
+    margin: 15px;
   }
 }
