@@ -1,0 +1,52 @@
+.update-user-details {
+    height: 100%;
+    .form {
+        direction: rtl;
+        width: 50%;
+        gap: rem(50px);
+        width: rem(353px);
+        .update-profile-form {
+            gap: rem(25px);
+            .form-label {
+                gap: rem(10px);
+                span {
+                    font-family: Rubik-regular;
+                    font-size: rem(16px);
+                }
+                input {
+                    width: rem(353px);
+                    height: rem(37px);
+                    border: 0.5px solid #c4c4c4;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    .user-section {
+        width: 50%;
+        align-items: flex-end;
+        .user-pic {
+            gap: rem(20px);
+            .profile-btn {
+                width: rem(250px);
+                height: rem(50px);
+                gap: rem(10px);
+                span {
+                    width: rem(95px);
+                    height: rem(37px);
+                    font-family: Rubik-medium;
+                    font-size: rem(18px);
+                    border: 1px solid #c4c4c4;
+                    border-top-right-radius: rem(10px);
+                    border-bottom-right-radius: rem(10px);
+                    border-top-left-radius: rem(10px);
+                    border-bottom-left-radius: rem(10px);
+                    &:hover {
+                        color: white;
+                        background-color: $clr7;
+                    }
+                }
+            }
+        }
+    }
+}

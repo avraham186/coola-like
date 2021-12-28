@@ -145,7 +145,7 @@ const LoginForm = (props) => {
                         </FormHelperText>
 
                         <Button disabled={isLoading} type="submit" variant="contained" color="primary"
-                                className={classes.submit} size='large' onClick={handleSubmit,(e)=>{e.preventDefault();setOpen(true)}} key="submitBtn">
+                                className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
                             התחברות
                         </Button>
                         <Modal

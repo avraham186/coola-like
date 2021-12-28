@@ -1,20 +1,25 @@
 import React, { useCallback, useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import EventCard from '../cmps/events_page/EventCard.jsx'
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import { BiEdit } from "react-icons/bi";
 import { Box, Modal } from "@mui/material";
+import AddEvent from "../cmps/events_page/AddEvent.jsx";
+import { loadEvents } from '../store/events'
 
 const AdminEventsPage = () => {
     const { events } = useSelector((state) => state.entities.eventsModule);
-    const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
     const [editEventToggle, setEditEventToggle] = useState(false);
     const [toggleLinks, setToggleLinks] = useState(false);
     const [open, setOpen] = useState(false);
-    
+
+//const [events, setEvents] = useState(data) // when the server side updated a mocked jobs details you can delete this line
+    // const { list: jobs } = useSelector(({ entities }) => entities.jobs) // remove comment this line when above comment is done
+    const dispatch = useDispatch();
+    useEffect(() => { dispatch(loadEvents()) }, [])
     
     useEffect(() => {
     if (editEventToggle) {
@@ -30,27 +35,15 @@ const AdminEventsPage = () => {
         if (searchValue) {
             return events.filter(event => event.subject.toLowerCase().includes(searchValue.toLowerCase()))
         }
-        if (!Object.keys(checkBoxes).length) return events
-        return events.filter(event =>
-            checkBoxes[event.tag]
-            && event.subject.toLowerCase().includes(searchValue.toLowerCase()))
-    }, [checkBoxes, searchValue])
+        return events
+    }, [searchValue])
 
 
     return (
         <section className="eventsPage full">
             <div className="admin main-layout wrapper">
                 {open? 
-                <Modal
-                    className="modals"
-                    open={open}
-                    onClose={() => setOpen(false)}>
-                    <Box className="box-modal">
-                        <button className="ad-event" onClick={()=> setOpen(false)}>
-                            הוסף אירוע וסגור
-                        </button>
-                    </Box>
-                </Modal> 
+                    <AddEvent open={open} setOpen={setOpen} />
                 : null}
                     
                 <div className="headlines">
@@ -71,7 +64,7 @@ const AdminEventsPage = () => {
                     </button>
 
                     <div className="eventsSearchBar">
-                        <IconButton aria-type="search" className="search_logo">
+                        <IconButton className="search_logo">
                             <SearchIcon />
                         </IconButton>
 
@@ -91,10 +84,12 @@ const AdminEventsPage = () => {
                 <div className="eventsCards">
                     {applyCards().map(event =>
                         <EventCard
+                        key={event._id}
                         event={event}
                         adminIndicator={true}
                         
-                        />)}
+                        />
+                        )}
                 </div>
 
             </div>

@@ -43,8 +43,11 @@ export default function NewPositionForm({ toggleLinks, setToggleLinks }) {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log("position");
     console.log(toggleLinks);
+=======
+>>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
     setOpen((p) => !p);
     setFormData(initialNewPositionFormData);
   }, [toggleLinks]);

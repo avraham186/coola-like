@@ -34,9 +34,15 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
   const [open, setOpen] = React.useState(false);
   const [newProjData, setNewProjData] = useState(projectData);
 
+<<<<<<< HEAD
   // useEffect(() => {
   //     console.log(newProjData);
   // }, [newProjData]);
+=======
+  useEffect(() => {
+    console.log(newProjData);
+  }, [newProjData]);
+>>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const name = e.target.name;
@@ -59,8 +65,11 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log("hello");
     console.log(toggleLinks);
+=======
+>>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
     setOpen((p) => !p);
   }, [toggleLinks]);
 
@@ -70,7 +79,11 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
       onClose={() =>
         setToggleLinks((p) => ({
           ...p,
+<<<<<<< HEAD
           toggleLinks: !toggleLinks,
+=======
+          toggleLinks: !p.toggleLinks,
+>>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
         }))
       }
       aria-labelledby="modal-modal-title"
