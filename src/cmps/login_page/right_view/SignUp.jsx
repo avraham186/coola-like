@@ -83,6 +83,7 @@ const BpIcon = styled('span')(({ theme }) => ({
   }));
   
   const BpCheckedIcon = styled(BpIcon)({
+    className:"flex align-center justify-center",
     backgroundColor: '#137cbd',
     backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
     '&:before': {
@@ -207,7 +208,7 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit(send)}>
 
                         {/*<Inputs inputs={textFieldsArr} />*/}
-                        <Input className={classes.inputs} id="fullName" label="שם מלא (באנגלית)" type= 'text' required={true} registerObj={{...register("fullName")}}/>
+                        <Input className={classes.inputs} id="fullName" label="שם מלא (אנגלית)" type= 'text' required={true} registerObj={{...register("fullName")}}/>
                         <Input className={classes.inputs} id="Email" label= "אימייל" type= 'email' required={true}  registerObj={{...register("email")}}/>
                         <Input className={classes.inputs} id="password" label= "סיסמה" type= 'password' required={true} registerObj={{...register("password")}}/>
                         <Input className={classes.inputs} id="password2" label="אימות סיסמה" type='password' required={true} handleChange={(pass)=>{setPassVerify(pass.target.value)}}/>
@@ -221,7 +222,22 @@ const SignUp = () => {
                                 <FormControlLabel
                                     key = {item.key}
                                     control={
-                                    <BpCheckbox checked={item.checked} onChange={handleInterestsChange} name={item.name} />
+                                    <BpCheckbox  checked={item.checked} onChange={handleInterestsChange} name={item.name} />
+                                    }
+                                    label={item.label}
+                                />)
+                            }
+                            </FormGroup>
+                        </FormControl>
+
+
+                        <FormControl >
+                            <FormGroup className="interest-content flex" >
+                           {Array.from(interestsModel).map(item=>
+                                <FormControlLabel
+                                    key = {item.key}
+                                    control={
+                                    <Checkbox  checked={item.checked} onChange={handleInterestsChange} name={item.name} />
                                     }
                                     label={item.label}
                                 />)
@@ -230,10 +246,8 @@ const SignUp = () => {
                         </FormControl>
                         
                         <Button 
-                        //disabled={}
                         type="submit" variant="contained" color="primary"
                             className={classes.submit} size='large' 
-                            //onClick={}
                             key="submitBtn">
                             התחברות
                         </Button>
