@@ -49,11 +49,6 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
-    console.log("hi");
-    console.log(toggleLinks);
-=======
->>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
     setOpen((p) => !p);
     setFormData(initialEventData);
   }, [toggleLinks]);

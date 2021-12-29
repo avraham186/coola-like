@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from "react-icons/ai";
+import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 import "../../../assets/cmps/project-page/_newSidebar.scss";
 // import "./newSidebar.scss";
 import NewPositionForm from "./new_position/NewPositionForm.jsx";
@@ -8,7 +8,6 @@ import AddNewEvent from "./new_event/AddNewEvent.jsx";
 import AddNewProject from "./AddNewProject.jsx";
 import UserPermissions from "./UserPermissions.jsx";
 
-<<<<<<< HEAD
 function NewSideBar({ addProjToggle, setAddProjToggle }) {
   const [open, setOpen] = useState(true);
 
@@ -26,13 +25,14 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
   const [toggleLinks, setToggleLinks] = useState(false);
 
   // useEffect(() => {
-  //   if (addProjToggle) {
-  //     setToggleLinks(true);
-  //   }
-  //   if (!toggleLinks) {
-  //     setAddProjToggle((p) => !p);
-  //   }
-  // }, []);
+  //     if (addProjToggle) {
+  //         setToggleLinks(true)
+  //     }
+  //     if (!toggleLinks) {
+  //        setAddProjToggle((p) => !p)
+
+  //     }
+  //  },[toggleLinks])
 
   const handelsideBar = () => {
     setOpen(!open);
@@ -40,101 +40,85 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
   };
 
   return (
-=======
-function NewSideBar({addProjToggle, setAddProjToggle}) {
-    const [open, setOpen] = useState(true);
-
-    const linkes = [
-        "הוספת פרוייקט",
-        "הוספת ארוע",
-        "הוספת משרה",
-        "עדכון דף ארועים",
-        "עדכון דף משרות",
-        "שינוי הרשאות משתמשים",
-    ];
-    const [tab, setTab] = useState("");
-
-    const [toggleUserPermissions, setToggleUserPermissions] = useState(false);
-    const [toggleLinks, setToggleLinks] = useState(false)
-
-    // useEffect(() => {
-    //     if (addProjToggle) {
-    //         setToggleLinks(true)
-    //     }
-    //     if (!toggleLinks) {
-    //        setAddProjToggle((p) => !p)
-         
-    //     }
-    //  },[toggleLinks])
-
-    const handelsideBar = () => {
-        setOpen(!open);
-        setTab("");
-
-    };
-
-
-    return (
->>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
     <>
-        {/* <div className='main-sidebar'>*/}
-            <div className="sideBar"> 
-                {/* <div className="sideBar-container"> */}
-                    {/* <div >  */}
+      {/* <div className='main-sidebar'>*/}
+      <div className="sideBar">
+        {/* <div className="sideBar-container"> */}
+        {/* <div >  */}
 
-                    {open ? (
-                        <div className="sidbar-left-arrow">
-                            <AiOutlineDoubleLeft onClick={handelsideBar}/>
-                        </div>
-                    ) : (
-                        <div className="sidebar-admin-right-arrow">
-                            <div className='menu-toggle'>
-                                <AiOutlineDoubleRight onClick={handelsideBar}/>
-                                <label className="arrow-icon">תפריט ניהול</label>
-                            </div>
-                            <ul className="sidebarList">
-                                {linkes.map((link, index) => {
-                                    return (
-                                        <li
-                                            key={index}
-                                            className="row"
-                                            // id={window.location.pathname === link ? 'active' : ""}
-                                            onClick={() => {
-                                                setTab(link);
-                                                console.log("link", link)
-                                                setToggleLinks(!toggleLinks)
-                                                console.log(toggleLinks)
-                                             
-                                            }}
-                                        >
-                                            {link}
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    )}
-                    {/* </div> */}
+        {open ? (
+          <div className="sidbar-left-arrow">
+            <AiOutlineDoubleLeft onClick={handelsideBar} />
+          </div>
+        ) : (
+          <div className="sidebar-admin-right-arrow">
+            <div className="menu-toggle">
+              <AiOutlineDoubleRight onClick={handelsideBar} />
+              <label className="arrow-icon">תפריט ניהול</label>
+            </div>
+            <ul className="sidebarList">
+              {linkes.map((link, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="row"
+                    // id={window.location.pathname === link ? 'active' : ""}
+                    onClick={() => {
+                      setTab(link);
+                      console.log("link", link);
+                      setToggleLinks(!toggleLinks);
+                      console.log(toggleLinks);
+                    }}
+                  >
+                    {link}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        {/* </div> */}
 
-                    <div>{tab === "הוספת משרה" &&
-                    <NewPositionForm toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                    <div>{tab === "הוספת ארוע" &&
-                    <AddNewEvent toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                    <div>{tab === "הוספת פרוייקט" &&
-                    <AddNewProject toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                    <div>
-                    {tab === "שינוי הרשאות משתמשים" &&
-                    <UserPermissions toggleLinks={toggleLinks} setToggleLinks={setToggleLinks}/>}</div>
-                </div>
-           {/* </div> */}
-        {/*  </div> */}
+        <div>
+          {tab === "הוספת משרה" && (
+            <NewPositionForm
+              toggleLinks={toggleLinks}
+              setToggleLinks={setToggleLinks}
+            />
+          )}
+        </div>
+        <div>
+          {tab === "הוספת ארוע" && (
+            <AddNewEvent
+              toggleLinks={toggleLinks}
+              setToggleLinks={setToggleLinks}
+            />
+          )}
+        </div>
+        <div>
+          {tab === "הוספת פרוייקט" && (
+            <AddNewProject
+              toggleLinks={toggleLinks}
+              setToggleLinks={setToggleLinks}
+            />
+          )}
+        </div>
+        <div>
+          {tab === "שינוי הרשאות משתמשים" && (
+            <UserPermissions
+              toggleLinks={toggleLinks}
+              setToggleLinks={setToggleLinks}
+            />
+          )}
+        </div>
+      </div>
+      {/* </div> */}
+      {/*  </div> */}
     </>
-    );
+  );
 }
 
 export default NewSideBar;
-<<<<<<< HEAD
-=======
 
 // import React, { useEffect, useState } from "react";
 // // import * as React from "react";
@@ -263,8 +247,6 @@ export default NewSideBar;
 //     </div>
 //   );
 // }
-
-
 
 // import React, { useEffect, useState } from "react";
 // // import * as React from "react";
@@ -408,4 +390,3 @@ export default NewSideBar;
 //     </div>
 //   );
 // }
->>>>>>> 9932bc12d714337dd0c71a2d8e312a4230aee56d
