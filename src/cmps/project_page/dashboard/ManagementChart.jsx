@@ -55,11 +55,6 @@ export const ManagementChart = ({ projects }) => {
     margin: 5,
   };
 
-  const progresstext = {
-    padding: 10,
-    color: "black",
-    fontWeight: 900,
-  };
   const COLORS = ["#69EB7D", "#C0A2F4", "#FFA39C"];
   return (
     <div className="management-line-chart">
@@ -96,12 +91,15 @@ export const ManagementChart = ({ projects }) => {
           </ToggleButton>
         </ToggleButtonGroup>
       </div>
-      <div className="TasksTitle">
+      <div className="TasksTitle" style={{ left: "22%" }}>
         <Legend
           payload={data().map((item, index) => ({
             id: item.name,
             type: "circle",
-            value: `${item.title} (${item.value})`,
+            value:
+              alignment === "N"
+                ? `${item.title} (${item.value})`
+                : `${item.title} (${item.percentage}%)`,
             color: COLORS[index % COLORS.length],
           }))}
         />
@@ -113,12 +111,13 @@ export const ManagementChart = ({ projects }) => {
             width: "88%",
             position: "absolute",
             top: "11px",
+            display: "inherit",
           }}
         >
           {data().map((entry, index) => (
             <span
               style={{
-                height: "100%",
+                // position: "absolute",
                 width: `${entry.percentage}%`,
                 backgroundColor: COLORS[index % COLORS.length],
                 borderTopRightRadius: index === 2 ? "17px" : 0,
@@ -126,12 +125,12 @@ export const ManagementChart = ({ projects }) => {
                 borderTopLeftRadius: index === 0 ? "17px" : 0,
                 borderBottomLeftRadius: index === 0 ? "17px" : 0,
                 textAlign: "center",
-                display: "table-cell",
+                // display: "table-cell",
                 padding: 3,
                 color: "#545454",
               }}
             >
-              {`${entry.percentage}%`}
+              {alignment === "N" ? entry.value : `${entry.percentage}%`}
             </span>
           ))}
         </div>
