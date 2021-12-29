@@ -1,6 +1,5 @@
 class UserData {
-      firstName="";
-      lastName="";
+      fullName="";
       email="";
       password="";   
       interests=[];
