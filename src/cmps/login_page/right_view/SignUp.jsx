@@ -121,10 +121,10 @@ const SignUp = () => {
             console.log("passwords are not equals. ("+passVerify+")");
         }
         /*
-        jwtAxios.post<string>(myURL,customerData)
+        axios.post(signUpURL,userData)
         .then(()=>{
             notify.success("customer was added!")
-            history.push("/ShowAllCustomers");
+            history.push("/");
         }).catch(error=>{
             notify.error("Sorry, can't add customer.")
         }) 
