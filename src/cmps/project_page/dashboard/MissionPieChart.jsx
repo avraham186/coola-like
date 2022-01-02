@@ -84,7 +84,7 @@ export const MissionPieChart = ({ projects }) => {
           <p>פרויקטים הושלמו</p>
         </div>
 
-        <PieChart className="Pie" width={800} height={400}>
+        <PieChart className="Pie" width={400} height={400}>
           <Pie
             data={completedProjects()}
             cx={120}
@@ -131,7 +131,7 @@ export const MissionPieChart = ({ projects }) => {
           <p>משימות שהושלמו החודש</p>
         </div>
 
-        <PieChart className="Pie" width={800} height={400}>
+        <PieChart className="Pie" width={400} height={400}>
           <Pie
             data={completedTasks()}
             cx={120}
