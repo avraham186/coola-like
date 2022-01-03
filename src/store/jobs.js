@@ -1,5 +1,5 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {apiCallBegan} from "./api";
+import { createSlice } from "@reduxjs/toolkit";
+import { apiCallBegan } from "./api";
 import axios from 'axios'
 
 const slice = createSlice({
@@ -68,12 +68,12 @@ export const getJobById = async (jobId) => {
 
 }
 
-export const deleteJobById = jobId => apiCallBegan({
+export const deleteJobById = (jobId) => apiCallBegan({
     url,
     method: "delete",
     data: jobId,
     onSuccess: deleteJob.type
-})
+});
 
 export const loadJobs = () =>
     apiCallBegan({
