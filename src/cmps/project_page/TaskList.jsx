@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { add_new_content, arrow_down, group } from "../../assets/images/icons";
 import user_icon from "../../assets/images/home-page-imgs/user_icon.png";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const colorStatus = {
   STARTED: "#7EB3FF",
@@ -24,6 +25,7 @@ const TaskList = ({ match }) => {
   const projects = useSelector((state) => state.entities.projects);
   const { projectId } = match.params;
   const isMatchTask = (id) => id === parseInt(projectId);
+  let history = useHistory();
 
   useEffect(() => {
     dispatch(loadProjects());
@@ -34,6 +36,27 @@ const TaskList = ({ match }) => {
       (p, { id, tasks }) => (isMatchTask(id) ? [...p, ...tasks] : p),
       []
     );
+
+  function convertDate(date) {
+    var yyyy = date.getFullYear().toString();
+    var mm = (date.getMonth() + 1).toString();
+    var dd = date.getDate().toString();
+
+    var mmChars = mm.split("");
+    var ddChars = dd.split("");
+
+    return `${ddChars[1] ? dd : "0" + ddChars[0]}.${
+      mmChars[1] ? mm : "0" + mmChars[0]
+    }.${yyyy}`;
+  }
+
+  const handleRowClick = (task) => {
+    history.push({
+      pathname: `/projects/task/new-task/${task.id}`,
+      state: task,
+    });
+    // history.push(`/projects/task/new-task/${task.id}`);
+  };
 
   return (
     <div className="task-list">
@@ -72,7 +95,13 @@ const TaskList = ({ match }) => {
             const color = colorStatus[task.taskStatus];
             const priority = task.taskPriority === "HIGH";
             return (
-              <tr className="projects-row" key={task.id}>
+              <tr
+                className="projects-row"
+                key={task.id}
+                onClick={() => {
+                  handleRowClick(task);
+                }}
+              >
                 <td id="label-task" style={{ background: color }}></td>
                 <td>
                   <p>{task.title}</p>
@@ -83,21 +112,21 @@ const TaskList = ({ match }) => {
                       ? {
                           background: "#6D49AC",
                           color: "white",
-                          width: "100px",
+                          width: "120px",
                         }
-                      : { width: "100px" }
+                      : { width: "12%" }
                   }
                 >
                   <p>{namePriority[task.taskPriority]}</p>
                 </td>
-                <td>
+                <td style={{ width: "7%" }}>
                   <img
                     src={user_icon}
                     alt={task.admin}
                     style={{ width: "2.5em" }}
                   />
                 </td>
-                <td>
+                <td style={{ width: "12%" }}>
                   <div className="ppl-assigned">
                     {task.team?.map(({ firstName, lastName }, key) => {
                       const name = `${firstName} ${lastName}`;
@@ -105,14 +134,13 @@ const TaskList = ({ match }) => {
                     })}
                   </div>
                 </td>
-                <td>
-                  <p>{task.startDate}</p>
-                  <p>{task.endDate}</p>
+                <td style={{ width: "10%" }}>
+                  <p>{convertDate(new Date(task.endDate))}</p>
                 </td>
                 <td>
                   <p>{task.description?.slice(0, 30)}...</p>
                 </td>
-                <td style={{ background: color, width: "15%" }}>
+                <td style={{ background: color, width: "10%" }}>
                   <p>{status[task.taskStatus]}</p>
                 </td>
               </tr>

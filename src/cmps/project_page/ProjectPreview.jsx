@@ -124,8 +124,8 @@ export const ProjectPreview = ({ project }) => {
         </Link>
       </td>
       <td style={{ textAlign: "center" }}>
-        <span>{convertDate(new Date(startDate))}</span> -{" "}
-        <span>{convertDate(new Date(endDate))}</span>
+        <span>{convertDate(new Date(endDate))}</span> -{" "}
+        <span>{convertDate(new Date(startDate))}</span>
       </td>
       <td>
         <Link style={{ direction: "rtl" }} to={`/projects/task/${project.id}`}>
