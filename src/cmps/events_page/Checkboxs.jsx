@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-
+import {CATEGORIES} from '../../utils/constant'
 //useSelector -> במקום map.stateToProps רשימה מהרידקס
 //useDispatch -> map.dispatchToProps
 const allTags = {
    development: false, uiux: false, qa: false, hardware: false,
    system: false, cybersecurity: false, all: false
 }
-const checkBoxProp = [
-   { name: 'סמן הכל', tag: 'all' },
-   { name: 'חומרה', tag: 'hardware' },
-   { name: 'UI/UX', tag: 'uiux' },
-   { name: 'הנדסת מערכות', tag: 'system' },
-   { name: 'פיתוח תוכנה', tag: 'development' },
-   { name: 'אבטחת מידע וסייבר', tag: 'cybersecurity' },
-   { name: 'בדיקות תוכנה', tag: 'qa' }
+   
 
-]
+const checkBoxProp = CATEGORIES;
+
 const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
 
    const { events } = useSelector((state) => state.entities.eventsModule);
    const [checkboxSelected, setCheckboxSelected] = useState({ ...allTags });
 
-
    const checkboxClick = (e) => {
-      let tag = e.target.id;
-      setSearchValue('')
+      let tag = e.target.id;//hold the key
+      setSearchValue('')//init the search bar to avoid conflicts
       if (tag === 'all') {
-         const tmpCheck = checkboxSelected;
-         if ((checkboxSelected[tag])) {
-            setCheckboxSelected({ ...allTags })
+         const tmpCheck = checkboxSelected;// equals to the selected values flag
+         if ((checkboxSelected[tag])) { // if the tag is selected (true)
+            setCheckboxSelected({ ...allTags }) //set ceckboxes
             setCheckBoxes({})
             return;
          }

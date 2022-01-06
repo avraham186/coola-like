@@ -1,272 +1,269 @@
 .new-task {
-    direction: rtl;
+  direction: rtl;
+  font-family: Rubik, sans-serif;
+  background-color: white;
+  width: 100vw;
+  font-style: normal;
+  padding: 20px 50px 20px 40px;
+  color: #4a4a4a;
+  gap: rem(50px);
+
+  gap: rem(50px);
+  width: 100vw;
+
+  .new-task-title {
+    text-align: right;
+
+    .title {
+      cursor: pointer;
+      font-size: 0.8rem;
+
+      input {
+        width: 85%;
+        font-size: 1rem;
+        border: none;
+        border-bottom: 1px solid blue;
+      }
+      input:focus {
+        outline: none;
+      }
+    }
+
+    h2,
+    span {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-weight: bold;
+      box-sizing: border-box;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 0 3%;
+      text-decoration: none;
+    }
+
+    .task-mode {
+      gap: 5px;
+
+      span {
+        font-size: 0.8rem;
+        text-align: center;
+        border-radius: 5px;
+        padding: 3px 25px;
+      }
+
+      #task-mode1 {
+        background-color: $modeC1;
+      }
+
+      #task-mode2 {
+        background-color: $modeC2;
+      }
+
+      #task-mode3 {
+        background-color: $modeC3;
+      }
+
+      #task-mode4 {
+        background-color: $modeC4;
+      }
+    }
+
+    .priority-task {
+      gap: 5px;
+
+      span {
+        font-size: 0.8rem;
+        text-align: center;
+        border-radius: 5px;
+        padding: 3px 25px;
+      }
+
+      #priority-task {
+        color: white;
+        background-color: $priority;
+      }
+    }
+  }
+
+  .headlines-task {
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    img {
+      margin-left: 10px;
+    }
+  }
+
+  textarea {
     font-family: Rubik, sans-serif;
-    background-color: white;
-    width: 100vw;
     font-style: normal;
-    padding: 20px 50px 20px 40px;
+    align-items: center;
     color: #4a4a4a;
-    gap: rem(50px);
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #d6d6d6;
+  }
 
-    gap: rem(50px);
-    width: 100vw;
+  .due-date-task {
+    gap: 10px;
 
-    .new-task-title {
-        text-align: right;
+    h4 {
+      margin: 8px;
+    }
+  }
 
-        .title {
-            cursor: pointer;
-            font-size: 0.8rem;
+  .labels {
+    max-width: 800px;
 
-            input {
-                width: 85%;
-                font-size: 1rem;
-                border: none;
-                border-bottom: 1px solid blue;
-            }
-            input:focus {
-                outline: none;
-            }
-        }
+    .labels-container {
+      flex-wrap: wrap;
 
-        h2,
-        span {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+      span p {
+        padding: 10px 30px;
+        margin: 0px;
+        border-radius: 3px;
+      }
 
-        span {
-            font-weight: bold;
-            box-sizing: border-box;
-            cursor: pointer;
-            border-radius: 5px;
-            padding: 0 3%;
-            text-decoration: none;
-        }
+      span img {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: $plusBackground;
+        cursor: pointer;
+      }
+      span img:hover {
+        background-color: rgba($plusBackground, 0.7);
+      }
+    }
+  }
 
-        .task-mode {
-            gap: 5px;
+  .assigned-task {
+    margin-left: 35px;
 
-            span {
-                font-size: 0.8rem;
-                text-align: center;
-                border-radius: 5px;
-                padding: 3px 25px;
-            }
-
-            #task-mode1 {
-                background-color: $modeC1;
-            }
-
-            #task-mode2 {
-                background-color: $modeC2;
-            }
-
-            #task-mode3 {
-                background-color: $modeC3;
-            }
-
-            #task-mode4 {
-                background-color: $modeC4;
-            }
-        }
-
-        .priority-task {
-            gap: 5px;
-
-            span {
-                font-size: 0.8rem;
-                text-align: center;
-                border-radius: 5px;
-                padding: 3px 25px;
-            }
-
-            #priority-task {
-                color: white;
-                background-color: $priority;
-            }
-        }
+    .users-render {
+      flex-wrap: wrap;
     }
 
-    .headlines-task {
-        margin-top: 20px;
-        margin-bottom: 10px;
-
-        img {
-            margin-left: 10px;
-        }
+    img[alt="userimg"] {
+      //   width: 50px;
     }
 
-    textarea {
-        font-family: Rubik, sans-serif;
-        font-style: normal;
-        align-items: center;
-        color: #4a4a4a;
-        font-size: 18px;
-        padding: 10px;
-        border: 1px solid #d6d6d6;
+    span {
+      text-align: center;
     }
 
-    .due-date-task {
-        gap: 10px;
-
-        h4 {
-            margin: 8px;
-        }
+    span img {
+      border-radius: 50%;
+      padding: 5px;
     }
 
-    .labels {
-        max-width: 800px;
+    span img[alt="circle plus"] {
+      background-color: $plusBackground;
+      cursor: pointer;
+    }
+    span img[alt="circle plus"]:hover {
+      background-color: rgba($plusBackground, 0.7);
+    }
+  }
 
-        .labels-container {
-            flex-wrap: wrap;
+  .chat-task {
+    font-family: Rubik-bold;
 
-            span p {
-                padding: 12px 30px;
-                margin: 3px;
-                border-radius: 3px;
-            }
-
-            span img {
-                padding: 5px;
-                margin: 5px;
-                border-radius: 5px;
-                background-color: $plusBackground;
-                cursor: pointer;
-            }
-            span img:hover {
-                background-color: rgba($plusBackground, 0.7);
-            }
-        }
+    .chat-users {
+      gap: rem(15px);
     }
 
-    .assigned-task {
-        margin-left: 35px;
-
-        .users-render {
-            flex-wrap: wrap;
-        }
-
-        img[alt="userimg"] {
-            width: 50px;
-        }
-
-        span {
-            text-align: center;
-            margin: 10px;
-        }
-
-        span img {
-            border-radius: 50%;
-            padding: 5px;
-        }
-
-        span img[alt="circle plus"] {
-            background-color: $plusBackground;
-            cursor: pointer;
-        }
-        span img[alt="circle plus"]:hover {
-            background-color: rgba($plusBackground, 0.7);
-        }
+    .user-chat {
+      gap: rem(15px);
     }
 
-    .chat-task {
-        font-family: Rubik-bold;
+    .user-message {
+      width: rem(250px);
+      font-family: none;
+      font-size: rem(25px);
+      padding: 10px;
 
-        .chat-users {
-            gap: rem(15px);
-        }
-
-        .user-chat {
-            gap: rem(15px);
-        }
-
-        .user-message {
-            width: rem(250px);
-            font-family: none;
-            font-size: rem(25px);
-            padding: 10px;
-
-            font-family: Rubik, sans-serif;
-            font-style: normal;
-            align-items: center;
-            color: #4a4a4a;
-            font-size: rem(18px);
-            border-radius: 10px;
-            padding: 10px;
-            border: 1px solid #d6d6d6;
-        }
-
-        .save-chat {
-            background-color: $clr5;
-            font-weight: bold;
-            box-sizing: border-box;
-            cursor: pointer;
-            border-radius: 2px 15px;
-            font-size: 1em;
-            padding: 0.5% 1.5%;
-            margin: 10px;
-            color: black;
-            text-decoration: none;
-            transition: 0.5s;
-        }
-        .save-chat:hover {
-            color: rgba(32, 32, 32, 0.5);
-        }
-
-        object {
-            width: 45px;
-            height: 45px;
-            margin-left: 20px;
-        }
+      font-family: Rubik, sans-serif;
+      font-style: normal;
+      align-items: center;
+      color: #4a4a4a;
+      font-size: rem(18px);
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid #d6d6d6;
     }
 
-    .attachments-container {
-        max-width: 400px;
-        flex-wrap: wrap;
-
-        .each-file-task {
-            margin: 15px;
-            text-align: center;
-            span:hover {
-                cursor: pointer;
-            }
-        }
-
-        span img {
-            background-color: $plusBackground;
-            padding: 5px;
-            margin: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        span img:hover {
-            background-color: rgba($plusBackground, 0.7);
-        }
+    .save-chat {
+      background-color: $clr5;
+      font-weight: bold;
+      box-sizing: border-box;
+      cursor: pointer;
+      border-radius: 2px 15px;
+      font-size: 1em;
+      padding: 0.5% 1.5%;
+      margin: 10px;
+      color: black;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+    .save-chat:hover {
+      color: rgba(32, 32, 32, 0.5);
     }
 
-    .submit-task {
-        direction: ltr;
-
-        button {
-
-            width: 240px;
-            height: 40px;
-            background-color: #34018e;
-            font-size: 18px;
-            color: white;
-            border-radius: 2px;
-            border: none;
-            font-family: Rubik, sans-serif;
-            align-content: center;
-            align-items: center;
-            align-self: center;
-            justify-content: center;
-            margin: 10px;
-
-        }
-        button:hover {
-            background-color: rgba($clr7, 0.85);
-        }
+    object {
+      width: 45px;
+      height: 45px;
+      margin-left: 20px;
     }
+  }
+
+  .attachments-container {
+    max-width: 400px;
+    flex-wrap: wrap;
+
+    .each-file-task {
+      margin: 15px;
+      text-align: center;
+      span:hover {
+        cursor: pointer;
+      }
+    }
+
+    span img {
+      background-color: $plusBackground;
+      padding: 5px;
+      margin: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    span img:hover {
+      background-color: rgba($plusBackground, 0.7);
+    }
+  }
+
+  .submit-task {
+    direction: ltr;
+
+    button {
+      width: 240px;
+      height: 40px;
+      background-color: #34018e;
+      font-size: 18px;
+      color: white;
+      border-radius: 2px;
+      border: none;
+      font-family: Rubik, sans-serif;
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      justify-content: center;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: rgba($clr7, 0.85);
+    }
+  }
 }

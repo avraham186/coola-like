@@ -16,7 +16,7 @@ function LoginGoogle({handleOpen,handleClose}) {
     const history = useHistory();
 
     const onSuccess = (res) => {
-        // console.log('Login Success: currentUser:', res.profileObj);
+        console.log('Login Success: currentUser:', res.profileObj);
         dispatch(googleProfile(res.profileObj));
         history.push("/");
         refreshTokenSetup(res);
@@ -55,8 +55,8 @@ function LoginGoogle({handleOpen,handleClose}) {
                         Google
                     </Button>
                 )}
-                onSuccess={onSuccess,handleClose}
-                onFailure={onFailure,handleClose}
+                onSuccess={onSuccess}
+                onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
             />
         </div>

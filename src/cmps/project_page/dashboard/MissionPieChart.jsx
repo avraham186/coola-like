@@ -34,7 +34,6 @@ export const MissionPieChart = ({ projects }) => {
     projects.list.forEach((project) => {
       if (project.tasks.length > 0) {
         project.tasks.forEach((task) => {
-          console.log(task);
           let taskMonth = new Date(task.endDate).getMonth() + 1;
           if (task.taskStatus !== "COMPLETED" && taskMonth === month) {
             allOtherTasks++;
@@ -85,7 +84,7 @@ export const MissionPieChart = ({ projects }) => {
           <p>פרויקטים הושלמו</p>
         </div>
 
-        <PieChart className="Pie" width={800} height={400}>
+        <PieChart className="Pie" width={400} height={400}>
           <Pie
             data={completedProjects()}
             cx={120}
@@ -132,7 +131,7 @@ export const MissionPieChart = ({ projects }) => {
           <p>משימות שהושלמו החודש</p>
         </div>
 
-        <PieChart className="Pie" width={800} height={400}>
+        <PieChart className="Pie" width={400} height={400}>
           <Pie
             data={completedTasks()}
             cx={120}

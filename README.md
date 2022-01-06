@@ -7,7 +7,10 @@
 ## Developers:
 * Alexnder Lazarovich
 * Avraham
+* Gabriel
+* Ori
+* Adi
+* Michael
 * Elyashiv
-* Guy Hassan
-* Ori Menachem Levi
-* ruth hubara
+* Tal
+* Yuval

@@ -1,4 +1,5 @@
 .app-header {
+<<<<<<< HEAD
   font-family: Rubik-regular, sans-serif;
   .header-container {
     direction: rtl;
@@ -22,6 +23,50 @@
         margin-top: 10px;
         font-size: rem(20px);
       }
+=======
+    display: flex;
+    justify-content: space-between;
+    font-family: Rubik-regular, sans-serif;
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        direction: rtl;
+        .header-content {
+            margin-bottom: rem(20px);
+            h1 {
+                font-size: rem(60px);
+                color: #000;
+                margin-bottom: 10px;
+            }
+            h4 {
+                font-size: rem(25px);
+                // line-height: 20px;
+                font-family: Rubik-bold, sans-serif;
+                color: #000;
+                margin: 0;
+            }
+            p {
+                direction: rtl;
+                line-height: rem(30px);
+                margin-top: 10px;
+                font-size: rem(20px);
+            }
+        }
+        .header-buttons {
+            border: 2px solid $clr2;
+            background-color: $clr7;
+            width: rem(199px);
+            height: rem(40px);
+            cursor: pointer;
+            border-radius: 2px 15px;
+            text-decoration: none;
+            span{
+                font-family: Rubik-medium, sans-serif;
+                font-size: rem(18px);
+                color: $clr6;
+            }
+        }
+>>>>>>> main
     }
     .header-buttons {
       border: 2px solid $clr2;
@@ -54,4 +99,11 @@
     padding: 0;
     margin: 0;
   }
+}
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+@media screen and (max-width: 480px){
+    .home-page {
+    }
 }

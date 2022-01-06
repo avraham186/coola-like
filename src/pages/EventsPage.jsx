@@ -62,7 +62,7 @@ const EventsPage = () => {
                 <div className="selectors">
                     <div className="eventsSearchBar">
 
-                        <IconButton aria-type="search" className="search_logo">
+                        <IconButton className="search_logo">
                             <SearchIcon />
                         </IconButton>
 
@@ -80,7 +80,13 @@ const EventsPage = () => {
                 </div>
 
                 <div className="eventsCards">
-                    {applyCards().map(event => <EventCard event={event} />)}
+                    {applyCards()
+                    .map(event => 
+                        <EventCard 
+                        key={event._id}
+                        event={event}
+                        />
+                        )}
 
                 </div>
 

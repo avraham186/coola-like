@@ -16,6 +16,7 @@ const ProjectsList = () => {
   });
   useEffect(() => {
     dispatch(loadProjects());
+    console.log(projects);
   }, []);
 
   const applyProjects = () => {

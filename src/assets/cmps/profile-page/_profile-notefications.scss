@@ -1,0 +1,64 @@
+.profile-notefications {
+    direction: rtl;
+    padding-right: rem(60px);
+    height: 100%;
+    .headline {
+        font-family: Rubik-medium;
+        font-size: rem(25px);
+    }
+    .sub-headline {
+        font-family: Rubik-regular;
+        margin-bottom: rem(50px);
+    }
+    .every-new-event,
+    .new-event-on-my-interest,
+    .new-jobs-on-my-interest,
+    .news {
+        border-top: 0.5px solid #c4c4c4;
+        border-bottom: 0.5px solid #c4c4c4;
+        font-family: Rubik-regular;
+        height: rem(66px);
+        .btn-notefications {
+            background-color: white;
+            border: 1px solid #4A4A4A;
+            width: rem(66px);
+            height: rem(27px);
+            border-radius: 15px;
+            &.color{
+                background-color: $clr7;
+                border: 1px solid $clr7;
+            }
+            & .no{
+                background-color: #6E6E6E;
+                margin-right: 70%;
+                width: rem(20px);
+                border-radius: 50%;
+                height: rem(20px);
+                transition: 0.5s;
+            }
+            & .yes{
+                background-color: white;
+                width: rem(20px);
+                height: rem(20px);
+                border-radius: 50%;
+                margin-left: -90%;
+                transition: 0.5s;
+            }
+        }
+    }
+    // .new-event-on-my-interest{
+    //     border-bottom: 0.5px solid #C4C4C4;
+    //     font-family: Rubik-regular;
+    //     height: rem(66px);
+    // }
+    // .new-jobs-on-my-interest{
+    //     border-bottom: 0.5px solid #C4C4C4;
+    //     font-family: Rubik-regular;
+    //     height: rem(66px);
+    // }
+    // .news{
+    //     border-bottom: 0.5px solid #C4C4C4;
+    //     font-family: Rubik-regular;
+    //     height: rem(66px);
+    // }
+}

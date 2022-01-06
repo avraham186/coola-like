@@ -1,5 +1,5 @@
 .events {
-    margin-top: 50px;
+    margin-top: rem(50px);
     gap: rem(30px);
     .events-title {
         font-family: Rubik, sans-serif;
@@ -13,7 +13,6 @@
         direction: rtl;
         .events-sub-title {
             font-family: Rubik-regular, sans-serif;
-            // font-style: normal;
             font-size: rem(25px);
             line-height: rem(30px);
         }
@@ -30,7 +29,7 @@
         .events-icon {
             width: rem(40px);
             height: rem(40px);
-            transform: scale(0.9);
+            // transform: scale(0.9);
             &:hover {
                 background-color: rgb(224, 224, 224);
             }
@@ -40,7 +39,6 @@
         .events-sub-title-link {
             font-family: Rubik-bold, sans-serif;
             font-size: rem(18px);
-            line-height: rem(21px);
             &:hover {
                 text-decoration: underline;
             }
