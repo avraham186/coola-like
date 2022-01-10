@@ -9,15 +9,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 350px;
+    height: 100%;
     max-height: 450px;
     background-color: white;
-    text-align: center;
+    // text-align: center;
     color: #4a4a4a;
     box-shadow: 24px;
     padding: 4px;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
 
     .search-user-assigned {
       width: 70%;
@@ -99,8 +100,6 @@
         }
       }
 
-
-
       .add-link-input {
         width: 85%;
         border: 1px solid black;
@@ -161,13 +160,12 @@
         left: 0;
         cursor: pointer;
         border-radius: 10px;
-        transition: .5s;
+        transition: 0.5s;
       }
 
-      .btn-close:hover {
-        background-color: rgba($clr4, 0.3);
-
-      }
+      // .btn-close:hover {
+      //   background-color: rgba($clr4, 0.3);
+      // }
     }
 
     .users-assigned {
@@ -204,7 +202,7 @@
         width: 100%;
         border-bottom: 1px solid #787878;
         padding: 10px 0px 10px 0px;
-
+        margin: 10px;
 
         .due-date-title {
           width: 102px;
@@ -226,7 +224,7 @@
         width: 100%;
         justify-content: flex-end;
         padding: 10px 0px 10px 0px;
-
+        margin: 10px;
         label {
           input {
             width: rem(20px);
@@ -236,15 +234,15 @@
       }
 
       .due-date-start-date-body {
-        justify-content: flex-end;
-        width: 300px;
-        flex-basis: 80%;
+        width: 117px;
+        height: 34px;
 
         input {
           text-transform: uppercase;
           color: #4a4a4a;
           background-color: #f2f2f2;
-          height: rem(34px);
+          width: 130px;
+          height: 34px;
           border: 1px solid lightgray;
           margin: 0px 30px 0px 0px;
         }
@@ -255,7 +253,7 @@
         color: #4a4a4a;
         justify-content: flex-end;
         padding: 10px 0px 10px 0px;
-
+        margin: 10px;
         label {
           input {
             width: rem(20px);
@@ -272,8 +270,8 @@
         input[type="date"] {
           color: #4a4a4a;
           background-color: #f2f2f2;
-          width: rem(140px);
-          height: rem(34px);
+          width: 132px;
+          height: 34px;
           font-size: rem(14px);
           border: 1px solid lightgray;
           margin: 0px 30px 0px 0px;
@@ -284,8 +282,8 @@
           width: 100%;
           color: #4a4a4a;
           background-color: #f2f2f2;
-          width: rem(92px);
-          height: rem(34px);
+          width: 92px;
+
           font-size: rem(14px);
           border: 1px solid lightgray;
         }
@@ -296,7 +294,7 @@
         justify-content: flex-end;
         color: #4a4a4a;
         padding: 10px 0px 10px 0px;
-
+        margin: 10px;
         label {
           width: rem(85px);
           font-size: rem(16px);
@@ -313,27 +311,34 @@
           width: rem(261px);
           height: rem(34px);
           border: 1px solid lightgray;
+          // margin: 5px;
         }
       }
 
-      // .save-btn {
-      //   width: rem(153px);
-      //   height: rem(40px);
-      //   background-color: $clr7;
-      //   color: white;
-      //   margin: 30px 0px 30px 0px;
-      //   border-radius: 5px 15px;
-      //   cursor: pointer;
-      // }
-
-      .save-btn:hover {
-        background-color: rgba($clr7, 0.9);
-
+      .save-btn {
+        width: 90%;
+        height: 40px;
+        background-color: #34018e;
+        font-size: 18px;
+        color: white;
+        border-radius: 2px;
+        border: none;
+        font-family: Rubik, sans-serif;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        margin: 15px;
+        margin-top: 40px;
       }
+
+      // .save-btn:hover {
+      //   background-color: rgba($clr7, 0.9);
+      // }
     }
-.submit-btn-task{
-  width: 100%;
-}
+    .submit-btn-task {
+      width: 100%;
+    }
     // .save-modal-button {
     //   width: 150px;
     //   border: 0;
@@ -348,8 +353,27 @@
     //   cursor: pointer;
     // }
 
-    .save-modal-button:hover {
-      background-color: rgba($clr1, 0.9);
-    }
+    // .save-modal-button:hover {
+    //   background-color: rgba($clr1, 0.9);
+    // }
+  }
+  select {
+    width: 250px;
+    height: 34px;
+
+    background: #ffffff;
+    /* Light grey */
+
+    border: 1px solid #d6d6d6;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+
+    color: #4a4a4a;
   }
 }
