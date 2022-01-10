@@ -6,11 +6,19 @@ import EventCard from '../cmps/events_page/EventCard.jsx'
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Modal } from "@mui/material";
+import OpenEventCard from '../cmps/events_page/OpenEventCard.jsx'
 
 const EventsPage = () => {
     const { events } = useSelector((state) => state.entities.eventsModule);
     const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
+    const [openCardInfo, setOpenCardInfo] = useState(false)
+
+    const handleCardInfo = (_id) => {
+        setOpenCardInfo(true)
+        console.log('open modal', openCardInfo)
+    }
+    
 
     const [open, setOpen] = useState(false);
     const [toggleMode, setToggleMode] = useState({
@@ -85,9 +93,13 @@ const EventsPage = () => {
                         <EventCard 
                         key={event._id}
                         event={event}
+                        onClick={handleCardInfo}
+                        
                         />
                         )}
-
+                        
+                        {openCardInfo ? <OpenEventCard /> : null}
+                        
                 </div>
 
             </div>

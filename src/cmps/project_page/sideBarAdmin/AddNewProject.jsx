@@ -14,13 +14,13 @@ const projectData = {
   endDate: "",
   adminProject: [],
   description: "",
-  projectStatus:"",
-  projectPriority:"",
+  projectStatus: "",
+  projectPriority: "",
   tasks: [],
 };
 
 const statusOptions = [
-  "סטטוס",
+  "",
   "IN_PROCESS",
   "DELAY",
   "COMPLETED",
@@ -28,7 +28,7 @@ const statusOptions = [
   "CANCELED",
 ];
 
-const priorityOptions = ["עדיפות", "HIGH", "LOW", "MEDIUM"];
+const priorityOptions = [ "","HIGH", "LOW", "MEDIUM"];
 
 function AddNewProject({ toggleLinks, setToggleLinks }) {
   const [open, setOpen] = React.useState(false);
@@ -49,31 +49,28 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
     });
   };
 
-
-  const checkSubmit = ( )=> {
-    if (newProjData.projectName === "" &&
-      newProjData.startDate === "" &&
-      newProjData.endDate === "" &&
-      newProjData.projectPriority === "" &&
-      newProjData.projectPriority === "עדיפות" &&
-      newProjData.description === "" &&
-      newProjData.projectStatus === "" &&
-      newProjData.projectStatus === "סטטוס"  )
-    {
-    //  return false
-     return 
-      console.log(false )
+  const checkSubmit = () => {
+    if (
+      newProjData.projectName === "" ||
+      newProjData.startDate === "" ||
+      newProjData.endDate === "" ||
+      newProjData.projectPriority === "" ||
+      // newProjData.projectPriority === "עדיפות" ||
+      newProjData.description === "" ||
+      newProjData.projectStatus === "" 
      
+    ) {
+      //  return false
+      return console.log("אנא מלא את כל השדות");
     }
     //  else return true
-    else{
-      return console.log(true)
+    else {
+      return handleSubmit();
     }
-  }
+  };
 
   // }
   const handleSubmit = () => {
-  
     dispatch(addProject(newProjData));
     setToggleLinks((p) => !p);
     console.log("newProjData", newProjData);
@@ -82,7 +79,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
 
   useEffect(() => {
     setOpen((p) => !p);
-    checkSubmit()
+    // checkSubmit()
   }, [toggleLinks]);
 
   return (
@@ -161,6 +158,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
             <br />
 
             <div className="status-and-priority flex">
+              <label htmlFor="">סטטוס
               <select
                 required
                 name="projectStatus"
@@ -175,21 +173,24 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                   );
                 })}
               </select>
-
-              <select
-                required
-                name="projectPriority"
-                onChange={handleChange}
-                className="select-option"
-              >
-                {priorityOptions.map((option, index) => {
-                  return (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  );
-                })}
-              </select>
+              </label>
+              <label htmlFor="">
+                עדיפות
+                <select
+                  required
+                  name="projectPriority"
+                  onChange={handleChange}
+                  className="select-option"
+                >
+                  {priorityOptions.map((option, index) => {
+                    return (
+                      <option key={index} value={option}>
+                        {option}
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
             </div>
           </div>
           <div className="assigned-task">
@@ -197,12 +198,13 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
             {/* <AssignedTask areAssigned={pplAssigned} /> */}
           </div>
           <div className="submit-task">
-          <button className="btn-save"
-            //  disabled={checkSubmit}
-              onClick={handleSubmit}>
+            <button
+              className="btn-save"
+              //  disabled={checkSubmit}
+              onClick={checkSubmit}
+            >
               שמור וסגור
             </button>
-            
           </div>
         </form>
       </Box>

@@ -5,17 +5,31 @@ import { addEvent } from "../../../../store/events";
 import Categories from "../new_position/Categories";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const initialEventData = {
-  eventDate: "",
-  description: "",
-  title: "",
-  time: "",
-  Categories: [],
-  presentor: "",
+  eventDate: [],
+  /**
+   * new eventDate key:
+   *    {
+   *    date: "dd/mm/yyyy",
+   *     hour: "hh/mm"
+   *    }
+   */
+  title: "Event of the yeear",
+  categories: [],
+  lector: "",
+  inLink: "",
+  details: "",
+  detailsOnLector: "",
+  registered: 0,
+  eventLink: "",
   image: "",
-  link: "",
+
 };
+
+
+
 
 function AddNewEvent({ toggleLinks, setToggleLinks }) {
   const dispatch = useDispatch();
@@ -26,31 +40,37 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+   
     setFormData({
       ...formData,
       [name]: value,
-
-      // Trimming any whitespace
+    // Trimming any whitespace
     });
   };
 
-  const handleSubmit = (e) => {
+  const checkSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEvent(formData));
-    setOpen(false);
+    const values = Object.values(formData);// takes the values of the object
+    values.some(val => val.length<1)
+    ?
+    console.log("some field is missing...")
+    :
+    handleSubmit();
+  };
 
-    // fetch('api/projects', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ formData }),
-    //   headers: { 'Content-Type': 'application/json' },
-    // })
-    //   .then(res => res.json())
-    //   .then(json => setFormData(json.formData))
+  const handleSubmit = () => {
+    // e.preventDefault();
+    console.log("on handleSubmit")
+    dispatch(addEvent(formData));
+    setToggleLinks((p) => !p);
+    // setOpen(false);
+    console.log("newEvent", formData);
+
   };
 
   useEffect(() => {
     setOpen((p) => !p);
-    setFormData(initialEventData);
+    // setFormData(initialEventData);
   }, [toggleLinks]);
 
   return (
@@ -72,6 +92,7 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               כותרת הארוע
               <br />
               <input
+                required
                 type="text"
                 value={formData.title}
                 name="title"
@@ -85,16 +106,20 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               <br />
               <div className="data-and-time-input">
                 <input
+                  required
                   type="date"
                   name="eventDate"
-                  value={formData.eventDate}
+                  value={formData.eventDate[3] + "/" + formData.eventDate[2]
+                        +formData.eventDate[1] + "/" + formData.eventDate[0]
+                      }
                   placeholder="dd/mm/yyyy"
                   onChange={handleChange}
                 />
                 <input
+                  required
                   type="time"
-                  name="time"
-                  value={formData.time}
+                  name="eventDate"
+                  value={formData.eventDate[5] + ":" + formData.eventDate[4]}
                   placeholder="00:00"
                   onChange={handleChange}
                 />
@@ -114,7 +139,8 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               תיאור
               <br />
               <textarea
-                name="description"
+                required
+                name="detailes"
                 onChange={handleChange}
                 id=""
                 cols="40"
@@ -126,7 +152,12 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
             <label className="insert_presentor">
               {" "}
               מציג
-              <input type="text" name="presentor" onChange={handleChange} />
+              <input
+                type="text"
+                name="lector"
+                onChange={handleChange}
+                required
+              />
             </label>
 
             <div id="dropZone" className="add-file">
@@ -134,8 +165,9 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               <label className="chooseFromPC">
                 בחר מהמחשב
                 <input
+                  required
                   type="file"
-                  name="file"
+                  name="image"
                   value={formData.image}
                   onChange={handleChange}
                   style={{ display: "none" }}
@@ -148,16 +180,17 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               קישור לעמוד הלינקדאין של המרצה
               <br />
               <input
+                required
                 type="text"
                 name="link"
-                value={formData.link}
+                value={formData.inLink}
                 onChange={handleChange}
                 placeholder="www.linkedin//shaharpolak"
               />
             </label>
             <br />
             <div className="submit-btn">
-              <button className="btn-save" onClick={handleSubmit}>
+              <button className="btn-save" onClick={e=> checkSubmit(e)}>
                 שמור וסגור
               </button>
             </div>
