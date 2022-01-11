@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { jobs_icon, Facebook, Whatsapp, Copy_link, Linkedin, edit_pen, erase } from '../../assets/images/icons'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 export const Description = ({ currentJob: { title, numJob, description, jobType, email, location, urlJob } }) => {
     return (
         <div className="description-job">
@@ -9,7 +10,7 @@ export const Description = ({ currentJob: { title, numJob, description, jobType,
                     <h2>{title}</h2>
                     <p>{numJob}</p>
                     <div className="card-content-info flex align-center">
-                        <span><img src={jobs_icon} className="job-icon" />{jobType}</span>
+                        <span><img src={jobs_icon} className="job-icon"  alt='Job icon' />{jobType}</span>
                         <span><LocationOnIcon className="job-icon" />{location}</span>
                     </div>
                     <p>{description}</p>
