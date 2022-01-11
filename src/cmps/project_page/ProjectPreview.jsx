@@ -159,6 +159,7 @@ export const ProjectPreview = ({ project }) => {
         openDeleteModal={openDeleteModal}
         setOpenDeleteModal={setOpenDeleteModal}
         project={project.id}
+        projecName={projectName}
       />
     </tr>
   );

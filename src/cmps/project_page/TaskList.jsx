@@ -5,7 +5,6 @@ import { add_new_content, arrow_down, group } from "../../assets/images/icons";
 import user_icon from "../../assets/images/home-page-imgs/user_icon.png";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-
 const colorStatus = {
   STARTED: "#7EB3FF",
   DELAY: "#FFA39C",
@@ -24,12 +23,20 @@ const TaskList = ({ match }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
   const { projectId } = match.params;
+  const [project_name, setProject_name] = useState("");
+
   const isMatchTask = (id) => id === parseInt(projectId);
   let history = useHistory();
 
   useEffect(() => {
     dispatch(loadProjects());
   }, [match.params.projectId]);
+
+  useEffect(() => {
+    let id = parseInt(match.params.projectId);
+    let project = projects.list.find((x) => x.id === id);
+    setProject_name(project.projectName);
+  }, []);
 
   const allTasks = () =>
     projects.list.reduce(
@@ -60,7 +67,18 @@ const TaskList = ({ match }) => {
 
   return (
     <div className="task-list">
-      <div className="actions-task">
+      <p
+        style={{
+          fontStyle: "normal",
+          fontWeight: "500",
+          fontSize: "40px",
+          lineHeight: "47px",
+          textAlign: "right",
+        }}
+      >
+        {project_name}{" "}
+      </p>
+      <div className="actions-task" style={{ margin: "10px" }}>
         <Link id="add-new-task" to={`/projects/task/new-task/${projectId}`}>
           <img src={add_new_content} alt="add-new-content" />
           <p>הוספת משימה חדשה</p>
@@ -71,7 +89,8 @@ const TaskList = ({ match }) => {
           <img src={arrow_down} alt="arrow-down" />
         </Link>
       </div>
-      <table className="projects-table">
+
+      <table className="projects-table" style={{ marginTop: "50px" }}>
         <thead>
           <tr className="projects-row ">
             {[
