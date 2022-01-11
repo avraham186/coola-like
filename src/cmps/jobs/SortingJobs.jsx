@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 
 export const SortingJobs = () => {
   const { list: jobs } = useSelector(({ entities }) => entities.jobs);
+
   const titlesArr = jobs.map((jobs) => jobs.title);
   const typeArr = jobs.map((jobs) => jobs.type);
   const locationsArr = jobs.map((jobs) => jobs.location);
+
   const uniqueTitlesArr = titlesArr.reduce(
     (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
     []
@@ -19,6 +21,7 @@ export const SortingJobs = () => {
     (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
     []
   );
+
   function titleChangeHandler(eventValue) {
     const selectedTitle = eventValue.target.value;
   }
@@ -28,6 +31,10 @@ export const SortingJobs = () => {
   function locationChangeHandler(eventValue) {
     const selectedLocation = eventValue.target.value;
   }
+  function openSearch(eventValue) {
+    const openSearchValue = eventValue.target.value;
+  }
+
   return (
     <div className="sorting-jobs flex ">
       <div className="search-job-by-buttons">
@@ -75,7 +82,13 @@ export const SortingJobs = () => {
         </select>
       </div>
       <div className="search-job-by-text">
-        <input type="text" placeholder="חפש תחום/מיקום/תפקיד" />
+        <input
+          onChange={(event) => {
+            openSearch(event);
+          }}
+          type="text"
+          placeholder="חפש תחום/מיקום/תפקיד"
+        />
       </div>
     </div>
   );
