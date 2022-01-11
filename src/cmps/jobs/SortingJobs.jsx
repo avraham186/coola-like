@@ -19,36 +19,56 @@ export const SortingJobs = () => {
     (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
     []
   );
-
+  function titleChangeHandler(eventValue) {
+    const selectedTitle = eventValue.target.value;
+  }
+  function typeChangeHandler(eventValue) {
+    const selectedType = eventValue.target.value;
+  }
+  function locationChangeHandler(eventValue) {
+    const selectedLocation = eventValue.target.value;
+  }
   return (
     <div className="sorting-jobs flex ">
       <div className="search-job-by-buttons">
-        <select>
+        <select
+          onChange={(event) => {
+            titleChangeHandler(event);
+          }}
+        >
           <option value="">Title</option>
           {uniqueTitlesArr.map((title, i) => {
             return (
-              <option key={i} value="">
+              <option key={i} value={title}>
                 {title}
               </option>
             );
           })}
         </select>
-        <select>
+        <select
+          onChange={(event) => {
+            typeChangeHandler(event);
+          }}
+        >
           <option value="">Type</option>
-          {uniqueTypesArr.map((title, i) => {
+          {uniqueTypesArr.map((type, i) => {
             return (
-              <option key={i} value="">
-                {title}
+              <option key={i} value={type}>
+                {type}
               </option>
             );
           })}
         </select>
-        <select>
+        <select
+          onChange={(event) => {
+            locationChangeHandler(event);
+          }}
+        >
           <option value="">Location</option>
-          {uniqueLocationsArr.map((title, i) => {
+          {uniqueLocationsArr.map((location, i) => {
             return (
-              <option key={i} value="">
-                {title}
+              <option key={i} value={location}>
+                {location}
               </option>
             );
           })}
