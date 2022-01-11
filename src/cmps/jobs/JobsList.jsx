@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadJobs } from '../../store/jobs'
 
 export const JobsList = ({ setCurrentJob, currentJob, }) => {
+
+    let mikel = "name"
     // const [jobs, setJobs] = useState(data) // when the server side updated a mocked jobs details you can delete this line
     const { list: jobs } = useSelector(({ entities }) => entities.jobs) // remove comment this line when above comment is done
     const dispatch = useDispatch();
