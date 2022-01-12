@@ -7,6 +7,7 @@ import { AiOutlineConsoleSql } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import { closeIcon } from "../../assets/images/icons";
 import { useHistory } from "react-router-dom";
+import ContentTaskCopy from "./ContentTaskCopy";
 
 const NewTask = ({ match }) => {
   const [toggleMode, setToggleMode] = useState({
@@ -21,6 +22,9 @@ const NewTask = ({ match }) => {
     console.log(history);
   }, []);
 
+  const [taskDate, setTaskDate] = useState({});
+  const [peopleAssigned, setPeopleAssigned] = useState([]);
+
   const { projectId } = match.params;
   const IsClicked = () => {
     const isClicked = Object.keys(toggleMode).filter((k) => toggleMode[k]);
@@ -34,11 +38,16 @@ const NewTask = ({ match }) => {
           <PeopleAssigned
             toggleMode={toggleMode}
             setToggleMode={setToggleMode}
+            peopleAssigned={(data) => setPeopleAssigned(data)}
           />
         );
       case "dueDate":
         return (
-          <DueDate toggleMode={toggleMode} setToggleMode={setToggleMode} />
+          <DueDate
+            toggleMode={toggleMode}
+            setToggleMode={setToggleMode}
+            taskDate={(data) => setTaskDate(data)}
+          />
         );
       case "file":
         return (
@@ -61,7 +70,12 @@ const NewTask = ({ match }) => {
         >
           <img src={closeIcon} />
         </span>
-        <ContentTask setToggleMode={setToggleMode} projectId={projectId} />
+        {/* <ContentTask setToggleMode={setToggleMode} projectId={projectId} /> */}
+        <ContentTaskCopy
+          setToggleMode={setToggleMode}
+          taskDate={taskDate}
+          peopleAssigned={peopleAssigned}
+        />
         <SideBar setToggleMode={setToggleMode} />
         <IsClicked />
       </div>

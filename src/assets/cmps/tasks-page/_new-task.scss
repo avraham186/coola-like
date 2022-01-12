@@ -19,10 +19,15 @@
       font-size: 0.8rem;
 
       input {
-        width: 85%;
-        font-size: 1rem;
+        width: 170px;
         border: none;
-        border-bottom: 1px solid blue;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 30px;
+        text-align: right;
+
+        color: #4a4a4a;
       }
       input:focus {
         outline: none;
@@ -104,7 +109,7 @@
     color: #4a4a4a;
     font-size: 18px;
     padding: 10px;
-    border: 1px solid #d6d6d6;
+    // border: 1px solid #d6d6d6;
   }
 
   .due-date-task {
