@@ -8,6 +8,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { BiEdit } from "react-icons/bi";
 import { Box, Modal } from "@mui/material";
 import Categories from "../project_page/sideBarAdmin/new_position/Categories";
+import {erase } from '../../assets/images/icons'
+import CardDetails from './CardDetails.jsx'
+
 
 const EventCard = ({ event, adminIndicator }) => {
   const [open, setOpen] = useState(false);
@@ -18,8 +21,28 @@ const EventCard = ({ event, adminIndicator }) => {
     file: false,
   });
 
+  const [openCardInfo, setOpenCardInfo] = useState(false)
+    
+
+  // const handleCardInfo = (_id) => {
+  //     console.log('open modal', openCardInfo)
+
+  //     // setOpenCardInfo(p => !p)
+      
+  //     console.log('open modal', openCardInfo)
+  // }
+
+
   return (
+
     <div className="event-card">
+      {openCardInfo ? 
+        <Modal open={openCardInfo} onClose={()=> setOpenCardInfo(p=> !p)}>
+          <Box className="boxStyle-eventsCards">
+            <CardDetails event={event} />
+          </Box>
+        </Modal> : null}
+
       {open ? (
         <Modal
           className="modals"
@@ -28,37 +51,43 @@ const EventCard = ({ event, adminIndicator }) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box className="boxStyle editEvent-box">
-            <label htmlFor="">
+          {/* <Box className="boxStyle editEvent-box"> */}
+          <Box className="boxStyle">
+          <div className="adding-job-container">
+          <form action="adding-job">
+          <label className="event-title">
+          כותרת האירוע
               <input type="text" value={event.subject} />
-              כותרת האירוע
             </label>
-            <div className="input-date">
+            {/* <div className="input-date"> */}
+            <div className="data-and-time-input">
               <label htmlFor="">
+              מועד האירוע
+
                 <input
                   type="text"
-                  className="data-and-time"
+                  // className="data-and-time"
                   value={event.date + " " + event.day}
                 />
                 <input
-                  className="data-and-time"
+                  // className="data-and-time"
                   type="date"
                   name="eventDate"
                   value={event.date}
                   // onChange={handleChange}
                 />
-                מועד האירוע
               </label>
             </div>
             {/* <label htmlFor="">תחום</label>
                             <select type="text" /> */}
             <label>
-              תחום
+              {/* תחום */}
               <br />
               <Categories  />
               {/* <option value="1"><input type="checkbox" checked={} /></option>
             <option value="2">Test 2</option> */}
             </label>
+            <br/>
 
             <label htmlFor="">
               מציג
@@ -100,13 +129,16 @@ const EventCard = ({ event, adminIndicator }) => {
                 }}
               >
                 מחק אירוע
+                <img src={erase} alt="delete icon" />
               </button>
             </div>
+            </form>
+        </div>
           </Box>
         </Modal>
       ) : null}
 
-      <Card className="card">
+      <Card className="card" onClick={ ()=> setOpenCardInfo(p=> !p)}>
         <CardMedia
           className="card-img"
           component="picture"
