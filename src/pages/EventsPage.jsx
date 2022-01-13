@@ -1,17 +1,25 @@
-import React, { useCallback, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useCallback,useEffect, useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Checkboxs from '../cmps/events_page/Checkboxs.jsx'
 import EventCard from '../cmps/events_page/EventCard.jsx'
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Modal } from "@mui/material";
+import { loadEvents } from '../store/events.js';
 
 const EventsPage = () => {
-    const { events } = useSelector((state) => state.entities.eventsModule);
+    // const { events } = useSelector((state) => state.entities.eventsModule);
     const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
+    
+    const { events } = useSelector(({ entities }) => entities.eventsModule)
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(loadEvents())
+    }, [])
+    
     const [open, setOpen] = useState(false);
     const [toggleMode, setToggleMode] = useState({
         label: false,
@@ -35,7 +43,7 @@ const EventsPage = () => {
     return (
         <section className="eventsPage full">
             <div className="main-layout wrapper">
-
+                
                 <div>
                    <Modal
                         className="modals"

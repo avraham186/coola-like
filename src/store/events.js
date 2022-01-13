@@ -90,18 +90,3 @@ export const updateEvents1 = event => apiCallBegan({
     data: event,
     onSuccess: updateEvents.type
 });
-
-// Selector
-
-// Memoization
-// export const getUnresolvedBugs = createSelector(
-//     state => state.entities.bugs,
-//     state => state.entities.events,
-//     (bugs, events) => bugs.filter(bug => !bug.resolved)
-// );
-//
-// export const getBugsByUser = userId =>
-//     createSelector(
-//         state => state.entities.bugs,
-//         bugs => bugs.filter(bug => bug.userId === userId)
-//     );

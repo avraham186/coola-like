@@ -162,10 +162,12 @@
             
           cursor: pointer;
           margin: auto;
-          height: 500px;
+          height: 70vh ;//500px;
           border-radius: 15px;
-          
-        }
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 0.3fr 0.7fr;
+        
     
         .card-img {
           border-radius: 50%;
@@ -179,7 +181,7 @@
         }
 
         .inButton{
-            top: -8%;
+            bottom: 70%;
             left: 60%;
             color: #ffffff;
             width: 45px;
@@ -192,10 +194,14 @@
         }
 
         .card-footer {
-          display: flex;
-          position: relative;
-          flex-direction: column;
-          align-items: center;
+            display: grid;
+            overflow: hidden;
+            max-height: fit-content;
+            // position: relative;
+            grid-template-rows: 1fr 0.5fr 1.5fr 0.2fr 0.2fr 0.1fr;
+            // grid-template-columns: 1fr;
+            place-items: center;
+            place-content: center;
         
         .date_HL{
             margin: 0;
@@ -208,6 +214,8 @@
         }
         .subject_HL{    
                 color: #3187B5 ;
+                font-weight: 600;
+                // font-size: 1rem;
                 text-align: center;
                 margin: 0;
                 margin-bottom: 15px;
@@ -224,7 +232,11 @@
             margin: auto;
         }
 
-        .video{
+        .card-btns{
+            display: flex;
+            flex-direction: column;
+
+            .video{
             display: flex;
             flex-direction: row;
             font-size: small;
@@ -280,7 +292,9 @@
             margin: 0px 10px;
             direction: rtl;
             
-          }.editEvent-btn{
+          }
+                    
+          .editEvent-btn{
               cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -291,9 +305,12 @@
                 margin: 0 10px;
                 direction: rtl;
             }
+        }
+        
           
 
         }
+        
         .addEvent-btn{
             cursor: pointer;
               display: flex;
@@ -306,7 +323,7 @@
               direction: rtl;
           }
 
-
+        }
           
     }
 }
@@ -340,8 +357,10 @@
         direction: rtl;
     }
     .modals{
-              .boxStyle{
-              
+              input[name=confirm_delete]{
+                :focus{
+                    border: 1px solid
+                }
               }
         }
        

@@ -108,6 +108,23 @@ const initialState = {
     ]
 }
 
+/**
+ * {
+ *  eventId: long,
+ *  date: ...,
+ *  title: String ,
+ *  hour: ... , 
+ *  categories: JSON ,
+ *  lecturer: String ,
+ *  image: .. ,
+ *  inLink: String ,
+ *  details: String ,
+ *  detailsOnLecturer: String ,
+ *  eventLink: String ,
+ *  registered: integer ,
+ * }
+ */
+
 export function eventReducer(state = initialState, action) {
     
     switch (action.type) {

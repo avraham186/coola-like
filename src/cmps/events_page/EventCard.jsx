@@ -3,20 +3,43 @@ import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { BiEdit } from "react-icons/bi";
 import { Box, Modal } from "@mui/material";
+import { useDispatch } from 'react-redux'
+import { deleteEventById } from '../../store/events.js';
 
 const EventCard = ({ event, adminIndicator }) => {
 
     const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
+    const [deleteConfirmString, setDeleteConfirmString ] = useState("")
     const [toggleMode, setToggleMode] = useState({
         label: false,
         pplAssigned: false,
         dueDate: false,
         file: false
     })
+
+    const handleDelete = ()=>{
+        
+        if(deleteConfirm)
+        deleteConfirmString === event.lecturer?
+        (
+            setOpen(false)
+            &&
+            setDeleteConfirm(false)
+            // unMark when Backend connections is ready
+            // &&
+            // dispatch(deleteEventById(event._id)) 
+        )
+        :
+        console.log("error! fill the lecturer name!")
+       
+    }
     
     return (
 
@@ -25,7 +48,11 @@ const EventCard = ({ event, adminIndicator }) => {
                         <Modal
                         className="modals"
                         open={open}
-                        onClose={() => setOpen(false)}
+                        onClose={() => {
+                            setOpen(false);
+                            setDeleteConfirm(false)
+                            setDeleteConfirmString(null)}
+                        }
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
@@ -64,18 +91,38 @@ const EventCard = ({ event, adminIndicator }) => {
                             <label htmlFor="">קישור לעמוד לינקדאין של המרצה
                                 <input type="text" value={event.link}/>
                             </label>
+                            
+
+                            {deleteConfirm &&
+                            <label htmlFor=""> מטעמי בטיחות, הקלד את שם המרצה בעברית
+                                <input type="text"
+                                       style={deleteConfirm &&
+                                         {"border":"1px red solid"}
+                                        }
+                                       name="confirm_delete"
+                                       onChange={e => setDeleteConfirmString(e.target.value)}
+                                       value={deleteConfirmString}
+                                   />
+                            </label>
+                            }
 
                             <div className="card-btns">
                             <button className="save-modal-button btn-save"
-                                onClick={() => {setToggleMode(
+                                onClick={() => {
+                                    setToggleMode(
                                     //edit the event details
                                 ); setOpen(false)}}>
                                 שמור וסגור
                             </button>
-                            <button className="save-modal-button btn-delete"
-                                onClick={() => {setToggleMode(
-                                    //edit the event details
-                                ); setOpen(false)}}>
+                            <button 
+                                className="save-modal-button btn-delete"
+                                onClick={()=>
+                                    {
+                                    setDeleteConfirm(true);
+                                    handleDelete();
+                                    }
+                                }
+                                >
                                 מחק אירוע
                             </button>
                             </div>
@@ -85,6 +132,7 @@ const EventCard = ({ event, adminIndicator }) => {
                     : null}
                     
             <Card className="card">
+
                 <CardMedia
                     className="card-img"
                     component="picture"
@@ -92,15 +140,16 @@ const EventCard = ({ event, adminIndicator }) => {
                     alt="founderImg"
                     image={event.img}
                 />
+
                 <Link to='\'>
                     <IconButton className="inButton" >
                         <LinkedInIcon className="inIcon" fontSize="medium" />
                     </IconButton>
                 </Link>
 
-                <CardActions className="card-footer">
+                <CardContent className="card-footer">
 
-                    <h2 className="date_HL">{event.date + ' ' + event.day}</h2>
+                <h2 className="date_HL">{event.date + ' ' + event.day}</h2>
 
                     <span className="time_HL">בשעה {event.hour}</span>
                     
@@ -110,6 +159,12 @@ const EventCard = ({ event, adminIndicator }) => {
                     <hr />
 
                     <h4 className="lecture_HL">מציג: {event.lecturer} </h4>
+
+               
+
+                <CardActions className="card-btns">
+
+                    
                     {!adminIndicator ?
                         <>
                             <span className="video">
@@ -132,8 +187,11 @@ const EventCard = ({ event, adminIndicator }) => {
                     </button>
                     
                     }
-                </CardActions>
+
+                    </CardActions>
+                </CardContent>
             </Card>
+
         </div>
     )
 
