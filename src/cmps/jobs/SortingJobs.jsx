@@ -9,18 +9,17 @@ export const SortingJobs = () => {
   const typeArr = jobs.map((jobs) => jobs.type);
   const locationsArr = jobs.map((jobs) => jobs.location);
 
-  const uniqueTitlesArr = titlesArr.reduce(
-    (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
-    []
-  );
-  const uniqueTypesArr = typeArr.reduce(
-    (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
-    []
-  );
-  const uniqueLocationsArr = locationsArr.reduce(
-    (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
-    []
-  );
+  function uniqueArr(arr) {
+    const result = arr.reduce(
+      (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
+      []
+    );
+    return result;
+  }
+
+  const uniqueTitlesArr = uniqueArr(titlesArr)
+  const uniqueTypesArr = uniqueArr(typeArr)
+  const uniqueLocationsArr = uniqueArr(locationsArr)
 
   function titleChangeHandler(eventValue) {
     const selectedTitle = eventValue.target.value;
