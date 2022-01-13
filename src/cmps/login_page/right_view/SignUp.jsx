@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
-import { Button, FormHelperText, makeStyles, MenuItem, Select } from "@material-ui/core";
-import Inputs from "../../inputs/Inputs";
+import React, { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
+import { Button, makeStyles, MenuItem, Select, InputAdornment, TextField , IconButton} from "@material-ui/core";
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { FormControl, FormGroup, FormControlLabel , Checkbox } from '@mui/material';
+
+//import Inputs from "../../inputs/Inputs";
 import Progress from "../../progress/Progress";
 import ArrowRight from "../../../assets/images/login--page/login--arrow--right.png";
 import { setLogin } from "../../../store/user";
 import { useDispatch } from "react-redux";
-// import {MultiSelect} from "react-multi-select-component";
+import {Input} from '../../input/Input.jsx';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,162 +50,148 @@ const useStyles = makeStyles((theme) => ({
     icon: {
         left: 10
     },
+    //interestsButton:{
+
+    //}
 }));
 
-const textFieldArr = [
-    { id: "Email", label: "אימייל", type: 'email', required: true },
-    { id: "password", label: "סיסמה", type: 'password', required: true },
-    { id: "password2", label: "אימות סיסמה", type: 'password', required: true }
-];
-
-// Move this to utils folder
-const interestsArr = [
-    { label: "Fullstack", value: "FULLSTACK" },
-    { label: "Frontend", value: "FRONTEND" },
-    { label: "Backend", value: "BACKEND" },
-    { label: "QA", value: "QA" },
-    { label: "UX", value: "UX" },
-    { label: "UI", value: "UI" },
-    { label: "Automation", value: "AUTOMATION" },
-    { label: "Security", value: "SECURITY" },
-    { label: "Infrastructure", value: "INFRASTRUCTURE" },
-    { label: "Cloud security engineer", value: "CLOUD_SECURITY_ENGINEER" },
-    { label: "Quality assurance engineer", value: "QUALITY_ASSURANCE_ENGINEER" },
-    { label: "Web developer", value: "WEB_DEVELOPER" },
-    { label: "Android developer", value: "ANDROID_DEVELOPER" },
-    { label: "Solution engineer", value: "SOLUTIONS_ENGINEER" },
-    { label: "DevOps engineer", value: "DEVOPS_ENGINEER" },
-    { label: "Framework developer", value: "FRAMEWORK_DEVELOPER" },
-    { label: "BigData", value: "BIGDATA" },
-    { label: "Mobile developer", value: "MOBILE_DEVELOPER" },
-    { label: "Cyber", value: "CYBER" },
-    { label: "Firmware validation", value: "FIRMWARE_VALIDATION" },
-    { label: "Design system", value: "DESIGN_SYSTEM" },
-    { label: "Support engineer", value: "SUPPORT_ENGINEER" },
-    { label: "Marketing web developer", value: "MARKETING_WEB_DEVELOPER" },
-];
 
 
-const Placeholder = ({ children }) => {
-    const classes = useStyles();
-    return <div className={classes.placeholder}>{children}</div>;
-};
 
 const SignUp = () => {
+
+    const signUpURL = "/api/users/create";
+
+    const {register, handleSubmit, formState:{errors}} = useForm();
+
     const classes = useStyles();
     const dispatch = useDispatch();
 
-    const [formData, setFormData] = useState({
-        Email: '',
-        password: '',
-        password2: '',
-        interests: ''
-    });
+    const [passVerify, setPassVerify] = useState("");
 
-    const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
 
-    const handleChange = ({ name, value }) => {
-        switch (name) {
-            case 'Email':
-                setFormData({ ...formData, Email: value });
-                break;
-            case 'password':
-                setFormData({ ...formData, password: value });
-                break;
-            case 'password2':
-                setFormData({ ...formData, password2: value });
-                break;
-            case 'interests':
-                setFormData({ ...formData, interests: value });
-                break;
-            default:
-                break;
-        }
-    }
+    const [interests, setInterests] = useState([]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setError('');
-        if (validateForm() && validatePassword()) {
-            setIsLoading(true);
-            console.log(formData)
-            // handleRegistration();
+    const [interestsStatus, setInterestsStatus] = useState({
+        QA: false,
+        CYBER: false,
+        DEVELOPMENT: false,
+        HARDWARE: false,
+        UX_UI: false,
+        SYSTEMS_ENGINEERING: false,
+      });
+
+    const { QA, CYBER, DEVELOPMENT, HARDWARE, UX_UI, SYSTEMS_ENGINEERING } = interestsStatus;
+
+    const  interestsModel = [
+        { label: "בדיקות תוכנה", checked: QA , name: "QA" },
+        { label: "אבטחת מידע וסייבר", checked: CYBER , name: "CYBER" },
+        { label: "פיתוח תוכנה", checked: DEVELOPMENT , name: "DEVELOPMENT" },
+        { label: "חומרה", checked: HARDWARE , name: "HARDWARE" },
+        { label: "UX/UI", checked: UX_UI , name: "UX_UI" },
+        { label: "הנדסת מערכות", checked: SYSTEMS_ENGINEERING , name: "SYSTEMS_ENGINEERING" },
+    ];
+
+    const handleInterestsChange = (event) => {
+        setInterestsStatus({
+          ...interestsStatus,
+          [event.target.name]: event.target.checked,
+        });
+        if (event.target.checked === true){
+            if (!interests.includes(event.target.name)){
+                interests.push(event.target.name);
+            }
         } else {
-            if (!validateForm())
-                setError('Error: Invalid form');
-            if (!validatePassword())
-                setError('Error: Passwords doesn\'t match');
+            if (interests.includes(event.target.name)){
+                interests.splice(interests.indexOf(event.target.name),1);
+            }
         }
+        console.log(interests);
+      };
+
+
+    function send(userData) {
+        //console.log(interests);
+        userData.interests=interests;
+        if(passVerify===userData.password){
+            console.log("password check success");
+            console.log(userData);
+        }
+        else {
+            console.log("passwords are not equals. ("+passVerify+")");
+        }
+        /*
+        axios.post(signUpURL,userData)
+        .then(()=>{
+            notify.success("customer was added!")
+            history.push("/");
+        }).catch(error=>{
+            notify.error("Sorry, can't add customer.")
+        }) 
+        */
     }
 
-    const validateForm = () => {
-        return formData.Email !== '' && formData.password !== '' && formData.password2 !== '';
+
+    function interestFormControl({label, checked, name}){
+        return(
+            <FormControlLabel
+                control={
+                <Checkbox checked={checked} onChange={handleInterestsChange} name={name} />
+                }
+                label={label}
+            />
+        );
     }
-
-    const validatePassword = () => {
-        return formData.password === formData.password2;
-    }
-
-
-    const [selected, setSelected] = useState([]);
 
     return (
         <div className="login--form">
             <div className="login--form--header">
-                <a href="/"> חזר לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
+                <a href="/"> חזרה לדף הבית<img src={ArrowRight} alt="right arrow" className="login--arrow" /></a>
             </div>
             <div className="login--form--body">
-                <h1>התחברות</h1>
+                <h1>הרשמה</h1>
                 <h3>יצירת חשבון חדש</h3>
 
                 <div className="login-form-inputs">
-                    <form>
+                    <form onSubmit={handleSubmit(send)}>
 
-                        <Inputs inputs={textFieldArr} handleChange={handleChange} />
-
-
-                        {/*<MultiSelect*/}
-                        {/*    options={interestsArr}*/}
-                        {/*    value={selected}*/}
-                        {/*    onChange={handleChange}*/}
-                        {/*    name="interests"*/}
-                        {/*    className={classes.inputs}*/}
-                        {/*/>*/}
-
-                        <Select
-                            disableUnderline
-                            key="interests"
-                            id="interests"
-                            name="interests"
-                            value={formData.interests}
-                            displayEmpty
-                            onChange={handleChange}
-                            renderValue={
-                                formData.interests !== "" ? undefined : () => <Placeholder>בחירת תחומי עניין</Placeholder>
+                        {/*<Inputs inputs={textFieldsArr} />*/}
+                        <Input className={classes.inputs} id="first_name" label="שם פרטי" type= 'text' required={true} registerObj={{...register("firstName")}}/>
+                        <Input className={classes.inputs} id="surname" label= "שם משפחה" type= 'text' required={true} registerObj={{...register("lastName")}}/>
+                        <Input className={classes.inputs} id="Email" label= "אימייל" type= 'email' required={true}  registerObj={{...register("email")}}/>
+                        <Input className={classes.inputs} id="password" label= "סיסמה" type= 'password' required={true} registerObj={{...register("password")}}/>
+                        <Input className={classes.inputs} id="password2" label="אימות סיסמה" type='password' required={true} handleChange={(pass)=>{setPassVerify(pass.target.value)}}/>
+                        
+                        <div className="login--form--inputs" style={{ marginTop: 30, textAlign:'right'}}  >
+                           בחר תחומי עניין
+                        </div>
+                        <FormControl >
+                            <FormGroup >
+                           {Array.from(interestsModel).map(item=>
+                                <FormControlLabel
+                                    key = {item.key}
+                                    control={
+                                    <Checkbox checked={item.checked} onChange={handleInterestsChange} name={item.name} />
+                                    }
+                                    label={item.label}
+                                />)
                             }
-                            className={classes.inputs}
-                            classes={{ icon: classes.icon }}
-                        >
-                            {
-                                interestsArr.map((v, i) => {
-                                    return <MenuItem key={i} value={v.value}>{v.label}</MenuItem>
-                                })
-                            }
-                        </Select>
-
-                        <FormHelperText error={error !== ''}>
-                            <h2>
-                                <center>{error}</center>
-                            </h2>
-                        </FormHelperText>
-
-                        <Button disabled={isLoading} type="submit" variant="contained" color="primary"
-                            className={classes.submit} size='large' onClick={handleSubmit} key="submitBtn">
+                            </FormGroup>
+                        </FormControl>
+                        
+                        <Button 
+                        //disabled={}
+                        type="submit" variant="contained" color="primary"
+                            className={classes.submit} size='large' 
+                            //onClick={}
+                            key="submitBtn">
                             התחברות
                         </Button>
 
-                        <Progress isShow={isLoading} handleClose={() => setIsLoading(false)} msg={'Please Wait'} />
+                        <Progress 
+                        //isShow={} 
+                        //handleClose={} 
+                        msg={'Please Wait'} />
 
                     </form>
                 </div>

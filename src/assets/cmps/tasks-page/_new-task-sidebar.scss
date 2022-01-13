@@ -1,28 +1,43 @@
 .new-task-sidebar {
-    box-sizing: border-box;
-    background-color: #f2f2f2;
-    font-family: Rubik-regular;
-    direction: rtl;
-    width: 30%;
-    padding: 30px 40px 10px 0px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  font-family: Rubik-regular;
+  direction: rtl;
+  width: 30%;
+  padding: 30px 40px 10px 0px;
 
-    .sidebar-container {
-        height: 100%;
+  .sidebar-container {
+    height: 100%;
 
-        .content,
-        .erase {
-            gap: 40px;
+    .content,
+    .erase {
+      gap: 40px;
 
-            div {
-                cursor: pointer;
-                width: 150px;
-                transition: 0.2s;
+      div {
+        cursor: pointer;
+        width: 150px;
+        transition: 0.2s;
 
-                &:hover {
-                    transition: 0.2s;
-                    transform: scale(1.2);
-                }
-            }
+        &:hover {
+          transition: 0.2s;
+          transform: scale(1.2);
         }
+      }
     }
+  }
+}
+.save-btn {
+  width: 90%;
+  height: 40px;
+  background-color: #34018e;
+  font-size: 18px;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  font-family: Rubik, sans-serif;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin: 15px;
 }

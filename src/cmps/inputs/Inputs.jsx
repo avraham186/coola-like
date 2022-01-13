@@ -19,6 +19,7 @@ export default function Inputs(props) {
                         type={input.type}
                         handleChange={props.handleChange}
                         required={input.required}
+                        //registerObj={input.registerObj}
                     />
                 )})}
         </Grid>
