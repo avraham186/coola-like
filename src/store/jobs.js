@@ -32,6 +32,11 @@ const slice = createSlice({
     deleteJob: (jobs, action) => {
       jobs.list.filter((prod) => prod.id !== action.id);
     },
+    filterJobsByTitle: (jobs, action) => {
+      if (action.payload !== "") {
+        jobs.list = jobs.list.filter((job) => job.title === action.payload);
+      }
+    },
   },
 });
 
@@ -42,6 +47,7 @@ export const {
   jobsRequestFailed,
   updateJobs,
   deleteJob,
+  filterJobsByTitle,
 } = slice.actions;
 export default slice.reducer;
 

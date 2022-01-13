@@ -1,7 +1,7 @@
 import React from "react";
 import { arrow_down } from "../../assets/images/icons";
 import { useSelector, useDispatch } from "react-redux";
-import { locationValue, titleValue, typeValue } from "../../store/jobsFilter";
+import { filterJobsByTitle } from "../../store/jobs";
 
 export const SortingJobs = () => {
   const { list: jobs } = useSelector(({ entities }) => entities.jobs);
@@ -25,15 +25,13 @@ export const SortingJobs = () => {
 
   function titleChangeHandler(eventValue) {
     const selectedTitle = eventValue.target.value;
-    dispatch(titleValue(selectedTitle));
+    dispatch(filterJobsByTitle(selectedTitle));
   }
   function typeChangeHandler(eventValue) {
     const selectedType = eventValue.target.value;
-    dispatch(typeValue(selectedType));
   }
   function locationChangeHandler(eventValue) {
     const selectedLocation = eventValue.target.value;
-    dispatch(locationValue(selectedLocation));
   }
   function openSearch(eventValue) {
     const openSearchValue = eventValue.target.value;
