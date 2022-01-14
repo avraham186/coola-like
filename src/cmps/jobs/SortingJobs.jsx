@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { arrow_down } from "../../assets/images/icons";
 import { useSelector, useDispatch } from "react-redux";
-import { filterJobsByTitle } from "../../store/jobs";
 import axios from "axios";
+import { filterJobsByTitle } from "../../store/jobs";
 
 export const SortingJobs = () => {
-  const [jobs, setJobs] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState([]);
+  const [allJobs, setAllJobs] = useState([]);
   async function getAllJobs() {
     const result = await axios.get(
       "https://cula-like-master.herokuapp.com/api/jobs"
     );
-    setJobs(result.data);
+    setAllJobs(result.data);
   }
   getAllJobs();
 
-  // const { list: jobs } = useSelector(({ entities }) => entities.jobs);
+  const { list: jobs } = useSelector(({ entities }) => entities.jobs);
   const dispatch = useDispatch();
 
   const titlesArr = jobs.map((jobs) => jobs.title);
@@ -35,7 +36,15 @@ export const SortingJobs = () => {
 
   function titleChangeHandler(eventValue) {
     const selectedTitle = eventValue.target.value;
-    dispatch(filterJobsByTitle(selectedTitle));
+    if (selectedTitle !== "") {
+      dispatch(
+        filterJobsByTitle(allJobs.filter((job) => job.title === selectedTitle))
+      );
+      // setFilteredJobs(allJobs.filter(job=>job.title === selectedTitle))
+    } else {
+      dispatch(filterJobsByTitle(allJobs));
+      setFilteredJobs(allJobs);
+    }
   }
   function typeChangeHandler(eventValue) {
     const selectedType = eventValue.target.value;

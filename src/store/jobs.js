@@ -33,9 +33,7 @@ const slice = createSlice({
       jobs.list.filter((prod) => prod.id !== action.id);
     },
     filterJobsByTitle: (jobs, action) => {
-      if (action.payload !== "") {
-        jobs.list = jobs.list.filter((job) => job.title === action.payload);
-      }
+      jobs.list = action.payload;
     },
   },
 });
