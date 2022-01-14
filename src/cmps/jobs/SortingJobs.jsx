@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { arrow_down } from "../../assets/images/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { filterJobsByTitle } from "../../store/jobs";
+import axios from "axios";
 
 export const SortingJobs = () => {
-  const { list: jobs } = useSelector(({ entities }) => entities.jobs);
+  const [jobs, setJobs] = useState([]);
+  async function getAllJobs() {
+    const result = await axios.get(
+      "https://cula-like-master.herokuapp.com/api/jobs"
+    );
+    setJobs(result.data);
+  }
+  getAllJobs();
+
+  // const { list: jobs } = useSelector(({ entities }) => entities.jobs);
   const dispatch = useDispatch();
 
   const titlesArr = jobs.map((jobs) => jobs.title);
