@@ -9,10 +9,10 @@ export const SortingJobs = () => {
   const [_title, setTitle] = useState("");
   const [_type, setType] = useState("");
   const [_location, setLocation] = useState("");
+  const [_openSearch, setOpenSearch] = useState("");
   const [filJobList, setFilJobList] = useState([]);
 
   const dispatch = useDispatch();
-  // const { list: jobs } = useSelector(({ entities }) => entities.jobs);
 
   async function getAllJobs() {
     const result = await axios.get(
@@ -31,10 +31,12 @@ export const SortingJobs = () => {
   const locationsArr = allJobs.map((jobs) => jobs.location);
 
   function uniqueArr(arr) {
-    const result = arr.reduce(
-      (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
-      []
-    );
+    const result = arr
+      .reduce(
+        (unique, item) => (unique.includes(item) ? unique : [...unique, item]),
+        []
+      )
+      .filter(Boolean);
     return result;
   }
 
@@ -58,6 +60,7 @@ export const SortingJobs = () => {
   }
   function openSearch(eventValue) {
     const openSearchValue = eventValue.target.value;
+    setOpenSearch(openSearchValue);
   }
 
   useEffect(() => {
@@ -84,8 +87,15 @@ export const SortingJobs = () => {
             return (job) => job;
           }
         })
+        .filter((job) => {
+          if (_openSearch !== "") {
+            return job.description.includes(_openSearch);
+          } else {
+            return (job) => job;
+          }
+        })
     );
-  }, [_title, _type, _location]);
+  }, [_title, _type, _location, _openSearch]);
 
   useEffect(() => {
     if (filJobList.length > 0) {
