@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import { arrow_down } from "../../assets/images/icons";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import {
-  filterJobsByLocation,
-  filterJobsByTitle,
-  filterJobsByType,
-} from "../../store/jobs";
+import { filterJobs } from "../../store/jobs";
 
 export const SortingJobs = () => {
   const [allJobs, setAllJobs] = useState([]);
   const [_title, setTitle] = useState("");
+  const [_type, setType] = useState("");
+  const [_location, setLocation] = useState("");
   const [filJobList, setFilJobList] = useState([]);
 
   const dispatch = useDispatch();
@@ -52,13 +50,50 @@ export const SortingJobs = () => {
   }
   function typeChangeHandler(eventValue) {
     const selectedType = eventValue.target.value;
+    setType(selectedType);
   }
   function locationChangeHandler(eventValue) {
     const selectedLocation = eventValue.target.value;
+    setLocation(selectedLocation);
   }
   function openSearch(eventValue) {
     const openSearchValue = eventValue.target.value;
   }
+
+  useEffect(() => {
+    setFilJobList(
+      allJobs
+        .filter((job) => {
+          if (_title !== "") {
+            return job.title === _title;
+          } else {
+            return (job) => job;
+          }
+        })
+        .filter((job) => {
+          if (_type !== "") {
+            return job.type === _type;
+          } else {
+            return (job) => job;
+          }
+        })
+        .filter((job) => {
+          if (_location !== "") {
+            return job.location === _location;
+          } else {
+            return (job) => job;
+          }
+        })
+    );
+  }, [_title, _type, _location]);
+
+  useEffect(() => {
+    if (filJobList.length > 0) {
+      dispatch(filterJobs(filJobList));
+    } else {
+      dispatch(filterJobs([{}]));
+    }
+  }, [filJobList]);
 
   return (
     <div className="sorting-jobs flex ">
