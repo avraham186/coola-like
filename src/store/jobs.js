@@ -35,6 +35,12 @@ const slice = createSlice({
     filterJobsByTitle: (jobs, action) => {
       jobs.list = action.payload;
     },
+    filterJobsByType: (jobs, action) => {
+      jobs.list = action.payload;
+    },
+    filterJobsByLocation: (jobs, action) => {
+      jobs.list = action.payload;
+    },
   },
 });
 
@@ -46,6 +52,8 @@ export const {
   updateJobs,
   deleteJob,
   filterJobsByTitle,
+  filterJobsByType,
+  filterJobsByLocation,
 } = slice.actions;
 export default slice.reducer;
 

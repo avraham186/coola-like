@@ -13,12 +13,12 @@ export const JobsList = ({ setCurrentJob, currentJob }) => {
   }, [dispatch]);
   useEffect(() => {
     setCurrentJob(jobs[0]);
-  }, [jobs]);
+  }, [jobs, setCurrentJob]);
   const isJobClicked = ({ id }) => currentJob.id === id && "job-card-clicked";
   return (
     <div className="jobs-list">
       {jobs.map((job, i) => (
-        <div onClick={() => setCurrentJob(job)}>
+        <div key={i} onClick={() => setCurrentJob(job)}>
           <JobCard
             isClicked={isJobClicked(job)}
             title={job.title}

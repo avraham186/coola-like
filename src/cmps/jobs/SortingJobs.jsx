@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { arrow_down } from "../../assets/images/icons";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { filterJobsByTitle } from "../../store/jobs";
+import {
+  filterJobsByLocation,
+  filterJobsByTitle,
+  filterJobsByType,
+} from "../../store/jobs";
 
 export const SortingJobs = () => {
-  const [filteredJobs, setFilteredJobs] = useState([]);
   const [allJobs, setAllJobs] = useState([]);
+  const [_title, setTitle] = useState("");
+  const [filJobList, setFilJobList] = useState([]);
+
+  const dispatch = useDispatch();
+  // const { list: jobs } = useSelector(({ entities }) => entities.jobs);
+
   async function getAllJobs() {
     const result = await axios.get(
       "https://cula-like-master.herokuapp.com/api/jobs"
     );
     setAllJobs(result.data);
   }
-  getAllJobs();
+  useEffect(() => {
+    getAllJobs();
+  }, []);
 
-  const { list: jobs } = useSelector(({ entities }) => entities.jobs);
-  const dispatch = useDispatch();
+  /////////// make unique arrs for selectors ////////////////
 
-  const titlesArr = jobs.map((jobs) => jobs.title);
-  const typeArr = jobs.map((jobs) => jobs.type);
-  const locationsArr = jobs.map((jobs) => jobs.location);
+  const titlesArr = allJobs.map((jobs) => jobs.title);
+  const typeArr = allJobs.map((jobs) => jobs.type);
+  const locationsArr = allJobs.map((jobs) => jobs.location);
 
   function uniqueArr(arr) {
     const result = arr.reduce(
@@ -34,17 +44,11 @@ export const SortingJobs = () => {
   const uniqueTypesArr = uniqueArr(typeArr);
   const uniqueLocationsArr = uniqueArr(locationsArr);
 
+  //////////////////////////////////////////////////////////////////
+
   function titleChangeHandler(eventValue) {
     const selectedTitle = eventValue.target.value;
-    if (selectedTitle !== "") {
-      dispatch(
-        filterJobsByTitle(allJobs.filter((job) => job.title === selectedTitle))
-      );
-      // setFilteredJobs(allJobs.filter(job=>job.title === selectedTitle))
-    } else {
-      dispatch(filterJobsByTitle(allJobs));
-      setFilteredJobs(allJobs);
-    }
+    setTitle(selectedTitle);
   }
   function typeChangeHandler(eventValue) {
     const selectedType = eventValue.target.value;
