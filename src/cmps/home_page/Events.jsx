@@ -42,9 +42,9 @@ const Events = () => {
                             </IconButton>
                             <IconButton
                                 aria-label="add to favorites"
-                                className="events-icon">
-                                <img src={heart} alt="heart-btn"
-                                onClick={addToFavories}/>
+                                className="events-icon"
+                                onClick={addToFavories}>
+                                <img src={heart} alt="heart-btn" />
                             </IconButton>
                         </div>
                     </div>

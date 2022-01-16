@@ -71,13 +71,12 @@ export const getJobById = async (jobId) => {
   }
 };
 
-export const deleteJobById = (jobId) =>
-  apiCallBegan({
-    url,
-    method: "delete",
-    data: jobId,
-    onSuccess: deleteJob.type,
-  });
+export const deleteJobById = (jobId) => apiCallBegan({
+  url,
+  method: "delete",
+  data: jobId,
+  onSuccess: deleteJob.type,
+});
 
 export const loadJobs = () =>
   apiCallBegan({

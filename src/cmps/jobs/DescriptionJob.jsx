@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { jobs_icon, Facebook, Whatsapp, Copy_link, Linkedin, edit_pen, erase } from '../../assets/images/icons'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
-export const Description = ({ currentJob: { title, numJob, description, jobType, email, location, urlJob } }) => {
+export const Description = ({ currentJob: { title, description, type, email, location, experience, id },
+    removeJob, editJob }) => {
     return (
         <div className="description-job">
             <div className='container-job flex column'>
                 <div>
                     <h2>{title}</h2>
-                    <p>{numJob}</p>
                     <div className="card-content-info flex align-center">
-                        <span><img src={jobs_icon} className="job-icon"  alt='Job icon' />{jobType}</span>
+                        <span><img src={jobs_icon} className="job-icon" />{type}</span>
                         <span><LocationOnIcon className="job-icon" />{location}</span>
                     </div>
                     <p>{description}</p>
-                    <a href={urlJob}>קישור לעמוד המשרה</a>
+                    <p>נסיון: <span>{experience}</span> שנים</p>
+                    <p>מייל: <span>{email}</span></p>
                 </div>
                 <div className="bottom-section flex space-between">
                     <div className="social">
@@ -27,14 +27,13 @@ export const Description = ({ currentJob: { title, numJob, description, jobType,
                         </div>
                     </div>
                     <div className="buttons-modify flex">
-                        <span>
+                        <span onClick={editJob}>
                             <img src={edit_pen} alt="edit icon" />
                             עריכה</span>
-                        <span>
+                        <span onClick={() => removeJob(id)}>
                             <img src={erase} alt="delete icon" />
                             מחיקה</span>
                     </div>
-
                 </div>
             </div>
         </div>
