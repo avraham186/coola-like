@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/coola-like/static/css/main.64e4e821.chunk.css",
-    "main.js": "/coola-like/static/js/main.14057f06.chunk.js",
-    "main.js.map": "/coola-like/static/js/main.14057f06.chunk.js.map",
+    "main.css": "/coola-like/static/css/main.ea0ba2a3.chunk.css",
+    "main.js": "/coola-like/static/js/main.2e65d17e.chunk.js",
+    "main.js.map": "/coola-like/static/js/main.2e65d17e.chunk.js.map",
     "runtime-main.js": "/coola-like/static/js/runtime-main.aa6da623.js",
     "runtime-main.js.map": "/coola-like/static/js/runtime-main.aa6da623.js.map",
-    "static/js/2.f38077c8.chunk.js": "/coola-like/static/js/2.f38077c8.chunk.js",
-    "static/js/2.f38077c8.chunk.js.map": "/coola-like/static/js/2.f38077c8.chunk.js.map",
+    "static/js/2.09178520.chunk.js": "/coola-like/static/js/2.09178520.chunk.js",
+    "static/js/2.09178520.chunk.js.map": "/coola-like/static/js/2.09178520.chunk.js.map",
     "index.html": "/coola-like/index.html",
-    "static/css/main.64e4e821.chunk.css.map": "/coola-like/static/css/main.64e4e821.chunk.css.map",
-    "static/js/2.f38077c8.chunk.js.LICENSE.txt": "/coola-like/static/js/2.f38077c8.chunk.js.LICENSE.txt",
+    "static/css/main.ea0ba2a3.chunk.css.map": "/coola-like/static/css/main.ea0ba2a3.chunk.css.map",
+    "static/js/2.09178520.chunk.js.LICENSE.txt": "/coola-like/static/js/2.09178520.chunk.js.LICENSE.txt",
     "static/media/Header_logo.c2b85ae2.svg": "/coola-like/static/media/Header_logo.c2b85ae2.svg",
     "static/media/main.scss": "/coola-like/static/media/eventsBG.f8b59458.jpg",
     "static/media/Under construction.8a78d158.svg": "/coola-like/static/media/Under construction.8a78d158.svg",
@@ -22,13 +22,14 @@
     "static/media/loading_process.48e2b35a.gif": "/coola-like/static/media/loading_process.48e2b35a.gif",
     "static/media/login--logo.9a15094c.png": "/coola-like/static/media/login--logo.9a15094c.png",
     "static/media/logo.226a122c.svg": "/coola-like/static/media/logo.226a122c.svg",
+    "static/media/shimon.08072d2c.png": "/coola-like/static/media/shimon.08072d2c.png",
     "static/media/shimon.37efd7d7.svg": "/coola-like/static/media/shimon.37efd7d7.svg",
     "static/media/stav.b4f5042a.svg": "/coola-like/static/media/stav.b4f5042a.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.aa6da623.js",
-    "static/js/2.f38077c8.chunk.js",
-    "static/css/main.64e4e821.chunk.css",
-    "static/js/main.14057f06.chunk.js"
+    "static/js/2.09178520.chunk.js",
+    "static/css/main.ea0ba2a3.chunk.css",
+    "static/js/main.2e65d17e.chunk.js"
   ]
 }
