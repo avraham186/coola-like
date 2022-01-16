@@ -17,7 +17,6 @@ const ProjectPage = () => {
   const [listOrCompleted, setListOrCompleted] = useState(false)
 
   useEffect(() => {
-    console.log('listOrCompleted', listOrCompleted);
     if (listOrCompleted) {
       projects.filter(project=>project.projectStatus==="COMPLETED")
     }
