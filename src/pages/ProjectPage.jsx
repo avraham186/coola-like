@@ -92,10 +92,6 @@ const ProjectPage = () => {
           ) : null}
         </div>
       </div>
-      {/* <NewSideBar
-        addProjToggle={addProjToggle}
-        setAddProjToggle={setAddProjToggle}
-      /> */}
     </div>
   );
 };

@@ -75,13 +75,12 @@ export const deleteJobById = (jobId) => apiCallBegan({
     onSuccess: deleteJob.type
 });
 
-export const loadJobs = () =>
-    apiCallBegan({
-        url,
-        onStart: jobsRequested.type,
-        onSuccess: jobsReceived.type,
-        onError: jobsRequestFailed.type,
-    });
+export const loadJobs = () => apiCallBegan({
+    url,
+    onStart: jobsRequested.type,
+    onSuccess: jobsReceived.type,
+    onError: jobsRequestFailed.type,
+});
 
 export const updateJob = (job) =>
     apiCallBegan({

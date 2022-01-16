@@ -12,20 +12,39 @@ import "../../assets/cmps/project-page/deleteDialog.scss";
 import { loadProjects } from "../../store/projects";
 import { useDispatch } from "react-redux";
 import projectsDAL from "../../adapters/TMS/projectsDAL";
+import { makeStyles } from "@material-ui/core/styles";
 
-const DeleteProject = ({ openDeleteModal, setOpenDeleteModal, project }) => {
+const useStyles = makeStyles({
+  root: {
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      width: "100%",
+      height: "52px",
+      background: "#FFFFFF",
+      border: " 3px solid #0067C5",
+      boxSizing: "border-box",
+    },
+  },
+});
+const DeleteProject = ({
+  openDeleteModal,
+  setOpenDeleteModal,
+  project,
+  projecName,
+}) => {
   const dispatch = useDispatch();
   const [deleteProjectText, setDeleteProjectText] = useState("");
   const [msg, setMsg] = useState("");
-
+  const classes = useStyles();
   const deleteProject = async (id) => await projectsDAL.deleteProject(id);
 
-  const handelDelate = async () => {
-    if (deleteProjectText === "מחיקת פרויקט") {
+  const handelDelete = async () => {
+    console.log(deleteProjectText, projecName);
+    if (deleteProjectText === projecName) {
       await deleteProject(project);
       dispatch(loadProjects());
+      setMsg("");
     } else {
-      setMsg("הקלד בתיבה ");
+      setMsg("***הקלד את שם הפרויקט אותו תרצה למחוק בתוך התיבה*** ");
     }
   };
 
@@ -33,10 +52,21 @@ const DeleteProject = ({ openDeleteModal, setOpenDeleteModal, project }) => {
     <Dialog
       open={openDeleteModal}
       onClose={() => setOpenDeleteModal((p) => !p)}
-      style={{ alignItems: "center" }}
+      style={{ alignItems: "center", width: "100%" }}
     >
-      <DialogTitle className="title">
-        ?האם אתה בטוח שברצונך למחוק את הפרויקט{" "}
+      <DialogTitle
+        className="title"
+        style={{
+          fontStyle: "normal",
+          fontWeight: "bold",
+          fontSize: "26px",
+          lineHeight: "36px",
+          textAlign: "center",
+          color: "#4a4a4a",
+          margin: "10px",
+        }}
+      >
+        ?האם אתה בטוח שברצונך למחוק את הפרויקט
       </DialogTitle>
       <DialogContent style={{ textAlign: "center" }}>
         <DialogContentText className="alertCard">
@@ -47,26 +77,57 @@ const DeleteProject = ({ openDeleteModal, setOpenDeleteModal, project }) => {
             ?האם אתה בטוח שברצונך למחוק לצמיתות את הפרויקט והמשימות שבתוכו
           </p>
         </DialogContentText>
+        <br />
         <DialogContentText>
-          <p className="confirmText">
-            -אשר את הפעולה באמצעות הקלדת צמיד המילים
-            <p style={{ color: " #9D3332" }}>מחיקת פרויקט</p>
+          <p
+            style={{
+              display: "inline-block",
+              fontStyle: "normal",
+              fontWeight: "bold",
+              fontSize: "18px",
+              lineHeight: "21px",
+              textAlign: "right",
+              color: "#4a4a4a",
+              margin: 10,
+            }}
+          >
+            אשר את הפעולה באמצעות הקלדת שם הפרויקט
+            <span
+              style={{ color: " #9D3332", display: "inherit", margin: "2px" }}
+            >
+              {JSON.stringify(projecName)}
+            </span>
             מטה
           </p>
         </DialogContentText>
+        <br />
+
         <TextField
           type="text"
-          value={deleteProjectText}
-          onChange={(text) => setDeleteProjectText(text)}
+          onChange={(e) => setDeleteProjectText(e.target.value)}
           style={{
             width: "90%",
-            height: "30%",
-            background: "#ffffff",
-            border: "3px solid #0067c5",
-            boxSizing: "border-box",
+          }}
+          InputProps={{
+            classes: {
+              root: classes.root,
+            },
           }}
         />
       </DialogContent>
+      <DialogContentText
+        style={{
+          display: "inline-block",
+          fontStyle: "normal",
+          fontWeight: "bold",
+          fontSize: "14px",
+          lineHeight: "21px",
+          textAlign: "center",
+          color: "#9d3332",
+        }}
+      >
+        {msg}
+      </DialogContentText>
       <DialogActions style={{ justifyContent: "center", margin: 10 }}>
         <Button
           style={{
@@ -80,7 +141,10 @@ const DeleteProject = ({ openDeleteModal, setOpenDeleteModal, project }) => {
             textAlign: "center",
             color: "#2C2C2C",
           }}
-          onClick={() => setOpenDeleteModal((p) => !p)}
+          onClick={() => {
+            setOpenDeleteModal((p) => !p);
+            setMsg("");
+          }}
         >
           ביטול
         </Button>
@@ -98,7 +162,7 @@ const DeleteProject = ({ openDeleteModal, setOpenDeleteModal, project }) => {
             color: "#ffffff",
           }}
           onClick={() => {
-            handelDelate();
+            handelDelete();
           }}
         >
           מחיקה
