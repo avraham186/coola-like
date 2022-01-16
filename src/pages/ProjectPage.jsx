@@ -14,6 +14,14 @@ const ProjectPage = () => {
   const [addProjToggle, setAddProjToggle] = useState(false);
   const [toggleLinks, setToggleLinks] = useState(false);
   const [showAllDashboard, setShowAllDashboard] = useState(false);
+  const [listOrCompleted, setListOrCompleted] = useState(false)
+
+  useEffect(() => {
+    console.log('listOrCompleted', listOrCompleted);
+    if (listOrCompleted) {
+      projects.filter(project=>project.projectStatus==="COMPLETED")
+    }
+  }, [listOrCompleted])
 
   useEffect(() => {
     if (addProjToggle) {
@@ -30,10 +38,11 @@ const ProjectPage = () => {
       style={{ gap: "30px", width: "100%" }}
     >
       <div style={{ width: "100%" }}>
-      <NewSideBar
-        addProjToggle={addProjToggle}
-        setAddProjToggle={setAddProjToggle}
-      />
+        <NewSideBar
+          addProjToggle={addProjToggle}
+          setAddProjToggle={setAddProjToggle}
+          setListOrCompleted={setListOrCompleted}
+        />
         <button
           className="addProject-btn"
           style={{
@@ -60,7 +69,7 @@ const ProjectPage = () => {
             showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
           }
         >
-      
+
 
           <DashBoard showDashboard={showAllDashboard} />
           <div className={showAllDashboard ? "planTop" : "planUp"}>
@@ -83,7 +92,7 @@ const ProjectPage = () => {
           </div>
         </div>
         <div className={showAllDashboard ? "projectDown" : "projectUp"}>
-          {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} />}
+          {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} listOrCompleted={listOrCompleted} />}
           {open ? (
             <AddNewProject
               toggleLinks={toggleLinks}
