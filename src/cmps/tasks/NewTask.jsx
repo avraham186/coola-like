@@ -19,7 +19,7 @@ const NewTask = ({ match }) => {
   let history = useHistory();
 
   useEffect(() => {
-    console.log(history);
+    console.log(history.location.state);
   }, []);
 
   const [taskDate, setTaskDate] = useState({});
@@ -76,6 +76,7 @@ const NewTask = ({ match }) => {
           setToggleMode={setToggleMode}
           taskDate={taskDate}
           peopleAssigned={peopleAssigned}
+          updateTask={history.location.state}
         />
         <SideBar setToggleMode={setToggleMode} />
         <IsClicked />

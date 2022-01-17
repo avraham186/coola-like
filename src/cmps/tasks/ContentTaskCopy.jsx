@@ -1,25 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
-import {
-  attachment_icon,
-  chat_logo,
-  description_mission,
-  plus_sign,
-} from "../../assets/images/icons";
+import React, { useState, useEffect } from "react";
+import { chat_logo, description_mission } from "../../assets/images/icons";
 import {
   AssignedTask,
-  AttachmentsTask,
-  ChatsTask,
   HeadlinesTask,
-  Labels,
   ModeChoosen,
   modes,
   PriorityChoosen,
   TextArea,
 } from "./UtilsTask.js";
-import { TaskContext } from "../../context/TaskContext";
 import "../../assets/cmps/tasks-page/_new-task-modals.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { Input, MenuItem, TextField } from "@mui/material";
+import { Input, TextField } from "@mui/material";
 import taskDAL from "../../adapters/TMS/tasksDAL";
 
 const ContentTaskCopy = ({
@@ -27,6 +17,7 @@ const ContentTaskCopy = ({
   projectId,
   taskDate,
   peopleAssigned,
+  updateTask,
 }) => {
   const [newTask, setNewTask] = useState({
     title: "",
@@ -53,15 +44,31 @@ const ContentTaskCopy = ({
     setNewTask({ ...newTask, date: taskDate, team: peopleAssigned });
   }, [taskDate, peopleAssigned]);
 
+  useEffect(() => {
+    console.log(updateTask);
+    if (updateTask) {
+      let task = {
+        title: updateTask.title,
+        description: updateTask.description,
+        taskPriority: updateTask.taskPriority,
+        taskStatus: updateTask.taskStatus,
+        date: { endDate: updateTask.endDate },
+        team: updateTask.team,
+        label: updateTask.lable,
+        categories: updateTask.categories,
+        image: updateTask.image,
+        adminsTask: updateTask.adminsTask,
+      };
+      setNewTask(task);
+    }
+  }, []);
+
   const addNewTask = async () => {
-    console.log(projectId);
     const taskToSend = {
       projectId: parseInt(projectId),
       task: newTask,
     };
-    console.log(taskToSend);
     let resp = await taskDAL.createTask(taskToSend);
-    console.log(resp);
   };
 
   const handleChangeStatus = (e) => {
@@ -85,7 +92,7 @@ const ContentTaskCopy = ({
           <div className="title">
             <Input
               type="text"
-              placeholder="שם המשימה"
+              placeholder={newTask.title !== "" ? newTask.title : "שם המשימה"}
               onChange={(e) =>
                 setNewTask({ ...newTask, title: e.target.value })
               }
@@ -148,7 +155,7 @@ const ContentTaskCopy = ({
             multiline
             rows="5"
             cols="40"
-            defaultVal={newTask.description}
+            value={newTask.description}
             onChange={(e) =>
               setNewTask({ ...newTask, description: e.target.value })
             }
