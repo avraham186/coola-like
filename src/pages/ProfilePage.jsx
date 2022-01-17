@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UpdateUserDetails from "../cmps/profile/UpdateUserDetails";
 import { ChangePassword } from '../cmps/profile/ChangePassword';
 import { ProfileNotefications } from '../cmps/profile/ProfileNotefications';
-import { Switch, Link, Route } from 'react-router-dom';
-import { Router } from 'react-router';
+import { Switch, Link, Route, useLocation } from 'react-router-dom';
 
 const ProfilePage = () => {
+
+    const location = useLocation()
     const [menuTab, setMenuTab] = useState({
         profile: true,
         changePassword: false,
         notefications: false
     })
+    useEffect(() => {
+        if (location.pathname === '/profile/update') {
+            setMenuTab({ profile: true, changePassword: false, notefications: false })
+        } else if (location.pathname === '/profile/change-password') {
+            setMenuTab({ profile: false, changePassword: true, notefications: false })
+
+        } else if (location.pathname === '/profile/notefications') {
+            setMenuTab({ profile: false, changePassword: false, notefications: true })
+        }
+    }, [location.pathname])
     const changeMenuTab = (tab) => {
         switch (tab) {
             case 'profile':

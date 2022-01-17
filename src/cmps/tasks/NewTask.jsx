@@ -72,6 +72,7 @@ const NewTask = ({ match }) => {
         </span>
         {/* <ContentTask setToggleMode={setToggleMode} projectId={projectId} /> */}
         <ContentTaskCopy
+          projectId={projectId}
           setToggleMode={setToggleMode}
           taskDate={taskDate}
           peopleAssigned={peopleAssigned}

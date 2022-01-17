@@ -22,14 +22,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { Input, MenuItem, TextField } from "@mui/material";
 import taskDAL from "../../adapters/TMS/tasksDAL";
 
-const ContentTaskCopy = ({ setToggleMode, taskDate, peopleAssigned }) => {
+const ContentTaskCopy = ({
+  setToggleMode,
+  projectId,
+  taskDate,
+  peopleAssigned,
+}) => {
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
     taskPriority: "עדיפות גבוהה",
     taskStatus: "חדש",
     date: {},
-    pplAssigned: [],
+    team: [],
+    label: "",
+    categories: { id: 7, category: "FULLSTACK" },
+    image: "",
+    // files: [],
+    // chats: "",
+    adminsTask: [],
   });
   const [isClicked, setIsClicked] = useState({
     taskPriority: false,
@@ -39,12 +50,17 @@ const ContentTaskCopy = ({ setToggleMode, taskDate, peopleAssigned }) => {
 
   useEffect(() => {
     console.log(taskDate, peopleAssigned);
-    setNewTask({ ...newTask, date: taskDate, pplAssigned: peopleAssigned });
+    setNewTask({ ...newTask, date: taskDate, team: peopleAssigned });
   }, [taskDate, peopleAssigned]);
 
   const addNewTask = async () => {
-    // console.log(newTask);
-    let resp = await taskDAL.createTask(newTask);
+    console.log(projectId);
+    const taskToSend = {
+      projectId: parseInt(projectId),
+      task: newTask,
+    };
+    console.log(taskToSend);
+    let resp = await taskDAL.createTask(taskToSend);
     console.log(resp);
   };
 
@@ -116,10 +132,10 @@ const ContentTaskCopy = ({ setToggleMode, taskDate, peopleAssigned }) => {
           <></>
         )}
         <br />
-        {newTask.pplAssigned.length > 0 ? (
+        {newTask.team.length > 0 ? (
           <div className="assigned-task">
             <HeadlinesTask title="מוקצים למשימה" />
-            <AssignedTask areAssigned={newTask.pplAssigned}></AssignedTask>
+            <AssignedTask areAssigned={newTask.team}></AssignedTask>
           </div>
         ) : (
           <></>

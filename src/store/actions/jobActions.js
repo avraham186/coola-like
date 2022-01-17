@@ -1,4 +1,4 @@
-import { toyService } from "../../services/toy-service";
+import { jobService } from "../../services/toy-service";
 
 export function loadJobss(filterBy) {
   // console.log('toys in action', filterBy);
@@ -16,7 +16,7 @@ export function loadJobss(filterBy) {
   };
 }
 
-export function removeJob(toyId) {
+export function removeJob(jobId) {
   return (dispatch) => {
     try {
       jobService.remove(jobId);

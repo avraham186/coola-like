@@ -14,7 +14,7 @@ const getAllTasks = async () => {
 const createTask = async (task) => {
   console.log(task);
   let resp = await axios.post(URI + "/api/projects/tasks/", task);
-  console.log(resp.data);
+  console.log(resp);
 };
 
 export default { getAllTasks, createTask };
