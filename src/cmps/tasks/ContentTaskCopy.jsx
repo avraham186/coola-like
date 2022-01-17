@@ -20,6 +20,7 @@ import { TaskContext } from "../../context/TaskContext";
 import "../../assets/cmps/tasks-page/_new-task-modals.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { Input, MenuItem, TextField } from "@mui/material";
+import taskDAL from "../../adapters/TMS/tasksDAL";
 
 const ContentTaskCopy = ({ setToggleMode, taskDate, peopleAssigned }) => {
   const [newTask, setNewTask] = useState({
@@ -41,8 +42,10 @@ const ContentTaskCopy = ({ setToggleMode, taskDate, peopleAssigned }) => {
     setNewTask({ ...newTask, date: taskDate, pplAssigned: peopleAssigned });
   }, [taskDate, peopleAssigned]);
 
-  const addNewTask = () => {
-    console.log(newTask);
+  const addNewTask = async () => {
+    // console.log(newTask);
+    let resp = await taskDAL.createTask(newTask);
+    console.log(resp);
   };
 
   const handleChangeStatus = (e) => {
