@@ -8,7 +8,7 @@ import AddNewEvent from "./new_event/AddNewEvent.jsx";
 import AddNewProject from "./AddNewProject.jsx";
 import UserPermissions from "./UserPermissions.jsx";
 
-function NewSideBar({ addProjToggle, setAddProjToggle }) {
+function NewSideBar({ addProjToggle, setAddProjToggle, setListOrCompleted }) {
   const [open, setOpen] = useState(true);
 
   const linkes = [
@@ -18,6 +18,7 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
     "עדכון דף ארועים",
     "עדכון דף משרות",
     "שינוי הרשאות משתמשים",
+    "ארכיון"
   ];
   const [tab, setTab] = useState("");
 
@@ -38,14 +39,14 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
     setOpen(!open);
     setTab("");
   };
-
+  const listOrCompletedCheck = (link) => {
+    if (link === "ארכיון") return setListOrCompleted(p => {
+      return !p
+    })
+  }
   return (
     <>
-      {/* <div className='main-sidebar'>*/}
       <div className="sideBar">
-        {/* <div className="sideBar-container"> */}
-        {/* <div >  */}
-
         {open ? (
           <div className="sidbar-left-arrow">
             <AiOutlineDoubleLeft onClick={handelsideBar} />
@@ -65,9 +66,8 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
                     // id={window.location.pathname === link ? 'active' : ""}
                     onClick={() => {
                       setTab(link);
-                      console.log("link", link);
                       setToggleLinks(!toggleLinks);
-                  
+                      listOrCompletedCheck(link)
                     }}
                   >
                     {link}
@@ -112,11 +112,8 @@ function NewSideBar({ addProjToggle, setAddProjToggle }) {
           )}
         </div>
       </div>
-      {/* </div> */}
-      {/*  </div> */}
     </>
   );
 }
 
 export default NewSideBar;
-
