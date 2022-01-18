@@ -12,6 +12,9 @@ const EventsPage = () => {
     const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
 
+  
+    
+
     const [open, setOpen] = useState(false);
     const [toggleMode, setToggleMode] = useState({
         label: false,
@@ -85,9 +88,12 @@ const EventsPage = () => {
                         <EventCard 
                         key={event._id}
                         event={event}
+                        // openInfo={() => handleCardInfo(event._id)}
+                        
                         />
                         )}
-
+                        
+                        
                 </div>
 
             </div>

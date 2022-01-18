@@ -13,7 +13,7 @@ function NewSideBar({ addProjToggle, setAddProjToggle, setListOrCompleted }) {
 
   const linkes = [
     "הוספת פרוייקט",
-    "הוספת ארוע",
+    "הוספת אירוע",
     "הוספת משרה",
     "עדכון דף ארועים",
     "עדכון דף משרות",
@@ -88,7 +88,7 @@ function NewSideBar({ addProjToggle, setAddProjToggle, setListOrCompleted }) {
           )}
         </div>
         <div>
-          {tab === "הוספת ארוע" && (
+          {tab === "הוספת אירוע" && (
             <AddNewEvent
               toggleLinks={toggleLinks}
               setToggleLinks={setToggleLinks}

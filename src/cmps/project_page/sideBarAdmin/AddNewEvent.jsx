@@ -32,12 +32,37 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
 
       // Trimming any whitespace
     });
+    console.log("newEvent", formData);
+  };
+
+
+
+  const checkSubmit = () => {
+    if (
+      formData.eventDate === "" ||
+      formData.description === "" ||
+      formData.title === "" ||
+      formData.time === "" ||
+      formData.Categories === [] ||
+      formData.presentor === "" ||
+      formData.image === "" ||
+      formData.link === ""
+    ) {
+      //  return false
+      return console.log("אנא מלא את כל השדות");
+    }
+    //  else return true
+    else {
+      return handleSubmit();
+    }
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     dispatch(addEvent(formData));
-    setOpen(false);
+    setToggleLinks((p) => !p);
+    // setOpen(false);
+    console.log("newEvent", formData);
 
     // fetch('api/projects', {
     //   method: 'POST',
@@ -49,8 +74,9 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
   };
 
   useEffect(() => {
-    toggleLinks && setOpen((p) => !p);
-    setFormData(initialEventData);
+    setOpen((p) => !p);
+    // setFormData(initialEventData);
+   
   }, [toggleLinks]);
 
   return (
@@ -66,12 +92,14 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
       aria-describedby="modal-modal-description"
     >
       <Box className="boxStyle">
-        <div className="adding-job-container">
-          <form action="adding-job">
+        <form className="adding-job-container">
+          {/* <div action="adding-job"> */}
             <label className="event-title">
               כותרת הארוע
               <br />
               <input
+                id = "eventTitle"
+                required
                 type="text"
                 value={formData.title}
                 name="title"
@@ -85,6 +113,7 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               <br />
               <div className="data-and-time-input">
                 <input
+                  required
                   type="date"
                   name="eventDate"
                   value={formData.eventDate}
@@ -92,6 +121,7 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
                   onChange={handleChange}
                 />
                 <input
+                  required
                   type="time"
                   name="time"
                   value={formData.time}
@@ -114,6 +144,7 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               תיאור
               <br />
               <textarea
+                required
                 name="description"
                 onChange={handleChange}
                 id=""
@@ -126,7 +157,12 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
             <label className="insert_presentor">
               {" "}
               מציג
-              <input type="text" name="presentor" onChange={handleChange} />
+              <input
+                required
+                type="text"
+                name="presentor"
+                onChange={handleChange}
+              />
             </label>
 
             <div id="dropZone" className="add-file">
@@ -134,6 +170,7 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               <label className="chooseFromPC">
                 בחר מהמחשב
                 <input
+                  required
                   type="file"
                   name="file"
                   value={formData.image}
@@ -148,6 +185,7 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
               קישור לעמוד הלינקדאין של המרצה
               <br />
               <input
+                required
                 type="text"
                 name="link"
                 value={formData.link}
@@ -157,12 +195,16 @@ function AddNewEvent({ toggleLinks, setToggleLinks }) {
             </label>
             <br />
             <div className="submit-btn">
-              <button className="btn-save" onClick={handleSubmit}>
-                שמור וסגור
-              </button>
+            <button
+              className="btn-save"
+              //  disabled={checkSubmit}
+              onClick={checkSubmit}
+            >
+              שמור וסגור
+            </button>
             </div>
-          </form>
-        </div>
+          {/* </div> */}
+        </form>
       </Box>
     </Modal>
   );
