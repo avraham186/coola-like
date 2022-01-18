@@ -1,0 +1,38 @@
+//admin page edit
+.admin{
+    background-image: url('../../images/events/eventsAdminBG.jpg') ;
+    background-repeat: no-repeat;
+
+    .headlines{
+        display: flex;
+        justify-content: right;
+    }
+    
+    .selectors{
+        gap: 50px;
+        // .eventsSearchBar{
+        //     border: 0.5px solid rgba(43, 43, 43, 0.493);
+
+        //     }
+        
+    }
+    .addEvent-btn{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "Rubik";
+        margin: 0;
+        direction: rtl;
+    }
+    .modals{
+              input[name=confirm_delete]{
+                :focus{
+                    border: 1px solid
+                }
+              }
+        }
+       
+}

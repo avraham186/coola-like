@@ -42,7 +42,7 @@ const EventsPage = () => {
 
     return (
         <section className="eventsPage full">
-            <div className="main-layout wrapper">
+            <div className="user main-layout wrapper">
                 
                 <div>
                    <Modal
