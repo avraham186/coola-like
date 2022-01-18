@@ -1,0 +1,41 @@
+.DialogTitle {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #4a4a4a;
+}
+.TextField {
+  width: 300px;
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+.label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: right;
+
+  color: #4a4a4a;
+}
+.dateField {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+
+  color: rgba(74, 74, 74, 0.44);
+}
+
+.save {
+  background: #34018e;
+  border-radius: 3px;
+  color: white;
+}

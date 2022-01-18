@@ -42,11 +42,42 @@
             }
         }
     }
+    .header-buttons {
+      border: 2px solid $clr2;
+      background-color: $clr7;
+      width: rem(199px);
+      height: rem(40px);
+      cursor: pointer;
+      border-radius: 2px 15px;
+      text-decoration: none;
+      span {
+        font-family: Rubik-medium, sans-serif;
+        font-size: rem(18px);
+        color: $clr6;
+      }
+    }
+  }
+
+
+/////////////////////// media Query max widh 480 ////////////////////////////
+
+@media only screen and (max-width: 480px) {
+ 
+  .app-header {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  .header-comp {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
-@media screen and (max-width: 480px){
-    .home-page {
-    }
-}
+// @media screen and (max-width: 480px){
+//     .home-page {
+//     }
+// }

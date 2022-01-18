@@ -3,13 +3,12 @@ import { loadJobs } from '../../store/jobs.js';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { JobCard } from "./sub_cmps/JobCard.jsx";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Jobs = () => {
     const [expanded, setExpanded] = useState(false);
     const dispatch = useDispatch()
-    const jobs = useSelector(state => state.entities.jobs)
+    const {jobs} = useSelector(state => state.entities)
     useEffect(() => {
         dispatch(loadJobs())
     }, [])

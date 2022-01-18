@@ -6,10 +6,11 @@ import { arrow_down } from "../../assets/images/icons";
 
 const statusSort = { DELAY: 1, STARTED: 2, IN_PROCESS: 3, COMPLETED: 4 };
 
-const ProjectsList = () => {
+const ProjectsList = ({ listOrCompleted }) => {
   //fgerhegherhr//
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
+  const filteredProjects = projects.list.filter(project => project.projectStatus === "COMPLETED")
   const [sortHeaders, setSortHeaders] = useState({
     status: false,
     date: false,
@@ -17,11 +18,15 @@ const ProjectsList = () => {
   useEffect(() => {
     dispatch(loadProjects());
     console.log(projects);
+    // if (listOrCompleted) projects.push(projects.list.filter(project => project.projectStatus === "COMPLETED"))
   }, []);
 
   const applyProjects = () => {
     const { status, date } = sortHeaders;
-    const allProjects = [...projects.list];
+    let allProjects = [...projects.list];
+    if (listOrCompleted) {
+      allProjects = [...filteredProjects]
+    }
     if (status) {
       return allProjects.sort(
         (a, b) => statusSort[b.projectStatus] - statusSort[a.projectStatus]

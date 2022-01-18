@@ -21,7 +21,12 @@
   display: flex;
 }
 
+<<<<<<< HEAD
 .flex > *.full {
+=======
+
+.flex>*.full {
+>>>>>>> c6238317b6c597e965b63668bc3093144e80976b
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
