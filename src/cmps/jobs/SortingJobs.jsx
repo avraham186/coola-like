@@ -149,8 +149,6 @@ export const SortingJobs = () => {
             );
           })}
         </select>
-      </div>
-      <div className="search-job-by-text">
         <input
           onChange={(event) => {
             openSearch(event);
@@ -159,6 +157,7 @@ export const SortingJobs = () => {
           placeholder="חפש תחום/מיקום/תפקיד"
         />
       </div>
+      {/* <div className="search-job-by-text"></div> */}
     </div>
   );
 };

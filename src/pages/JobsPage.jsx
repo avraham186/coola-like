@@ -18,6 +18,9 @@ const JobsPage = () => {
 
     return (
         <div className="flex column justify-center">
+           <div className="label_div">
+           <h1>לוח_משרות#</h1>
+           </div>
             <SortingJobs />
             < div className='jobs-page flex justify-center' >
                 <Description currentJob={currentJob} editJob={editJob} removeJob={removeJob} />

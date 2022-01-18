@@ -1,13 +1,30 @@
-
-.sorting-jobs {
-
-  select {
-    width: 7rem;
-    margin: 0.5rem;
+.label_div {
+  h1 {
+    float: right;
+    margin: 2.5rem;
   }
 }
-.search-job-by-text {
+.search-job-by-buttons {
+  width: 93%;
+}
+.sorting-jobs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  direction: rtl;
+
+  select {
+    float: right;
+    margin: 0.5rem;
+    border-radius: 5px;
+    height: 2.4rem;
+    width: 10rem;
+  }
   input {
+    float: left;
+    border-radius: 5px;
+    width: 15rem;
+    height: 2rem;
     margin: 0.5rem;
   }
 }
@@ -16,6 +33,10 @@
   height: 700px;
   background-color: white;
   margin: 10px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   .description-job {
     border: 1px solid #34018e;
@@ -101,9 +122,9 @@
   }
 }
 
-.sorting-jobs {
-  // width: 100%;
-  direction: rtl;
-  justify-content: space-around;
-  gap: 40%;
-}
+// .sorting-jobs {
+//   // width: 100%;
+//   direction: rtl;
+//   justify-content: space-around;
+//   gap: 40%;
+// }
