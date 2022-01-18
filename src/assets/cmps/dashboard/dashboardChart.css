@@ -1,0 +1,122 @@
+.allTaskPie {
+  position: absolute;
+  width: 655px;
+  height: 588px;
+  top: 470px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.allTaskPie h3 {
+  text-align: center;
+}
+
+.completedProject {
+  position: absolute;
+  width: 38%;
+  height: 216px;
+  left: 71px;
+  top: 13%;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.ChartTitle {
+  position: absolute;
+  width: 88px;
+  height: 14px;
+  left: 55%;
+  top: 25%;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #6d49ac;
+}
+
+.ChartTitle p {
+  width: 134px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #000000;
+}
+
+.Pie {
+  position: absolute;
+  width: 163px;
+  height: 163px;
+  border-radius: 15px;
+}
+
+.completedTasks {
+  position: absolute;
+  width: 38%;
+  height: 216px;
+  left: 71px;
+  top: 32%;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.TasksPie {
+  position: absolute;
+  cursor: default;
+  height: 100%;
+  top: 14%;
+  left: 30%;
+}
+
+.TasksTitle {
+  position: absolute;
+  width: 74%;
+  left: 27%;
+  left: 30%;
+  top: 30%;
+  direction: rtl;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #000000;
+}
+
+.lineTasksChart {
+  position: absolute;
+  width: 48%;
+  height: 37%;
+  left: 45%;
+  top: 13%;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.pie-Tasks-chart {
+  position: absolute;
+  width: 48%;
+  height: 37%;
+  left: 45%;
+  top: 52%;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.management-line-chart {
+  position: absolute;
+  width: 38%;
+  height: 37%;
+  left: 71px;
+  top: 52%;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=dashboardChart.css.map */
