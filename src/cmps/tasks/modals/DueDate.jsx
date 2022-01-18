@@ -3,7 +3,7 @@ import { closeIcon, watch } from "../../../assets/images/icons";
 import { Box, Modal } from "@mui/material";
 import { TaskContext } from "../../../context/TaskContext";
 
-export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
+export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
   const [open, setOpen] = useState(false);
   const [startCheckbox, setStartCheckbox] = useState(false);
   const [endCheckbox, setEndCheckbox] = useState(false);
@@ -146,12 +146,13 @@ export const DueDate = ({ toggleMode, setToggleMode, setTaskToSave }) => {
           <div className="due-date-set-reminder-save-btn">
             <button
               className="save-btn"
-              onClick={() =>
+              onClick={() => {
                 setToggleMode((p) => ({
                   ...p,
                   dueDate: !p.dueDate,
-                }))
-              }
+                }));
+                taskDate(dateToSave);
+              }}
             >
               שמור
             </button>
