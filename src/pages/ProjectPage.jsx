@@ -5,8 +5,9 @@ import AddNewProject from "../cmps/project_page/sideBarAdmin/AddNewProject.jsx";
 import NewSideBar from "../cmps/project_page/sideBarAdmin/NewSideBar.jsx";
 import { DashBoard } from "../cmps/project_page/dashboard/DashBoard";
 import { add_new_content } from "../assets/images/icons";
-import { MdOutlineAddToPhotos } from "react-icons/md";
+// import { MdOutlineAddToPhotos } from "react-icons/md";
 import { BsChevronDoubleDown, BsChevronDoubleUp } from "react-icons/bs";
+import CreateNewProject from "../cmps/project_page/CreateNewProject.jsx";
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState([]);
@@ -17,9 +18,8 @@ const ProjectPage = () => {
   const [listOrCompleted, setListOrCompleted] = useState(false)
 
   useEffect(() => {
-    console.log('listOrCompleted', listOrCompleted);
     if (listOrCompleted) {
-      projects.filter(project=>project.projectStatus==="COMPLETED")
+      projects.filter(project => project.projectStatus === "COMPLETED")
     }
   }, [listOrCompleted])
 
@@ -31,7 +31,14 @@ const ProjectPage = () => {
       setAddProjToggle((p) => !p);
     }
   }, []);
-
+  const listDivClassName = () => {
+    if (listOrCompleted) {
+      return ""
+    } else {
+      return showAllDashboard ? "projectDown" : "projectUp"
+    }
+    
+  }
   return (
     <div
       className="project-page-main flex"
@@ -43,34 +50,13 @@ const ProjectPage = () => {
           setAddProjToggle={setAddProjToggle}
           setListOrCompleted={setListOrCompleted}
         />
-        <button
-          className="addProject-btn"
-          style={{
-            border: "none",
-            padding: "10px",
-            borderRadius: "5px",
-            fontFamily: "Rubik",
-            margin: "0 10px",
-            direction: "rtl",
-          }}
-          onClick={() => {
-            setOpen(true);
-            setAddProjToggle();
-            setToggleLinks(!toggleLinks);
-          }}
-        >
-          הוספת פרוייקט חדש
-          <MdOutlineAddToPhotos style={{ margin: "0 5px" }} />
-        </button>
-        <br />
-        <br />
-        <div
+        <CreateNewProject setOpen={setOpen} setAddProjToggle={setAddProjToggle}
+          setToggleLinks={setToggleLinks} toggleLinks={toggleLinks} />
+        {!listOrCompleted && <div
           className={
             showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
           }
         >
-
-
           <DashBoard showDashboard={showAllDashboard} />
           <div className={showAllDashboard ? "planTop" : "planUp"}>
             {showAllDashboard ? (
@@ -90,8 +76,9 @@ const ProjectPage = () => {
               {showAllDashboard ? " צמצם חלונית" : "הרחב חלונית"}
             </p>
           </div>
-        </div>
-        <div className={showAllDashboard ? "projectDown" : "projectUp"}>
+        </div>}
+        {/* <div className={showAllDashboard ? "projectDown" : "projectUp"}> */}
+        <div className={listDivClassName()}>
           {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} listOrCompleted={listOrCompleted} />}
           {open ? (
             <AddNewProject
