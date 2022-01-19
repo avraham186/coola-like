@@ -5,7 +5,7 @@ import { addEvent } from "../../../../store/events";
 import Categories from "../new_position/Categories";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
+// import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const initialEventData = {
   eventDate: [],
@@ -16,7 +16,7 @@ const initialEventData = {
    *     hour: "hh/mm"
    *    }
    */
-  title: "Event of the yeear",
+  title: "Event of the year",
   categories: [],
   lector: "",
   inLink: "",
