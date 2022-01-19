@@ -7,7 +7,6 @@ import { arrow_down } from "../../assets/images/icons";
 const statusSort = { DELAY: 1, STARTED: 2, IN_PROCESS: 3, COMPLETED: 4 };
 
 const ProjectsList = ({ listOrCompleted }) => {
-  //fgerhegherhr//
   const dispatch = useDispatch();
   const projects = useSelector((state) => state.entities.projects);
   const filteredProjects = projects.list.filter(project => project.projectStatus === "COMPLETED")
@@ -17,8 +16,6 @@ const ProjectsList = ({ listOrCompleted }) => {
   });
   useEffect(() => {
     dispatch(loadProjects());
-    console.log(projects);
-    // if (listOrCompleted) projects.push(projects.list.filter(project => project.projectStatus === "COMPLETED"))
   }, []);
 
   const applyProjects = () => {
@@ -78,7 +75,6 @@ const ProjectsList = ({ listOrCompleted }) => {
         </thead>
         <tbody>
           {applyProjects().map((project) => {
-            // if (project.projectStatus !== 'COMPLETED')
             return <ProjectPreview project={project} key={project.id} />;
           })}
         </tbody>

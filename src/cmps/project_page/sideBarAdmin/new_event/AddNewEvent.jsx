@@ -16,7 +16,7 @@ const initialEventData = {
    *     hour: "hh/mm"
    *    }
    */
-  title: "Event of the yeear",
+  title: "Event of the year",
   categories: [],
   lector: "",
   inLink: "",

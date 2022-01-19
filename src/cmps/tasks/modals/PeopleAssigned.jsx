@@ -6,7 +6,11 @@ import { TaskContext } from "../../../context/TaskContext";
 import { Box, Modal } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
-export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
+export const PeopleAssigned = ({
+  toggleMode,
+  setToggleMode,
+  peopleAssigned,
+}) => {
   const { taskContent, setTaskContent } = useContext(TaskContext);
   const [open, setOpen] = useState(false);
   const [searchUser, setSearchUser] = useState("");
@@ -113,9 +117,10 @@ export const PeopleAssigned = ({ toggleMode, setToggleMode }) => {
         <div className="submit-btn-task">
           <button
             className="btn-save-task"
-            onClick={() =>
-              setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }))
-            }
+            onClick={() => {
+              setToggleMode((p) => ({ ...p, pplAssigned: !p.pplAssigned }));
+              peopleAssigned(userClicked);
+            }}
           >
             שמור
           </button>
