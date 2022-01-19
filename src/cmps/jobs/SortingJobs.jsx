@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { arrow_down } from "../../assets/images/icons";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { filterJobs } from "../../store/jobs";
 
@@ -150,8 +149,6 @@ export const SortingJobs = () => {
             );
           })}
         </select>
-      </div>
-      <div className="search-job-by-text">
         <input
           onChange={(event) => {
             openSearch(event);
@@ -160,29 +157,7 @@ export const SortingJobs = () => {
           placeholder="חפש תחום/מיקום/תפקיד"
         />
       </div>
+      {/* <div className="search-job-by-text"></div> */}
     </div>
   );
 };
-
-/*
-category: "FULLSTACK"
-date: (5) [2021, 10, 31, 0, 0]
-description: "asdad"
-experience: 0
-id: 10
-location: "tel aviv"
-title: "FullStack"
-type: "Full Time"
-*/
-
-/*
- <span id="by-interest">
-                    <img src={arrow_down} alt="arrow_down" />
-                    תחום</span>
-                <span id="by-job-type">
-                    <img src={arrow_down} alt="arrow_down" />
-                    סוג משרה</span>
-                <span id="by-area">
-                    <img src={arrow_down} alt="arrow_down" />
-                    איזור</span>
-*/
