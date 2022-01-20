@@ -37,7 +37,7 @@ const ProjectPage = () => {
     } else {
       return showAllDashboard ? "projectDown" : "projectUp"
     }
-    
+
   }
   return (
     <div
@@ -51,7 +51,8 @@ const ProjectPage = () => {
           setListOrCompleted={setListOrCompleted}
         />
         <CreateNewProject setOpen={setOpen} setAddProjToggle={setAddProjToggle}
-          setToggleLinks={setToggleLinks} toggleLinks={toggleLinks} />
+          setToggleLinks={setToggleLinks} toggleLinks={toggleLinks} listOrCompleted={listOrCompleted}
+        />
         {!listOrCompleted && <div
           className={
             showAllDashboard ? "show-all-dash-board" : "not-all-dash-board"
@@ -77,7 +78,6 @@ const ProjectPage = () => {
             </p>
           </div>
         </div>}
-        {/* <div className={showAllDashboard ? "projectDown" : "projectUp"}> */}
         <div className={listDivClassName()}>
           {!projects ? <EmptyProjects /> : <ProjectsList rows={projects} listOrCompleted={listOrCompleted} />}
           {open ? (
