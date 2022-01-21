@@ -6,6 +6,7 @@
 }
 .search-job-by-buttons {
   width: 94.5%;
+  margin-bottom: 1rem;
 }
 .sorting-jobs {
   display: flex;
@@ -15,24 +16,42 @@
 
   select {
     float: right;
-    margin: 0.5rem;
-    border-radius: 5px;
-    height: 2.4rem;
-    width: 10rem;
+    margin: 0.8rem;
+    border-radius: 10px;
+    height: 3.0625rem;
+    width: 10.375rem;
+    color: #34018e;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-right: 0.7rem;
+    appearance: none;
+    background-image: url(../../images/icons/arrow_down.png);
+    background-repeat: no-repeat;
+    background-position: left 1rem center;
+    background-size: 1em;
   }
+
   input {
     float: left;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: solid 1px black;
     width: 15rem;
-    height: 2rem;
+    height: 3rem;
     margin: 0.5rem;
+    color: #34018e;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-right: 0.7rem;
+  }
+  input::placeholder {
+    color: #34018e;
   }
 }
 
 .jobs-page {
   height: 700px;
   background-color: white;
-  margin-bottom: 50px;
+  margin-bottom: 148px;
 
   ::-webkit-scrollbar {
     display: none;
