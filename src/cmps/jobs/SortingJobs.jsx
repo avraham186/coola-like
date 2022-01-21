@@ -112,7 +112,7 @@ export const SortingJobs = () => {
             titleChangeHandler(event);
           }}
         >
-          <option value="">Title</option>
+          <option value="">תחום</option>
           {uniqueTitlesArr.map((title, i) => {
             return (
               <option key={i} value={title}>
@@ -126,7 +126,7 @@ export const SortingJobs = () => {
             typeChangeHandler(event);
           }}
         >
-          <option value="">Type</option>
+          <option value="">סוג משרה</option>
           {uniqueTypesArr.map((type, i) => {
             return (
               <option key={i} value={type}>
@@ -140,7 +140,7 @@ export const SortingJobs = () => {
             locationChangeHandler(event);
           }}
         >
-          <option value="">Location</option>
+          <option value="">איזור</option>
           {uniqueLocationsArr.map((location, i) => {
             return (
               <option key={i} value={location}>
