@@ -22,14 +22,14 @@ const JobsPage = () => {
 
   return (
     <div className="flex column justify-center">
-      {open ? (
+      {/* {open ? (
         <NewPositionForm
           open={open}
           setOpen={setOpen}
           toggleLinks={toggleLinks}
           setToggleLinks={setToggleLinks}
         />
-      ) : null}
+      ) : null} */}
       <div className="label_div">
         <h1>לוח_משרות#</h1>
         <button
