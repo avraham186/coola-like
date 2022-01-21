@@ -16,6 +16,10 @@
             text-decoration: none;
             color: black;
         }
+        .active-link{
+            border-bottom: 1px solid black;
+
+        }
 
         .left-list {
             display: flex;
