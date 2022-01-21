@@ -3,6 +3,19 @@
     float: right;
     margin: 2.5rem;
   }
+  .add_new_job {
+    float: right;
+    margin: 2.5rem;
+    background-image: url(../../images/icons/add_new_content.png);
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    font-size: 1.125rem;
+    font-weight: bold;
+    width: 15rem;
+    height: 3rem;
+    background-color: inherit;
+    border: inherit;
+  }
 }
 .search-job-by-buttons {
   width: 94.5%;
@@ -16,16 +29,16 @@
 
   select {
     float: right;
-    margin: 0.8rem;
+    margin: 0 0.8rem;
     border-radius: 10px;
     height: 3.0625rem;
     width: 10.375rem;
     color: #34018e;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: bold;
     padding-right: 0.7rem;
     appearance: none;
-    background-image: url(../../images/icons/arrow_down.png);
+    background-image: url(../../images/jobs/Vector.png);
     background-repeat: no-repeat;
     background-position: left 1rem center;
     background-size: 1em;
@@ -35,13 +48,15 @@
     float: left;
     border-radius: 10px;
     border: solid 1px black;
-    width: 15rem;
+    width: 21rem;
     height: 3rem;
-    margin: 0.5rem;
     color: #34018e;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: bold;
     padding-right: 0.7rem;
+    background-image: url(../../images/jobs/searchbcg.png);
+    background-repeat: no-repeat;
+    background-position: left;
   }
   input::placeholder {
     color: #34018e;
@@ -58,11 +73,13 @@
   }
 
   .description-job {
+    background-color: white;
     border: 1px solid #34018e;
     width: 50%;
     border-radius: 10px;
     direction: rtl;
     padding: 2% 4%;
+    z-index: 1;
 
     .container-job {
       height: 100%;
@@ -118,14 +135,17 @@
   }
 
   .jobs-list {
-    border-top: 1px solid #34018e;
-    border-bottom: 1px solid #34018e;
-    border-radius: 10px;
-    width: 35%;
+    // border-top: 1px solid #34018e;
+    // border-bottom: 1px solid #34018e;
+    // border-radius: 10px;
+    width: 36%;
     overflow-y: auto;
+    z-index: 0;
+    position: relative;
+    right: 10px;
 
     .job-card {
-      border-radius: 10px;
+      border-radius: 0 10px 10px 0;
       direction: rtl;
       width: 100%;
       height: 120px;
