@@ -2,6 +2,8 @@
   h1 {
     float: right;
     margin: 2.5rem;
+    font-family: "Rubik";
+    size: rem(40px);
   }
   .add_new_job {
     float: right;
@@ -9,8 +11,8 @@
     background-image: url(../../images/icons/add_new_content.png);
     background-repeat: no-repeat;
     background-position: right 1rem center;
-    font-size: 1.125rem;
-    font-weight: bold;
+    font-size: rem(18px);
+    font-family: "Rubik" "medium";
     width: 15rem;
     height: 3rem;
     background-color: inherit;
@@ -19,7 +21,7 @@
 }
 .search-job-by-buttons {
   width: 94.5%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .sorting-jobs {
   display: flex;
@@ -27,15 +29,19 @@
   margin-bottom: 1rem;
   direction: rtl;
 
+  select,
+  input {
+    font-size: rem(18px);
+    font-family: "Rubik" "medium";
+  }
+
   select {
     float: right;
     margin: 0 0.8rem;
     border-radius: 10px;
-    height: 3.0625rem;
-    width: 10.375rem;
+    height: rem(49px);
+    width: rem(165px);
     color: #34018e;
-    font-size: 1.125rem;
-    font-weight: bold;
     padding-right: 0.7rem;
     appearance: none;
     background-image: url(../../images/jobs/Vector.png);
@@ -45,28 +51,55 @@
   }
 
   input {
+    position: relative;
     float: left;
+    right: rem(50px);
     border-radius: 10px;
     border: solid 1px black;
-    width: 21rem;
-    height: 3rem;
+    border-left: none;
+    width: rem(345.83px);
+    height: rem(46px);
     color: #34018e;
-    font-size: 1.125rem;
-    font-weight: bold;
     padding-right: 0.7rem;
-    background-image: url(../../images/jobs/searchbcg.png);
-    background-repeat: no-repeat;
-    background-position: left;
   }
   input::placeholder {
     color: #34018e;
+  }
+  input,
+  select:focus {
+    outline: none;
+  }
+
+  .open_search_div {
+    // border: green 1px solid;
+    display: block;
+    float: left;
+  }
+
+  .search_logo {
+    float: left;
+    z-index: 1;
+    height: rem(50px);
+    width: rem(50px);
+    border-radius: rem(10px);
+    color: #ffffff;
+    font-size: medium;
+    opacity: 0.5;
+    background: linear-gradient(
+      to bottom,
+      rgba(52, 1, 142, 1) 0%,
+      rgba(108, 229, 231, 1) 100%
+    );
+  }
+  .search_logo:hover {
+    opacity: 0.75;
   }
 }
 
 .jobs-page {
   height: 700px;
   background-color: white;
-  margin-bottom: 148px;
+  margin-bottom: rem(148px);
 
   ::-webkit-scrollbar {
     display: none;

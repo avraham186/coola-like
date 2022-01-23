@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { filterJobs } from "../../store/jobs";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const SortingJobs = () => {
   const [allJobs, setAllJobs] = useState([]);
@@ -149,13 +151,18 @@ export const SortingJobs = () => {
             );
           })}
         </select>
-        <input
-          onChange={(event) => {
-            openSearch(event);
-          }}
-          type="text"
-          placeholder="חפש תחום/מיקום/תפקיד"
-        />
+        <div className="open_search_div">
+          <IconButton className="search_logo">
+            <SearchIcon fontSize="large" />
+          </IconButton>
+          <input
+            onChange={(event) => {
+              openSearch(event);
+            }}
+            type="text"
+            placeholder="חפש תחום/מיקום/תפקיד"
+          />
+        </div>
       </div>
       {/* <div className="search-job-by-text"></div> */}
     </div>
