@@ -9,6 +9,8 @@ import { deleteJobById, loadJobs } from "../store/jobs";
 const JobsPage = () => {
   const dispatch = useDispatch();
   const [currentJob, setCurrentJob] = useState([]);
+  const [toggleLinks, setToggleLinks] = useState(false);
+  const [open, setOpen] = useState(false);
   const editJob = () => {
     console.log("this is edit job");
   };
@@ -20,11 +22,20 @@ const JobsPage = () => {
 
   return (
     <div className="flex column justify-center">
+      {open ? (
+        <NewPositionForm
+          open={open}
+          setOpen={setOpen}
+          toggleLinks={toggleLinks}
+          setToggleLinks={setToggleLinks}
+        />
+      ) : null}
       <div className="label_div">
         <h1>לוח_משרות#</h1>
         <button
           onClick={() => {
-            <NewPositionForm />;
+            setOpen(true);
+            setToggleLinks(!toggleLinks);
           }}
           className="add_new_job"
         >
