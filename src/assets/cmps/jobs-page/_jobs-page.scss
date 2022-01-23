@@ -46,20 +46,48 @@
 
   input {
     float: left;
+    right: 3.2rem;
     border-radius: 10px;
     border: solid 1px black;
+    border-left: none;
     width: 21rem;
     height: 3rem;
     color: #34018e;
     font-size: 1.125rem;
     font-weight: bold;
     padding-right: 0.7rem;
-    background-image: url(../../images/jobs/searchbcg.png);
-    background-repeat: no-repeat;
-    background-position: left;
   }
   input::placeholder {
     color: #34018e;
+  }
+  input,
+  select:focus {
+    outline: none;
+  }
+
+  .open_search_div {
+    border: green 1px solid;
+    display: block;
+    float: left;
+  }
+
+  .search_logo {
+    float: left;
+    left: 3.2rem;
+    height: 3.2rem;
+    width: 3.2rem;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: medium;
+    opacity: 0.5;
+    background: linear-gradient(
+      to bottom,
+      rgba(52, 1, 142, 1) 0%,
+      rgba(108, 229, 231, 1) 100%
+    );
+  }
+  .search_logo:hover {
+    opacity: 0.75;
   }
 }
 
