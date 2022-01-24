@@ -20,7 +20,7 @@ const projectData = {
 };
 
 const statusOptions = [
-  "סטטוס",
+  "",
   "IN_PROCESS",
   "DELAY",
   "COMPLETED",
@@ -28,14 +28,14 @@ const statusOptions = [
   "CANCELED",
 ];
 
-const priorityOptions = ["עדיפות", "HIGH", "LOW", "MEDIUM"];
+const priorityOptions = [ "","HIGH", "LOW", "MEDIUM"];
 
 function AddNewProject({ toggleLinks, setToggleLinks }) {
   const [open, setOpen] = React.useState(false);
   const [newProjData, setNewProjData] = useState(projectData);
 
   useEffect(() => {
-    console.log(newProjData);
+    // console.log(newProjData);
   }, [newProjData]);
   const dispatch = useDispatch();
   const handleChange = (e) => {
@@ -49,17 +49,37 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
     });
   };
 
-  const handleSubmit = () => {
-    //
+  const checkSubmit = () => {
+    if (
+      newProjData.projectName === "" ||
+      newProjData.startDate === "" ||
+      newProjData.endDate === "" ||
+      newProjData.projectPriority === "" ||
+      // newProjData.projectPriority === "עדיפות" ||
+      newProjData.description === "" ||
+      newProjData.projectStatus === "" 
+     
+    ) {
+      //  return false
+      return console.log("אנא מלא את כל השדות");
+    }
+    //  else return true
+    else {
+      return handleSubmit();
+    }
+  };
 
+  // }
+  const handleSubmit = () => {
     dispatch(addProject(newProjData));
     setToggleLinks((p) => !p);
-    console.log(newProjData);
+    console.log("newProjData", newProjData);
     // ... submit to API or something
   };
 
   useEffect(() => {
     setOpen((p) => !p);
+    // checkSubmit()
   }, [toggleLinks]);
 
   return (
@@ -75,8 +95,10 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
       aria-describedby="modal-modal-description"
     >
       <Box className="boxStyle">
-        <div className="newProj-container">
+        <form className="newProj-container">
           <input
+            id="projectName"
+            required
             placeholder="שם הפרויקט"
             type="text"
             name="projectName"
@@ -98,6 +120,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                 תאריך התחלה
                 <br />
                 <input
+                  required
                   type="date"
                   name="startDate"
                   value={newProjData.startDate}
@@ -111,6 +134,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                 תאריך סיום
                 <br />
                 <input
+                  required
                   type="date"
                   name="endDate"
                   value={newProjData.endDate}
@@ -124,6 +148,7 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
               תיאור
               <br />
               <input
+                required
                 type="text"
                 name="description"
                 value={newProjData.description}
@@ -133,7 +158,9 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
             <br />
 
             <div className="status-and-priority flex">
+              <label htmlFor="">סטטוס
               <select
+                required
                 name="projectStatus"
                 onChange={handleChange}
                 className="select-option"
@@ -146,20 +173,24 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
                   );
                 })}
               </select>
-
-              <select
-                name="projectPriority"
-                onChange={handleChange}
-                className="select-option"
-              >
-                {priorityOptions.map((option, index) => {
-                  return (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  );
-                })}
-              </select>
+              </label>
+              <label htmlFor="">
+                עדיפות
+                <select
+                  required
+                  name="projectPriority"
+                  onChange={handleChange}
+                  className="select-option"
+                >
+                  {priorityOptions.map((option, index) => {
+                    return (
+                      <option key={index} value={option}>
+                        {option}
+                      </option>
+                    );
+                  })}
+                </select>
+              </label>
             </div>
           </div>
           <div className="assigned-task">
@@ -167,11 +198,15 @@ function AddNewProject({ toggleLinks, setToggleLinks }) {
             {/* <AssignedTask areAssigned={pplAssigned} /> */}
           </div>
           <div className="submit-task">
-            <button className="btn-save" onClick={handleSubmit}>
+            <button
+              className="btn-save"
+              //  disabled={checkSubmit}
+              onClick={checkSubmit}
+            >
               שמור וסגור
             </button>
           </div>
-        </div>
+        </form>
       </Box>
     </Modal>
   );

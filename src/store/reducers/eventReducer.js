@@ -3,130 +3,155 @@ import adi from '../../assets/images/founders-imgs/adi.svg'
 import stav from '../../assets/images/founders-imgs/stav.svg'
 import iris from '../../assets/images/founders-imgs/iris.svg'
 
-const initialState = {
-    //api call for events
-    events: [
+const initialState =
+
+    [
         {
-            _id: 'a1a1a',
+            id: '1',
             subject: 'Nailing the tech interview',
-            date: '27.10',
-            day: 'יום רביעי',
-            hour: '18:00',
-            lecturer: 'שחר פולק',
-            img: `${adi}`,
-            link: "",
-            tag: "system"
+            eventdate: '27.10',
+            lector: 'שחר פולק',
+            image: `${adi}`,
+            inlink: "",
+            categories: "system",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a2a2a',
+            id: '2',
             subject: 'לבנות מותג בלינקדאין כדי למצוא עבודה ראשונה',
-            date: '24.10',
-            day: 'יום ראשון',
-            hour: '20:00',
-            lecturer: 'שחר ברלב',
-            img: `${stav}`,
-            link: "",
-            tag: "development"
+            eventdate: '24.10',
+            lector: 'שחר ברלב',
+            image: `${stav}`,
+            inlink: "",
+            categories: "development",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a3a3a',
+            id: '3',
             subject: 'Build your worker profile',
-            date: '27.10',
-            day: 'יום רביעי',
-            hour: '21:00',
-            lecturer: 'משה מוזס',
-            img: `${shimon}`,
-            link: "",
-            tag: "uiux"
+            lector: 'משה מוזס',
+            image: `${shimon}`,
+            inlink: "",
+            categories: "uiux",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a4a4a',
+            id: 'a4a4a',
             subject: 'הכנה לראיון טכני במקצועות תקשורת, ענן ואבטחת מידע',
-            date: '26.10',
-            day: 'יום שלישי',
-            hour: '19:00',
-            lecturer: "איריס ברקוביץ",
-            img: `${iris}`,
-            link: "",
-            tag: "qa"
+            lector: "איריס ברקוביץ",
+            image: `${iris}`,
+            inlink: "",
+            categories: "qa",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a5a5a',
+            id: 'a5a5a',
             subject: 'Nailing the tech interview',
-            date: '27.10',
-            day: 'יום רביעי',
-            hour: '18:00',
-            lecturer: 'שחר פולק',
-            img: `${adi}`,
-            link: "",
-            tag: "cybersecurity"
+            lector: 'שחר פולק',
+            image: `${adi}`,
+            inlink: "",
+            categories: "cybersecurity",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a6a6a',
+            id: 'a6a6a',
             subject: 'לבנות מותג בלינקדאין כדי למצוא עבודה ראשונה',
-            date: '24.10',
-            day: 'יום ראשון',
-            hour: '20:00',
-            lecturer: 'שחר ברלב',
-            img: `${stav}`,
-            link: "",
-            tag: "development"
+            lector: 'שחר ברלב',
+            image: `${stav}`,
+            inlink: "",
+            categories: "development",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a7a7a',
+            id: 'a7a7a',
             subject: 'הכנה לראיון טכני במקצועות תקשורת, ענן ואבטחת מידע',
-            date: '27.10',
-            day: 'יום רביעי',
-            hour: '21:00',
-            lecturer: 'משה מוזס',
-            img: `${shimon}`,
-            link: "",
-            tag: "system"
+            lector: 'משה מוזס',
+            image: `${shimon}`,
+            inlink: "",
+            categories: "system",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a8a8a',
+            id: 'a8a8a',
             subject: 'B U or Not to B',
-            date: '26.10',
-            day: 'יום שלישי',
-            hour: '19:00',
-            lecturer: "איריס ברקוביץ",
-            img: `${iris}`,
-            link: "",
-            tag: "uiux"
+            lector: "איריס ברקוביץ",
+            image: `${iris}`,
+            inlink: "",
+            categories: "uiux",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
         },
         {
-            _id: 'a9a9a',
+            id: 'a9a9a',
             subject: 'הכנה לראיון טכני במקצועות תקשורת, ענן ואבטחת מידע',
-            date: '27.10',
-            day: 'יום רביעי',
-            hour: '21:00',
-            lecturer: 'משה מוזס',
-            img: `${shimon}`,
-            link: "",
-            tag: "hardware"
-        }
+            lector: 'משה מוזס',
+            image: `${shimon}`,
+            inlink: "",
+            categories: "hardware",
+            details: "thiss event isd going to be the tested event ever",
+            detailsOnLector: "ahla person",
+            registered: 23,
+            eventLink: "https://...",
+            image: "image.png"
+        },
     ]
-}
 
 /**
  * {
- *  eventId: long,
- *  date: ...,
- *  title: String ,
- *  hour: ... , 
- *  categories: JSON ,
- *  lecturer: String ,
- *  image: .. ,
- *  inLink: String ,
- *  details: String ,
- *  detailsOnLecturer: String ,
- *  eventLink: String ,
- *  registered: integer ,
- * }
+        "id": 2,
+        "eventDate": [
+            2022,
+            1,
+            6,
+            12,
+            35,
+            19
+        ],
+        "title": "Event of the yeear",
+        "categories": null,
+        "lector": "Elyashiv",
+        "inLink": "https://linkedin...",
+        "details": "thiss event isd going to be the tested event ever",
+        "detailsOnLector": "ahla person",
+        "registered": 23,
+        "eventLink": "https://...",
+        "image": "image.png"
+    }
  */
 
 export function eventReducer(state = initialState, action) {
-    
+
     switch (action.type) {
 
         case 'SET_event':

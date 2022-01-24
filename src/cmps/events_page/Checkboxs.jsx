@@ -13,7 +13,7 @@ const checkBoxProp = CATEGORIES;
 
 const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
 
-   const { events } = useSelector((state) => state.entities.eventsModule);
+   const { events } = useSelector((state) => state.entities);
    const [checkboxSelected, setCheckboxSelected] = useState({ ...allTags });
 
    const checkboxClick = (e) => {

@@ -1,14 +1,23 @@
 import React from 'react';
-import create_new_project from '../../assets/images/icons/create_new_project.png';
+import { create_new_project } from "../../assets/images/icons/index";
 
-const CreateNewProject = () => {
+const CreateNewProject = ({ setOpen, setAddProjToggle, setToggleLinks, toggleLinks, listOrCompleted }) => {
     return (
-        <div className="new-project">
+        <div className="new-project flex align-center">
             <h1>לוח ניהול כללי</h1>
-            <div className="create-new-project flex align-center justify-center">
-                <p>יצירת פרויקט חדש</p>
-                <img src={create_new_project}/>
-            </div>
+            {!listOrCompleted && <div className="create-new-project flex align-center justify-center">
+                <span
+                    className="add-project-btn flex align-center justify-center"
+                    onClick={() => {
+                        setOpen(true);
+                        setAddProjToggle();
+                        setToggleLinks(!toggleLinks);
+                    }}
+                >
+                    <img src={create_new_project} alt='new content icon' />
+                    הוספת פרוייקט חדש
+                </span>
+            </div>}
         </div>
     )
 }

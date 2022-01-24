@@ -56,9 +56,9 @@ function Categories({ setFormData }) {
       setFormData((p) => {
         return {
           ...p,
-          Categories: checked 
-            ? [...p.Categories,name]
-            : p.Categories.filter((v) => v !== name)
+          categories: checked 
+            ? [...p.categories,name]
+            : p.categories.filter((v) => v !== name)
         };
       });
     }

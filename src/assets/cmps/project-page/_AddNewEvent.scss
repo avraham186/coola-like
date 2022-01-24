@@ -136,3 +136,14 @@ textarea {
     border-radius: 5px;
     border: 1px solid #b8b8b8;
 }
+.save-modal-button .btn-delete {
+// cursor: pointer;
+display: flex;
+align-items: center;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+font-family: "Rubik";
+margin: 0 10px;
+direction: rtl;
+}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { arrow_down } from "../../assets/images/icons";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { filterJobs } from "../../store/jobs";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const SortingJobs = () => {
   const [allJobs, setAllJobs] = useState([]);
@@ -113,7 +114,7 @@ export const SortingJobs = () => {
             titleChangeHandler(event);
           }}
         >
-          <option value="">Title</option>
+          <option value="">תחום</option>
           {uniqueTitlesArr.map((title, i) => {
             return (
               <option key={i} value={title}>
@@ -127,7 +128,7 @@ export const SortingJobs = () => {
             typeChangeHandler(event);
           }}
         >
-          <option value="">Type</option>
+          <option value="">סוג משרה</option>
           {uniqueTypesArr.map((type, i) => {
             return (
               <option key={i} value={type}>
@@ -141,7 +142,7 @@ export const SortingJobs = () => {
             locationChangeHandler(event);
           }}
         >
-          <option value="">Location</option>
+          <option value="">איזור</option>
           {uniqueLocationsArr.map((location, i) => {
             return (
               <option key={i} value={location}>
@@ -150,39 +151,20 @@ export const SortingJobs = () => {
             );
           })}
         </select>
+        <div className="open_search_div">
+          <IconButton className="search_logo">
+            <SearchIcon fontSize="large" />
+          </IconButton>
+          <input
+            onChange={(event) => {
+              openSearch(event);
+            }}
+            type="text"
+            placeholder="חפש תחום/מיקום/תפקיד"
+          />
+        </div>
       </div>
-      <div className="search-job-by-text">
-        <input
-          onChange={(event) => {
-            openSearch(event);
-          }}
-          type="text"
-          placeholder="חפש תחום/מיקום/תפקיד"
-        />
-      </div>
+      {/* <div className="search-job-by-text"></div> */}
     </div>
   );
 };
-
-/*
-category: "FULLSTACK"
-date: (5) [2021, 10, 31, 0, 0]
-description: "asdad"
-experience: 0
-id: 10
-location: "tel aviv"
-title: "FullStack"
-type: "Full Time"
-*/
-
-/*
- <span id="by-interest">
-                    <img src={arrow_down} alt="arrow_down" />
-                    תחום</span>
-                <span id="by-job-type">
-                    <img src={arrow_down} alt="arrow_down" />
-                    סוג משרה</span>
-                <span id="by-area">
-                    <img src={arrow_down} alt="arrow_down" />
-                    איזור</span>
-*/

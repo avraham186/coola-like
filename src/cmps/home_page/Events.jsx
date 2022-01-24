@@ -9,11 +9,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadEvents } from '../../store/events.js';
 
 const Events = () => {
-    const { events } = useSelector(({ entities }) => entities.eventsModule)
+    const { events } = useSelector(({ entities }) => entities)
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(loadEvents())
-    }, [])
+
+    // uncomment this after finishing the mock data at server
+    // useEffect(() => {
+    //     dispatch(loadEvents())
+    // }, [])
+
+    
     const addToFavories = () => {
         console.log('hi');
     }
@@ -31,7 +35,7 @@ const Events = () => {
                 </span>
             </div>
             <div className="events-cards flex space-between">
-                {events.slice(- 4).map((event, idx) => {
+                {events.list.slice(- 4).map((event, idx) => {
                     return <div key={idx}>
                         <EventCard event={event} />
                         <div className="btn-card flex justify-center">

@@ -9,16 +9,17 @@ import { Box, Modal } from "@mui/material";
 import { loadEvents } from '../store/events.js';
 
 const EventsPage = () => {
-    // const { events } = useSelector((state) => state.entities.eventsModule);
+
     const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
     
-    const { events } = useSelector(({ entities }) => entities.eventsModule)
+    const { events } = useSelector((state) => state.entities)
+    //state of events object. events.list is the events cards
+    console.log(events)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(loadEvents())
-    }, [])
+    // uncomment this to set the events from server
+    // useEffect(() => { dispatch(loadEvents()) }, []) // invokes function to fetch events from user. State updats after call is finished
     
     const [open, setOpen] = useState(false);
     const [toggleMode, setToggleMode] = useState({
@@ -31,10 +32,10 @@ const EventsPage = () => {
 
     let applyCards = useCallback(() => {
         if (searchValue) {
-            return events.filter(event => event.subject.toLowerCase().includes(searchValue.toLowerCase()))
+            return events.list.filter(event => event.subject.toLowerCase().includes(searchValue.toLowerCase()))
         }
-        if (!Object.keys(checkBoxes).length) return events
-        return events.filter(event =>
+        if (!Object.keys(checkBoxes).length) return events.list
+        return events.list.filter(event =>
             checkBoxes[event.tag]
             && event.subject.toLowerCase().includes(searchValue.toLowerCase()))
     }, [checkBoxes, searchValue])
@@ -88,14 +89,21 @@ const EventsPage = () => {
                 </div>
 
                 <div className="eventsCards">
-                    {applyCards()
+                    {
+                    events.loading?
+                    <span>Loading...</span>
+                    :
+                    applyCards()
                     .map(event => 
                         <EventCard 
                         key={event._id}
                         event={event}
+                        // openInfo={() => handleCardInfo(event._id)}
+                        
                         />
                         )}
-
+                        
+                        
                 </div>
 
             </div>
