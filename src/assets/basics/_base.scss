@@ -47,5 +47,17 @@ a {
     &:hover {
         background-color: rgba($clr7, 0.9);
     }
-   
 }
+    .btn-delete {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "Rubik";
+        margin: 0 10px;
+        direction: rtl;
+    }
+   
+

@@ -42,8 +42,9 @@ const EventsPage = () => {
 
 
     return (
+        <div className="eventsUser full">
         <section className="eventsPage full">
-            <div className="user main-layout wrapper">
+            <div className="main-layout wrapper">
                 
                 <div>
                    <Modal
@@ -108,6 +109,7 @@ const EventsPage = () => {
 
             </div>
         </section>
+        </div>
     )
 }
 

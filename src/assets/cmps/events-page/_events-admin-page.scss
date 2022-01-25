@@ -1,8 +1,18 @@
 //admin page edit
-.admin{
-    background-image: url('../../images/events/eventsAdminBG.jpg') ;
+.eventsAdmin{
+    background-image: url('../../images/events/eventsAdminBG.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
+}
 
+.eventsPage {
+    
+    width: 100%;
+    min-height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // .admin{
     .headlines{
         display: flex;
         justify-content: right;
@@ -27,12 +37,27 @@
         margin: 0;
         direction: rtl;
     }
+
+    
+
     .modals{
               input[name=confirm_delete]{
                 :focus{
                     border: 1px solid
                 }
               }
+    .btn-delete {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "Rubik";
+        margin: 0 10px;
+        direction: rtl;
+    }
         }
        
-}
+ }
+// }

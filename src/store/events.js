@@ -203,12 +203,12 @@ const initialState =
             id: 'a9a9a',
             subject: 'הכנה לראיון טכני במקצועות תקשורת, ענן ואבטחת מידע',
             eventDate: [
-                2022,
-                1,
-                6,
-                12,
-                35,
-                19
+                2022,// year
+                1,//date
+                6,//date
+                12,//date
+                35,//mm
+                19//hh
             ],
             lector: 'משה מוזס',
             image: `${shimon}`,
@@ -289,7 +289,7 @@ export const addEvent = event => apiCallBegan({
 export const getEventById = async (eventId) => {
     try {
         //REACT_APP_URI,REACT_APP_EVENT/${eventId}
-        const response = await axios.get(url, `/${eventId}`)
+        const response = await axios.get(url, `${eventId}`)
         console.log('response', response);
 
     } catch (err) {

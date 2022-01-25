@@ -37,8 +37,9 @@ const AdminEventsPage = () => {
   }, [searchValue]);
 
   return (
+    <div className="eventsAdmin full">
     <section className="eventsPage full">
-      <div className="admin main-layout wrapper">
+      <div className="main-layout wrapper">
         {open ? (
           // <AddEvent open={open} setOpen={setOpen} />
           <AddNewEvent
@@ -95,6 +96,7 @@ const AdminEventsPage = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
