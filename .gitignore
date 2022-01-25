@@ -3,6 +3,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/# Cula-Like backend Events.md
 
 # testing
 /coverage

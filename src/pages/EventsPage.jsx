@@ -1,20 +1,26 @@
-import React, { useCallback, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useCallback,useEffect, useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Checkboxs from '../cmps/events_page/Checkboxs.jsx'
 import EventCard from '../cmps/events_page/EventCard.jsx'
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Modal } from "@mui/material";
+import { loadEvents } from '../store/events.js';
 
 const EventsPage = () => {
-    const { events } = useSelector((state) => state.entities.eventsModule);
+
     const [checkBoxes, setCheckBoxes] = useState({})
     const [searchValue, setSearchValue] = useState('');
-
-  
     
+    const { events } = useSelector((state) => state.entities)
+    //state of events object. events.list is the events cards
+    console.log(events)
+    const dispatch = useDispatch()
 
+    // uncomment this to set the events from server
+    // useEffect(() => { dispatch(loadEvents()) }, []) // invokes function to fetch events from user. State updats after call is finished
+    
     const [open, setOpen] = useState(false);
     const [toggleMode, setToggleMode] = useState({
         label: false,
@@ -26,19 +32,20 @@ const EventsPage = () => {
 
     let applyCards = useCallback(() => {
         if (searchValue) {
-            return events.filter(event => event.subject.toLowerCase().includes(searchValue.toLowerCase()))
+            return events.list.filter(event => event.subject.toLowerCase().includes(searchValue.toLowerCase()))
         }
-        if (!Object.keys(checkBoxes).length) return events
-        return events.filter(event =>
+        if (!Object.keys(checkBoxes).length) return events.list
+        return events.list.filter(event =>
             checkBoxes[event.tag]
             && event.subject.toLowerCase().includes(searchValue.toLowerCase()))
     }, [checkBoxes, searchValue])
 
 
     return (
+        <div className="eventsUser full">
         <section className="eventsPage full">
             <div className="main-layout wrapper">
-
+                
                 <div>
                    <Modal
                         className="modals"
@@ -83,7 +90,11 @@ const EventsPage = () => {
                 </div>
 
                 <div className="eventsCards">
-                    {applyCards()
+                    {
+                    events.loading?
+                    <span>Loading...</span>
+                    :
+                    applyCards()
                     .map(event => 
                         <EventCard 
                         key={event._id}
@@ -98,6 +109,7 @@ const EventsPage = () => {
 
             </div>
         </section>
+        </div>
     )
 }
 

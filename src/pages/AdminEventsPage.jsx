@@ -11,33 +11,35 @@ import { loadEvents } from "../store/events";
 import AddNewEvent from "../cmps/project_page/sideBarAdmin/new_event/AddNewEvent";
 
 const AdminEventsPage = () => {
-  const { events } = useSelector((state) => state.entities.eventsModule);
-  const [searchValue, setSearchValue] = useState("");
+  const { events } = useSelector((state) => state.entities);
+  //state of events object. events.list is the events cards
   const [editEventToggle, setEditEventToggle] = useState(false);
   const [toggleLinks, setToggleLinks] = useState(false);
   const [open, setOpen] = useState(false);
 
-  //const [events, setEvents] = useState(data) // when the server side updated a mocked jobs details you can delete this line
-  // const { list: jobs } = useSelector(({ entities }) => entities.jobs) // remove comment this line when above comment is done
+  const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadEvents());
-  }, []);
 
+  useEffect(()=>{
+    console.log(events.list)
+    console.log(events.loading)
+  },[events.loading])
 
+  // useEffect(()=> dispatch(loadEvents()),[] ) // invokes function to update events state from user. State updats after call is finished
 
   let applyCards = useCallback(() => {
     if (searchValue) {
-      return events.filter((event) =>
+      return events.list.filter((event) =>
         event.subject.toLowerCase().includes(searchValue.toLowerCase())
       );
     }
-    return events;
+    return events.list;
   }, [searchValue]);
 
   return (
+    <div className="eventsAdmin full">
     <section className="eventsPage full">
-      <div className="admin main-layout wrapper">
+      <div className="main-layout wrapper">
         {open ? (
           // <AddEvent open={open} setOpen={setOpen} />
           <AddNewEvent
@@ -84,12 +86,17 @@ const AdminEventsPage = () => {
         </div>
 
         <div className="eventsCards">
-          {applyCards().map((event) => (
+          {
+          events.loading?
+          <span>Loading...</span>
+          :
+          applyCards().map((event) => (
             <EventCard key={event._id} event={event} adminIndicator={true} />
           ))}
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import projectsReducer from "./projects";
 import jobReducer from "./jobs";
 import { communityHeartReducer } from "./reducers/communityHeartReducer";
 import { taskReducer } from "./reducers/taskReducer";
-import { eventReducer } from "./reducers";
+import eventsReducer from "./events";
 import userReducer from "./user";
 
 export default combineReducers({
@@ -12,5 +12,5 @@ export default combineReducers({
   user: userReducer,
   communityHeartModule: communityHeartReducer,
   taskModule: taskReducer,
-  eventsModule: eventReducer,
+  events: eventsReducer,
 });

@@ -13,7 +13,7 @@ const checkBoxProp = CATEGORIES;
 
 const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
 
-   const { events } = useSelector((state) => state.entities.eventsModule);
+   const { events } = useSelector((state) => state.entities);
    const [checkboxSelected, setCheckboxSelected] = useState({ ...allTags });
 
    const checkboxClick = (e) => {
@@ -41,10 +41,14 @@ const Checkboxs = ({ setCheckBoxes, setSearchValue }) => {
          <div className="checkboxs">
             <div className="row_checkbox_events flex">
                {checkBoxProp.map(({ name, tag }) => {
-                  return <label key={tag} htmlFor={tag} className="col"> {name}
-                     <input type="checkbox" id={tag}
-                        name="checkbox" checked={checkboxSelected[tag]}
-                        onClick={checkboxClick}
+                  return <label key={tag} htmlFor={tag} className="col">
+                     {name}
+                     <input 
+                        type="checkbox" 
+                        id={tag}
+                        name="checkbox" 
+                        checked={checkboxSelected[tag]}
+                        onChange={checkboxClick}
                      />
                   </label>
 

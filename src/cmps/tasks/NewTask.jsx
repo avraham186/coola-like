@@ -19,7 +19,7 @@ const NewTask = ({ match }) => {
   let history = useHistory();
 
   useEffect(() => {
-    console.log(history.location.state);
+    // console.log(history.location.state);
   }, []);
 
   const [taskDate, setTaskDate] = useState({});

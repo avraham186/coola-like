@@ -1,0 +1,48 @@
+.show-all-dash-board {
+  position: absolute;
+  width: 100%;
+  height: 1210px;
+  left: 0px;
+  background: #f4f4f4;
+}
+
+.not-all-dash-board {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  left: 0px;
+  background: #f4f4f4;
+}
+
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+  margin-bottom: 24px;
+  overflow: hidden;
+  background: #f7f7f7;
+  border: 0px;
+  border-radius: 2px;
+}
+
+.plan {
+  position: absolute;
+  width: 256px;
+  height: 20px;
+  left: 35%;
+  bottom: 23%;
+  /* Button text- Rubik 25px medium */
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #686868;
+}
+
+.plan .BsChevronDoubleUp {
+  position: absolute;
+}
+
+.plan .BsChevronDoubleUp {
+  position: absolute;
+}
+/*# sourceMappingURL=dashboard.css.map */

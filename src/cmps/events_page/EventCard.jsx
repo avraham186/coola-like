@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardActions from "@mui/material/CardActions";
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { Link } from 'react-router-dom'
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import  edit_pen  from "../../assets/images/icons/edit_pen.png";
@@ -10,25 +12,16 @@ import { Box, Modal } from "@mui/material";
 import Categories from "../project_page/sideBarAdmin/new_position/Categories";
 import { erase } from "../../assets/images/icons";
 import CardDetails from "./CardDetails.jsx";
+import { deleteEventById } from '../../store/events.js';
 
 const EventCard = ({ event, adminIndicator }) => {
   const [open, setOpen] = useState(false);
-  const [toggleMode, setToggleMode] = useState({
-    label: false,
-    pplAssigned: false,
-    dueDate: false,
-    file: false,
-  });
 
   const [openCardInfo, setOpenCardInfo] = useState(false);
+  const [ alertDelete, setAlertDelete ] = useState(false)
+  const [ confirmDeleteInput, setConfirmDeleteInput ] = useState('')
+  const dispatch = useDispatch()
 
-  // const handleCardInfo = (_id) => {
-  //     console.log('open modal', openCardInfo)
-
-  //     // setOpenCardInfo(p => !p)
-
-  //     console.log('open modal', openCardInfo)
-  // }
 
   return (
     <div className="event-card">
@@ -63,13 +56,13 @@ const EventCard = ({ event, adminIndicator }) => {
                     <input
                       type="text"
                       // className="data-and-time"
-                      value={event.date + " " + event.day}
+                      value={event.eventDate}
                     />
                     <input
                       // className="data-and-time"
                       type="date"
                       name="eventDate"
-                      value={event.date}
+                      value={event.eventDate.slice(-1,2)}
                       // onChange={handleChange}
                     />
                   </label>
@@ -87,7 +80,7 @@ const EventCard = ({ event, adminIndicator }) => {
 
                 <label htmlFor="">
                   מציג
-                  <input type="text" value={event.lecturer} />
+                  <input type="text" value={event.lector} />
                 </label>
 
                 <label htmlFor="">
@@ -105,7 +98,7 @@ const EventCard = ({ event, adminIndicator }) => {
                   <input
                     type="text"
                     className="link-To-Linkedin"
-                    value={event.link}
+                    value={event.inLink}
                   />
                 </label>
 
@@ -113,7 +106,6 @@ const EventCard = ({ event, adminIndicator }) => {
                   <button
                     className="save-modal-button btn-save"
                     onClick={() => {
-                      setToggleMode();
                       //edit the event details
                       setOpen(false);
                     }}
@@ -122,15 +114,35 @@ const EventCard = ({ event, adminIndicator }) => {
                   </button>
                   <button
                     className="save-modal-button btn-delete"
-                    onClick={() => {
-                      setToggleMode();
-                      //edit the event details
-                      setOpen(false);
+                    onClick={ e => {
+                      e.preventDefault()
+                      // delete event
+                      setAlertDelete(true)
                     }}
                   >
                     מחק אירוע
                     <img src={erase} alt="delete icon" />
                   </button>
+                  {
+                alertDelete &&
+                <div>
+                אתה בטוח שברצונך למחוק את האירוע?
+                <input
+                  type="text"
+                  placeholder="רשום את כותרת האירוע"
+                  value={confirmDeleteInput}
+                  onChange={e => setConfirmDeleteInput(e.target.value)}
+                />
+                <button onClick={ e => {
+                      e.preventDefault()
+                      confirmDeleteInput === event.subject &&
+                      dispatch(deleteEventById(event.id)) &&
+                      setOpen(false)
+                  
+                
+                }} >כן, מחק</button>
+              </div>
+              }
                 </div>
               </form>
             </div>
@@ -155,15 +167,15 @@ const EventCard = ({ event, adminIndicator }) => {
         </div>
 
         <CardActions className="card-footer">
-          <h2 className="date_HL">{event.date + " " + event.day}</h2>
+          <h2 className="date_HL">{event.eventDate}</h2>
 
-          <span className="time_HL">בשעה {event.hour}</span>
+          <span className="time_HL">בשעה {event.eventDate.slice(2)}</span>
 
           <h2 className="subject_HL"> {event.subject} </h2>
 
           <hr />
 
-          <h4 className="lecture_HL">מציג: {event.lecturer} </h4>
+          <h4 className="lecture_HL">מציג: {event.lector} </h4>
         </CardActions>
 
         <div>
@@ -193,6 +205,8 @@ const EventCard = ({ event, adminIndicator }) => {
                 <img src={edit_pen} alt='edit-pen-icon' style={{ margin: "0 5px" }} />
                 עריכה
               </button>
+              
+
             </div>
           )}
         </div>

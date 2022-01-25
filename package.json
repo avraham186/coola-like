@@ -75,6 +75,7 @@
   "devDependencies": {
     "@mui/lab": "^5.0.0-alpha.53",
     "clsx": "^1.1.1",
-    "react-facebook-login": "^4.1.1"
+    "react-facebook-login": "^4.1.1",
+    "sass": "^1.48.0"
   }
 }
