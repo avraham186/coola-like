@@ -19,7 +19,8 @@ export function AdminNav() {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active-link" className="disabled-link"  to="/about">
+              {/* <NavLink activeClassName="active-link" className="disabled-link"  to="/about"> */}
+              <NavLink activeClassName="active-link" to="/about">
                 <span>אודות</span>
               </NavLink>
             </li>

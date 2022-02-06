@@ -1,0 +1,40 @@
+.about-page {
+    background-image:url('../images/about-page/background.svg');
+    .about-page-wrapper {
+        direction: rtl;
+        font-family: Rubik-regular;
+        .title {
+            margin-top: rem(130px);
+            font-family: Rubik-bold;
+            font-size: rem(60px);
+            color: black;
+        }
+        h4 {
+            font-family: Rubik-bold;
+            font-size: rem(24px);
+        }
+        .about-content-wrapper {
+            height: rem(380px);
+            margin-bottom: rem(200px);
+        }
+        .about-content {
+            font-size: rem(18px);
+        }
+        .dashes {
+            height: rem(70px);
+            margin-bottom: rem(20px);
+        }
+        .last{
+            margin-bottom: rem(40px);
+        }
+        .founders-comp {
+            background-color: white;
+            box-shadow:inset 0px -10px 20px -13px #bebcbc ;
+        }
+        .subscribe-comp{
+            height:rem(376px) ;
+            background-color: white;
+            padding-top:rem(79px) ;
+        }
+    }
+}
