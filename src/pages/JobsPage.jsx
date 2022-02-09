@@ -7,6 +7,9 @@ import NewPositionForm from "../cmps/project_page/sideBarAdmin/new_position/NewP
 import { deleteJobById, loadJobs } from "../store/jobs";
 
 const JobsPage = () => {
+  ///// in the future isAdmin value will come from the server //////
+  let isAdmin = false;
+  /////////////////////////////////////////////
   const dispatch = useDispatch();
   const [currentJob, setCurrentJob] = useState([]);
   const [toggleLinks, setToggleLinks] = useState(false);
@@ -32,15 +35,17 @@ const JobsPage = () => {
       ) : null}
       <div className="label_div">
         <h1>לוח_משרות#</h1>
-        <button
-          onClick={() => {
-            setOpen(true);
-            setToggleLinks(!toggleLinks);
-          }}
-          className="add_new_job"
-        >
-          הוספת משרה חדשה
-        </button>
+        {isAdmin && (
+          <button
+            onClick={() => {
+              setOpen(true);
+              setToggleLinks(!toggleLinks);
+            }}
+            className="add_new_job"
+          >
+            הוספת משרה חדשה
+          </button>
+        )}
       </div>
       <SortingJobs />
       <div className="jobs-page flex justify-center">
