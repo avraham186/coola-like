@@ -2,13 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Founders } from '../cmps/home_page/Founders';
 import { Subscribe } from '../cmps/home_page/Subscribe';
+import lines from '../assets/images/about-page/lines.svg';
 
 export const AboutPage = () => {
     const { persons } = useSelector(({ entities }) => entities.communityHeartModule);
     return (
         <div className='about-page full'>
             <div className='about-page-wrapper main-layout'>
-                <h1 className='title flex'>קצת עלינו</h1>
+            <img src={lines} className="lines-svg" />
+                <h1 className='about-page-title flex'>קצת עלינו</h1>
                 <p className='about-content'>האם חשבתם פעם לעצמכם מה עוד אנחנו יכולים לעשות <br />
                     כדי להתקבל לעבודה הראשונה שלנו בהייטק?<br />
                     מה אנשים אחרים עושים שאני לא?<br />
@@ -19,7 +21,8 @@ export const AboutPage = () => {
                 <p className='about-content'>פרויקט זה הוקם על ידי עדי פורת במאי 2020,<br />
                     ומטרתו הייתה לפתור את פרדוקס הג'וניור<br />
                     (חוסר היכולת להתחיל לצבור נסיון עבודה במשרות התחלתיות,<br />
-                    כשהדרישות אליהן דורשות נסיון עבודה)באמצעות יצירת הנכוןאנושי שהמנוע בו הוא ערבות הדדית.<br />
+                    כשהדרישות אליהן דורשות נסיון עבודה)באמצעות יצירת הון<br />
+                    אנושי שהמנוע בו הוא ערבות הדדית.<br />
                 </p>
                 <h4>אז מה אנחנו עושים?</h4>
                 <p className='about-content-wrapper flex column'>
@@ -30,22 +33,22 @@ export const AboutPage = () => {
                         כאשר הזוכים בה, קיבלו נסיון מעשי, ליווי מקצועי, ורובם השתלבו תוך<br />
                         זמן קצר בחברות מובילות.<br />
                     </span>
-                    <span className='about-content dashes last'>- קרוב ל9000 חברי הקהילה מקבלים סיוע<br />
-                        ותמיכה מחברי הקהילה.<br />
+                    <span className='about-content last'>- קרוב ל9000 חברי הקהילה מקבלים בה סיוע<br />
+                        ותמיכה מצד מנהלי ותומכי הקהילה.<br />
                     </span>
-                    <span className='about-content'>הקהילה שלנו משמשת כמרחב בטוח אויכותי לכל אחד ואחת מכם.<br />
+                    <span className='about-content'>הקהילה שלנו משמשת כמרחב בטוח ואיכותי לכל אחד ואחת מכם.<br />
                         נשמח שתצטרפו אלינו, ותכירו את כוחו של הלייק האחד,<br />
                         שיהיה הפתרון של פרדוקס הג'וניור לאלפי אנשים.</span>
                 </p>
-                <div className='founders-comp full'>
-                    <div className='founders-component main-layout'>
-                        <Founders persons={persons} />
-                    </div>
+            </div>
+            <div className='founders-comp full'>
+                <div className='founders-component main-layout'>
+                    <Founders persons={persons} />
                 </div>
-                <div className="subscribe-comp full">
-                    <div className="main-layout">
-                        <Subscribe />
-                    </div>
+            </div>
+            <div className="subscribe-comp full">
+                <div className="main-layout">
+                    <Subscribe />
                 </div>
             </div>
         </div>)

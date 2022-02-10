@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/images/coola_like_logo.svg";
 import AccountMenu from "./navbar/AccountMenu";
 
-export function AdminNav() {
+export function AdminNav({location}) {
+  const isMargin = () => {
+    return location.includes('/about')?'no-margin':'margin10'
+  }
+  
   return (
-    <section className="admin-navbar-wrapper full">
+    <section className={`admin-navbar-wrapper full ${isMargin()}`}>
       <div className="main-layout">
         <div className="admin-navbar">
           <div className="left-list clean-list">

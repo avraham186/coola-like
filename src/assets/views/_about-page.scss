@@ -1,10 +1,17 @@
 .about-page {
-    background-image:url('../images/about-page/background.svg');
+    background-color: $lightBlue;
+    position: relative;
     .about-page-wrapper {
         direction: rtl;
         font-family: Rubik-regular;
-        .title {
-            margin-top: rem(130px);
+        .lines-svg{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right:16%
+        }
+        .about-page-title {
+            padding-top: rem(95px);
             font-family: Rubik-bold;
             font-size: rem(60px);
             color: black;
@@ -15,7 +22,7 @@
         }
         .about-content-wrapper {
             height: rem(380px);
-            margin-bottom: rem(200px);
+            margin-bottom: rem(155px);
         }
         .about-content {
             font-size: rem(18px);
@@ -24,17 +31,17 @@
             height: rem(70px);
             margin-bottom: rem(20px);
         }
-        .last{
+        .last {
             margin-bottom: rem(40px);
         }
-        .founders-comp {
-            background-color: white;
-            box-shadow:inset 0px -10px 20px -13px #bebcbc ;
-        }
-        .subscribe-comp{
-            height:rem(376px) ;
-            background-color: white;
-            padding-top:rem(79px) ;
-        }
+    }
+    .founders-comp {
+        background-color: white;
+        box-shadow: inset 0px -10px 20px -13px #bebcbc;
+    }
+    .subscribe-comp {
+        height: rem(376px);
+        background-color: white;
+        padding-top: rem(79px);
     }
 }
