@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ContentTask from "./ContentTask";
+// import ContentTask from "./ContentTask";
 import { SideBar } from "./SideBar";
 import { AddFile, AddLabel, DueDate, PeopleAssigned } from "./modals";
 import { TaskProvider } from "../../context/TaskContext";
-import { AiOutlineConsoleSql } from "react-icons/ai";
-import { useLocation } from "react-router-dom";
+// import { AiOutlineConsoleSql } from "react-icons/ai";
+// import { useLocation } from "react-router-dom";
 import { closeIcon } from "../../assets/images/icons";
 import { useHistory } from "react-router-dom";
 import ContentTaskCopy from "./ContentTaskCopy";

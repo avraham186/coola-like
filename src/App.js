@@ -17,7 +17,7 @@ export function App() {
         <div className="main-layout">
 
             {
-                location.pathname !== '/login' && <AdminNav />
+                location.pathname !== '/login' && <AdminNav location={location.pathname}/>
             }
             <Switch>
                 {
