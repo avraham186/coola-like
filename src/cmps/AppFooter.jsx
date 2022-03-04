@@ -1,11 +1,7 @@
 import React from "react";
-// import LinkedInIcon from "@mui/icons-material/LinkedIn";
-// import YouTubeIcon from "@mui/icons-material/YouTube";
-// import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import linkedin from "../assets/images/icons/footer-icons/linkedin-btn.png";
 import youtube from "../assets/images/icons/footer-icons/youtube-btn.png";
 import whatsapp from "../assets/images/icons/footer-icons/whatsapp-btn.png";
-
 import { ReactComponent as Logo } from "../assets/images/icons/footer-icons/logo.svg";
 import { Link } from "react-router-dom";
 
@@ -16,7 +12,6 @@ export function AppFooter() {
       <div className="footer-content main-layout">
         <div className="flex space-between">
           <div className="footer-logo" >
-            {/* <object data={logo} type="image/svg+xml" /> */}
             <Logo/>
           </div>
           <div className="main-pages flex column">
@@ -37,6 +32,7 @@ export function AppFooter() {
               <a
                 href="https://www.linkedin.com/"
                 target="_blank"
+                rel="noreferrer"
                 className="footer-social"
               >
                 <img src={linkedin} alt="linkedin-btn" />
@@ -44,6 +40,7 @@ export function AppFooter() {
               <a
                 href="https://www.youtube.com/"
                 target="_blank"
+                rel="noreferrer"
                 className="footer-social"
               >
                 <img src={youtube} alt="youtube-btn" />
@@ -51,6 +48,7 @@ export function AppFooter() {
               <a
                 href="https://whatsapp.com/"
                 target="_blank"
+                rel="noreferrer"
                 className="footer-social"
               >
                 <img src={whatsapp} alt="whatsapp-btn" />

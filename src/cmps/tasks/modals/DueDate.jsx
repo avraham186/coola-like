@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { closeIcon, watch } from "../../../assets/images/icons";
 import { Box, Modal } from "@mui/material";
+import { DatePicker } from '@mui/lab';
 import { TaskContext } from "../../../context/TaskContext";
 
 export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
@@ -101,7 +102,8 @@ export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
                 name="startDate"
                 value={dateToSave.startDate}
                 onChange={handleDate}
-              />
+                />
+                {/* <DatePicker/> */}
             </div>
           )}
           <div className="due-date-end-date-headline flex">

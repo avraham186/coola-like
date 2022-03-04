@@ -96,7 +96,7 @@ export const SortingJobs = () => {
           }
         })
     );
-  }, [_title, _type, _location, _openSearch]);
+  }, [_title, _type, _location, _openSearch,allJobs]);
 
   useEffect(() => {
     if (filJobList.length > 0) {
@@ -104,7 +104,8 @@ export const SortingJobs = () => {
     } else {
       dispatch(filterJobs([{}]));
     }
-  }, [filJobList]);
+    // }, [filJobList]); react wants the dependency array will include dispach also
+  }, [filJobList,dispatch]);
 
   return (
     <div className="sorting-jobs flex ">

@@ -40,12 +40,12 @@ const ContentTaskCopy = ({
   });
 
   useEffect(() => {
-    console.log(taskDate, peopleAssigned);
+    // console.log(taskDate, peopleAssigned);
     setNewTask({ ...newTask, date: taskDate, team: peopleAssigned });
   }, [taskDate, peopleAssigned]);
 
   useEffect(() => {
-    console.log(updateTask);
+    // console.log(updateTask);
     if (updateTask) {
       let task = {
         title: updateTask.title,

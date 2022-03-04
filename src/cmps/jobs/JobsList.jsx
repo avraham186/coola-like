@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { data } from "./jobsdata";
+// import { data } from "./jobsdata";
 import { JobCard } from "./JobCard";
 import { useSelector, useDispatch } from "react-redux";
 import { loadJobs } from "../../store/jobs";
