@@ -8,7 +8,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 import { Box, Modal } from "@mui/material";
 
-const CardDetails = ({ event }) => {
+const CardDetails = ({ event, eventImage }) => {
   const [open, setOpen] = useState(false);
 
   //   date: "27.10"
@@ -32,10 +32,8 @@ const CardDetails = ({ event }) => {
           <div className="profile-img">
           <CardMedia
             className="card-img-modal"
-            component="picture"
-            // height="30px"
-            alt="founderImg"
-            image={event.img}
+            height="30px"
+            children={eventImage}
           />
           <Link to="\">
             <IconButton className="inButton-modal">

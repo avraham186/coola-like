@@ -15,7 +15,7 @@ const AddEvent = ({open, setOpen}) => {
     
     const initState = {
         headline:"" ,
-        date:"" ,
+        date: null ,
         category:"" ,
         lecturer:"" ,
         description: "",
