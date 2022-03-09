@@ -40,12 +40,12 @@ const ContentTaskCopy = ({
   });
 
   useEffect(() => {
-    console.log(taskDate, peopleAssigned);
+    // console.log(taskDate, peopleAssigned);
     setNewTask({ ...newTask, date: taskDate, team: peopleAssigned });
   }, [taskDate, peopleAssigned]);
 
   useEffect(() => {
-    console.log(updateTask);
+    // console.log(updateTask);
     if (updateTask) {
       let task = {
         title: updateTask.title,
@@ -62,11 +62,40 @@ const ContentTaskCopy = ({
       setNewTask(task);
     }
   }, []);
-
+  const priyorityToServer = (choosenPriyority) => {
+    switch (choosenPriyority) {
+      case "עדיפות נמוכה":
+        return 'LOW'
+      case "עדיפות בינונית":
+        return 'MEDIUM'
+      case "עדיפות גבוהה":
+        return 'HIGH'
+      default:
+        return 'HIGH'
+    }
+  }
+  const statusToServer = (choosenStatus) => {
+    switch (choosenStatus) {
+      case "חדש":
+        return "STARTED"
+      case "בתהליך":
+        return "IN_PROCESS"
+      case "באיחור":
+        return "DELAY"
+      case "הושלם":
+        return "COMPLETED"
+      default:
+        return "STARTED"
+    }
+  }
   const addNewTask = async () => {
     const taskToSend = {
       projectId: parseInt(projectId),
-      task: newTask,
+      task: {
+        ...newTask,
+        taskPriority: priyorityToServer(newTask.taskPriority),
+        taskStatus: statusToServer(newTask.taskStatus)
+      },
     };
     let resp = await taskDAL.createTask(taskToSend);
   };

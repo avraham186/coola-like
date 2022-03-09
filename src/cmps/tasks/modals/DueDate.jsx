@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { closeIcon, watch } from "../../../assets/images/icons";
 import { Box, Modal } from "@mui/material";
+import { DatePickerChoice } from '../DatePickerChoice';
 import { TaskContext } from "../../../context/TaskContext";
+import { TimePicker } from "../TimePicker";
 
 export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
   const [open, setOpen] = useState(false);
@@ -38,8 +40,11 @@ export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
     { value: "בזמן תאריך היעד" },
   ];
   const handleDate = (e) => {
-    const date = e.target.value;
-    const name = e.target.name;
+    // const date = e.target.value;
+    // const name = e.target.name;
+    console.log("e", e);
+    const date = e.date;
+    const name = e.name;
     console.log("date", date, name);
 
     setTaskContent((p) => ({
@@ -96,12 +101,10 @@ export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
           </div>
           {startCheckbox && (
             <div className="due-date-start-date-body">
-              <input
-                type="date"
-                name="startDate"
-                value={dateToSave.startDate}
-                onChange={handleDate}
-              />
+              <DatePickerChoice
+                handleDate={handleDate}
+                dateName={'startDate'}
+                dateToSave={dateToSave.startDate} />
             </div>
           )}
           <div className="due-date-end-date-headline flex">
@@ -117,18 +120,21 @@ export const DueDate = ({ toggleMode, setToggleMode, taskDate }) => {
           </div>
           {endCheckbox && (
             <div className="due-date-end-date-body flex">
-              <input
+              {/* <input
                 type="time"
                 name="time"
                 value={dateToSave.time}
                 onChange={handleDate}
+              /> */}
+              <TimePicker
+                handleDate={handleDate}
+                dateName={'time'}
+                timeToSave={dateToSave.time}
               />
-              <input
-                type="date"
-                name="endDate"
-                value={dateToSave.endDate}
-                onChange={handleDate}
-              />
+              <DatePickerChoice
+                handleDate={handleDate}
+                dateName={'endDate'}
+                dateToSave={dateToSave.endDate} />
             </div>
           )}
           <div className="due-date-set-reminder-label flex">

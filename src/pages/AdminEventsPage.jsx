@@ -5,9 +5,9 @@ import EventCard from "../cmps/events_page/EventCard.jsx";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { BiEdit } from "react-icons/bi";
-import { Box, Modal } from "@mui/material";
-import AddEvent from "../cmps/events_page/AddEvent.jsx";
-import { loadEvents } from "../store/events";
+// import { Box, Modal } from "@mui/material";
+// import AddEvent from "../cmps/events_page/AddEvent.jsx";
+// import { loadEvents } from "../store/events";
 import AddNewEvent from "../cmps/project_page/sideBarAdmin/new_event/AddNewEvent";
 
 const AdminEventsPage = () => {
