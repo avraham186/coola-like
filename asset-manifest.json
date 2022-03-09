@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/coola-like/static/css/main.7029d50c.chunk.css",
-    "main.js": "/coola-like/static/js/main.fa698959.chunk.js",
-    "main.js.map": "/coola-like/static/js/main.fa698959.chunk.js.map",
+    "main.js": "/coola-like/static/js/main.d66846bd.chunk.js",
+    "main.js.map": "/coola-like/static/js/main.d66846bd.chunk.js.map",
     "runtime-main.js": "/coola-like/static/js/runtime-main.aa6da623.js",
     "runtime-main.js.map": "/coola-like/static/js/runtime-main.aa6da623.js.map",
-    "static/js/2.5fcc3f79.chunk.js": "/coola-like/static/js/2.5fcc3f79.chunk.js",
-    "static/js/2.5fcc3f79.chunk.js.map": "/coola-like/static/js/2.5fcc3f79.chunk.js.map",
+    "static/css/2.b36d5338.chunk.css": "/coola-like/static/css/2.b36d5338.chunk.css",
+    "static/js/2.3c3bf111.chunk.js": "/coola-like/static/js/2.3c3bf111.chunk.js",
+    "static/js/2.3c3bf111.chunk.js.map": "/coola-like/static/js/2.3c3bf111.chunk.js.map",
     "index.html": "/coola-like/index.html",
+    "static/css/2.b36d5338.chunk.css.map": "/coola-like/static/css/2.b36d5338.chunk.css.map",
     "static/css/main.7029d50c.chunk.css.map": "/coola-like/static/css/main.7029d50c.chunk.css.map",
-    "static/js/2.5fcc3f79.chunk.js.LICENSE.txt": "/coola-like/static/js/2.5fcc3f79.chunk.js.LICENSE.txt",
+    "static/js/2.3c3bf111.chunk.js.LICENSE.txt": "/coola-like/static/js/2.3c3bf111.chunk.js.LICENSE.txt",
     "static/media/Header_logo.c2b85ae2.svg": "/coola-like/static/media/Header_logo.c2b85ae2.svg",
     "static/media/main.scss": "/coola-like/static/media/eventsBG.f8b59458.jpg",
     "static/media/Under construction.8a78d158.svg": "/coola-like/static/media/Under construction.8a78d158.svg",
@@ -29,8 +31,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.aa6da623.js",
-    "static/js/2.5fcc3f79.chunk.js",
+    "static/css/2.b36d5338.chunk.css",
+    "static/js/2.3c3bf111.chunk.js",
     "static/css/main.7029d50c.chunk.css",
-    "static/js/main.fa698959.chunk.js"
+    "static/js/main.d66846bd.chunk.js"
   ]
 }
