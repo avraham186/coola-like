@@ -25,7 +25,7 @@ export const Description = ({
           <h2>{title}</h2>
           <div className="card-content-info flex align-center">
             <span>
-              <img src={jobs_icon} className="job-icon" />
+              <img src={jobs_icon} className="job-icon" alt="job_icon" />
               {type}
             </span>
             <span>
