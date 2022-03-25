@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/images/coola_like_logo.svg";
 import AccountMenu from "./navbar/AccountMenu";
+import { ProjectsFilter } from "./navbar/ProjectsFilter";
 
 export function AdminNav({location}) {
   const isMargin = () => {
@@ -14,6 +15,7 @@ export function AdminNav({location}) {
         <div className="admin-navbar">
           <div className="left-list clean-list">
             <AccountMenu />
+            <ProjectsFilter/>
           </div>
 
           <ul className="list clean-list flex">
