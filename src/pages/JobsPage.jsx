@@ -8,7 +8,7 @@ import { deleteJobById, loadJobs } from "../store/jobs";
 
 const JobsPage = () => {
   ///// in the future isAdmin value will come from the server //////
-  let isAdmin = false;
+  let isAdmin = true;
   /////////////////////////////////////////////
   const dispatch = useDispatch();
   const [currentJob, setCurrentJob] = useState([]);

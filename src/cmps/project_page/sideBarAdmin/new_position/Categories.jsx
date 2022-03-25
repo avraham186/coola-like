@@ -42,7 +42,7 @@ function Categories({ setFormData }) {
 
   const handleChange = (e) => {
     const { checked, name } = e.target;
-    console.log(checked,name);
+    console.log(checked, name);
     if (name === "סמן הכל") {
       let tempCategory = categories.map((category) => {
         return { ...category, isChecked: checked };
@@ -54,11 +54,12 @@ function Categories({ setFormData }) {
       );
       setCategories(tempCategory);
       setFormData((p) => {
+        console.log(p);
         return {
           ...p,
-          categories: checked 
-            ? [...p.categories,name]
-            : p.categories.filter((v) => v !== name)
+          Categories: checked
+            ? [...p.Categories, name]
+            : p.Categories.filter((v) => v !== name),
         };
       });
     }
