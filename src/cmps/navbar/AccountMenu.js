@@ -1,4 +1,5 @@
-import * as React from 'react';
+// import * as React,{useState} from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -10,11 +11,12 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import {useSelector} from "react-redux";
-import Link from "react-router-dom/es/Link";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function AccountMenu() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    // const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -25,16 +27,18 @@ export default function AccountMenu() {
     const userFromStore = useSelector(state => state.entities.user)
     return (
         <React.Fragment>
-            <Box sx={{display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 {
                     userFromStore.name ?
                         <Tooltip title="Account settings">
-                            <IconButton onClick={handleClick} size="small" sx={{ml: 2}}>
-                                <Avatar
-                                    sx={{width: 50, height: 50}}
-                                    src={userFromStore.imageUrl}
-                                    alt={userFromStore.name}
-                                />
+                            <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+                                {Object.keys(userFromStore).length === 0 ?
+                                    <Avatar
+                                        sx={{ width: 50, height: 50 }}
+                                        src={userFromStore.imageUrl}
+                                        alt={userFromStore.name}
+                                    /> :
+                                    <img style={{ width: '30px', height: '30px', borderRadius: '50%' }} src={userFromStore.imageUrl} />}
                             </IconButton>
                         </Tooltip>
                         :
@@ -42,7 +46,7 @@ export default function AccountMenu() {
                 }
 
                 <div className="user_private_nav">
-                    <h4>{userFromStore.name }</h4>
+                    <h4>{userFromStore.name}</h4>
                 </div>
             </Box>
             <Menu
@@ -76,33 +80,33 @@ export default function AccountMenu() {
                         },
                     },
                 }}
-                transformOrigin={{horizontal: 'right', vertical: 'top'}}
-                anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem
                     component={Link} to='/profile/update'
                 >
-                    <Avatar/> Profile
+                    <Avatar /> Profile
                 </MenuItem>
                 <MenuItem>
-                    <Avatar/> My account
+                    <Avatar /> My account
                 </MenuItem>
-                <Divider/>
+                <Divider />
                 <MenuItem>
                     <ListItemIcon>
-                        <PersonAdd fontSize="small"/>
+                        <PersonAdd fontSize="small" />
                     </ListItemIcon>
                     Add another account
                 </MenuItem>
                 <MenuItem>
                     <ListItemIcon>
-                        <Settings fontSize="small"/>
+                        <Settings fontSize="small" />
                     </ListItemIcon>
                     Settings
                 </MenuItem>
                 <MenuItem>
                     <ListItemIcon>
-                        <Logout fontSize="small"/>
+                        <Logout fontSize="small" />
                     </ListItemIcon>
                     Logout
                 </MenuItem>

@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/images/coola_like_logo.svg";
 import AccountMenu from "./navbar/AccountMenu";
+import { ProjectsFilter } from "./navbar/ProjectsFilter";
 
-export function AdminNav({location}) {
+export function AdminNav({ location }) {
   const isMargin = () => {
-    return location.includes('/about')?'no-margin':'margin10'
+    return location.includes('/about') ? 'no-margin' : 'margin10'
   }
-  
+  const projectsToFilter = useSelector(state => state.entities.projects.list)
+  const userToFilter = useSelector(state => state.entities.user)
+
   return (
     <section className={`admin-navbar-wrapper full ${isMargin()}`}>
       <div className="main-layout">
         <div className="admin-navbar">
           <div className="left-list clean-list">
             <AccountMenu />
+            <ProjectsFilter projectsToFilter={projectsToFilter} userToFilter={userToFilter} />
           </div>
 
           <ul className="list clean-list flex">
@@ -39,7 +44,7 @@ export function AdminNav({location}) {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active-link" className="disabled-link"  to="/tips">
+              <NavLink activeClassName="active-link" className="disabled-link" to="/tips">
                 <span>טיפים ומידע</span>
               </NavLink>
             </li>
