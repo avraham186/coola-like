@@ -1,0 +1,48 @@
+.projects-filter {
+    position: relative;
+    .empty-projects-filter-map{
+        display: none;
+    }
+    .projects-filter-map {
+        display: block;
+        border: 1px solid rgb(90, 80, 80);
+        border-bottom: none;
+        position: absolute;
+        max-height: rem(200px);
+        width: 100%;
+        background-color: rgb(243, 230, 241);
+        gap: rem(10px);
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        /* width */
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            // box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $clr3;
+            border-radius: 10px;
+
+            &:hover {
+                background: $clr1;
+            }
+        }
+
+        .projects-filter-span {
+            font-family: Rubik-regular;
+            border-bottom: 2px solid rgb(90, 80, 80);
+
+            &:hover {
+                background-color: $clr1;
+                color: white;
+            }
+        }
+    }
+}

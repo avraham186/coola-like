@@ -11,6 +11,7 @@
 
 //components
 @import "./cmps/home-page/app-header";
+@import "./cmps/home-page/projects-filter";
 @import "./cmps/home-page/app-footer";
 
 //home components
@@ -51,8 +52,11 @@
 @import "./cmps/login-page/login-page";
 @import "./cmps/jobs-page/jobs-page";
 @import "./cmps/events-page/events-admin-page";
+
 //events-page components
-@import "./cmps/events-page/events-page"; // @import './cmps/city-search';
+@import "./cmps/events-page/events-page"; 
+
+// @import './cmps/city-search';
 // @import './cmps/weather-list';
 // @import './cmps/weather-preview';
 // @import './cmps/favorit-list';

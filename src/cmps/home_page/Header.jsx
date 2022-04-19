@@ -5,9 +5,7 @@ import logo from "../../assets/images/home-page-imgs/Header_logo.svg";
 
 const Header = () => {
     const { user } = useSelector(state => state.entities)
-    const isLogin = () => {
-        return Object.values(user).every(value => value === '')
-    }
+    const isLogin = () => Object.values(user).every(value => value.length === 0 || !value)
     return (
         <div className="app-header">
             <div className="header-container">

@@ -1,4 +1,5 @@
 // import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/images/coola_like_logo.svg";
@@ -11,6 +12,19 @@ export function AdminNav({ location }) {
   }
   const projectsToFilter = useSelector(state => state.entities.projects.list)
   const userToFilter = useSelector(state => state.entities.user)
+  //when user come from server
+  // const isAdmin = () => {
+  //   userToFilter.roles.some(role => role.name === 'ROLE_ADMIN')
+  // }
+  const isAdmin = false
+
+  useEffect(() => {
+    // console.log('userToFilter',userToFilter);
+  }, [userToFilter])
+
+  const logoLink = () => {
+    window.location.href = '/'
+  }
 
   return (
     <section className={`admin-navbar-wrapper full ${isMargin()}`}>
@@ -18,7 +32,7 @@ export function AdminNav({ location }) {
         <div className="admin-navbar">
           <div className="left-list clean-list">
             <AccountMenu />
-            <ProjectsFilter projectsToFilter={projectsToFilter} userToFilter={userToFilter} />
+            {isAdmin && <ProjectsFilter projectsToFilter={projectsToFilter} userToFilter={userToFilter} />}
           </div>
 
           <ul className="list clean-list flex">
