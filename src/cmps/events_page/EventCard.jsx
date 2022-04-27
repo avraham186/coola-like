@@ -28,12 +28,13 @@ const EventCard = ({ event, adminIndicator }) => {
   }
   const ProfileImg = () => <object height="100%" width="100%" data={event.image} type="image/svg+xml"></object>
 
+
   const [openCardInfo, setOpenCardInfo] = useState(false);
 
   return (
     <div className="event-card">
 
-      <Card className="card" onClick={() => setOpenCardInfo((p) => !p)}>
+      <Card className="card" onClick={() => setOpenCardInfo((p) => !p)} >
         <div className="event-imgs-wraper">
           <CardMedia
             className="card-img"
@@ -83,7 +84,10 @@ const EventCard = ({ event, adminIndicator }) => {
               <button
                 className="editEvent-btn flex justify-center"
                 onClick={() => {
-                  setOpenEdit(true);
+                  setOpenEdit(() => {
+                    setOpenCardInfo(false)
+                    return true
+                  });
                 }}
               >
                 <img src={edit_pen} alt='edit-pen-icon' style={{ margin: "0 5px" }} />

@@ -64,7 +64,7 @@ const EventsPage = () => {
                 </div>
 
                 <div className="headlines">
-                    <Link to='/'><span>לתצוגת לוח שנה</span></Link>
+                    {/* <Link to='/'><span>לתצוגת לוח שנה</span></Link> */}
                     
                     <h2>לוח_אירועים#</h2>
                 </div>
